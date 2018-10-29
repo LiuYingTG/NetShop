@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>XXX的小店</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<!-- build:css ./static/css/main.css -->
+	<link rel="stylesheet" href="static/less/main.css">
+	<!-- endbuild -->
+</head>
+<body ng-app="NetShop">
+	<div class="viewport" ng-cloak>
+		<!-- 侧边导航 -->
+		<div id="navs" ng-class="{navs: true, collapse: collapsed}" ng-controller="NavController">
+			<dl>
+				<dt class="login" ng-click="login()">
+					<div class="avatar">
+						<a ng-class={'icon-user':true,'icon-user-loged':loged}></a>
+					</div>
+					<span >{{loged?username:'登录'}}</span>
+				</dt>
+				<dd  ng-class="{active: categoryType == categoryList.categoryType}" ng-repeat="categoryList in categoryLists">
+					<a ng-click="byCategory(categoryList.categoryType)" class="{{iconList[$index]}}">
+						<span>{{categoryList.categoryName}}</span>
+					</a>
+				</dd>
+				<dd>
+					<a  ng-click="loged?userLogout():''" class="icon-bin">
+						<span>用户注销</span>
+					</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="container">
+			<!-- 头部 -->
+			<div ng-class="{header: true, collapse: collapsed}">
+				<h2>{{title}}</h2>
+				<a  ng-click="toggle()" class="menu icon-menu"></a>
+				<ul class="headerNavs">
+					<!--<li><a class="icon-search"></a></li>-->
+					<li ng-class="{cart:cartNotEmp}"><a class="icon-cart " ng-href="#/cartList"><span ng-show="cartNotEmp" ng-class="{changed:cartChaged}">{{cartNum}}</span></a></li>
+				</ul>
+				<!--<a class="search icon-search"></a>-->
+			</div>
+			<!-- 主体 -->
+			<div ng-class="{body: true, collapse: collapsed}">
+				<!--<div loading class="loading" ng-hide="loaded" src="../../static/images/loading.gif"></div>-->
+				<!-- 占位符 -->
+				<div ng-view></div>
+			</div>
+		</div>
+		<div ng-show="showDialogue" ng-class="{dialogue:true}">
+			<!--登录页弹窗-->
+			<div ng-show="showUserLogin" ng-class="{userLogin:true}"  ng-controller="loginController" ng-include="'./templates/login.html'"></div>
+			<!--注册页弹窗-->
+			<div ng-show="showRegister" ng-class="{userRegister:true}" ng-controller="registerController" ng-include="'./templates/register.html'"></div>
+		</div>
+	</div>
+	<!-- build:js ./static/libs/jquery.js -->
+	<script src="./scripts/jquery.js"></script>
+	<!-- endbuild -->
+	<!-- build:js ./static/libs/angular.js -->
+	<script src="./scripts/AngularJS/angular.js"></script>
+	<script src="./scripts/AngularJS/angular-route.js"></script>
+	<script src="./scripts/AngularJS/angular-cookies.js"></script>
+	<script src="./scripts/AngularJS/ng-infinite-scroll.min.js"></script>
+	<!-- endbuild -->
+	<!-- build:js ./scripts/main.js -->
+	<script src="./scripts/netConfig.js"></script>
+	<!-- AngularJS入口 -->
+	<script src="./scripts/app.js"></script>
+	<!-- 控制器模块 -->
+	<script src="./scripts/controllers.js"></script>
+	<!-- 指令模块 -->
+	<script src="./scripts/directives.js"></script>
+	<script src="./scripts/common.js"></script>
+	<!-- endbuild -->
+</body>
+</html>

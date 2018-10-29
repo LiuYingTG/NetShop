@@ -1,0 +1,68 @@
+<!--$location.path('/createOrder/'+$scope.product.productId+'/'+$scope.color+'/'+$scope
+          .size+'/'+$scope.num);-->
+
+<!--下单页-->
+<div ng-show="loaded"><!--当内容加载完毕后，loaded改为true-->
+    <div class="createOrder">
+        <form role="form" novalidate name="createOrder_form" ng-submit="createOrder()">
+            <table class="buyer">
+                <tr>
+                    <td><span>收件人：</span></td>
+                    <td><input type="text" class="text"
+                               ng-model="orderName"
+                               name="orderName"
+                               ng-check
+                               required/></td>
+                    <td><span class="info"
+                              ng-show="createOrder_form.orderName.$dirty&&createOrder_form.orderName.$invalid&&!createOrder_form.orderName.$checked">
+                         <small ng-show="createOrder_form.orderName.$error.required">不能为空</small></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>手机号码：</span></td>
+                    <td><input type="text" class="text" ng-model="phone"
+                               name="phone"
+                               ng-check
+                               required
+                               ng-pattern="/^(1[3456789]\d{9})$/"
+                    /></td>
+                    <td><span class="info"
+                              ng-show="createOrder_form.phone.$dirty&&createOrder_form.phone.$invalid&&!createOrder_form.phone.$checked">
+                        <small ng-show="createOrder_form.phone.$error.required">不能为空</small>
+                        <small ng-show="createOrder_form.phone.$error.pattern">手机号无效</small>
+                        </span></td>
+                </tr>
+                <tr>
+                    <td><span>收件地址：</span></td>
+                    <td><textarea type="text block" ng-model="addr"
+                                  ng-check
+                                  name="addr"
+                                  required></textarea></td>
+                    <td>
+                        <p class="info"
+                           ng-show="createOrder_form.email.$dirty&&createOrder_form.addr.$invalid&&!createOrder_form.addr.$checked">
+                            <small ng-show="createOrder_form.email.$error.required">不能为空</small>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <ul class="proLists">
+                    <li class="cartLi" ng-repeat="product in products track by $index">
+                            <div class="proImg"><img ng-src="{{product.img}}"></div>
+                            <div class="proDetail">
+                                <p class="proName">{{product.name}}</p>
+                                <p class="proInfo">{{product.productColor}}{{product.productSize}}</p>
+                                <span class="proPrice">{{product.productPrice|currency:'￥'}}</span>
+                                <div class="proNum">
+                                    x{{product.productQuantity}}
+                                </div>
+                            </div>
+                    </li>
+                </ul>
+            <p class="total">合计：<span>{{total|currency:'￥'}}</span></p>
+            <button type="submit" ng-disabled="createOrder_form.$invalid">确定下单</button>
+        </form>
+    </div>
+</div>
+
+

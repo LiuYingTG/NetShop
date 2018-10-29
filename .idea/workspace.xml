@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="44391662-ec01-4bc0-97d2-c3a5e220de68" name="Default" comment="V1.0&#10;20181030-01&#10;（1）第一次提交">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/fonts/icomoon.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/fonts/icomoon.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/images/avatar-8844dbfc4d.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/images/diaopai-6c2948f10f.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/images/gallery-348cf1945f.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/images/loading-50c5e3e79b.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/fonts/icomoon.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/fonts/icomoon.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/avatar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/diaopai.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/gallery.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/loading.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/NetShop.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/api/test.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gulpfile.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/rev/rev-css.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/rev/rev-image.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/rev/rev-js.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/scripts/main-b00cc8d00b.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/css/adapter-d41d8cd98f.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/css/base-1ed346c8b8.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/css/fonts-06c92945cc.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/css/main-a41868df20.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/css/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/css/mixin-d41d8cd98f.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/css/normalize-e4b737bb11.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/fonts/icomoon.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/fonts/icomoon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/libs/angular-7d432c4a3e.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/libs/jquery-252b0b512a.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/libs/less.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/static/libs/toggle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/templates/allPro.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/templates/cartList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/templates/createOrder.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/templates/login.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/templates/orderDetail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/templates/orderList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/templates/proDetail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/templates/register.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/release/templates/test.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/AngularJS/angular-cookies.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/AngularJS/angular-route.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/AngularJS/angular.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/AngularJS/ng-infinite-scroll.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/app.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/common.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/controllers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/directives.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/jquery.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/netConfig.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/services.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/fonts/icomoon.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/fonts/icomoon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/adapter.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/adapter.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/base.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/base.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/fonts.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/fonts.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/main.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/main.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/mixin.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/normalize.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/less/normalize.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/libs/less.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/libs/toggle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/allPro.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/cartList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/createOrder.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/login.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/orderDetail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/orderList.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/proDetail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/register.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/test.html" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>categoryType</find>
+      <find>orderSta</find>
+      <find>$location.path</find>
+      <find>orderInfo</find>
+      <find>orderLi</find>
+      <find>orderLiDetail</find>
+      <find>|</find>
+      <find>date</find>
+      <find>total</find>
+      <find>id</find>
+      <find>delOrder</find>
+      <find>Id</find>
+      <find>path</find>
+      <find>proDetail</find>
+      <find>cartlist</find>
+      <find>closeDialog</find>
+      <find>login</find>
+      <find>nav</find>
+      <find>cart</find>
+      <find>coll</find>
+      <find>orderDetail.orderStatus</find>
+      <find>views</find>
+      <find>loading.gif</find>
+      <find>autoprefixer</find>
+      <find>publi</find>
+      <find>collector</find>
+      <find>tem</find>
+      <find>loading</find>
+      <find>htmlmin</find>
+      <find>image</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>username</replace>
+      <replace>../fonts</replace>
+      <replace>toggleDialog()</replace>
+      <replace>@hdHeight</replace>
+      <replace>ng-cloak</replace>
+      <replace>192.168.1.2:8085</replace>
+      <replace>PUBLIC</replace>
+      <replace>createOrder_form</replace>
+      <replace>templates</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/views/buyerCart.html" />
+        <option value="$PROJECT_DIR$/views/buyerOrder.html" />
+        <option value="$PROJECT_DIR$/scripts/directives.js" />
+        <option value="$PROJECT_DIR$/views/productDetail.html" />
+        <option value="$PROJECT_DIR$/views/footer.html" />
+        <option value="$PROJECT_DIR$/views/header.html" />
+        <option value="$PROJECT_DIR$/public/css/header.html.css" />
+        <option value="$PROJECT_DIR$/public/css/base.css" />
+        <option value="$PROJECT_DIR$/views/allPro.html" />
+        <option value="$PROJECT_DIR$/views/myOrders.html" />
+        <option value="$PROJECT_DIR$/views/register.html" />
+        <option value="$PROJECT_DIR$/api/test.txt" />
+        <option value="$PROJECT_DIR$/scripts/common.js" />
+        <option value="$PROJECT_DIR$/views/login.html" />
+        <option value="$PROJECT_DIR$/public/less/main.css" />
+        <option value="$PROJECT_DIR$/public/less/main.less" />
+        <option value="$PROJECT_DIR$/scripts/controllers.js" />
+        <option value="$PROJECT_DIR$/static/css/less/main.css" />
+        <option value="$PROJECT_DIR$/static/js/services.js" />
+        <option value="$PROJECT_DIR$/templates/buy/views/register.html" />
+        <option value="$PROJECT_DIR$/templates/buy/views/login.html" />
+        <option value="$PROJECT_DIR$/bower_components/ng-infinite-scroll/ng-infinite-scroll.js" />
+        <option value="$PROJECT_DIR$/static/js/AngularJS/ng-infinite-scroll.js" />
+        <option value="$PROJECT_DIR$/templates/buy/views/older.html" />
+        <option value="$PROJECT_DIR$/templates/buy/views/allPro.html" />
+        <option value="$PROJECT_DIR$/static/css/less/normalize.less" />
+        <option value="$PROJECT_DIR$/static/js/netConfig.js" />
+        <option value="$PROJECT_DIR$/templates/buy/views/test.html" />
+        <option value="$PROJECT_DIR$/templates/buy/views/proDetail.html" />
+        <option value="$PROJECT_DIR$/templates/buy/views/cartList.html" />
+        <option value="$PROJECT_DIR$/templates/buy/views/createOrder.html" />
+        <option value="$PROJECT_DIR$/static/css/less/fonts.less" />
+        <option value="$PROJECT_DIR$/templates/buy/views/orderDetail.html" />
+        <option value="$PROJECT_DIR$/static/js/common.js" />
+        <option value="$PROJECT_DIR$/static/js/directives.js" />
+        <option value="$PROJECT_DIR$/templates/buy/views/orderList.html" />
+        <option value="$PROJECT_DIR$/static/css/less/adapter.less" />
+        <option value="$PROJECT_DIR$/static/css/less/main.less" />
+        <option value="$PROJECT_DIR$/static/css/less/base.less" />
+        <option value="$PROJECT_DIR$/static/js/controllers.js" />
+        <option value="$PROJECT_DIR$/static/js/app.js" />
+        <option value="$PROJECT_DIR$/templates/buy/index.html" />
+        <option value="$PROJECT_DIR$/scripts/app.js" />
+        <option value="$PROJECT_DIR$/templates/allPro.html" />
+        <option value="$PROJECT_DIR$/templates/createOrder.html" />
+        <option value="$PROJECT_DIR$/templates/orderList.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/scripts/netConfig.js" />
+        <option value="$PROJECT_DIR$/release/templates/allPro.html" />
+        <option value="$PROJECT_DIR$/release/index.html" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="755" />
+    <option name="width" value="1177" />
+    <option name="height" value="1038" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+              <item name="release" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="C:/MyProgram/nodejs/node" />
+    <property name="JavaScriptPreferStrict" value="false" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SearchEverywhereHistoryKey" value="loading.&#9;FILE&#9;file://D:/xampp/htdocs/NetShop/static/images/loading.gif" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\NetShop\scripts\AngularJS" />
+      <recent name="D:\xampp\htdocs\NetShop\scripts" />
+      <recent name="D:\xampp\htdocs\NetShop\static" />
+      <recent name="D:\xampp\htdocs\NetShop" />
+      <recent name="D:\xampp\htdocs\NetShop\templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\NetShop\static\css" />
+      <recent name="D:\xampp\htdocs\NetShop\static\css\fonts" />
+      <recent name="D:\xampp\htdocs\NetShop\static\images" />
+      <recent name="D:\xampp\htdocs\NetShop\static\js" />
+      <recent name="D:\xampp\htdocs\NetShop\static\js\AngularJS" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="44391662-ec01-4bc0-97d2-c3a5e220de68" name="Default" comment="" />
+      <created>1538040105418</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1538040105418</updated>
+      <workItem from="1538040106590" duration="15120000" />
+      <workItem from="1538137245579" duration="5332000" />
+      <workItem from="1538151265006" duration="4815000" />
+      <workItem from="1538229406651" duration="28624000" />
+      <workItem from="1538451253914" duration="9674000" />
+      <workItem from="1538584899900" duration="13171000" />
+      <workItem from="1538971656174" duration="30784000" />
+      <workItem from="1539162573146" duration="24369000" />
+      <workItem from="1539228566733" duration="166247000" />
+      <workItem from="1540258575744" duration="17664000" />
+      <workItem from="1540388642893" duration="22616000" />
+      <workItem from="1540779682324" duration="2469000" />
+      <workItem from="1540799390023" duration="8519000" />
+      <workItem from="1540809157466" duration="3196000" />
+      <workItem from="1540828648560" duration="36000" />
+      <workItem from="1540828700123" duration="258000" />
+      <workItem from="1540829392465" duration="26000" />
+      <workItem from="1540829456385" duration="1723000" />
+      <workItem from="1540831328608" duration="1529000" />
+    </task>
+    <task id="LOCAL-00001" summary="V1.0&#10;20181030-01&#10;（1）第一次提交">
+      <created>1540829603705</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1540829603705</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="356172000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="755" y="0" width="1177" height="1038" extended-state="1" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32360741" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3738532" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39954075" sideWeight="0.5066313" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.49788582" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39954075" sideWeight="0.49336872" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879817" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3738532" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912844" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="V1.0&#10;20181030-01&#10;（1）第一次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.0&#10;20181030-01&#10;（1）第一次提交" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/bower_components/jquery/jquery.js" />
+    <entry file="file://$PROJECT_DIR$/scripts/AngularJS/angular-route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/AngularJS/ng-infinite-scroll.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="83" lean-forward="false" selection-start-line="1" selection-start-column="83" selection-end-line="1" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMTraversalAndRange.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/angular/angular.js" />
+    <entry file="file://$PROJECT_DIR$/templates/buy/views/category.html" />
+    <entry file="file://$PROJECT_DIR$/templates/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="90" column="21" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/buy/views/header.html" />
+    <entry file="file://$PROJECT_DIR$/templates/buy/views/list.html" />
+    <entry file="file://$PROJECT_DIR$/templates/buy/views/myOrders.html" />
+    <entry file="file://$PROJECT_DIR$/scripts/AngularJS/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/fonts/fonts/icomoon.eot" />
+    <entry file="file://$PROJECT_DIR$/static/fonts/icomoon.eot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/less/fonts.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="10" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/less/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="1653" column="1" lean-forward="false" selection-start-line="1653" selection-start-column="1" selection-end-line="1653" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/jquery/src/attributes.js" />
+    <entry file="file://$PROJECT_DIR$/scripts/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="101" column="20" lean-forward="false" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/proDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="35" column="18" lean-forward="false" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/loading.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="110" column="42" lean-forward="false" selection-start-line="110" selection-start-column="42" selection-end-line="110" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/less/mixin.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/less/normalize.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="715">
+          <caret line="412" column="39" lean-forward="false" selection-start-line="412" selection-start-column="39" selection-end-line="412" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/less/adapter.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/less/base.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="71" column="27" lean-forward="true" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/less/main.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="330" column="16" lean-forward="false" selection-start-line="330" selection-start-column="9" selection-end-line="330" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/allPro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cartList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/createOrder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="57" column="38" lean-forward="true" selection-start-line="55" selection-start-column="32" selection-end-line="57" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/orderDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="64" column="32" lean-forward="false" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/orderList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="38" column="14" lean-forward="true" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/static/libs/jquery-252b0b512a.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33587">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/netConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/scripts/main-b00cc8d00b.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2068">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/static/css/main-a41868df20.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/static/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="13" column="3" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/rev/rev-image.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="69" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/templates/cartList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/templates/allPro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="79" column="7" lean-forward="false" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/rev/rev-js.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="57" lean-forward="false" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/rev/rev-css.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="55" column="14" lean-forward="true" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="94" column="36" lean-forward="false" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,20 @@
+{
+  "name": "NetShop",
+  "authors": [
+    "LiuYing <lyingFr@163.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "angular": "1.7.4"
+  }
+}

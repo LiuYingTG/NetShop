@@ -1,0 +1,32 @@
+<!--用户登录页-->
+<p class="dialogHead">
+    <span>登录</span>
+    <span class="icon-x-altx-alt close-dialog" ng-click="closeDialog()"></span>
+</p>
+<form role="form" name="login_form" novalidate>
+    <p>用户名</p>
+    <div><input type="text"
+                required
+                name="username"
+                ng-model="userLog.username"
+                ng-focus
+    /></div>
+    <p class="info" ng-show="login_form.username.$dirty&&login_form.username.$invalid">
+        <span ng-show="login_form.username.$error.required">用户名不能为空</span></p>
+    <p>密码</p>
+    <div>
+        <input type="password"
+               required
+               name="pwd"
+               ng-model="userLog.password"
+               ng-focus=""
+        />
+    </div>
+    <p class="info" ng-show="login_form.pwd.$dirty&&login_form.pwd.$invalid">
+        <span ng-show="login_form.pwd.$error.required">密码不能为空</span></p>
+    <!--<a ng-hide="true" ng-click="forgetPwd()"><span>忘记密码?</span></a>-->
+    <br>
+    <button type="button" ng-disabled="login_form.$invalid" ng-click="userLogin()">登&nbsp;&nbsp;录</button>
+    <hr>
+    <button type="button" class="register" ng-click="register()">创建新用户</button>
+</form>
