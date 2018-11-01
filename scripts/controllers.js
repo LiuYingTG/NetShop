@@ -25,22 +25,21 @@ angular.module('Controllers', [])
             });
         //用户登录
         $scope.login = function () {
-            $(".viewport").css('position','fixed');
             if ($rootScope.loged == false) {//如果未登录
-                $rootScope.showDialogue = true;//显示登录弹窗
                 $rootScope.showUserLogin = true;
+                $rootScope.toggleDialog();
             }
         };
         /*用户注销*/
         $scope.userLogout = function () {
             /*$http.get('netshop/buyer/logout')*/
-            if (window.confirm('确定要注销嘛，亲')) {
+            if (window.confirm('确定要注销吗，亲？')) {
                 $http.get(PUBLIC + '/netshop/buyer/logout')
                     .then(function (res) {
                         if (res.data.msg == 'success') {//注销成功
                             alert('注销成功！');
                             $rootScope.loged = false;//更改登录状态
-                            $rootScope.collapsed = false;//关闭导航栏
+                            $rootScope.toggle();
                             $rootScope.cartNotEmp = false;
                             $cookies.remove('username');
                             $rootScope.categoryType = 'all';
@@ -58,25 +57,17 @@ angular.module('Controllers', [])
         };
         /*根据商品类别获取类别下所有上架商品*/
         $scope.byCategory = function (categoryType) {
-            /* if ($rootScope.categoryType == categoryType) {
-                 return;
-             }*/
+            $rootScope.categoryType = categoryType;
             if (categoryType == 'order') {
                 /*查看用户订单*/
-                if ($rootScope.loged) {
-                    $rootScope.categoryType = categoryType;
-                    $rootScope.toggle();
-                    $location.path('/orderList');
-                } else {
-                    alert("请登录！");
-                }
+                $rootScope.toggle();
+                $location.path('/orderList');
             } else {
                 $rootScope.categoryType = categoryType;
                 $rootScope.toggle();
                 $location.path('/allPro/' + categoryType);
             }
         }
-        /*点击别的位置栏目消失，阻止事件冒泡*/
     }])
     //全部商品
     .controller('allProController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', function ($scope, $http, $rootScope, $location, $routeParams) {
@@ -127,8 +118,12 @@ angular.module('Controllers', [])
                 });
         };
         /*跳转至商品详情页，携带参数，正在浏览的*/
-        $scope.proDetail = function (productId, hisPage, categoryType) {
-            $location.path('/proDetail/' + productId);
+        $scope.proDetail = function (productId, hisPage, categoryType, $event) {
+            if ($rootScope.collapsed) {
+                return;
+            } else {
+                $location.path('/proDetail/' + productId);
+            }
         }
     }])
     //商品详情
@@ -159,7 +154,6 @@ angular.module('Controllers', [])
                 alert('网络卡了，稍后再试');
             }
         }, function (err) {
-            console.log(err);
             alert('网络卡了，稍后再试');
         })
         $scope.chooseColor = function (index) {
@@ -185,20 +179,20 @@ angular.module('Controllers', [])
             }
         };
         /*当规格弹窗存在时，不允许页面滚动*/
-        $scope.$watch('showed',function (newVal) {
-           if(newVal){
-               $(".product").css('position','fixed');
-           }else{
-               $(".product").css('position','');
-           }
+        $scope.$watch('showed', function (newVal) {
+            if (newVal) {
+                $(".product").css('position', 'fixed');
+            } else {
+                $(".product").css('position', '');
+            }
         });
         $scope.confirmOrder = function () {
             if (!$rootScope.loged) {
-                alert('请登录');
+                alert('请登录！');
+                $rootScope.toggleDialog();
                 return;
             }
             if ($scope.type == 1) {//添加到购物车
-                console.log($scope.productColor);
                 $http.post(PUBLIC + '/netshop/buyer/cart/add',
                     {
                         productId: $scope.product.productId,
@@ -208,7 +202,6 @@ angular.module('Controllers', [])
                     })
                     .then(function (res) {
                         if (res.data.msg == 'success') {
-                            console.log(res.data);
                             alert('添加购物车成功');
                             $scope.showed = false;
                             $rootScope.$broadcast('cartUpload', true);
@@ -220,7 +213,6 @@ angular.module('Controllers', [])
                     });
             }
             else if ($scope.type == 2) {//立即购买
-                console.log('立即购买');
                 $location.path('/createOrder').search({
                     params: [{
                         "productColor": $scope.productColor,
@@ -241,21 +233,20 @@ angular.module('Controllers', [])
         $scope.userLog = {};
         $scope.userLogin = function () {
             $http.post(PUBLIC + '/netshop/buyer/login',
-                // url: PUBLIC+'/netshop/buyer/login',
                 $scope.userLog)
                 .then(function successCallback(res) {//登录成功
                     if (res.data.msg == 'success') {
                         alert('登录成功！');
-                        $rootScope.showDialogue = false;
+                        $rootScope.toggleDialog();
                         $rootScope.loged = true;
                         $rootScope.userName = $scope.userLog.username;
-                        $rootScope.collapsed = false;//关闭导航栏
+                        $rootScope.toggle();
                         /*创建cookie，保持用户的登录状态*/
                         var expireDate = new Date();
                         expireDate.setHours(expireDate.getHours() + 1);
                         $cookies.put('username', $scope.userLog.username, {expires: expireDate});
                         $scope.userLog = {};
-                        window.location.reload();
+                        history.go(0);
                     }
                     else {
                         alert('用户名或密码错误！');
@@ -289,8 +280,9 @@ angular.module('Controllers', [])
                 }
             }).then(function (res) {
                 alert('注册成功！请登录');
-                $rootScope.showRegister = false;
-                $rootScope.showUserLogin = true;
+                $rootScope.toggleDialog();
+                /*$rootScope.showRegister = false;
+                $rootScope.showUserLogin = true;*/
             }, function (err) {
                 alert('网络错误，请稍后重试');
             });
@@ -301,10 +293,13 @@ angular.module('Controllers', [])
         $rootScope.title = '创建订单';
         $rootScope.loaded = true;
         $scope.products = $routeParams.params;
-        $scope.total = $routeParams.total;
+        if (!$scope.products[0].productId) {
+            $scope.products = [];
+            history.go('-1');
+        }
+        var items = '';
+        var itemList = [];
         $scope.createOrder = function () {
-            var items = '';
-            var itemList = [];
             for (var i = 0; i < $scope.products.length; i++) {
                 itemList.push({
                     "itemId": $scope.products[i].itemId || '',
@@ -315,7 +310,6 @@ angular.module('Controllers', [])
                 });
             }
             items = JSON.stringify(itemList);
-            console.log(items);
             $http.post(PUBLIC + '/netshop/buyer/order/create',
                 {
                     buyerName: $scope.orderName,
@@ -324,11 +318,12 @@ angular.module('Controllers', [])
                     items: items
                 })
                 .then(function (res) {
-                    console.log(res.data);
                     if (res.data.msg == 'success') {
-                        alert('下单成功！');
+                        alert(res.data.data.msg);
+                        itemList = [];
                         $rootScope.$broadcast('cartUpload', true);
-                        history.go(-1);
+                        // history.go(-1);
+                        $location.path('/orderDetail/' + res.data.data.orderId);
                     } else {
                         alert(res.data.msg);
                     }
@@ -345,27 +340,31 @@ angular.module('Controllers', [])
         $rootScope.loaded = true;
         $scope.cartLists = [];
         $scope.items = [];
-        $scope.checkAll = false;//默认不选中购物车全部商品
-        $scope.checkNum = 0;
-        $http.get(PUBLIC + '/netshop/buyer/cart/list')
-            .then(function (res) {
-                if (res.data.msg == 'success') {
-                    if (res.data.data.cartItems) {
-                        var lists = eval(res.data.data.cartItems);
-                        lists.map(function (item, index) {
-                            $scope.cartLists.push(Object.assign({}, item, {checked: false}))
-                        });
+        if (!$rootScope.loged) {
+            alert('请登录！')
+            $rootScope.toggleDialog();
+        } else {
+            $scope.checkAll = false;//默认不选中购物车全部商品
+            $scope.checkNum = 0;
+            $http.get(PUBLIC + '/netshop/buyer/cart/list')
+                .then(function (res) {
+                    if (res.data.msg == 'success') {
+                        if (res.data.data.cartItems) {
+                            var lists = eval(res.data.data.cartItems);
+                            lists.map(function (item, index) {
+                                $scope.cartLists.push(Object.assign({}, item, {checked: false}))
+                            });
+                        }
+                    } else {
+                        alert('请登录');
+                        history.go(-1);
                     }
-                } else {
-                    alert('请登录');
-                    history.go(-1);
-                }
-            }, function (err) {
-                alert('网络错误，稍后重试');
-            });
+                }, function (err) {
+                    alert('网络错误，稍后重试');
+                });
+        }
         /*增减购物车商品数量*/
         $scope.proNumChange = function (symbol, index) {
-            console.log(symbol + index);
             if (symbol == 'rv') {//减少购物车数量
                 if ($scope.cartLists[index].productQuantity <= 1) {
                     return;
@@ -398,14 +397,13 @@ angular.module('Controllers', [])
         };
         /*单个删除购车商品*/
         $scope.delete = function (index) {
-            if (window.confirm('不再看看嘛，亲')) {
+            if (window.confirm('确定删除该商品吗？')) {
                 $http.get(PUBLIC + '/netshop/buyer/cart/delete',
                     {params: {itemId: $scope.cartLists[index].itemId}})
                     .then(function (res) {
                         if (res.data.msg == 'success') {
                             var oldLists = $scope.cartLists;
                             /*删除该数据*/
-                            console.log(oldLists.slice(0, 1));
                             $scope.cartLists = oldLists.slice(0, index).concat(oldLists.slice(index + 1));
                             $rootScope.cartNum--;
                         } else {
@@ -428,15 +426,14 @@ angular.module('Controllers', [])
         };
         /*批量删除*/
         $scope.batchDelete = function () {
-            if (window.confirm('确定删除' + $scope.items.length + '件商品嘛，亲？')) {
+            if (window.confirm('确定删除' + $scope.items.length + '件商品吗，亲？')) {
                 var items = $scope.items.join('_');
                 $http.get(PUBLIC + '/netshop/buyer/cart/batchDelete', {
                     params: {itemIds: items}
                 })
                     .then(function (res) {
-                        console.log(res.data);
                         if (res.data.msg == 'success') {
-                            window.location.reload();
+                            history.go(0);
                         } else {
                             alert('出错了，稍后再试');
                         }
@@ -473,7 +470,6 @@ angular.module('Controllers', [])
         }, true);
         /*结算*/
         $scope.createOrder = function () {
-            alert('结算');
             $location.path('/createOrder').search({params: $scope.itemsDetail, total: $scope.cartTotal});
         }
     }])
@@ -487,41 +483,54 @@ angular.module('Controllers', [])
         $scope.isLast = false;
         $scope.orderLists = [];
         $scope.nextloaded = false;
-        /*自动加载下一页*/
-        $scope.vm.nextPage = function () {
-            if ($scope.vm.busy) {
-                return;
+        $http.get(PUBLIC + '/netshop/buyer/order/listStatus').then(
+            function (res) {
+                if (res.data.msg == 'success') {
+                    $rootScope.listStatus = res.data.data;
+                } else {
+                    alert('网络异常，稍后再试');
+                }
+            }, function (err) {
+                alert('网络异常，稍后再试');
             }
-            $scope.vm.busy = true;
-            $http.get(PUBLIC + '/netshop/buyer/order/list',
-                {
-                    params: {
-                        page: $scope.vm.page
-                    }
-                })
-                .then(function (res) {
-                    $scope.nextloaded = true;
-                    if (res.data.msg == 'success') {
-                        console.log(res.data);
-                        console.log(res.data.data.content)
-                        $scope.orderLists = $scope.orderLists.concat(res.data.data.content);
-                        /*如果加载信息成功，判断是否为最后一页*/
-                        if (res.data.data.last) {
-                            console.log('为最后一页')
-                            /*为最后一页*/
-                            $scope.isLast = true;
-                            $scope.vm.busy = true;
-                        } else {
-                            $scope.vm.page++;
-                            $scope.vm.busy = false;
+        );
+        if (!$rootScope.loged) {
+            alert('请登录！');
+            $rootScope.toggleDialog();
+        } else {
+            /*自动加载下一页*/
+            $scope.vm.nextPage = function () {
+                if ($scope.vm.busy) {
+                    return;
+                }
+                $scope.vm.busy = true;
+                $http.get(PUBLIC + '/netshop/buyer/order/list',
+                    {
+                        params: {
+                            page: $scope.vm.page
                         }
-                    } else {
+                    })
+                    .then(function (res) {
+                        $scope.nextloaded = true;
+                        if (res.data.msg == 'success') {
+                            $scope.orderLists = $scope.orderLists.concat(res.data.data.content);
+                            /*如果加载信息成功，判断是否为最后一页*/
+                            if (res.data.data.last) {
+                                /*为最后一页*/
+                                $scope.isLast = true;
+                                $scope.vm.busy = true;
+                            } else {
+                                $scope.vm.page++;
+                                $scope.vm.busy = false;
+                            }
+                        } else {
+                            alert('获取商品信息失败，稍后再试');
+                        }
+                    }, function (err) {
                         alert('获取商品信息失败，稍后再试');
-                    }
-                }, function (err) {
-                    alert('获取商品信息失败，稍后再试');
-                });
-        };
+                    });
+            };
+        }
         /*删除订单*/
         $scope.delOrder = function (index) {
             if (window.confirm('该订单信息将被删除，不再显示在订单页，是否继续？')) {
@@ -553,11 +562,11 @@ angular.module('Controllers', [])
                 })
                     .then(function (res) {
                         if (res.data.msg == 'success') {
-                            alert('取消成功');
+                            alert('取消成功!');
                             $scope.orderLists[index].orderStatus = '2';
                         }
                     }, function (err) {
-                        alert('网络异常，稍后再试');
+                        alert('网络异常，稍后再试!');
                     });
             } else {
                 return;
@@ -565,7 +574,6 @@ angular.module('Controllers', [])
         }
         /*进入详情页*/
         $scope.orderDetail = function (index) {
-            console.log($scope.orderLists[index].orderId);
             $location.path('/orderDetail/' + $scope.orderLists[index].orderId);
 
         }
@@ -581,7 +589,6 @@ angular.module('Controllers', [])
         })
             .then(function (res) {
                 if (res.data.msg == 'success') {
-                    console.log(res.data.data);
                     $scope.orderDetail = res.data.data;
                 } else {
                     alert("网络出错了，稍后再试");

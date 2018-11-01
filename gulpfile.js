@@ -61,11 +61,6 @@ gulp.task('useref', function () {
     .pipe(rename('rev-js.json'))
     .pipe(gulp.dest('./release/rev'));
 });
-/*gulp.task('htmlmin',function(){
-    gulp.src(['./templates/!*.html'],{base:'./'})
-        .pipe(htmlmin({collapseWhitespace:true}))
-        .pipe(gulp.dest('./release'));
-})*/
 
 /*4、其他，不需要操作，迁移*/
 gulp.task('other', function () {
@@ -76,7 +71,7 @@ gulp.task('other', function () {
 *   这一项工作必须在上述项目之后才能完成，所以形成依赖关系
 * */
 gulp.task('rev', ['less', 'imagemin', 'useref'], function () {
-    gulp.src(['./release/rev/*.json', './release/index.html'])
+    gulp.src(['./release/rev/*.json' , './release/index.html'] ,{base:'./release'})
         .pipe(revCollector({
             replaceReved: true
         }))
@@ -89,7 +84,7 @@ connect = require('gulp-connect');
 //建立一个配置对象变量，后面我们要传递给插件用来启动server
 var serverConfig = {
     root: 'release',//从哪个目录开启server
-    host:'0.0.0.0',
+    // host:'0.0.0.0',
     port: 8088//将服务开启在哪个端口
 }
 //建立一个server任务 直接可以用 gulp server就可以执行这个任务

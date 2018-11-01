@@ -44,6 +44,7 @@ button.disabled {
   margin: 0 auto;
   overflow-x: hidden;
   position: relative;
+  min-height: 100%;
 }
 .collapse {
   transform: translate(12.8125rem);

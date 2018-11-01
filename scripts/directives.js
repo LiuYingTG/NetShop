@@ -82,31 +82,15 @@ angular.module('Directives', [])
             }
         }
     }])
-    /*滚动加载数据*/
-    // .directive('whenScrolled',function () {
-    //         return function (scope,elm,attr) {
-    //             console.log(elm);
-    //             var raw=elm[0];
-    //             elm.bind('click',function () {
-    //                 console.log('点击');
-    //             });
-    //             elm.bind('mouseenter',function () {
-    //                 /*if(raw.scrollTop+raw.offsetHeight>=raw.scrollHeight){
-    //                     scope.$apply(attr.whenScrolled);
-    //                 }*/
-    //                 console.log('鼠标滚动');
-    //                 scope.$apply(attr.whenScrolled);
-    //             })
-    //         }
-    //     })
     /*显示订单状态*/
     .directive('orderStatus', function () {
         return {
             restrict: 'A',
             template: '<span>{{status}}</span>',
             replace: true,
-            link: function (scope, ele, attr) {
+            link: function (scope, ele, attr,$rootScope) {
                 var status = '';
+                console.log($rootScope.listStatus);
                 scope.$watch(attr.orderStatus, function (newVal) {
                     switch (newVal) {
                         case '0':
@@ -120,6 +104,9 @@ angular.module('Directives', [])
                             return;
                     }
                 })
+            },
+            controller:function ($rootScope) {
+                // var listStatus
             }
         }
     })
@@ -142,15 +129,23 @@ angular.module('Directives', [])
                             scope.logInfo = '该订单已取消';
                             return;
                     }
-                    /* scope.status=;*/
-                    /*ele.html((function(){
-                        switch (newVal){
-                            case '0': return '未完成';
-                            case '1': return '已完成';
-                            case '2': return '已取消'
-                        }
-                    })());*/
                 })
             }
         }
     })
+    //导航栏出现时，禁止右侧页面滚动
+.directive('navCollapse',function () {
+    return{
+        restrict:'A',
+        scope:false,
+        link:function (scope,ele,attr) {
+            scope.$watch(attr.navCollapse,function (newVal) {
+                if(newVal){//如果导航栏显示
+                    $(".viewport").css('position', 'fixed');//禁止页面滑动
+                }else{
+                    $(".viewport").css('position', '');//禁止页面滑动
+                }
+            });
+        }
+    }
+})

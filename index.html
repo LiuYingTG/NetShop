@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>XXX的小店</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<!--<link rel="stylesheet" href="static/less/main.less">-->
 	<!-- build:css ./static/css/main.css -->
 	<link rel="stylesheet" href="static/less/main.css">
 	<!-- endbuild -->
@@ -39,13 +40,13 @@
 				<a  ng-click="toggle()" class="menu icon-menu"></a>
 				<ul class="headerNavs">
 					<!--<li><a class="icon-search"></a></li>-->
-					<li ng-class="{cart:cartNotEmp}"><a class="icon-cart " ng-href="#/cartList"><span ng-show="cartNotEmp" ng-class="{changed:cartChaged}">{{cartNum}}</span></a></li>
+					<li ng-class="{cart:cartNotEmp}"><a class="icon-cart " ng-click="toCartList()"><span ng-show="cartNotEmp" ng-class="{changed:cartChaged}">{{cartNum}}</span></a></li>
 				</ul>
 				<!--<a class="search icon-search"></a>-->
 			</div>
 			<!-- 主体 -->
-			<div ng-class="{body: true, collapse: collapsed}">
-				<!--<div loading class="loading" ng-hide="loaded" src="../../static/images/loading.gif"></div>-->
+			<div ng-class="{body: true, collapse: collapsed}" ng-click="closeNav(collapsed)" nav-collapse="collapsed">
+				<div loading class="loading" ng-hide="loaded" src="static/images/loading.gif"></div>
 				<!-- 占位符 -->
 				<div ng-view></div>
 			</div>

@@ -42,7 +42,7 @@ NetShop.config(['$httpProvider', function ($httpProvider) {
     // $httpProvider.defaults.headers.common['Authorization'] = "89757";
 }]);
 
-NetShop.run(['$rootScope', '$cookies', '$http', function ($rootScope, $cookies, $http) {
+NetShop.run(['$rootScope', '$cookies', '$http','$location', function ($rootScope, $cookies, $http,$location) {
     // 设置类名初始值
     $rootScope.collapsed = false;//默认关闭导航栏
     $rootScope.showDialogue = false;//默认隐藏弹窗
@@ -80,7 +80,6 @@ NetShop.run(['$rootScope', '$cookies', '$http', function ($rootScope, $cookies, 
     $rootScope.toggle = function () {
         // 改变类名初始值
         $rootScope.collapsed = !$rootScope.collapsed;
-
         // 获取所有导航
         var navs = document.querySelectorAll('.navs dd');
 
@@ -90,16 +89,9 @@ NetShop.run(['$rootScope', '$cookies', '$http', function ($rootScope, $cookies, 
                 navs[i].style.transitionDelay = '0.2s';
                 navs[i].style.transitionDuration = (i + 1) * 0.15 + 's';
             }
-            /* $('.body').click(function (e) {
-                 console.log('关闭啊亲');
-                 $rootScope.collapsed=false;
-                 console.log('已关闭');
-                 stopPropagation(e);
-             });*/
         } else {
             var len = navs.length - 1;
             for (var j = len; j > 0; j--) {
-                // console.log(navs.length - j + 1);
                 navs[j].style.transform = 'translate(-100%)';
                 navs[j].style.transitionDelay = '';
                 navs[j].style.transitionDuration = (len - j) * 0.15 + 's';
@@ -107,13 +99,38 @@ NetShop.run(['$rootScope', '$cookies', '$http', function ($rootScope, $cookies, 
         }
     };
     /*关闭弹窗*/
-    $rootScope.closeDialog = function () {
-        $rootScope.showDialogue = false;//关闭弹窗
-        $rootScope.showUserLogin = false;//关闭弹窗
-        $rootScope.showRegister = false;//关闭弹窗
-        $(".viewport").css('position', 'relative');//回复页面滑动
+    $rootScope.toggleDialog = function () {
+        $rootScope.showDialogue = !$rootScope.showDialogue;//关闭弹窗
+        if ($rootScope.showDialogue) {
+            $rootScope.username='';
+            $rootScope.showUserLogin = true;//关闭弹窗
+            $(".viewport").css('position', 'fixed');//禁止页面滑动
+        } else {
+            $rootScope.showUserLogin = false;//关闭弹窗
+            $rootScope.showRegister = false;//关闭弹窗
+            $(".viewport").css('position', 'relative');//回复页面滑动
+            $rootScope.toggle();
+        }
     }
     /*点击购物车icon跳转*/
+    $rootScope.toCartList=function () {
+        $location.path('/cartList');
+        /*if($rootScope.loged){//如果已登录
+            $location.path('/cartList');
+        }else{
+            alert('请登录');
+            $rootScope.toggleDialog();
+            $rootScope
+        }*/
+    }
+    $rootScope.closeNav=function (status) {
+        if(status){//nav开启状态
+            $rootScope.toggle();
+        }
+        else{
+            return;
+        }
+    }
 }]);
 /*common模块彻底解决post请求头和请求数据不规范的问题，可以直接引用模块名：common*/
 NetShop.config(['$httpProvider', function ($httpProvider) {

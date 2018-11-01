@@ -155,6 +155,8 @@ html, body {
 // 容器
 .container {
   padding-top: (88rem / 32);
+  height: 100%;
+  width: 100%;
 }
 
 // 头部
@@ -278,6 +280,8 @@ html, body {
 
 .body {
   transition: all 0.5s 0.1s;
+  width: 100%;
+  height: 100%;
   // 所有商品页
   .allPro {
     overflow-x: hidden;
@@ -504,6 +508,7 @@ html, body {
           line-height: 40/32rem;
           border-radius: 15%;
           margin-right: 20/32rem;
+          margin-bottom: 15/32rem;
           padding: 5/32rem 10/32rem;
           border: 1/32rem solid transparent;
         }
@@ -573,9 +578,10 @@ html, body {
   // 购物车页
   .cartList {
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-bottom: 130/32rem;
     width: 100%;
+    height: 100%;
     .info {
       height: 100/32rem;
       line-height: 100/32rem;
@@ -587,6 +593,7 @@ html, body {
       width: 100%;
       position: relative;
       overflow: hidden;
+      height: 100%;
       //padding-top: 100/32rem;
       .cartInfo {
         position: fixed;
@@ -1177,7 +1184,6 @@ html, body {
   .orderAddr {
     width: 560/32rem;
     padding: 10/32rem 40/32rem;
-    height: 120/32rem;
     background: #FFFFFF;
     text-align: left;
     font-size: 30/32rem;
@@ -1188,11 +1194,17 @@ html, body {
       color: @activeColor;
     }
     p {
-      height: 30/32rem;
+      line-height: 40/32rem;
       margin-left: 60/32rem;
       width: 480/32rem;
+      height: auto;
+      .name{
+        float: left;
+        width: 280/32rem;
+        word-wrap: break-word;
+      }
       .phone {
-        padding-left: 20/32rem;
+        float: right;
         color: #7e7e7e;
       }
     }

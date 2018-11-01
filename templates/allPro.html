@@ -2,9 +2,9 @@
 <div ng-show="loaded" ><!--当内容加载完毕后，loaded改为true-->
     <div class="allPro">
         <div class="allProLists">
-        <ul infinite-scroll="vm.nextPage()" infinite-scroll-disabled="vm.busy" infinite-scroll-distance="1">
+        <ul  infinite-scroll="vm.nextPage()" infinite-scroll-disabled="vm.busy" infinite-scroll-distance="1">
             <li ng-repeat="pro in allProLists"
-                ng-click="proDetail(pro.productId,vm.page,categoryType)">
+                ng-click="proDetail(pro.productId,vm.page,categoryType,$event)">
                     <div class="proImg">
                         <img ng-src="{{pro.productImgMd}}"  alt="{{pro.productName}}"/>
                     </div>
@@ -16,7 +16,7 @@
         </ul>
     </div>
         <div class="nextLoading" ng-show="nextLoading">
-        <img src="./static/images/loading.gif" />
+        <!--<img src="./static/images/loading.gif" />-->
     </div>
         <p ng-show="isLast" class="isLast">已经是最后咯，亲</p>
     </div>
