@@ -4,17 +4,18 @@
         <div class="orderAll">
             <div class="orderLists">
                 <ul class="orderList" infinite-scroll="vm.nextPage()" infinite-scroll-disabled="vm.busy" infinite-scroll-distance="2">
-                    <li  ng-repeat="orderList in orderLists track by $index" ng-show="orderList.orderStatus!=3">
+                    <!--状态为6时，不显示该订单-->
+                    <li  ng-repeat="orderList in orderLists track by $index" ng-show="orderList.orderStatus!=6">
                         <ul class="orderLi" ng-click="orderDetail($index)">
                             <div class="orderLi-t">
                                 <span class="orderDate">{{orderList.createTime|date:"yyyy-MM-dd"}}</span>
-                                <span class="orderSta" order-status="orderList.orderStatus"></span>
+                                <span class="orderSta" order-status="orderList.orderStatus">{{orderList.orderStatus}}</span>
                             </div>
                             <li ng-repeat="orderDetail in orderList.orderDetailList" class="orderLiDetail">
                                 <div class="proImg"><img ng-src="{{orderDetail.productImgMd}}"></div>
-                                <div class="proDetail">
+                                <div class="order-proDetail">
                                     <p class="proName">{{orderDetail.productName}}</p>
-                                    <p class="proInfo">{{orderDetail.productColor}}{{orderDetail.productSize}}</p>
+                                    <p class="proInfo">{{orderDetail.productColor}}&nbsp;{{orderDetail.productSize}}</p>
                                     <span class="proPrice">{{orderDetail.productPrice|currency:'￥'}}</span>
                                     <div class="proNum">
                                         x{{orderDetail.productQuantity}}

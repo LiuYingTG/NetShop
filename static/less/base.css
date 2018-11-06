@@ -47,7 +47,7 @@ button.disabled {
   min-height: 100%;
 }
 .collapse {
-  transform: translate(12.8125rem);
+  transform: translate(10rem);
 }
 .loading {
   width: 2rem;

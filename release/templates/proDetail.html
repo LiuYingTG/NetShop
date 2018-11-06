@@ -30,8 +30,8 @@
             </div>
         <div class="footer">
                 <div>
-                    <button class="addCart icon-cart" ng-click="toggleDialog(1)"><span>&nbsp;添加到购物车</span></button>
-                    <button class="buyNow icon-heart" ng-click="toggleDialog(2)"><span>&nbsp;立即购买</span></button>
+                    <button class="addCart icon-cart" ng-click="toggleDia(1)"><span>&nbsp;添加到购物车</span></button>
+                    <button class="buyNow icon-heart" ng-click="toggleDia(2)"><span>&nbsp;立即购买</span></button>
                 </div>
             </div>
         <div ng-class="{dialog:true,showDialog:showed}">
@@ -42,7 +42,7 @@
                     <p class="productStock">库存{{product.productStock}}件</p>
                     <p class="choosed">已选:&nbsp; {{color}}&nbsp;{{size}}</p>
                 </div>
-                <span class="closeBtn icon-x-altx-alt" ng-click="toggleDialog()"></span>
+                <span class="closeBtn icon-x-altx-alt" ng-click="toggleDia()"></span>
             </div>
             <p class="info">颜色分类</p>
             <ul class="color">

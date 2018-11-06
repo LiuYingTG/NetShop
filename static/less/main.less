@@ -8,19 +8,20 @@
 @import 'base.less';
 
 html, body {
-  height: 100%;
   background-color: #f4f4f4;
   color: #191919;
+  overflow-x: hidden;
+  position: fixed;
 }
 
 // 导航
 .navs {
-  width: (410rem / 32);
+  width: (320rem / 32);
   height: 100%;
   background-color: #e7eaee;
   transition: all 0.5s 0.1s;
   position: fixed;
-  left: (-410rem / 32);
+  left: (-320rem / 32);
   top: 0;
   z-index: 20;
   dl {
@@ -63,6 +64,8 @@ html, body {
     a {
       font-size: (32rem / 32);
       color: #FFF;
+      height: 36/32rem;
+      line-height: 36/32rem;
     }
 
     a[class^="icon"]:before {
@@ -74,7 +77,7 @@ html, body {
       border-radius: 50%;
       font-size: (24rem / 32);
       position: relative;
-      top: -2px;
+      top: -2/32rem;
     }
 
     .icon-heart-fill:before {
@@ -126,8 +129,8 @@ html, body {
       width: 50%;
       text-align: center;
       padding: (20rem / 32) 0;
-      border-top: 1px solid #ddd;
-      border-right: 1px solid #ddd;
+      border-top: 1/32rem solid #ddd;
+      border-right: 1/32rem solid #ddd;
       font-size: (24rem / 32);
       float: left;
       color: #8a8a8a;
@@ -154,17 +157,17 @@ html, body {
 
 // 容器
 .container {
-  padding-top: (88rem / 32);
+  padding-top: (78rem / 32);
   height: 100%;
-  width: 100%;
+  width: 640/32rem;
 }
 
 // 头部
 .header {
-  @hdHeight: 100/32rem;
-  width: 100%;
+  @hdHeight: 80/32rem;
+  width: 640/32rem;
   height: @hdHeight;
-  max-width: 640px;
+  max-width: 640/32rem;
   //padding-top: (28rem / 32);
   border-bottom: (2rem / 32) solid #ededed;
   .boxShadow;
@@ -221,10 +224,9 @@ html, body {
       }
       span {
         position: absolute;
-        top: 20/32rem;
-        width: 15/32rem;
-        height: 20/32rem;
-        font-size: 28/32rem;
+        top: 13/32rem;
+        height: 32/32rem;
+        font-size: 32/32rem;
         text-align: center;
         line-height: 20/32rem;
         background-color: #f6f6f3;
@@ -270,9 +272,11 @@ html, body {
   .dialogHead {
     text-align: center;
     font-size: 32/32rem;
+    position: relative;
     .close-dialog {
-      float: right;
-      font-size: 24/32rem;
+      position: absolute;
+      right: 0rem;
+      font-size: 30/32rem;
       color: #7e7e7e;
     }
   }
@@ -285,7 +289,7 @@ html, body {
   // 所有商品页
   .allPro {
     overflow-x: hidden;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     margin: 15/32rem 0rem 15/32rem 15/32rem;
     @marginB: 10/32rem;
     .allProLists {
@@ -333,16 +337,16 @@ html, body {
       }
     }
     .nextLoading {
-      width: 1rem;
+      width: 400/32rem;
       margin: 1rem auto 0;
-      height: 1rem;
+      height: 2rem;
     }
     .isLast {
       width: 100%;
       color: #7e7e7e;
       text-align: center;
       font-size: 20/32rem;
-      margin-bottom: 20/32rem;
+      line-height: 2rem;
       overflow: hidden;
     }
   }
@@ -350,8 +354,8 @@ html, body {
   // 商品详情页
   .proDetail {
     overflow-x: hidden;
-    overflow-y: scroll;
-    //margin-bottom: 120/32rem;
+    //overflow-y: scroll;
+    margin-bottom: 120/32rem;
     /*商品展示*/
     .product {
       @marginB: 5/32rem;
@@ -366,10 +370,10 @@ html, body {
         .boxShadow;
       }
       .proTitle {
-        padding: 30/32rem 20/32rem;
+        padding: 15/32rem 20/32rem;
         font-size: 26/32rem;
         font-weight: 700;
-        line-height: 45/32rem;
+        line-height: 40/32rem;
         background-color: #FFFFFF;
         color: #494949;
         .boxShadow;
@@ -383,8 +387,8 @@ html, body {
       .info {
         font-size: 24/32rem;
         color: #565656;
-        height: 80/32rem;
-        line-height: 80/32rem;
+        height: 70/32rem;
+        line-height: 70/32rem;
         text-align: center;
         background-color: #fafafa;
         border-top: 1/32rem solid #FFFFFF;
@@ -395,7 +399,7 @@ html, body {
       .productDescription {
         .backgroundWhite;
         margin-bottom: @marginB;
-        padding: 40/32rem 0rem;
+        padding: 30/32rem 0rem;
         text-align: center;
         p {
           width: 400/32rem;
@@ -415,13 +419,13 @@ html, body {
     /*底部按钮*/
     .footer {
       position: fixed;
-      bottom: 0px;
+      bottom: 0;
       width: 100%;
-      height: 110/32rem;
+      height: 100/32rem;
       background-color: #f9f9f9;
       box-shadow: 0 -5/32rem 6/32rem #fbfbfb;
       div {
-        padding: 20/32rem 0rem;
+        padding: 15/32rem 0rem;
         width: 560/32rem;
         height: 70/32rem;
         margin: 0 auto;
@@ -432,8 +436,9 @@ html, body {
           line-height: 36/32rem;
           float: left;
           font-size: 28/32rem;
-          border: 1/32rem solid #fbfbfb;
+          border: 1/32rem solid #dedede;
           border-radius: 3%;
+          background-color: #e4e4e4;
         }
         button:last-child {
           float: right;
@@ -445,28 +450,29 @@ html, body {
     }
     /*商品属性选择*/
     .dialog {
+      display: none;
       box-shadow: 0rem 5/32rem 5/32rem #e4e5e8 inset;
       position: fixed;
       bottom: -100%;
       width: 600/32rem;
       padding: 30/32rem 20/32rem;
       .backgroundWhite;
-      transition: all 0.4s ease-in;
+      transition: all 0.6s ease-in;
       .show {
         width: 100%;
         overflow: hidden;
-        height: 200/32rem;
+        height: 180/32rem;
         padding-bottom: 25/32rem;
         position: relative;
         .closeBtn {
           position: absolute;
-          right: 0rem;
-          top: 0rem;
+          right: 3/32rem;
+          top: 3/32rem;
           opacity: 0.7;
         }
         .showImg {
           width: 180/32rem;
-          height: 200/32rem;
+          height: 180/32rem;
           float: left;
           img {
             width: 100%;
@@ -495,10 +501,10 @@ html, body {
         display: block;
         border-top: 1/32rem solid #ededed;
         font-size: 26/32rem;
-        line-height: 80/32rem;
+        line-height: 65/32rem;
       }
       ul {
-        margin-bottom: 30/32rem;
+        margin-bottom: 5/32rem;
         overflow: hidden;
         li {
           float: left;
@@ -571,6 +577,7 @@ html, body {
       }
     }
     .showDialog {
+      display: block;
       bottom: 0rem;
     }
   }
@@ -594,7 +601,6 @@ html, body {
       position: relative;
       overflow: hidden;
       height: 100%;
-      //padding-top: 100/32rem;
       .cartInfo {
         position: fixed;
         background-color: #fcfcfc;
@@ -606,7 +612,6 @@ html, body {
         width: 580/32rem;
         line-height: 70/32rem;
         padding: 10/32rem 30/32rem;
-        //top: 100/32rem;
         z-index: 50;
         p {
           float: left;
@@ -627,19 +632,19 @@ html, body {
 
       }
       .list {
-        width: 600/32rem;
+        width: 610/32rem;
         margin: 0rem auto;
         overflow: hidden;
-        margin-top: 100/32rem;
+        margin-top: 90/32rem;
         ul {
           width: 100%;
           li {
-            @height: 240/32rem;
+            @height: 210/32rem;
             height: @height;
             width: 100%;
             margin-bottom: 10/32rem;
             background-color: #fcfcfc;
-            border: 1px solid #ffffff;
+            border: 1/32rem solid #ffffff;
             border-radius: 30/32rem 30/32rem;
             overflow: hidden;
             .check {
@@ -667,15 +672,17 @@ html, body {
                 width: 160/32rem;
                 img {
                   display: block;
-                  height: 200/32rem;
+                  height: 160/32rem;
                   margin-top: 20/32rem;
                 }
               }
               .proDetail {
-                width: 340/32rem;
-                height: 210/32rem;
-                padding: 15/32rem 25/32rem 15/32rem 15/32rem;
+                float: right;
+                width: 320/32rem;
+                height: 200/32rem;
+                padding: 10/32rem 40/32rem 0/32rem 15/32rem;
                 position: relative;
+                margin-bottom: 0rem;
                 .delThis {
                   color: @activeColor;
                   opacity: 0.6;
@@ -686,10 +693,10 @@ html, body {
                 }
                 .proName {
                   margin-top: 5/32rem;
-                  width: 325/32rem;
-                  height: 90/32rem;
+                  width: 315/32rem;
+                  height: 80/32rem;
                   overflow: hidden;
-                  line-height: 45/32rem;
+                  line-height: 40/32rem;
                   font-size: 26/32rem;
                   font-weight: 600;
                   color: #3f3f3f;
@@ -697,15 +704,15 @@ html, body {
                 }
                 .proInfo {
                   width: 100%;
-                  height: 50/32rem;
+                  height: 40/32rem;
                   overflow: hidden;
-                  line-height: 50/32rem;
-                  font-size: 26/32rem;
+                  line-height: 40/32rem;
+                  font-size: 24/32rem;
                   color: #878787;
                 }
                 .proPrice {
                   float: left;
-                  width: 200/32rem;
+                  width: 190/32rem;
                   height: 60/32rem;
                   line-height: 60/32rem;
                   font-size: 30/32rem;
@@ -714,7 +721,6 @@ html, body {
                 }
                 .proNum {
                   float: right;
-                  width: 130/32rem;
                   border: 1/32rem solid #cfcfcf;
                   border-radius: 5/32rem 5/32rem;
                   color: #8a8a8a;
@@ -729,7 +735,7 @@ html, body {
                   }
                   input {
                     float: left;
-                    width: 50/32rem;
+                    width: 40/32rem;
                     text-align: center;
                     height: 38/32rem;
                     padding: 0rem;
@@ -751,7 +757,7 @@ html, body {
       bottom: 0rem;
       width: 600/32rem;
       padding: 0/32rem 20/32rem;
-      @height: 110/32rem;
+      @height: 100/32rem;
       height: @height;
       box-shadow: 0rem 5/32rem 5/32rem #ededed inset;
       background-color: #fcfcfc;
@@ -800,7 +806,7 @@ html, body {
         }
         button {
           float: right;
-          margin: 25/32rem 5/32rem;
+          margin: 20/32rem 5/32rem;
           padding: 0rem;
           width: 150/32rem;
           height: 60/32rem;
@@ -821,39 +827,50 @@ html, body {
   //下单页
   .createOrder {
     overflow-x: hidden;
-    overflow-y: scroll;
     width: 100%;
-    margin-top: 20/32rem;
+    margin-top: 10/32rem;
     form {
       width: 620/32rem;
       margin: 0 auto;
       .buyer {
         padding: 10/32rem;
         width: 620/32rem;
+        padding: 0 30/32rem;
+        margin: 0 auto;
         background-color: #FFFFFF;
         height: 200/32rem;
         border-radius: 15/32rem 15/32rem;
         font-size: 24/32rem;
         color: #666666;
+        border-collapse:separate;
+        border-spacing:0 15/32rem;
         tr {
+          padding: 5/32rem 0;
           td {
-            padding: 10/32rem 0rem;
             input, textarea {
-              border: 2/32rem solid #dadada;
-              border-radius: 3/32rem;
-              padding: 10/32rem;
-              width: 320/32rem;
+              padding: 10/32rem 125/32rem 10/32rem 10/32rem;
+              width: 290/32rem;
+              border:none;
             }
           }
           td:first-of-type {
-            width: 130/32rem;
-          }
-          td:nth-of-type(2) {
-            width: 350/32rem;
+            width: 140/32rem;
           }
           td:last-of-type {
-            margin-left: 20/32rem;
-            color: @activeColor;
+            width: 420/32rem;
+            position: relative;
+            border: 2/32rem solid #dadada;
+            border-radius: 3/32rem;
+            .info{
+              display: block;
+              width: 130/32rem;
+              position: absolute;
+              color: @activeColor;
+              top: 0rem;
+              right: 0rem;
+              margin-top: 0.3rem;
+              text-align: center;
+            }
           }
         }
       }
@@ -864,7 +881,8 @@ html, body {
         border-radius: 10/32rem 10/32rem;
         .cartLi {
           width: 580/32rem;
-          @height: 240/32rem;
+          @height: 210/32rem;
+          height: @height;
           margin: 0 auto;
           border-bottom: 1/32rem solid #dedede;
           .proImg {
@@ -873,21 +891,23 @@ html, body {
             width: 160/32rem;
             img {
               display: block;
-              height: 200/32rem;
+              height: 160/32rem;
               margin-top: 20/32rem;
             }
           }
           .proDetail {
-            width: 380/32rem;
-            height: 210/32rem;
-            padding: 15/32rem 15/32rem 15/32rem 25/32rem;
+            width: 390/32rem;
+            height: 170/32rem;
+            padding-top:  20/32rem;
             position: relative;
+            margin-bottom: 0rem;
+            overflow: hidden;
+            float: right;
             .proName {
-              margin-top: 5/32rem;
               width: 360/32rem;
-              height: 80/32rem;
+              height: 70/32rem;
               overflow: hidden;
-              line-height: 40/32rem;
+              line-height: 35/32rem;
               font-size: 26/32rem;
               font-weight: 600;
               color: #3f3f3f;
@@ -895,17 +915,17 @@ html, body {
             }
             .proInfo {
               width: 100%;
-              height: 50/32rem;
+              height: 40/32rem;
               overflow: hidden;
-              line-height: 50/32rem;
-              font-size: 26/32rem;
+              line-height: 40/32rem;
+              font-size: 24/32rem;
               color: #878787;
             }
             .proPrice {
               float: left;
-              width: 200/32rem;
-              height: 60/32rem;
-              line-height: 60/32rem;
+              width: 180/32rem;
+              height: 55/32rem;
+              line-height: 55/32rem;
               font-size: 30/32rem;
               color: @activeColor;
               font-weight: 600;
@@ -915,26 +935,9 @@ html, body {
               width: 130/32rem;
               color: #8a8a8a;
               font-size: 30/32rem;
-              height: 40/32rem;
-              line-height: 40/32rem;
+              height: 55/32rem;
+              line-height: 55/32rem;
               text-align: center;
-              margin-top: 8/32rem;
-              span {
-                float: left;
-                width: 35/32rem;
-              }
-              input {
-                float: left;
-                width: 50/32rem;
-                text-align: center;
-                height: 38/32rem;
-                padding: 0rem;
-                margin-top: 1/32rem;
-                line-height: 38/32rem;
-                border: 0rem;
-                border-right: 1/32rem solid #d4d4d4;
-                border-left: 1/32rem solid #e8e8e8;
-              }
             }
           }
         }
@@ -948,6 +951,7 @@ html, body {
         line-height: 80/32rem;
         span {
           color: @activeColor;
+          font-weight: bold;
         }
       }
       button {
@@ -967,7 +971,7 @@ html, body {
   //订单列表
   .orderList {
     overflow-x: hidden;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     width: 100%;
     .orderAll {
       width: 100%;
@@ -983,7 +987,7 @@ html, body {
             width: 100%;
             margin-bottom: 20/32rem;
             background-color: #fcfcfc;
-            border: 1px solid #ffffff;
+            border: 1/32rem solid #ffffff;
             border-radius: 20/32rem 20/32rem;
             overflow: hidden;
             .orderLi {
@@ -1006,20 +1010,23 @@ html, body {
               .orderLiDetail {
                 width: 560/32rem;
                 margin: 0rem auto;
+                height: 200/32rem;;
+                overflow: hidden;
                 .proImg {
                   float: left;
                   height: @height;
                   width: 160/32rem;
                   img {
                     display: block;
-                    height: 180/32rem;
+                    height: 160/32rem;
                     margin-top: 20/32rem;
                   }
                 }
-                .proDetail {
+                .order-proDetail {
                   width: 340/32rem;
                   height: 180/32rem;
-                  padding: 15/32rem 25/32rem 15/32rem 15/32rem;
+                  padding: 10/32rem 25/32rem 10/32rem 15/32rem;
+                  float: right;
                   position: relative;
                   .proName {
                     margin-top: 5/32rem;
@@ -1043,8 +1050,8 @@ html, body {
                   .proPrice {
                     float: left;
                     width: 200/32rem;
-                    height: 55/32rem;
-                    line-height: 55/32rem;
+                    height: 50/32rem;
+                    line-height: 50/32rem;
                     font-size: 30/32rem;
                     color: #878787;
                   }
@@ -1052,26 +1059,9 @@ html, body {
                     float: right;
                     color: #8a8a8a;
                     font-size: 30/32rem;
-                    height: 40/32rem;
-                    line-height: 40/32rem;
+                    height: 50/32rem;
+                    line-height: 50/32rem;
                     text-align: center;
-                    margin-top: 8/32rem;
-                    span {
-                      float: left;
-                      width: 35/32rem;
-                    }
-                    input {
-                      float: left;
-                      width: 50/32rem;
-                      text-align: center;
-                      height: 38/32rem;
-                      padding: 0rem;
-                      margin-top: 1/32rem;
-                      line-height: 38/32rem;
-                      border: 0rem;
-                      border-right: 1/32rem solid #d4d4d4;
-                      border-left: 1/32rem solid #e8e8e8;
-                    }
                   }
                 }
               }
@@ -1103,12 +1093,13 @@ html, body {
             }
             .orderBtn {
               width: 560/32rem;
-              height: 65/32rem;
               margin: 0 auto;
               button {
+                margin:0 0 20/32rem 0;
                 width: 150/32rem;
                 height: 50/32rem;
-                font-size: 28/32rem;
+                font-size: 26/32rem;
+                padding: 0rem;
                 float: right;
                 border: 1/32rem solid #b4b4b4;
                 background-color: #fcfcfc;
@@ -1135,49 +1126,65 @@ html, body {
   }
 }
 
+.view{
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  >div{
+    min-height: 100%;
+  }
+}
 //订单详情
 .orderDetail {
   overflow-x: hidden;
-  overflow-y: scroll;
-  width: 100%;
+  background-color: #ffffff;
+  padding-bottom: 70/32rem;
+  min-height: 1062/32rem;
   .orderStatus {
     width: 100%;
-    @height: 180/32rem;
+    @height: 150/32rem;
     height: @height;
-    margin-top: 10/32rem;
     background: linear-gradient(to left, #fec98d 0%, @activeColor 100%);
     box-shadow: 0 5/32rem 5/32rem #f8f8f8;
     text-align: center;
     .orderInfo {
       float: left;
-      width: 350/32rem;
-      margin-left: 60/32rem;
+      width: 390/32rem;
+      margin-left: 50/32rem;
       height: @height;
       line-height: @height;
       color: #fff0d0;
-      font-size: 32/32rem;
+      font-size: 30/32rem;
       letter-spacing: 1/32rem;
       text-align: left;
+      overflow: hidden;
+      p{
+        overflow: hidden;
+        height: @height ;
+        width: 100%;
+      }
     }
     .statusIcon {
       float: right;
-      //margin-top: 10/32rem;
       background-image: url("../images/diaopai.png");
       background-position: right center;
-      background-size: 170/32rem 170/32rem;
+      background-size: @height @height;
       background-repeat: no-repeat;
       margin-right: 30/32rem;
-      width: 200/32rem;
+      width: 160/32rem;
       height: @height;
       span {
+        display: block;
         color: @activeColor;
-        font-size: 30/32rem;
+        font-size: 25/32rem;
         height: 50/32rem;
         line-height: 50/32rem;
         font-weight: bold;
         position: relative;
-        top: 80/32rem;
-        left: 5/32rem;
+        top: 65/32rem;
+        left: 0/32rem;
+        transform-origin: center center;
+        transform: rotate(5deg);
       }
     }
   }
@@ -1224,27 +1231,33 @@ html, body {
     .orderLi {
       .orderLiDetail {
         width: 560/32rem;
+        height: 180/32rem;
         margin: 0rem auto;
         padding-bottom: 10/32rem;
         border-bottom: 1/32rem solid #e9e9e9;
+        background-color: #ffffff;
+        overflow: hidden;
         .proImg {
           float: left;
-          height: 180/32rem;
+          height: 160/32rem;
           width: 160/32rem;
-          margin-top: 20/32rem;
+          margin-top: 15/32rem;
           img {
             display: block;
-            height: 180/32rem;
+            height: 160/32rem;
+            width: 160/32rem;
           }
         }
-        .proDetail {
-          width: 340/32rem;
+        .orderDetail-pro {
+          width: 370/32rem;
           height: 180/32rem;
-          padding: 15/32rem 25/32rem 15/32rem 15/32rem;
+          padding: 5/32rem 0rem;
           position: relative;
+          float: right;
+          overflow: hidden;
           .proName {
             margin-top: 5/32rem;
-            width: 340/32rem;
+            width: 100%;
             height: 80/32rem;
             overflow: hidden;
             line-height: 40/32rem;
@@ -1340,14 +1353,16 @@ html, body {
   }
   .orderBtn{
     width: 580/32rem;
-    padding: 20/32rem 30/32rem;
+    padding: 0/32rem 30/32rem;
     background-color: #FFFFFF;
-    height: 50/32rem;
     button {
+      margin: 20/32rem 0;
       width: 150/32rem;
-      height: 40/32rem;
+      height: 60/32rem;
+      line-height: 60/32rem;
       font-size: 26/32rem;
       float: right;
+      padding:0rem;
       border: 1/32rem solid #b4b4b4;
       background-color: #fcfcfc;
       border-radius: 15/32rem 15/32rem;
@@ -1366,9 +1381,10 @@ html, body {
   left: 0rem;
   padding: 50/32rem 50/32rem 0rem;
   div {
-    border: 1px solid #cfcfcf;
+    border: 1/32rem solid #cfcfcf;
     width: 500/32rem;
     margin: 0 auto;
+    padding:1/32rem;
   }
   p {
     display: block;
@@ -1383,7 +1399,6 @@ html, body {
     padding: (12rem / 32) 10/32rem (12rem / 32) 10/32rem;
     font-size: (28rem / 32);
     color: #515151;
-    //border: 1px solid #8a8a8a;
     border: none;
   }
   a {
@@ -1393,9 +1408,8 @@ html, body {
     font-size: (24rem / 32);
     color: #515151;
     span {
-      //display: block;
       padding-bottom: 4/32rem;
-      border-bottom: 1px solid #515151;
+      border-bottom: 1/32rem solid #515151;
     }
   }
   button {
@@ -1414,7 +1428,7 @@ html, body {
     margin-top: 15/32rem;
     .backgroundWhite;
     color: #010101;
-    border: 1px solid #010101;
+    border: 1/32rem solid #010101;
   }
   .info {
     color: #ff3d27;

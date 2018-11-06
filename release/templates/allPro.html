@@ -4,7 +4,7 @@
         <div class="allProLists">
         <ul  infinite-scroll="vm.nextPage()" infinite-scroll-disabled="vm.busy" infinite-scroll-distance="1">
             <li ng-repeat="pro in allProLists"
-                ng-click="proDetail(pro.productId,vm.page,categoryType,$event)">
+                ng-click="proDetail(pro.productId)">
                     <div class="proImg">
                         <img ng-src="{{pro.productImgMd}}"  alt="{{pro.productName}}"/>
                     </div>

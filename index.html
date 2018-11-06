@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name=”viewport” content=”width=device-width, initial-scale=1, user-scalable=no″>
 	<title>XXX的小店</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!--<link rel="stylesheet" href="static/less/main.less">-->
@@ -48,7 +49,7 @@
 			<div ng-class="{body: true, collapse: collapsed}" ng-click="closeNav(collapsed)" nav-collapse="collapsed">
 				<div loading class="loading" ng-hide="loaded" src="static/images/loading.gif"></div>
 				<!-- 占位符 -->
-				<div ng-view></div>
+				<div ng-view class="view"></div>
 			</div>
 		</div>
 		<div ng-show="showDialogue" ng-class="{dialogue:true}">

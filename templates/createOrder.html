@@ -12,10 +12,11 @@
                                ng-model="orderName"
                                name="orderName"
                                ng-check
-                               required/></td>
-                    <td><span class="info"
+                               required
+                    /></td>
+                    <!--<td><span class="info"
                               ng-show="createOrder_form.orderName.$dirty&&createOrder_form.orderName.$invalid&&!createOrder_form.orderName.$checked">
-                         <small ng-show="createOrder_form.orderName.$error.required">不能为空</small></span>
+                         <small ng-show="createOrder_form.orderName.$error.required">不能为空</small></span>-->
                     </td>
                 </tr>
                 <tr>
@@ -25,25 +26,29 @@
                                ng-check
                                required
                                ng-pattern="/^(1[3456789]\d{9})$/"
-                    /></td>
-                    <td><span class="info"
+                    />
+                        <span class="info"
                               ng-show="createOrder_form.phone.$dirty&&createOrder_form.phone.$invalid&&!createOrder_form.phone.$checked">
                         <small ng-show="createOrder_form.phone.$error.required">不能为空</small>
                         <small ng-show="createOrder_form.phone.$error.pattern">手机号无效</small>
-                        </span></td>
+                        </span>
+                    </td>
                 </tr>
                 <tr>
                     <td><span>收件地址：</span></td>
                     <td><textarea type="text block" ng-model="addr"
                                   ng-check
                                   name="addr"
-                                  required></textarea></td>
-                    <td>
-                        <p class="info"
-                           ng-show="createOrder_form.email.$dirty&&createOrder_form.addr.$invalid&&!createOrder_form.addr.$checked">
-                            <small ng-show="createOrder_form.email.$error.required">不能为空</small>
-                        </p>
+                                  required>
+                        </textarea>
+                        <span class="info"
+                           ng-show="createOrder_form.addr.$dirty&&createOrder_form.addr.$invalid&&!createOrder_form.addr.$checked">
+                            <small ng-show="createOrder_form.addr.$error.required">不能为空</small>
+                        </span>
                     </td>
+                   <!-- <td>
+
+                    </td>-->
                 </tr>
             </table>
             <ul class="proLists">

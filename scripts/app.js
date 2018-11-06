@@ -9,7 +9,7 @@ NetShop.config(['$routeProvider', '$locationProvider', function ($routeProvider,
     $routeProvider.when('/allPro/:categoryType', {//全部商品
         templateUrl: './templates/allPro.html',
         controller: 'allProController'
-    }).when('/proDetail/:productId', {//商品详情
+    }).when('/proDetail/:categoryType/:productId', {//商品详情
         templateUrl: './templates/proDetail.html',
         controller: 'proDetailController'
     })
@@ -42,7 +42,7 @@ NetShop.config(['$httpProvider', function ($httpProvider) {
     // $httpProvider.defaults.headers.common['Authorization'] = "89757";
 }]);
 
-NetShop.run(['$rootScope', '$cookies', '$http','$location', function ($rootScope, $cookies, $http,$location) {
+NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScope, $cookies, $http, $location) {
     // 设置类名初始值
     $rootScope.collapsed = false;//默认关闭导航栏
     $rootScope.showDialogue = false;//默认隐藏弹窗
@@ -50,6 +50,7 @@ NetShop.run(['$rootScope', '$cookies', '$http','$location', function ($rootScope
     $rootScope.showRegister = false;//默认隐藏注册页
     //获取购物车内商品数量
     $rootScope.$on('cartUpload', function (event) {
+        // window.location.reload();
         $rootScope.cartNotEmp = true;
         $http.get(PUBLIC + '/netshop/buyer/cart/list').then(
             function (res) {
@@ -98,39 +99,62 @@ NetShop.run(['$rootScope', '$cookies', '$http','$location', function ($rootScope
             }
         }
     };
-    /*关闭弹窗*/
+    /*显示或关闭登录弹窗*/
     $rootScope.toggleDialog = function () {
         $rootScope.showDialogue = !$rootScope.showDialogue;//关闭弹窗
         if ($rootScope.showDialogue) {
-            $rootScope.username='';
+            $rootScope.username = '';
             $rootScope.showUserLogin = true;//关闭弹窗
-            $(".viewport").css('position', 'fixed');//禁止页面滑动
         } else {
             $rootScope.showUserLogin = false;//关闭弹窗
             $rootScope.showRegister = false;//关闭弹窗
-            $(".viewport").css('position', 'relative');//回复页面滑动
-            $rootScope.toggle();
+            if ($rootScope.collapsed) {
+                $rootScope.toggle();
+            }
         }
     }
     /*点击购物车icon跳转*/
-    $rootScope.toCartList=function () {
-        $location.path('/cartList');
-        /*if($rootScope.loged){//如果已登录
+    $rootScope.toCartList = function () {
+        if ($rootScope.loged) {//如果已登录
             $location.path('/cartList');
-        }else{
+        } else {
             alert('请登录');
             $rootScope.toggleDialog();
-            $rootScope
-        }*/
+        }
     }
-    $rootScope.closeNav=function (status) {
-        if(status){//nav开启状态
+    $rootScope.closeNav = function (status) {
+        if (status) {//nav开启状态
             $rootScope.toggle();
         }
-        else{
+        else {
             return;
         }
     }
+    /*页面刷新*/
+    $rootScope.$on('$locationChangeSuccess', function (event, newVal, current) {//返回前页时，刷新前页
+        if ((current != newVal) && (newVal.split('?')[0].split('#')[1] != '/createOrder')) {
+            window.location.reload();
+        } else {
+            return;
+        }
+        ;
+    });
+    /*获取订单状态表*/
+    if($rootScope.loged){
+        $http.get(PUBLIC + '/netshop/buyer/order/listStatus').then(
+            function (res) {
+                if (res.data.msg == 'success') {
+                    $rootScope.listStatus = res.data.data;
+                    console.log($rootScope.listStatus);
+                } else {
+                    alert('网络异常，稍后再试');
+                }
+            }, function (err) {
+                alert('网络异常，稍后再试');
+            }
+        );
+    }
+
 }]);
 /*common模块彻底解决post请求头和请求数据不规范的问题，可以直接引用模块名：common*/
 NetShop.config(['$httpProvider', function ($httpProvider) {

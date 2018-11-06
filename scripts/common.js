@@ -2,8 +2,10 @@
 $(
     function () {
         var designWidth = 640;
+        var designHeight=1136-150;
         var remNum = 20;
         document.documentElement.style.fontSize = ((window.innerWidth / remNum) + 'px');
+        $('.body').css('height',designHeight/32+"rem");
         window.alert = function(name){
             var iframe = document.createElement("IFRAME");
             iframe.style.display="none";
