@@ -150,7 +150,7 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
                     alert('网络异常，稍后再试');
                 }
             }, function (err) {
-                alert('网络异常，稍后再试');
+                console.log('网络异常，稍后再试');
             }
         );
     }

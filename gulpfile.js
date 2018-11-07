@@ -11,6 +11,8 @@ var gulpif = require('gulp-if');
 var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var clean = require('gulp-clean');//清空文件夹
+var gulpRemoveHtml = require('gulp-remove-html');//标签清除，参考：https://www.npmjs.com/package/gulp-remove-html
+var removeEmptyLines = require('gulp-remove-empty-lines');//清除空白行，参考：https://www.npmjs.com/package/gulp-remove-empty-lines
 /*1、css文件处理
 *   （1）less-css
 *   （2）css前缀
@@ -61,21 +63,47 @@ gulp.task('useref', function () {
     .pipe(rename('rev-js.json'))
     .pipe(gulp.dest('./release/rev'));
 });
+//html压缩
+gulp.task('html',function(){
+    var options = {
+        removeComments: true,//清除HTML注释
+        collapseWhitespace: true,//压缩HTML
+        collapseBooleanAttributes: true,//省略布尔属性的值 <input checked="true"/> ==> <input />
+        removeEmptyAttributes: true,//删除所有空格作属性值 <input id="" /> ==> <input />
+        removeScriptTypeAttributes: true,//删除<script>的type="text/javascript"
+        removeStyleLinkTypeAttributes: true,//删除<style>和<link>的type="text/css"
+        minifyJS: true,//压缩页面JS
+        minifyCSS: true//压缩页面CSS
+    };
+    gulp.src(['./templates/*.html'],{base:'./'})
+        .pipe(gulpRemoveHtml())//清除特定标签
+        .pipe(removeEmptyLines({removeComments: true}))//清除空白行
+        .pipe(htmlmin(options))
+        .pipe(gulp.dest('./release'));
+});
+
 
 /*4、其他，不需要操作，迁移*/
 gulp.task('other', function () {
-    gulp.src(['./static/fonts/*', './static/libs/*', './templates/*.html', './favicon.ico'], {base: './'})
+    gulp.src(['./static/fonts/*', './static/libs/*', './favicon.ico'], {base: './'})
         .pipe(gulp.dest('./release'));
 });
 /*5、修改HTML中的引入
 *   这一项工作必须在上述项目之后才能完成，所以形成依赖关系
 * */
-gulp.task('rev', ['less', 'imagemin', 'useref'], function () {
-    gulp.src(['./release/rev/*.json' , './release/index.html'] ,{base:'./release'})
+gulp.task('rev', ['less', 'imagemin', 'useref','html'], function () {
+    gulp.src(['./release/rev/*.json' , './release/index.html'] )
         .pipe(revCollector({
             replaceReved: true
         }))
         .pipe(gulp.dest('./release'));
+});
+gulp.task('revCss',function () {
+    gulp.src(['./release/rev/*.json' , './release/static/css/*.css'])
+        .pipe(revCollector({
+            replaceReved: true
+        }))
+        .pipe(gulp.dest('./release/static/css/'));
 });
 gulp.task('default',function () {
     gulp.start('rev', 'other');

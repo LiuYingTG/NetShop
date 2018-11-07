@@ -38,7 +38,6 @@ angular.module('Directives', [])
                 element.bind('focus', function () {
                     ctrl.$setValidity('unique', true);//不存在，可以注册
                 }).bind('blur', function () {
-                    // var url='netshop/buyer/'+attrs.ensureUnique+'?'+attrs.ngModel+'='+scope.username;
                     /*测试用地址*/
                     var url = 'http://106.14.183.207:8085/netshop/buyer/' + attrs.ensureUnique + '?' + attrs.name + '=' + (scope[attrs.ngModel]);
                     console.log(url);
@@ -48,12 +47,10 @@ angular.module('Directives', [])
                                 if (res.data.msg == 'success') {
                                     ctrl.$setValidity('unique', true);//不存在，可以注册
                                 } else {
-                                    console.log('存在');
                                     ctrl.$setValidity('unique', false);//存在
                                 }
                             }, function (err) {
                                 ctrl.$setValidity('unique', false);//存在
-                                // alert('网络出错啦，稍后再试哦');
                                 console.log('网络出错啦，稍后再试哦');
                             });
                     }

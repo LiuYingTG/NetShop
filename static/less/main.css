@@ -536,9 +536,9 @@ button.disabled {
   transform: translate(10rem);
 }
 .loading {
-  width: 2rem;
+  width: 1rem;
   margin: 1rem auto 0;
-  height: 10px;
+  height: 1rem;
 }
 .boxShadow {
   box-shadow: 0 0.0625rem 0.0625rem #f7f7f7;
@@ -546,12 +546,124 @@ button.disabled {
 .backgroundWhite {
   background-color: #FFFFFF;
 }
+/*垂直居中*/
+.verticalAlign {
+  vertical-align: middle;
+  display: inline-block;
+  height: 100%;
+  margin-left: -1px;
+}
+.xcConfirm .xc_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #666666;
+  opacity: 0.5;
+  z-index: 2147000000;
+}
+.xcConfirm .popBox {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background-color: #ffffff;
+  z-index: 2147000001;
+  width: 570px;
+  height: 300px;
+  margin-left: -285px;
+  margin-top: -150px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #535e66;
+}
+.xcConfirm .popBox .ttBox {
+  height: 30px;
+  line-height: 30px;
+  padding: 14px 30px;
+  border-bottom: solid 1px #eef0f1;
+}
+.xcConfirm .popBox .ttBox .tt {
+  font-size: 18px;
+  display: block;
+  float: left;
+  height: 30px;
+  position: relative;
+}
+.xcConfirm .popBox .ttBox .clsBtn {
+  display: block;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 22px;
+  right: 30px;
+  background: url(../images/xcConfirm-icon.png) -48px -96px no-repeat;
+}
+.xcConfirm .popBox .txtBox {
+  margin: 40px 100px;
+  height: 100px;
+  overflow: hidden;
+}
+.xcConfirm .popBox .txtBox .bigIcon {
+  float: left;
+  margin-right: 20px;
+  width: 48px;
+  height: 48px;
+  background-image: url(../images/xcConfirm-icon.png);
+  background-repeat: no-repeat;
+  background-position: 48px 0;
+}
+.xcConfirm .popBox .txtBox p {
+  height: 84px;
+  margin-top: 16px;
+  line-height: 26px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.xcConfirm .popBox .txtBox p input {
+  width: 364px;
+  height: 30px;
+  border: solid 1px #eef0f1;
+  font-size: 18px;
+  margin-top: 6px;
+}
+.xcConfirm .popBox .btnArea {
+  border-top: solid 1px #eef0f1;
+}
+.xcConfirm .popBox .btnGroup {
+  float: right;
+}
+.xcConfirm .popBox .btnGroup .sgBtn {
+  margin-top: 14px;
+  margin-right: 10px;
+}
+.xcConfirm .popBox .sgBtn {
+  display: block;
+  cursor: pointer;
+  float: left;
+  width: 95px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+.xcConfirm .popBox .sgBtn.ok {
+  background-color: #0095d9;
+  color: #FFFFFF;
+}
+.xcConfirm .popBox .sgBtn.cancel {
+  background-color: #546a79;
+  color: #FFFFFF;
+}
 html,
 body {
   background-color: #f4f4f4;
   color: #191919;
   overflow-x: hidden;
   position: fixed;
+  padding-bottom: 3.125rem;
 }
 .navs {
   width: 10rem;
@@ -740,14 +852,13 @@ body {
 }
 .header .headerNavs .cart span {
   position: absolute;
-  top: 0.40625rem;
+  top: 0.21875rem;
   height: 1rem;
   font-size: 1rem;
   text-align: center;
-  line-height: 0.625rem;
+  line-height: 1rem;
   background-color: #f6f6f3;
   color: #ff6c12;
-  border-radius: 50%;
 }
 .header .headerNavs .cart .changed {
   animation: twinkling 300ms;
@@ -839,8 +950,8 @@ body {
 .body .allPro .allProLists ul li .productPrice {
   margin-top: 0.3125rem;
   font-size: 0.75rem;
-  height: 1.25rem;
-  line-height: 1.25rem;
+  height: 1rem;
+  line-height: 1rem;
   margin-bottom: 0.46875rem;
 }
 .body .allPro .nextLoading {
@@ -853,7 +964,8 @@ body {
   color: #7e7e7e;
   text-align: center;
   font-size: 0.625rem;
-  line-height: 2rem;
+  line-height: 1rem;
+  height: 3rem;
   overflow: hidden;
 }
 .body .proDetail {
@@ -884,7 +996,9 @@ body {
 }
 .body .proDetail .product .proTitle span {
   float: right;
-  font-size: 1.1875rem;
+  width: 5rem;
+  text-align: right;
+  font-size: 0.9375rem;
   color: #ff2d36;
 }
 .body .proDetail .product .info {
@@ -897,6 +1011,7 @@ body {
   border-top: 0.03125rem solid #FFFFFF;
   border-bottom: 0.03125rem solid #FFFFFF;
   margin-bottom: 0.0625rem;
+  letter-spacing: 0.0625rem;
   box-shadow: 0 0.0625rem 0.0625rem #f7f7f7;
 }
 .body .proDetail .product .productDescription {
@@ -906,9 +1021,14 @@ body {
   text-align: center;
 }
 .body .proDetail .product .productDescription p {
-  width: 12.5rem;
+  width: 17.5rem;
   margin: 0 auto;
   font-size: 0.8125rem;
+  text-align: center;
+}
+.body .proDetail .product .productDescription .proId {
+  text-align: center;
+  margin-bottom: 0.3125rem;
 }
 .body .proDetail .product .proDetailImgs {
   background-color: #FFFFFF;
@@ -1212,7 +1332,7 @@ body {
 }
 .body .cartList .cartAll .list ul li .cartLi .proDetail .proPrice {
   float: left;
-  width: 5.9375rem;
+  width: 5.3125rem;
   height: 1.875rem;
   line-height: 1.875rem;
   font-size: 0.9375rem;
@@ -1236,7 +1356,7 @@ body {
 }
 .body .cartList .cartAll .list ul li .cartLi .proDetail .proNum input {
   float: left;
-  width: 1.25rem;
+  width: 1.875rem;
   text-align: center;
   height: 1.1875rem;
   padding: 0rem;
@@ -1358,9 +1478,14 @@ body {
   position: absolute;
   color: #ff6c12;
   top: 0rem;
-  right: 0rem;
+  right: 1.09375rem;
   margin-top: 0.3rem;
-  text-align: center;
+  text-align: right;
+}
+.body .createOrder form .buyer tr td:last-of-type .delText {
+  color: #d6d6d6;
+  right: 0.125rem;
+  margin-top: 0.4rem;
 }
 .body .createOrder form .proLists {
   background-color: #FFFFFF;
@@ -1645,12 +1770,14 @@ body {
 }
 .orderDetail .orderStatus .statusIcon {
   float: right;
-  background-image: url("../images/diaopai.png");
-  background-position: right center;
-  background-size: 4.6875rem 4.6875rem;
-  background-repeat: no-repeat;
   margin-right: 0.9375rem;
   width: 5rem;
+  height: 4.6875rem;
+  position: relative;
+}
+.orderDetail .orderStatus .statusIcon img {
+  float: right;
+  width: 4.6875rem;
   height: 4.6875rem;
 }
 .orderDetail .orderStatus .statusIcon span {
@@ -1660,9 +1787,9 @@ body {
   height: 1.5625rem;
   line-height: 1.5625rem;
   font-weight: bold;
-  position: relative;
+  position: absolute;
   top: 2.03125rem;
-  left: 0rem;
+  right: 1.25rem;
   transform-origin: center center;
   transform: rotate(5deg);
 }
@@ -1676,7 +1803,7 @@ body {
 .orderDetail .orderAddr .addIcon {
   float: left;
   font-size: 1.25rem;
-  line-height: 3.75rem;
+  line-height: 2.5rem;
   color: #ff6c12;
 }
 .orderDetail .orderAddr p {
@@ -1700,6 +1827,7 @@ body {
   height: 2.1875rem;
   line-height: 1.09375rem;
   overflow: hidden;
+  word-wrap: break-word;
 }
 .orderDetail .detail {
   margin-top: 0.3125rem;
@@ -1867,6 +1995,7 @@ body {
   width: 15.625rem;
   margin: 0 auto;
   padding: 0.03125rem;
+  position: relative;
 }
 .userLogin p,
 .userRegister p {
@@ -1879,8 +2008,8 @@ body {
 .userLogin input,
 .userRegister input {
   display: block;
-  width: 14.9375rem;
-  padding: 0.375rem 0.3125rem 0.375rem 0.3125rem;
+  width: 12.5rem;
+  padding: 0.375rem 2.8125rem 0.375rem 0.3125rem;
   font-size: 0.875rem;
   color: #515151;
   border: none;
@@ -1917,6 +2046,18 @@ body {
   background-color: #FFFFFF;
   color: #010101;
   border: 0.03125rem solid #010101;
+}
+.userLogin .info-x,
+.userRegister .info-x {
+  color: #ff3d27;
+  font-size: 0.625rem;
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+}
+.userLogin .delText,
+.userRegister .delText {
+  color: #d6d6d6;
 }
 .userLogin .info,
 .userRegister .info {

@@ -6,12 +6,15 @@
 @import 'mixin.less';
 // 基础样式
 @import 'base.less';
+// 弹窗插件样式
+@import 'xcConfirm.less';
 
 html, body {
   background-color: #f4f4f4;
   color: #191919;
   overflow-x: hidden;
   position: fixed;
+  padding-bottom: 100/32rem;
 }
 
 // 导航
@@ -224,14 +227,13 @@ html, body {
       }
       span {
         position: absolute;
-        top: 13/32rem;
+        top: 7/32rem;
         height: 32/32rem;
         font-size: 32/32rem;
         text-align: center;
-        line-height: 20/32rem;
+        line-height: 32/32rem;
         background-color: #f6f6f3;
         color: @activeColor;
-        border-radius: 50%;
       }
       .changed {
         animation: twinkling 300ms;
@@ -329,8 +331,8 @@ html, body {
           .productPrice {
             margin-top: 10/32rem;
             font-size: 24/32rem;
-            height: 40/32rem;
-            line-height: 40/32rem;
+            height: 32/32rem;
+            line-height: 32/32rem;
             margin-bottom: 15/32rem;
           }
         }
@@ -346,7 +348,8 @@ html, body {
       color: #7e7e7e;
       text-align: center;
       font-size: 20/32rem;
-      line-height: 2rem;
+      line-height: 1rem;
+      height: 3rem;
       overflow: hidden;
     }
   }
@@ -379,7 +382,9 @@ html, body {
         .boxShadow;
         span {
           float: right;
-          font-size: 38/32rem;
+          width: 160/32rem;
+          text-align: right;
+          font-size: 30/32rem;
           color: #ff2d36;
         }
       ;
@@ -394,6 +399,7 @@ html, body {
         border-top: 1/32rem solid #FFFFFF;
         border-bottom: 1/32rem solid #FFFFFF;
         margin-bottom: 2/32rem;
+        letter-spacing: 2/32rem;
         .boxShadow;
       }
       .productDescription {
@@ -402,9 +408,14 @@ html, body {
         padding: 30/32rem 0rem;
         text-align: center;
         p {
-          width: 400/32rem;
+          width: 560/32rem;
           margin: 0 auto;
           font-size: 26/32rem;
+          text-align: center;
+        }
+        .proId {
+          text-align: center;
+          margin-bottom: 10/32rem;
         }
       }
       .proDetailImgs {
@@ -712,7 +723,7 @@ html, body {
                 }
                 .proPrice {
                   float: left;
-                  width: 190/32rem;
+                  width: 170/32rem;
                   height: 60/32rem;
                   line-height: 60/32rem;
                   font-size: 30/32rem;
@@ -735,7 +746,7 @@ html, body {
                   }
                   input {
                     float: left;
-                    width: 40/32rem;
+                    width: 60/32rem;
                     text-align: center;
                     height: 38/32rem;
                     padding: 0rem;
@@ -842,15 +853,15 @@ html, body {
         border-radius: 15/32rem 15/32rem;
         font-size: 24/32rem;
         color: #666666;
-        border-collapse:separate;
-        border-spacing:0 15/32rem;
+        border-collapse: separate;
+        border-spacing: 0 15/32rem;
         tr {
           padding: 5/32rem 0;
           td {
             input, textarea {
               padding: 10/32rem 125/32rem 10/32rem 10/32rem;
               width: 290/32rem;
-              border:none;
+              border: none;
             }
           }
           td:first-of-type {
@@ -861,15 +872,20 @@ html, body {
             position: relative;
             border: 2/32rem solid #dadada;
             border-radius: 3/32rem;
-            .info{
+            .info {
               display: block;
               width: 130/32rem;
               position: absolute;
               color: @activeColor;
               top: 0rem;
-              right: 0rem;
+              right: 35/32rem;
               margin-top: 0.3rem;
-              text-align: center;
+              text-align: right;
+            }
+            .delText{
+              color: #d6d6d6;
+              right: 4/32rem;
+              margin-top: 0.4rem;
             }
           }
         }
@@ -898,7 +914,7 @@ html, body {
           .proDetail {
             width: 390/32rem;
             height: 170/32rem;
-            padding-top:  20/32rem;
+            padding-top: 20/32rem;
             position: relative;
             margin-bottom: 0rem;
             overflow: hidden;
@@ -1095,7 +1111,7 @@ html, body {
               width: 560/32rem;
               margin: 0 auto;
               button {
-                margin:0 0 20/32rem 0;
+                margin: 0 0 20/32rem 0;
                 width: 150/32rem;
                 height: 50/32rem;
                 font-size: 26/32rem;
@@ -1126,14 +1142,15 @@ html, body {
   }
 }
 
-.view{
+.view {
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  >div{
+  > div {
     min-height: 100%;
   }
 }
+
 //订单详情
 .orderDetail {
   overflow-x: hidden;
@@ -1158,21 +1175,23 @@ html, body {
       letter-spacing: 1/32rem;
       text-align: left;
       overflow: hidden;
-      p{
+      p {
         overflow: hidden;
-        height: @height ;
+        height: @height;
         width: 100%;
       }
     }
     .statusIcon {
       float: right;
-      background-image: url("../images/diaopai.png");
-      background-position: right center;
-      background-size: @height @height;
-      background-repeat: no-repeat;
       margin-right: 30/32rem;
       width: 160/32rem;
       height: @height;
+      position: relative;
+      img{
+        float: right;
+        width: @height ;
+        height: @height;
+      }
       span {
         display: block;
         color: @activeColor;
@@ -1180,9 +1199,9 @@ html, body {
         height: 50/32rem;
         line-height: 50/32rem;
         font-weight: bold;
-        position: relative;
+        position: absolute;
         top: 65/32rem;
-        left: 0/32rem;
+        right:  40/32rem;
         transform-origin: center center;
         transform: rotate(5deg);
       }
@@ -1197,7 +1216,7 @@ html, body {
     .addIcon {
       float: left;
       font-size: 40/32rem;
-      line-height: 120/32rem;
+      line-height: 80/32rem;
       color: @activeColor;
     }
     p {
@@ -1205,7 +1224,7 @@ html, body {
       margin-left: 60/32rem;
       width: 480/32rem;
       height: auto;
-      .name{
+      .name {
         float: left;
         width: 280/32rem;
         word-wrap: break-word;
@@ -1221,6 +1240,7 @@ html, body {
       height: 70/32rem;
       line-height: 35/32rem;
       overflow: hidden;
+      word-wrap: break-word;
     }
   }
   .detail {
@@ -1312,24 +1332,24 @@ html, body {
     }
 
   }
-  .orderLi-price ,.orderLi-info{
+  .orderLi-price, .orderLi-info {
     width: 640/32rem;
     padding: 0 30/32rem;
     background-color: #FFFFFF;
-    tr{
+    tr {
       width: 100%;
       height: 40/32rem;
       line-height: 40/32rem;
       font-size: 24/32rem;
       color: #7e7e7e;
-      td:first-of-type{
+      td:first-of-type {
         width: 200/32rem;
       }
-      td:last-of-type{
+      td:last-of-type {
         text-align: right;
       }
     }
-    .info-t{
+    .info-t {
       height: 50/32rem;
       line-height: 50/32rem;
       color: #4f4f50;
@@ -1338,11 +1358,11 @@ html, body {
       text-align: left;
       font-weight: bold;
     }
-    .actual{
+    .actual {
       color: #4f4f50;
       font-size: 26/32rem;
-      font-weight:bold;
-      .actualAmount{
+      font-weight: bold;
+      .actualAmount {
         font-size: 28/32rem;
         color: @activeColor;
       }
@@ -1351,7 +1371,7 @@ html, body {
   .orderLi-info {
     margin-top: 10/32rem;
   }
-  .orderBtn{
+  .orderBtn {
     width: 580/32rem;
     padding: 0/32rem 30/32rem;
     background-color: #FFFFFF;
@@ -1362,7 +1382,7 @@ html, body {
       line-height: 60/32rem;
       font-size: 26/32rem;
       float: right;
-      padding:0rem;
+      padding: 0rem;
       border: 1/32rem solid #b4b4b4;
       background-color: #fcfcfc;
       border-radius: 15/32rem 15/32rem;
@@ -1384,7 +1404,8 @@ html, body {
     border: 1/32rem solid #cfcfcf;
     width: 500/32rem;
     margin: 0 auto;
-    padding:1/32rem;
+    padding: 1/32rem;
+    position: relative;
   }
   p {
     display: block;
@@ -1395,8 +1416,8 @@ html, body {
   }
   input {
     display: block;
-    width: 478/32rem;
-    padding: (12rem / 32) 10/32rem (12rem / 32) 10/32rem;
+    width: 400/32rem;
+    padding: (12rem / 32) 90/32rem (12rem / 32) 10/32rem;
     font-size: (28rem / 32);
     color: #515151;
     border: none;
@@ -1429,6 +1450,16 @@ html, body {
     .backgroundWhite;
     color: #010101;
     border: 1/32rem solid #010101;
+  }
+  .info-x{
+    color: #ff3d27;
+    font-size: 20/32rem;
+    position: absolute;
+    top: 20/32rem;
+    right: 20/32rem;
+  }
+  .delText{
+    color: #d6d6d6;
   }
   .info {
     color: #ff3d27;

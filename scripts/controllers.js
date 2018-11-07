@@ -33,7 +33,7 @@ angular.module('Controllers', [])
         };
         /*用户注销*/
         $scope.userLogout = function () {
-            if (window.confirm('确定要注销吗，亲？')) {
+            if (window.confirm('确定要注销吗？')) {
                 $http.get(PUBLIC + '/netshop/buyer/logout')
                     .then(function (res) {
                         if (res.data.msg == 'success') {//注销成功
@@ -85,6 +85,7 @@ angular.module('Controllers', [])
         $scope.nextLoading = false;
         $rootScope.loaded = true;
         $scope.allProLists = [];
+        // window.wxc.xcConfirm('这是一个测试', window.wxc.xcConfirm.typeEnum.info);
         /*自动加载下一页*/
         $scope.vm.nextPage = function () {
             if ($scope.vm.busy) {
@@ -119,7 +120,7 @@ angular.module('Controllers', [])
                         alert('获取商品信息失败，稍后再试');
                     }
                 }, function (err) {
-                    alert('获取商品信息失败，稍后再试');
+                    console.log(err);
                 });
         };
         /*跳转至商品详情页，携带参数，正在浏览的*/
@@ -160,7 +161,7 @@ angular.module('Controllers', [])
                 alert('网络卡了，稍后再试');
             }
         }, function (err) {
-            alert('网络卡了，稍后再试');
+            console.log('网络卡了，稍后再试');
         })
         $scope.chooseColor = function (index) {
             $scope.product.colorChoosed = index;
@@ -193,11 +194,13 @@ angular.module('Controllers', [])
             }
         });
         $scope.confirmOrder = function () {
+            console.log($scope.num);
             if (!$rootScope.loged) {
                 alert('请登录！');
                 $rootScope.toggleDialog();
                 return;
             }
+            console.log($scope.num);
             if ($scope.type == 1) {//添加到购物车
                 $http.post(PUBLIC + '/netshop/buyer/cart/add',
                     {
@@ -215,7 +218,7 @@ angular.module('Controllers', [])
                             alert('请登录');
                         }
                     }, function (err) {
-                        alert('网络异常，请稍后再试');
+                        console.log('网络异常，请稍后再试');
                     });
             }
             else if ($scope.type == 2) {//立即购买
@@ -237,7 +240,11 @@ angular.module('Controllers', [])
     .controller('loginController', ['$scope', '$http', '$rootScope', '$location', '$cookies', function ($scope, $http, $rootScope, $location, $cookies) {
         /*用户登录*/
         $scope.userLog = {};
-        $scope.userLogin = function () {
+        $scope.userLogin = function (formValid) {
+            if(formValid){
+                alert('输入信息有误！');
+                return;
+            }
             $http.post(PUBLIC + '/netshop/buyer/login',
                 $scope.userLog)
                 .then(function successCallback(res) {//登录成功
@@ -253,9 +260,6 @@ angular.module('Controllers', [])
                         $cookies.put('username', $scope.userLog.username, {expires: expireDate});
                         $scope.userLog = {};
                         window.location.reload();
-                    }
-                    else {
-                        alert('用户名或密码错误！');
                     }
                 }, function failedCallback(err) {//登录失败
                     alert('用户名或密码错误！');
@@ -273,12 +277,17 @@ angular.module('Controllers', [])
     }])
     //注册新用户
     .controller('registerController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
-        $scope.userRegister = function () {
+        $scope.registerInfo={};
+        $scope.userRegister = function (btnValid) {
+            if(btnValid){//如果表单不可提交
+                alert('输入信息有误!');
+                return;
+            }
             var user={
-                username: this.newName,
-                password: this.newPwd,
-                phone: this.phone,
-                email: this.email
+                username: $scope.registerInfo.newName,
+                password: $scope.registerInfo.newPwd,
+                phone: $scope.registerInfo.phone,
+                email: $scope.registerInfo.email
             };
             $http({
                 method: 'post',
@@ -286,10 +295,11 @@ angular.module('Controllers', [])
                 data: user
             }).then(function (res) {
                 alert('注册成功！请登录');
+                $scope.registerInfo={};
                 $rootScope.showRegister=false;
                 $rootScope.showUserLogin=true;
             }, function (err) {
-                alert('网络错误，请稍后重试');
+                alert('注册'+err);
             });
         }
     }])
@@ -335,7 +345,7 @@ angular.module('Controllers', [])
                         alert(res.data.msg);
                     }
                 }, function (err) {
-                    alert('网络错误，稍后再试！');
+                    alert('加购物车！'+err);
                 });
         }
     }])
@@ -361,7 +371,7 @@ angular.module('Controllers', [])
                     $rootScope.toggleDialog();
                 }
             }, function (err) {
-                alert('网络错误，稍后重试');
+                console.log('登录'+err);
             });
 
         /*增减购物车商品数量*/
@@ -392,7 +402,7 @@ angular.module('Controllers', [])
                             alert('网络出错了，稍等一下！');
                         }
                     }, function (err) {
-                        alert('网络出错了，稍等一下！');
+                        console.log('网络出错了，稍等一下！');
                     });
             }
         };
@@ -412,7 +422,7 @@ angular.module('Controllers', [])
                         }
 
                     }, function (err) {
-                        alert('网络出错了，稍等一下！');
+                        console.log('删除该商品'+err);
                     });
             } else {
                 return;
@@ -432,7 +442,7 @@ angular.module('Controllers', [])
             if($scope.checkNum==0){
                 alert('请至少选择一件商品！');
             }else{
-                if (window.confirm('确定删除' + $scope.items.length + '件商品吗，亲？')) {
+                if (window.confirm('确定删除' + $scope.items.length + '件商品吗？')) {
                     var items = $scope.items.join('_');
                     $http.get(PUBLIC + '/netshop/buyer/cart/batchDelete', {
                         params: {itemIds: items}
@@ -444,7 +454,7 @@ angular.module('Controllers', [])
                                 alert('出错了，稍后再试');
                             }
                         }, function (err) {
-                            alert('出错了，稍后再试');
+                            console.log('删除'+err);
                         });
                 } else {
                     return;
@@ -532,10 +542,10 @@ angular.module('Controllers', [])
                                 $scope.vm.busy = false;
                             }
                         } else {
-                            alert('获取商品信息失败，稍后再试');
+                            console.log('获取商品信息失败，稍后再试');
                         }
                     }, function (err) {
-                        alert('获取商品信息失败，稍后再试');
+                        console.log('获取商品信息失败，稍后再试err');
                     });
             };
 
@@ -553,7 +563,7 @@ angular.module('Controllers', [])
                             $scope.orderLists = $scope.orderLists.slice(0, index).concat($scope.orderLists.slice(index + 1));
                         }
                     }, function (err) {
-                        alert('网络异常，稍后再试');
+                        console.log('删除成功'+err);
                     });
             } else {
                 return;
@@ -574,7 +584,7 @@ angular.module('Controllers', [])
                             $scope.orderLists[index].orderStatus = '2';
                         }
                     }, function (err) {
-                        alert('网络异常，稍后再试!');
+                        console.log('取消成功order!');
                     });
             } else {
                 return;
@@ -602,12 +612,11 @@ angular.module('Controllers', [])
             .then(function (res) {
                 if (res.data.msg == 'success') {
                     $scope.orderDetail = res.data.data;
-                    console.log($scope.orderDetail);
                 } else {
                     alert("网络出错了，稍后再试");
                 }
             }, function (err) {
-                alert("网络出错了，稍后再试");
+                console.log("orderDetail"+err);
             })
         /*删除订单*/
         $scope.delOrder = function (orderId) {
@@ -623,7 +632,7 @@ angular.module('Controllers', [])
                             history.go(-1);
                         }
                     }, function (err) {
-                        alert('网络异常，稍后再试');
+                        console.log('网络异常，稍后再试');
                     });
             } else {
                 return;
@@ -644,7 +653,7 @@ angular.module('Controllers', [])
                             $scope.orderDetail.orderStatus = '2';
                         }
                     }, function (err) {
-                        alert('网络异常，稍后再试');
+                        console.log('取消成功'+err);
                     });
             } else {
                 return;

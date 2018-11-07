@@ -12,11 +12,9 @@
                                ng-model="orderName"
                                name="orderName"
                                ng-check
-                               required
-                    /></td>
-                    <!--<td><span class="info"
-                              ng-show="createOrder_form.orderName.$dirty&&createOrder_form.orderName.$invalid&&!createOrder_form.orderName.$checked">
-                         <small ng-show="createOrder_form.orderName.$error.required">不能为空</small></span>-->
+                               required/>
+                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.orderName.$error.required" ng-click="orderName=''"></span>
+                        <span class="info" ng-show="createOrder_form.orderName.$invalid&&createOrder_form.orderName.$error.required">*必填</span>
                     </td>
                 </tr>
                 <tr>
@@ -25,12 +23,11 @@
                                name="phone"
                                ng-check
                                required
-                               ng-pattern="/^(1[3456789]\d{9})$/"
-                    />
-                        <span class="info"
-                              ng-show="createOrder_form.phone.$dirty&&createOrder_form.phone.$invalid&&!createOrder_form.phone.$checked">
-                        <small ng-show="createOrder_form.phone.$error.required">不能为空</small>
-                        <small ng-show="createOrder_form.phone.$error.pattern">手机号无效</small>
+                               ng-pattern="/^(1[3456789]\d{9})$/"/>
+                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.phone.$error.required" ng-click="phone=''"></span>
+                        <span class="info" ng-show="createOrder_form.phone.$invalid&&createOrder_form.phone.$error.required">*必填</span>
+                        <span class="info" ng-show="createOrder_form.phone.$invalid&&!createOrder_form.phone.$checked&&!createOrder_form.phone.$error.required&&createOrder_form.phone.$error.pattern">
+                        手机号无效
                         </span>
                     </td>
                 </tr>
@@ -41,29 +38,27 @@
                                   name="addr"
                                   required>
                         </textarea>
-                        <span class="info"
-                           ng-show="createOrder_form.addr.$dirty&&createOrder_form.addr.$invalid&&!createOrder_form.addr.$checked">
-                            <small ng-show="createOrder_form.addr.$error.required">不能为空</small>
-                        </span>
+                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.addr.$error.required" ng-click="addr=''"></span>
+                        <span class="info" ng-show="createOrder_form.addr.$invalid&&createOrder_form.addr.$error.required">*必填</span>
                     </td>
-                   <!-- <td>
+                    <!-- <td>
 
-                    </td>-->
+                     </td>-->
                 </tr>
             </table>
             <ul class="proLists">
-                    <li class="cartLi" ng-repeat="product in products track by $index">
-                            <div class="proImg"><img ng-src="{{product.img}}"></div>
-                            <div class="proDetail">
-                                <p class="proName">{{product.name}}</p>
-                                <p class="proInfo">{{product.productColor}}{{product.productSize}}</p>
-                                <span class="proPrice">{{product.productPrice|currency:'￥'}}</span>
-                                <div class="proNum">
-                                    x{{product.productQuantity}}
-                                </div>
-                            </div>
-                    </li>
-                </ul>
+                <li class="cartLi" ng-repeat="product in products track by $index">
+                    <div class="proImg"><img ng-src="{{product.img}}"></div>
+                    <div class="proDetail">
+                        <p class="proName">{{product.name}}</p>
+                        <p class="proInfo">{{product.productColor}}{{product.productSize}}</p>
+                        <span class="proPrice">{{product.productPrice|currency:'￥'}}</span>
+                        <div class="proNum">
+                            x{{product.productQuantity}}
+                        </div>
+                    </div>
+                </li>
+            </ul>
             <p class="total">合计：<span>{{total|currency:'￥'}}</span></p>
             <button type="submit" ng-disabled="createOrder_form.$invalid">确定下单</button>
         </form>

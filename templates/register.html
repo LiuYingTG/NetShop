@@ -4,30 +4,31 @@
         <span class="icon-x-altx-alt close-dialog" ng-click="toggleDialog()"></span>
     </p>
     <form role="form" novalidate name="register_form" >
-        <p>用户名{{newName}}</p>
+        <p>用户名</p>
         <div>
             <input type="text"
-                   ng-model="newName"
+                   ng-model="registerInfo.newName"
                    name="username"
-                   ng-minlength="6"
+                   ng-minlength="4"
                    ng-maxlength="12"
                    required
                    ng-check
                    ensure-unique="checkUsername"
-                   ng-pattern="/^[a-zA-Z]{6,12}$/"
-                   placeholder="6-12位英文"/>
+                   ng-pattern="/^[a-zA-Z0-9]{4,12}$/"
+                   placeholder="4-12位英文或数字"/>
+            <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.username.$error.required" ng-click="registerInfo.newName=''"></span>
+            <span class="info-x" ng-show="register_form.username.$invalid&&register_form.username.$error.required">*必填</span>
         </div>
-        <p class="info" ng-show="register_form.username.$dirty&&register_form.username.$invalid&&!register_form.username.$checked">
-            <small ng-show="register_form.username.$error.required">用户名不能为空</small>
-            <small ng-show="register_form.username.$error.pattern">用户名格式错误</small>
-            <small ng-show="register_form.username.$error.minlength">不得少于6位</small>
-            <small ng-show="register_form.username.$error.maxlength">不得多于6位</small>
-            <small ng-show="register_form.username.$error.unique">该用户已存在</small>
+        <p class="info" ng-show="register_form.username.$invalid&&!register_form.username.$checked&&!register_form.username.$error.required">
+            <small ng-show="register_form.username.$dirty&&register_form.username.$error.pattern">用户名格式错误</small>
+            <small ng-show="register_form.username.$dirty&&register_form.username.$error.minlength">不得少于4位</small>
+            <small ng-show="register_form.username.$dirty&&register_form.username.$error.maxlength">不得多于12位</small>
+            <small ng-show="register_form.username.$dirty&&register_form.username.$error.unique">该用户已存在</small>
         </p>
         <p>密码</p>
         <div>
             <input type="password"
-                   ng-model="newPwd"
+                   ng-model="registerInfo.newPwd"
                    name="pwd"
                    required
                    ng-check
@@ -36,9 +37,10 @@
                    ng-pattern="/^[a-zA-Z0-9]{6,12}$/"
                    placeholder="6-12位英文或数字"
             />
+            <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.pwd.$error.required" ng-click="registerInfo.newPwd=''"></span>
+            <span class="info-x" ng-show="register_form.pwd.$invalid&&register_form.pwd.$error.required">*必填</span>
         </div>
-        <p class="info" ng-show="register_form.pwd.$dirty&&register_form.pwd.$invalid&&!register_form.pwd.$checked">
-            <small ng-show="register_form.pwd.$error.required">密码不能为空</small>
+        <p class="info" ng-show="register_form.pwd.$invalid&&!register_form.pwd.$checked&&!register_form.pwd.$error.required">
             <small ng-show="register_form.pwd.$error.pattern">密码格式错误</small>
             <small ng-show="register_form.pwd.$error.minlength">不得少于6位</small>
             <small ng-show="register_form.pwd.$error.maxlength">不得多于12位</small>
@@ -47,46 +49,48 @@
         <div>
             <input type="password"
                    placeholder="确认密码"
-                   ng-model="repwd"
+                   ng-model="registerInfo.repwd"
                    name="repwd"
                    ng-check
                    required
-                   ensure-same
-            />
+                   ensure-same/>
+            <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.repwd.$error.required" ng-click="registerInfo.repwd=''"></span>
+            <span class="info-x" ng-show="register_form.repwd.$invalid&&register_form.repwd.$error.required">*必填</span>
         </div>
-        <p class="info" ng-show="register_form.repwd.$dirty&&register_form.repwd.$invalid&&!register_form.repwd.$checked">
-            <small ng-show="register_form.repwd.$error.required">不能为空</small>
+        <p class="info" ng-show="register_form.repwd.$invalid&&!register_form.repwd.$checked&&!register_form.repwd.$error.required">
             <small ng-show="register_form.repwd.$error.same">密码不一致</small>
         </p>
         <p>手机号码</p>
         <div>
-            <input type="text" ng-model="phone"
+            <input type="text" ng-model="registerInfo.phone"
                    name="phone"
                    ng-check
                    required
-                   ng-pattern="/^(1[3456789]\d{9})$/"
-            />
+                   ng-pattern="/^(1[3456789]\d{9})$/"/>
+            <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.phone.$error.required" ng-click="registerInfo.phone=''"></span>
+            <span class="info-x" ng-show="register_form.phone.$invalid&&register_form.phone.$error.required">
+                *必填
+            </span>
         </div>
-        <p class="info" ng-show="register_form.phone.$dirty&&register_form.phone.$invalid&&!register_form.phone.$checked">
-            <small ng-show="register_form.phone.$error.required">手机号不能为空</small>
+        <p class="info" ng-show="register_form.phone.$invalid&&!register_form.phone.$checked&&!register_form.phone.$error.required">
             <small ng-show="register_form.phone.$error.pattern">请输入有效的手机号</small>
         </p>
         <p>电子邮箱</p>
         <div>
-            <input type="text" ng-model="email" placeholder="用于找回密码"
+            <input type="text" ng-model="registerInfo.email" placeholder="用于找回密码"
                    ng-check
                    name="email"
                    required
                    ng-pattern="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/"
-                   ensure-unique="checkEmail"
-            />
+                   ensure-unique="checkEmail"/>
+            <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.email.$error.required" ng-click="registerInfo.email=''"></span>
+            <span class="info-x" ng-show="register_form.email.$invalid&&register_form.email.$error.required">*必填</span>
         </div>
-        <p class="info" ng-show="register_form.email.$dirty&&register_form.email.$invalid&&!register_form.email.$checked">
-            <small ng-show="register_form.email.$error.required">不能为空</small>
+        <p class="info" ng-show="register_form.email.$invalid&&!register_form.email.$checked&&!register_form.email.$error.required">
             <small ng-show="register_form.email.$error.pattern">请输入有效的邮箱地址</small>
             <small ng-show="register_form.email.$error.unique">该邮箱已注册</small>
         </p>
         <br>
-        <button ng-disabled="register_form.$invalid" ng-click="userRegister()">注&nbsp;&nbsp;册</button>
+        <button ng-click="userRegister(register_form.$invalid)">注&nbsp;&nbsp;册</button>
     </form>
 <input type="text" ng-model="test"/>

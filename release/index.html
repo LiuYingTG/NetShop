@@ -7,7 +7,7 @@
 	<title>XXX的小店</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!--<link rel="stylesheet" href="static/less/main.less">-->
-	<link rel="stylesheet" href="./static/css/main-c798086873.css">
+	<link rel="stylesheet" href="./static/css/main.css">
 </head>
 <body ng-app="NetShop">
 	<div class="viewport" ng-cloak>
@@ -45,7 +45,7 @@
 			</div>
 			<!-- 主体 -->
 			<div ng-class="{body: true, collapse: collapsed}" ng-click="closeNav(collapsed)" nav-collapse="collapsed">
-				<div loading class="loading" ng-hide="loaded" src="static/images/loading-50c5e3e79b.gif"></div>
+				<div loading class="loading" ng-hide="loaded" src="static/images/loading.gif"></div>
 				<!-- 占位符 -->
 				<div ng-view class="view"></div>
 			</div>
@@ -57,8 +57,9 @@
 			<div ng-show="showRegister" ng-class="{userRegister:true}" ng-controller="registerController" ng-include="'./templates/register.html'"></div>
 		</div>
 	</div>
-	<script src="./static/libs/jquery-252b0b512a.js"></script>
-	<script src="./static/libs/angular-7d432c4a3e.js"></script>
-	<script src="./scripts/main-4f951c2219.js"></script>
+	<script src="./static/libs/jquery.js"></script>
+	<script src="./static/libs/xcConfirm.js"></script>
+	<script src="./static/libs/angular.js"></script>
+	<script src="./scripts/main.js"></script>
 </body>
 </html>
