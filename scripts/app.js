@@ -29,6 +29,10 @@ NetShop.config(['$routeProvider', '$locationProvider', function ($routeProvider,
             templateUrl: './templates/orderDetail.html',
             controller: 'orderDetailController'
         })
+        .when('/setting', {
+            templateUrl: './templates/userSetting.html',
+            controller: 'userSettingController'
+        })
         .otherwise({
             redirectTo: '/allPro/all'
         });
@@ -132,7 +136,8 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
     }
     /*页面刷新*/
     $rootScope.$on('$locationChangeSuccess', function (event, newVal, current) {//返回前页时，刷新前页
-        if ((current != newVal) && (newVal.split('?')[0].split('#')[1] != '/createOrder')) {
+        if ((current != newVal) && (newVal.split('?')[0].split('#')[1] .indexOf('createOrder')== -1)) {
+            console.log('createOrder');
             window.location.reload();
         } else {
             return;

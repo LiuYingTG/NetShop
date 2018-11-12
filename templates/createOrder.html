@@ -13,8 +13,10 @@
                                name="orderName"
                                ng-check
                                required/>
-                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.orderName.$error.required" ng-click="orderName=''"></span>
-                        <span class="info" ng-show="createOrder_form.orderName.$invalid&&createOrder_form.orderName.$error.required">*必填</span>
+                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.orderName.$error.required"
+                              ng-click="orderName=''"></span>
+                        <span class="info"
+                              ng-show="createOrder_form.orderName.$invalid&&createOrder_form.orderName.$error.required">*必填</span>
                     </td>
                 </tr>
                 <tr>
@@ -24,9 +26,12 @@
                                ng-check
                                required
                                ng-pattern="/^(1[3456789]\d{9})$/"/>
-                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.phone.$error.required" ng-click="phone=''"></span>
-                        <span class="info" ng-show="createOrder_form.phone.$invalid&&createOrder_form.phone.$error.required">*必填</span>
-                        <span class="info" ng-show="createOrder_form.phone.$invalid&&!createOrder_form.phone.$checked&&!createOrder_form.phone.$error.required&&createOrder_form.phone.$error.pattern">
+                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.phone.$error.required"
+                              ng-click="phone=''"></span>
+                        <span class="info"
+                              ng-show="createOrder_form.phone.$invalid&&createOrder_form.phone.$error.required">*必填</span>
+                        <span class="info"
+                              ng-show="createOrder_form.phone.$invalid&&!createOrder_form.phone.$checked&&!createOrder_form.phone.$error.required&&createOrder_form.phone.$error.pattern">
                         手机号无效
                         </span>
                     </td>
@@ -38,8 +43,10 @@
                                   name="addr"
                                   required>
                         </textarea>
-                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.addr.$error.required" ng-click="addr=''"></span>
-                        <span class="info" ng-show="createOrder_form.addr.$invalid&&createOrder_form.addr.$error.required">*必填</span>
+                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.addr.$error.required"
+                              ng-click="addr=''"></span>
+                        <span class="info"
+                              ng-show="createOrder_form.addr.$invalid&&createOrder_form.addr.$error.required">*必填</span>
                     </td>
                     <!-- <td>
 
@@ -59,7 +66,16 @@
                     </div>
                 </li>
             </ul>
-            <p class="total">合计：<span>{{total|currency:'￥'}}</span></p>
+            <div class="orderInfo">
+                <p class="orderRemark">
+                    <span class="info">买家留言：</span>
+                    <input type="text" class="text"
+                           ng-model="orderRemark"
+                    />
+                    <span class="delText icon-x-altx-alt info" ng-show="orderRemark" ng-click="orderRemark=''"></span>
+                </p>
+                <p class="total">合计：<span>{{total|currency:'￥'}}</span></p>
+            </div>
             <button type="submit" ng-disabled="createOrder_form.$invalid">确定下单</button>
         </form>
     </div>

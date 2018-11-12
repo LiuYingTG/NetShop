@@ -17,7 +17,7 @@
                             <a class="icon-checkbox-unchecked"></a>
                         </div>
                         <div class="cartLi">
-                            <div class="proImg"><img ng-src="{{cartList.productImgMd}}"></div>
+                            <div class="proImg" ng-click="toProDetail($index)"><img ng-src="{{cartList.productImgMd}}"></div>
                             <div class="proDetail">
                                 <span class="icon-x-altx-alt delThis" ng-click="delete($index)"></span>
                                 <p class="proName">{{cartList.productName}}</p>
@@ -25,7 +25,7 @@
                                 <span class="proPrice">{{cartList.productPrice|currency:'￥'}}</span>
                                 <div class="proNum">
                                     <span class="rv" ng-click="proNumChange('rv',$index)">-</span>
-                                    <input type="text" ng-model="cartList.productQuantity">
+                                    <input type="text" ng-blur="editQuantity(cartList.productId,cartList.productQuantity,$index)" ng-model="cartList.productQuantity">
                                     <span class="add" ng-click="proNumChange('add',$index)">+</span>
                                 </div>
                             </div>

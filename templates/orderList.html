@@ -31,8 +31,9 @@
                             </div>
                         </div>
                         <div class="orderBtn">
-                            <button ng-show="orderList.orderStatus==1||orderList.orderStatus==2" ng-click="delOrder($index)">删除订单</button>
+                            <button ng-show="orderList.orderStatus==1||orderList.orderStatus==5" ng-click="delOrder($index)">删除订单</button>
                             <button ng-show="orderList.orderStatus==0" ng-click="cancelOrder($index)">取消订单</button>
+                            <button ng-show="orderList.orderStatus==4" ng-click="receiveOrder($index)">确认收货</button>
                         </div>
                     </li>
                 </ul>

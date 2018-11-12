@@ -15,6 +15,43 @@ html, body {
   overflow-x: hidden;
   position: fixed;
   padding-bottom: 100/32rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.textFont {
+  font-size: 0.7rem;
+}
+
+.titleFont {
+  font-size: 0.7rem;
+}
+
+.priceFont {
+  font-size: 0.7rem;
+}
+
+.navFont {
+  font-size: 0.85rem
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.dialogShow {
+  animation: showDialog 300ms;
+}
+
+@keyframes showDialog {
+  0% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 // 导航
@@ -33,18 +70,19 @@ html, body {
   }
 
   .login {
-    height: (70rem / 32);
-    margin: (54rem / 32) 0;
+    height: (32rem / 32);
+    margin: (60rem /32) 0 0/32rem;
     .avatar {
       //width: (70rem / 32);
       height: 100%;
       float: left;
       line-height: 1;
-      font-size: (36rem / 32);
+      .navFont;
       color: #1e1e1e;
       a {
         display: block;
-        padding-top: 16rem/ 32;
+        color: #000000;
+        line-height: 1rem;
       }
       .icon-user-loged {
         color: red;
@@ -52,30 +90,29 @@ html, body {
     }
     span {
       display: block;
-      line-height: 1;
-      padding: (19rem / 32) 0;
-      margin-left: (56rem / 32);
-      font-size: (32rem / 32);
+      line-height: 32/32rem;
+      margin-left: (50rem / 32);
+      .navFont;
     }
   }
   dd {
     line-height: 1;
-    padding: (16rem / 32) 0;
-    margin: (16rem / 32) 0;
+    padding: (20rem / 32) 0;
+    margin: (10rem / 32) 0;
     transform: translate(-100%);
 
     a {
-      font-size: (32rem / 32);
+      .navFont;
       color: #FFF;
-      height: 36/32rem;
-      line-height: 36/32rem;
+      height: 28/32rem;
+      line-height: 28/32rem;
     }
 
     a[class^="icon"]:before {
       display: inline-block;
       width: (36rem  / 32);
       height: (36rem  / 32);
-      line-height: (36rem  / 32);
+      line-height: 1.15rem;
       text-align: center;
       border-radius: 50%;
       font-size: (24rem / 32);
@@ -106,7 +143,7 @@ html, body {
     .icon-tie:before {
       background-color: #fdcc65;
     }
-    .icon-bin:before {
+    .icon-cog:before {
       background-color: #beb3fd;
     }
 
@@ -171,7 +208,7 @@ html, body {
   width: 640/32rem;
   height: @hdHeight;
   max-width: 640/32rem;
-  //padding-top: (28rem / 32);
+  font-size: (28rem / 32);
   border-bottom: (2rem / 32) solid #ededed;
   .boxShadow;
   padding-left: 50/32rem;
@@ -190,8 +227,8 @@ html, body {
     line-height: @hdHeight;
     font-style: normal;
     text-align: center;
-    font-size: (32rem / 32);
     font-weight: normal;
+    font-size: (28rem / 32);
   }
 
   .menu {
@@ -202,6 +239,7 @@ html, body {
     position: relative;
     height: @hdHeight;
     line-height: @hdHeight;
+    font-size: (26rem / 32);
   }
   .headerNavs {
     @liWidth: 50/32rem;
@@ -215,7 +253,7 @@ html, body {
       width: @liWidth;
       text-align: left;
       a {
-        font-size: (32rem / 32);
+        font-size: (26rem / 32);
         color: #010101;
         line-height: @hdHeight;
       }
@@ -229,11 +267,11 @@ html, body {
         position: absolute;
         top: 7/32rem;
         height: 32/32rem;
-        font-size: 32/32rem;
         text-align: center;
         line-height: 32/32rem;
         background-color: #f6f6f3;
         color: @activeColor;
+        width: 0.7rem;
       }
       .changed {
         animation: twinkling 300ms;
@@ -246,11 +284,11 @@ html, body {
         }
         40% {
           opacity: 0.8;
-          font-size: 64/32rem;
+          font-size: 30/32rem;
         }
         100% {
           opacity: 1;
-          font-size: 10/32rem;
+          font-size: 22/32rem;
         }
       }
     }
@@ -273,14 +311,20 @@ html, body {
   overflow-y: hidden;
   .dialogHead {
     text-align: center;
-    font-size: 32/32rem;
+    font-size: 26/32rem;
     position: relative;
-    .close-dialog {
-      position: absolute;
-      right: 0rem;
-      font-size: 30/32rem;
-      color: #7e7e7e;
-    }
+    height: 32/32rem;
+
+  }
+  .close-dialog {
+    position: absolute;
+    right: 0rem;
+    font-size: 28/32rem;
+    color: #7e7e7e;
+    width: 32/32rem;
+    height: 32/32rem;
+    line-height: 32/32rem;
+    text-align: right;
   }
 }
 
@@ -325,15 +369,16 @@ html, body {
             vertical-align: middle;
             overflow: hidden;
             line-height: 30/32rem;
-            font-size: 24/32rem;
+            font-weight: normal;
+            .titleFont;
             padding: 0 15/32rem;
           }
           .productPrice {
             margin-top: 10/32rem;
-            font-size: 24/32rem;
-            height: 32/32rem;
-            line-height: 32/32rem;
-            margin-bottom: 15/32rem;
+            .priceFont;
+            height: 28/32rem;
+            line-height: 28/32rem;
+            margin-bottom: 5/32rem;
           }
         }
       }
@@ -357,7 +402,6 @@ html, body {
   // 商品详情页
   .proDetail {
     overflow-x: hidden;
-    //overflow-y: scroll;
     margin-bottom: 120/32rem;
     /*商品展示*/
     .product {
@@ -374,26 +418,25 @@ html, body {
       }
       .proTitle {
         padding: 15/32rem 20/32rem;
-        font-size: 26/32rem;
-        font-weight: 700;
+        font-size: 0.8rem;
         line-height: 40/32rem;
         background-color: #FFFFFF;
         color: #494949;
         .boxShadow;
         span {
           float: right;
-          width: 160/32rem;
+          width: 150/32rem;
           text-align: right;
-          font-size: 30/32rem;
+          font-size: 26/32rem;
           color: #ff2d36;
         }
       ;
       }
       .info {
-        font-size: 24/32rem;
+        font-size: 22/32rem;
         color: #565656;
-        height: 70/32rem;
-        line-height: 70/32rem;
+        height: 65/32rem;
+        line-height: 65/32rem;
         text-align: center;
         background-color: #fafafa;
         border-top: 1/32rem solid #FFFFFF;
@@ -410,7 +453,7 @@ html, body {
         p {
           width: 560/32rem;
           margin: 0 auto;
-          font-size: 26/32rem;
+          .textFont;
           text-align: center;
         }
         .proId {
@@ -441,12 +484,13 @@ html, body {
         height: 70/32rem;
         margin: 0 auto;
         button {
+          letter-spacing: 1/32rem;
           width: 265/32rem;
           height: 70/32rem;
           padding: 10/32rem 20/32rem;
           line-height: 36/32rem;
           float: left;
-          font-size: 28/32rem;
+          font-size: 26/32rem;
           border: 1/32rem solid #dedede;
           border-radius: 3%;
           background-color: #e4e4e4;
@@ -495,12 +539,12 @@ html, body {
           position: absolute;
           left: 210/32rem;
           bottom: 30/32rem;
-          font-size: 26/32rem;
+          font-size: 24/32rem;
           text-align: left;
           .price {
             color: #ff2d36;;
-            font-size: 34/32rem;
-            line-height: 60/32rem;
+            font-size: 0.85rem;
+            line-height: 45/32rem;
           }
           .productStock {
             color: #8a8a8a;
@@ -511,7 +555,7 @@ html, body {
       .info {
         display: block;
         border-top: 1/32rem solid #ededed;
-        font-size: 26/32rem;
+        font-size: 24/32rem;
         line-height: 65/32rem;
       }
       ul {
@@ -521,8 +565,8 @@ html, body {
           float: left;
           background-color: #F5F5F5;
           color: #3B3B3B;
-          font-size: 24/32rem;
-          line-height: 40/32rem;
+          font-size: 22/32rem;
+          line-height: 35/32rem;
           border-radius: 15%;
           margin-right: 20/32rem;
           margin-bottom: 15/32rem;
@@ -552,7 +596,7 @@ html, body {
             padding: 0rem;
             float: left;
             text-align: center;
-            font-size: 28/32rem;
+            font-size: 26/32rem;
             line-height: 50/32rem;
             border: none;
             border-radius: 2/32rem;
@@ -564,7 +608,7 @@ html, body {
           }
           button {
             color: #7d7c80;
-            font-weight: bold;
+            .bold;
           }
           input {
             background-color: #F5F5F5;
@@ -579,6 +623,7 @@ html, body {
           width: 100%;
           padding: 10/32rem 20/32rem;
           line-height: 36/32rem;
+          letter-spacing: 5/32rem;
           font-size: 28/32rem;
           border: 1/32rem solid #fbfbfb;
           border-radius: 15/32rem;
@@ -604,7 +649,7 @@ html, body {
       height: 100/32rem;
       line-height: 100/32rem;
       text-align: center;
-      font-size: 26/32rem;
+      .textFont;
       color: #bababa;
     }
     .cartAll {
@@ -618,7 +663,7 @@ html, body {
         -webkit-box-shadow: inset 0 -5/32rem 5/32rem #efefef;
         -moz-box-shadow: inset 0 -5/32rem 5/32rem #efefef;
         box-shadow: inset 0 -5/32rem 5/32rem #efefef;
-        font-size: 28/32rem;
+        font-size: 26/32rem;
         height: 70/32rem;
         width: 580/32rem;
         line-height: 70/32rem;
@@ -630,15 +675,14 @@ html, body {
             display: inline-block;
             color: @activeColor;
             line-height: 80/32rem;
-            font-size: 38/32rem;
-            font-weight: bold;
+            .bold;
           }
         }
         .batchDelete {
           float: right;
           line-height: 70/32rem;
           color: #8a8a8a;
-          font-size: 32/32rem;
+          font-size: 26/32rem;
         }
 
       }
@@ -650,7 +694,7 @@ html, body {
         ul {
           width: 100%;
           li {
-            @height: 210/32rem;
+            @height: 180/32rem;
             height: @height;
             width: 100%;
             margin-bottom: 10/32rem;
@@ -663,6 +707,7 @@ html, body {
               width: 60/32rem;
               height: @height;
               a {
+                font-size: 26/32rem;
                 text-align: center;
                 line-height: @height;
                 color: #a5a5a5;
@@ -680,23 +725,23 @@ html, body {
               .proImg {
                 float: left;
                 height: @height;
-                width: 160/32rem;
+                width: 140/32rem;
                 img {
                   display: block;
-                  height: 160/32rem;
+                  height: 140/32rem;
                   margin-top: 20/32rem;
                 }
               }
               .proDetail {
                 float: right;
-                width: 320/32rem;
-                height: 200/32rem;
+                width: 340/32rem;
+                height: 160/32rem;
                 padding: 10/32rem 40/32rem 0/32rem 15/32rem;
                 position: relative;
                 margin-bottom: 0rem;
                 .delThis {
                   color: @activeColor;
-                  opacity: 0.6;
+                  opacity: 0.7;
                   display: block;
                   position: absolute;
                   top: 8/32rem;
@@ -705,28 +750,27 @@ html, body {
                 .proName {
                   margin-top: 5/32rem;
                   width: 315/32rem;
-                  height: 80/32rem;
+                  height: 64/32rem;
                   overflow: hidden;
-                  line-height: 40/32rem;
-                  font-size: 26/32rem;
-                  font-weight: 600;
+                  line-height: 32/32rem;
+                  font-size: 0.75rem;
                   color: #3f3f3f;
                   text-align: justify;
                 }
                 .proInfo {
                   width: 100%;
-                  height: 40/32rem;
+                  height: 35/32rem;
                   overflow: hidden;
-                  line-height: 40/32rem;
+                  line-height: 35/32rem;
                   font-size: 24/32rem;
                   color: #878787;
                 }
                 .proPrice {
                   float: left;
                   width: 170/32rem;
-                  height: 60/32rem;
-                  line-height: 60/32rem;
-                  font-size: 30/32rem;
+                  height: 55/32rem;
+                  line-height: 55/32rem;
+                  font-size: 24/32rem;
                   color: @activeColor;
                   font-weight: 600;
                 }
@@ -735,9 +779,9 @@ html, body {
                   border: 1/32rem solid #cfcfcf;
                   border-radius: 5/32rem 5/32rem;
                   color: #8a8a8a;
-                  font-size: 30/32rem;
-                  height: 40/32rem;
-                  line-height: 40/32rem;
+                  font-size: 24/32rem;
+                  height: 35/32rem;
+                  line-height: 35/32rem;
                   text-align: center;
                   margin-top: 8/32rem;
                   span {
@@ -748,10 +792,9 @@ html, body {
                     float: left;
                     width: 60/32rem;
                     text-align: center;
-                    height: 38/32rem;
+                    height: 35/32rem;
                     padding: 0rem;
-                    margin-top: 1/32rem;
-                    line-height: 38/32rem;
+                    line-height: 35/32rem;
                     border: 0rem;
                     border-right: 1/32rem solid #d4d4d4;
                     border-left: 1/32rem solid #e8e8e8;
@@ -776,6 +819,7 @@ html, body {
         float: left;
         width: 200/32rem;
         height: @height;
+        font-size: 26/32rem;
         a {
           float: left;
           width: 60/32rem;
@@ -786,10 +830,10 @@ html, body {
         }
         span {
           float: left;
-          margin-left: 10/32rem;
+          margin-left: 8/32rem;
           height: @height;
           line-height: @height;
-          font-size: 26/32rem;
+          .titleFont;
           color: #7e7e7e;
           font-weight: 500;
         }
@@ -805,29 +849,28 @@ html, body {
         width: 390/32rem;
         p {
           float: left;
-          height: 60/32rem;
-          margin-top: 25/32rem;
-          line-height: 60/32rem;
-          font-size: 24/32rem;
+          height: @height;
+          line-height: @height;
+          .titleFont;
           .total {
             color: @activeColor;
-            font-weight: bold;
-            font-size: 28/32rem;
+            .bold;
+            .priceFont;
           }
         }
         button {
           float: right;
-          margin: 20/32rem 5/32rem;
+          margin: 25/32rem 5/32rem;
           padding: 0rem;
-          width: 150/32rem;
-          height: 60/32rem;
-          line-height: 60/32rem;
+          width: 140/32rem;
+          height: 50/32rem;
+          line-height: 50/32rem;
           text-align: center;
           border: none;
           border-radius: 20/32rem 20/32rem;
-          font-size: 26/32rem;
+          font-size: 24/32rem;
           letter-spacing: 2/32rem;
-          //font-weight: bold;
+          //.bold;
           background-color: rgba(255, 91, 2, 0.8);
           color: #fffef5;
         }
@@ -840,6 +883,7 @@ html, body {
     overflow-x: hidden;
     width: 100%;
     margin-top: 10/32rem;
+    .textFont;
     form {
       width: 620/32rem;
       margin: 0 auto;
@@ -851,7 +895,6 @@ html, body {
         background-color: #FFFFFF;
         height: 200/32rem;
         border-radius: 15/32rem 15/32rem;
-        font-size: 24/32rem;
         color: #666666;
         border-collapse: separate;
         border-spacing: 0 15/32rem;
@@ -859,8 +902,8 @@ html, body {
           padding: 5/32rem 0;
           td {
             input, textarea {
-              padding: 10/32rem 125/32rem 10/32rem 10/32rem;
-              width: 290/32rem;
+              padding: 10/32rem 185/32rem 10/32rem 10/32rem;
+              width: 230/32rem;
               border: none;
             }
           }
@@ -874,17 +917,17 @@ html, body {
             border-radius: 3/32rem;
             .info {
               display: block;
-              width: 130/32rem;
+              width: 170/32rem;
               position: absolute;
               color: @activeColor;
               top: 0rem;
-              right: 35/32rem;
+              right: 45/32rem;
               margin-top: 0.3rem;
               text-align: right;
             }
-            .delText{
+            .delText {
               color: #d6d6d6;
-              right: 4/32rem;
+              right: 10/32rem;
               margin-top: 0.4rem;
             }
           }
@@ -897,35 +940,34 @@ html, body {
         border-radius: 10/32rem 10/32rem;
         .cartLi {
           width: 580/32rem;
-          @height: 210/32rem;
+          @height: 180/32rem;
           height: @height;
           margin: 0 auto;
           border-bottom: 1/32rem solid #dedede;
           .proImg {
             float: left;
             height: @height;
-            width: 160/32rem;
+            width: 140/32rem;
             img {
               display: block;
-              height: 160/32rem;
-              margin-top: 20/32rem;
+              height: 140/32rem;
+              margin-top: 10/32rem;
             }
           }
           .proDetail {
-            width: 390/32rem;
-            height: 170/32rem;
-            padding-top: 20/32rem;
+            width: 420/32rem;
+            height: 160/32rem;
+            padding-top: 10/32rem;
             position: relative;
             margin-bottom: 0rem;
             overflow: hidden;
             float: right;
             .proName {
-              width: 360/32rem;
-              height: 70/32rem;
+              width: 390/32rem;
+              height: 64/32rem;
               overflow: hidden;
-              line-height: 35/32rem;
-              font-size: 26/32rem;
-              font-weight: 600;
+              line-height: 32/32rem;
+              font-size: 24/32rem;
               color: #3f3f3f;
               text-align: justify;
             }
@@ -940,9 +982,9 @@ html, body {
             .proPrice {
               float: left;
               width: 180/32rem;
-              height: 55/32rem;
-              line-height: 55/32rem;
-              font-size: 30/32rem;
+              height: 45/32rem;
+              line-height: 45/32rem;
+              font-size: 26/32rem;
               color: @activeColor;
               font-weight: 600;
             }
@@ -950,27 +992,61 @@ html, body {
               float: right;
               width: 130/32rem;
               color: #8a8a8a;
-              font-size: 30/32rem;
-              height: 55/32rem;
-              line-height: 55/32rem;
+              font-size: 24/32rem;
+              height: 45/32rem;
+              line-height: 45/32rem;
               text-align: center;
             }
           }
         }
       }
-      .total {
-        padding-right: 20/32rem;
-        text-align: right;
-        font-size: 28/32rem;
+      .orderInfo {
+        width: 620/32rem;
+        margin: 10/32rem auto 0;
+        border-radius: 10/32rem 10/32rem;
         color: #8a8a8a;
         background-color: #FFFFFF;
-        line-height: 80/32rem;
-        span {
-          color: @activeColor;
-          font-weight: bold;
+        p {
+          width: 560/32rem;
+          margin: 0 auto;
+        }
+        .orderRemark {
+          height: 56/32rem;
+          line-height: 56/32rem;
+          border-bottom: 1/32rem solid #eeeeee;
+          .info {
+            width: 144/32rem;
+          }
+          input {
+            border: none;
+            width: 380/32rem;
+            height: 44/32rem;
+            padding: 5/32rem 3/32rem;
+
+          }
+          .delText {
+            float: right;
+            width: 50/32rem;
+            height: 50/32rem;
+            color: #d6d6d6;
+            line-height: 50/32rem;
+            text-align: center;
+          }
+        }
+        .total {
+          padding-right: 20/32rem;
+          text-align: right;
+          font-size: 26/32rem;
+          line-height: 80/32rem;
+          span {
+            color: @activeColor;
+            .bold;
+          }
         }
       }
+
       button {
+        font-size: 28/32rem;
         width: 600/32rem;
         height: 70/32rem;
         line-height: 70/32rem;
@@ -984,11 +1060,13 @@ html, body {
       }
     }
   }
+
   //订单列表
   .orderList {
     overflow-x: hidden;
-    //overflow-y: scroll;
+    .textFont;
     width: 100%;
+    .textFont;
     .orderAll {
       width: 100%;
       position: relative;
@@ -999,9 +1077,9 @@ html, body {
         .orderList {
           width: 100%;
           li {
-            @height: 200/32rem;
+            @height: 180/32rem;
             width: 100%;
-            margin-bottom: 20/32rem;
+            margin-bottom: 10/32rem;
             background-color: #fcfcfc;
             border: 1/32rem solid #ffffff;
             border-radius: 20/32rem 20/32rem;
@@ -1012,46 +1090,45 @@ html, body {
               .orderLi-t {
                 height: 60/32rem;
                 line-height: 60/32rem;
-                font-size: 26/32rem;
                 color: #6f6f6f;
                 border-bottom: 1/32rem solid #ebebeb;
                 .orderSta {
                   float: right;
                   padding-right: 10/32rem;
                   color: @activeColor;
-                  font-weight: bold;;
                   opacity: 0.8;
+                  .bold;
                 }
               }
               .orderLiDetail {
                 width: 560/32rem;
                 margin: 0rem auto;
-                height: 200/32rem;;
+                @height: 180/32rem;
+                height: @height;
                 overflow: hidden;
                 .proImg {
                   float: left;
                   height: @height;
-                  width: 160/32rem;
+                  width: 140/32rem;
                   img {
                     display: block;
-                    height: 160/32rem;
-                    margin-top: 20/32rem;
+                    height: 140/32rem;
+                    margin-top: 10/32rem;
                   }
                 }
                 .order-proDetail {
-                  width: 340/32rem;
-                  height: 180/32rem;
+                  width: 370/32rem;
+                  height: 160/32rem;
                   padding: 10/32rem 25/32rem 10/32rem 15/32rem;
                   float: right;
                   position: relative;
                   .proName {
                     margin-top: 5/32rem;
-                    width: 340/32rem;
-                    height: 80/32rem;
+                    width: 370/32rem;
+                    height: 64/32rem;
                     overflow: hidden;
-                    line-height: 40/32rem;
-                    font-size: 26/32rem;
-                    font-weight: 600;
+                    line-height: 32/32rem;
+                    font-size: 24/32rem;
                     color: #3f3f3f;
                     text-align: justify;
                   }
@@ -1060,24 +1137,24 @@ html, body {
                     height: 40/32rem;
                     overflow: hidden;
                     line-height: 40/32rem;
-                    font-size: 26/32rem;
+                    font-size: 24/32rem;
                     color: #878787;
                   }
                   .proPrice {
                     float: left;
                     width: 200/32rem;
-                    height: 50/32rem;
-                    line-height: 50/32rem;
-                    font-size: 30/32rem;
+                    height: 45/32rem;
+                    line-height: 45/32rem;
+                    font-size: 26/32rem;
                     color: #878787;
                   }
                   .proNum {
                     float: right;
                     color: #8a8a8a;
-                    font-size: 30/32rem;
-                    height: 50/32rem;
-                    line-height: 50/32rem;
+                    height: 45/32rem;
+                    line-height: 45/32rem;
                     text-align: center;
+                    font-size: 26/32rem;
                   }
                 }
               }
@@ -1087,21 +1164,20 @@ html, body {
               color: #454545;
               width: 560/32rem;
               border-top: 1/32rem solid #f3f3f3;
-              font-size: 28/32rem;
               margin: 0rem auto;
               padding: 10/32rem;
               .proNum {
                 float: left;
-                height: 80/32rem;
-                line-height: 80/32rem;
+                height: 70/32rem;
+                line-height: 70/32rem;
               }
               .total {
                 float: right;
-                height: 80/32rem;
+                height: 70/32rem;
                 .actualAmount {
                   color: @activeColor;
                   span {
-                    font-weight: bold;
+                    .bold;
                   }
                 }
               }
@@ -1112,9 +1188,8 @@ html, body {
               margin: 0 auto;
               button {
                 margin: 0 0 20/32rem 0;
-                width: 150/32rem;
+                width: 140/32rem;
                 height: 50/32rem;
-                font-size: 26/32rem;
                 padding: 0rem;
                 float: right;
                 border: 1/32rem solid #b4b4b4;
@@ -1140,6 +1215,424 @@ html, body {
       }
     }
   }
+
+  //订单详情
+  .orderDetail {
+    overflow-x: hidden;
+    background-color: #ffffff;
+    padding-bottom: 70/32rem;
+    min-height: 1062/32rem;
+    position: relative;
+    .textFont;
+    .orderStatus {
+      width: 100%;
+      @height: 150/32rem;
+      height: @height;
+      background: linear-gradient(to left, #fec98d 0%, @activeColor 100%);
+      box-shadow: 0 5/32rem 5/32rem #f8f8f8;
+      text-align: center;
+      .orderInfo {
+        float: left;
+        width: 390/32rem;
+        margin-left: 50/32rem;
+        height: @height;
+        line-height: @height;
+        color: #fff0d0;
+        letter-spacing: 1/32rem;
+        text-align: center;
+        overflow: hidden;
+        p {
+          overflow: hidden;
+          height: @height;
+          width: 100%;
+          font-size: 26/32rem;
+          letter-spacing: 1/32rem;
+        }
+      }
+      .statusIcon {
+        float: right;
+        margin-right: 30/32rem;
+        width: @height;
+        height: @height;
+        position: relative;
+        img {
+          float: right;
+          margin-top: 10/32rem;
+          width: 120/32rem;
+          height: 120/32rem;
+        }
+        span {
+          display: block;
+          color: @activeColor;
+          font-size: 21/32rem;
+          .bold;
+          height: 50/32rem;
+          line-height: 50/32rem;
+          position: absolute;
+          top: 57/32rem;
+          right: 35/32rem;
+          transform-origin: center center;
+          transform: rotate(5deg);
+        }
+      }
+    }
+    .orderExpress {
+      @height: 80/32rem;
+      width: 560/32rem;
+      padding: 10/32rem 40/32rem;
+      text-align: left;
+      min-height: @height;
+      border-bottom: 5/32rem solid #f4f4f4;
+      position: relative;
+      overflow: hidden;
+      .expressIcon {
+        float: left;
+        font-size: 26/32rem;
+        line-height: 40/32rem;
+        width: 40/32rem;
+        height: 40/32rem;
+        text-align: center;
+        color: #FFFFFF;
+        background-color: #339CE3;
+        border: 1/32rem solid transparent;
+        border-radius: 50%;
+        position: relative;
+        top: 20/32rem;
+        float: left;
+      }
+      p {
+        margin-left: 1.875rem;
+        width: 450/32rem;
+        margin-bottom: 5/32rem;
+        line-height: 28/32rem;
+      }
+      .updateTime {
+        color: #7e7e7e;
+      }
+      .icon-circle-right {
+        font-size: 26/32rem;
+        line-height: 60/32rem;
+        width: 40/32rem;
+        height: 60/32rem;
+        text-align: center;
+        position: absolute;
+        top: 0.625rem;
+        right: 1.25rem;
+        color: #7e7e7e;
+        font-weight: bold;
+      }
+    }
+    .orderAddr {
+      width: 560/32rem;
+      margin: 0 auto;
+      padding: 10/32rem 0rem;
+      background: #FFFFFF;
+      text-align: left;
+      border-bottom: 1/32rem solid #e9e9e9;
+      .addIcon {
+        float: left;
+        font-size: 32/32rem;
+        line-height: 80/32rem;
+        color: @activeColor;
+      }
+      p {
+        line-height: 40/32rem;
+        margin-left: 60/32rem;
+        width: 480/32rem;
+        height: auto;
+        overflow: hidden;
+        .name {
+          float: left;
+          width: 280/32rem;
+          word-wrap: break-word;
+        }
+        .phone {
+          float: right;
+          color: #7e7e7e;
+        }
+      }
+      .addr {
+        margin-top: 5/32rem;
+        height: 55/32rem;
+        line-height: 30/32rem;
+        overflow: hidden;
+        word-wrap: break-word;
+      }
+    }
+    .detail {
+      margin-top: 10/32rem;
+      width: 580/32rem;
+      padding: 0 30/32rem;
+      background-color: #FFFFFF;
+      .orderLi {
+        .orderLiDetail {
+          width: 560/32rem;
+          height: 160/32rem;
+          margin: 0rem auto;
+          padding-bottom: 10/32rem;
+          border-bottom: 1/32rem solid #e9e9e9;
+          background-color: #ffffff;
+          overflow: hidden;
+          .proImg {
+            float: left;
+            height: 140/32rem;
+            width: 140/32rem;
+            margin-top: 10/32rem;
+            img {
+              display: block;
+              height: 140/32rem;
+              width: 140/32rem;
+            }
+          }
+          .orderDetail-pro {
+            width: 400/32rem;
+            height: 170/32rem;
+            padding: 5/32rem 0rem;
+            position: relative;
+            float: right;
+            overflow: hidden;
+            .proName {
+              margin-top: 5/32rem;
+              width: 100%;
+              height: 64/32rem;
+              overflow: hidden;
+              line-height: 32/32rem;
+              font-size: 24/32rem;
+              color: #3f3f3f;
+              text-align: justify;
+            }
+            .proInfo {
+              width: 100%;
+              height: 35/32rem;
+              overflow: hidden;
+              font-size: 24/32rem;
+              line-height: 35/32rem;
+              color: #878787;
+            }
+            .proPrice {
+              float: left;
+              width: 200/32rem;
+              height: 45/32rem;
+              line-height: 45/32rem;
+              font-size: 24/32rem;
+              color: #878787;
+            }
+            .proNum {
+              float: right;
+              color: #8a8a8a;
+              font-size: 24/32rem;
+              height: 45/32rem;
+              line-height: 45/32rem;
+              text-align: center;
+              margin-top: 8/32rem;
+              span {
+                float: left;
+                width: 35/32rem;
+              }
+              input {
+                float: left;
+                width: 50/32rem;
+                text-align: center;
+                height: 38/32rem;
+                padding: 0rem;
+                margin-top: 1/32rem;
+                line-height: 38/32rem;
+                border: 0rem;
+                border-right: 1/32rem solid #d4d4d4;
+                border-left: 1/32rem solid #e8e8e8;
+              }
+            }
+          }
+        }
+      }
+
+    }
+    .orderLi-price, .orderLi-info {
+      width: 640/32rem;
+      padding: 0 30/32rem;
+      background-color: #FFFFFF;
+      tr {
+        width: 100%;
+        height: 40/32rem;
+        line-height: 40/32rem;
+        font-size: 24/32rem;
+        color: #7e7e7e;
+        td:first-of-type {
+          width: 200/32rem;
+        }
+        td:last-of-type {
+          text-align: right;
+        }
+      }
+      .info-t {
+        height: 50/32rem;
+        line-height: 50/32rem;
+        color: #4f4f50;
+        float: left;
+        font-size: 24/32rem;
+        text-align: left;
+        color: #000000;
+      }
+      .actual {
+        color: #4f4f50;
+        font-size: 24/32rem;
+        .bold;
+        .actualAmount {
+          font-size: 28/32rem;
+          color: @activeColor;
+        }
+      }
+    }
+    .orderLi-info {
+      margin-top: 10/32rem;
+    }
+    .orderBtn {
+      width: 580/32rem;
+      padding: 0/32rem 20/32rem;
+      background-color: #FFFFFF;
+      button {
+        margin: 20/32rem 0;
+        width: 140/32rem;
+        height: 50/32rem;
+        line-height: 50/32rem;
+        font-size: 25/32rem;
+        float: right;
+        padding: 0rem;
+        border: 1/32rem solid #b4b4b4;
+        background-color: #fcfcfc;
+        border-radius: 15/32rem 15/32rem;
+        color: #757575;
+      }
+    }
+    .expressDialog {
+      position: absolute;
+      background-color: #f4f4f4;
+      z-index: 100;
+      top: 0rem;
+      bottom: 0rem;
+      left: 0/32rem;
+      right: 0/32rem;
+      width: 600/32rem;
+      padding: 20/32rem;
+      overflow: hidden;
+      font-size: 0.65rem;
+      .dialogShow;
+      .context {
+        height: 700/32rem;
+        width: 600/32rem;
+        background-color: #FFFFFF;
+        border-radius: 10/32rem 10/32rem;
+        position: relative;
+        padding: 45/32rem 0/32rem;
+        overflow: hidden;
+        .close-dialog {
+          position: absolute;
+          display: block;
+          top: 10/32rem;
+          right: 10/32rem;
+          color: #7e7e7e;
+          width: 20/32rem;
+          height: 20/32rem;
+          text-align: right;
+          line-height: 20/32rem;
+        }
+        ul {
+          width: 560/32rem;
+          height: 700/32rem;
+          padding: 0 20/32rem;
+          overflow-y: auto;
+          li {
+            width: 520/32rem;
+            padding: 0 20/32rem 20/32rem;
+            border-left: 2/32rem solid #d5d5d5;
+            position: relative;
+            .point {
+              position: absolute;
+              margin-top: 10/32rem;
+              left: -0.2rem;
+              width: 0.4rem;
+              height: 0.4rem;
+              background-color: #d5d5d5;
+              border-radius: 50%;
+            }
+            .detailTime {
+              color: #7e7e7e;
+            }
+            p {
+              line-height: 1rem;
+              margin: 0 5/32rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //用户设置
+  .userSetting {
+    overflow-x: hidden;
+    padding-bottom: 70/32rem;
+    min-height: 1062/32rem;
+    position: relative;
+    background-color: #f3f3f3;
+    width: 100%;
+    margin-top: 2/32rem;
+    font-size: 0.75rem;
+    .showSetting {
+      p {
+        width: 560/32rem;
+        padding: 0 40/32rem 0 40/32rem;
+        background-color: #FFFFFF;
+        height: 70/32rem;
+        margin-top: -1/32rem;
+        line-height: 70/32rem;
+        border-top: 1/32rem solid #e0e0e0;
+        border-bottom: 1/32rem solid #e0e0e0;
+        b {
+          float: right;
+          line-height: 70/32rem;
+        }
+      }
+      .logout {
+        margin-top: 30/32rem;
+        text-align: center;
+      }
+    }
+    .editPwd {
+      width: 560/32rem;
+      padding: 30/32rem 40/32rem;
+      background-color: #FFFFFF;
+      .textFont;
+      .title {
+        line-height: 50/32rem;
+        height: 50/32rem;
+        font-size: 0.75rem;
+        margin-bottom: 15/32rem;
+        span {
+          float: right;
+          color: #7e7e7e;
+          line-height: 50/32rem;
+          height: 50/32rem;
+        }
+      }
+      .text {
+        line-height: 30/32rem;
+      }
+      form{
+        text-align: left;
+        table{
+          border-collapse: separate;
+          border-spacing: 0 15/32rem;
+          tr{
+            border-bottom: 1/32rem solid #f2f2f2;
+          }
+          td{
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 .view {
@@ -1148,246 +1641,6 @@ html, body {
   overflow-y: scroll;
   > div {
     min-height: 100%;
-  }
-}
-
-//订单详情
-.orderDetail {
-  overflow-x: hidden;
-  background-color: #ffffff;
-  padding-bottom: 70/32rem;
-  min-height: 1062/32rem;
-  .orderStatus {
-    width: 100%;
-    @height: 150/32rem;
-    height: @height;
-    background: linear-gradient(to left, #fec98d 0%, @activeColor 100%);
-    box-shadow: 0 5/32rem 5/32rem #f8f8f8;
-    text-align: center;
-    .orderInfo {
-      float: left;
-      width: 390/32rem;
-      margin-left: 50/32rem;
-      height: @height;
-      line-height: @height;
-      color: #fff0d0;
-      font-size: 30/32rem;
-      letter-spacing: 1/32rem;
-      text-align: left;
-      overflow: hidden;
-      p {
-        overflow: hidden;
-        height: @height;
-        width: 100%;
-      }
-    }
-    .statusIcon {
-      float: right;
-      margin-right: 30/32rem;
-      width: 160/32rem;
-      height: @height;
-      position: relative;
-      img{
-        float: right;
-        width: @height ;
-        height: @height;
-      }
-      span {
-        display: block;
-        color: @activeColor;
-        font-size: 25/32rem;
-        height: 50/32rem;
-        line-height: 50/32rem;
-        font-weight: bold;
-        position: absolute;
-        top: 65/32rem;
-        right:  40/32rem;
-        transform-origin: center center;
-        transform: rotate(5deg);
-      }
-    }
-  }
-  .orderAddr {
-    width: 560/32rem;
-    padding: 10/32rem 40/32rem;
-    background: #FFFFFF;
-    text-align: left;
-    font-size: 30/32rem;
-    .addIcon {
-      float: left;
-      font-size: 40/32rem;
-      line-height: 80/32rem;
-      color: @activeColor;
-    }
-    p {
-      line-height: 40/32rem;
-      margin-left: 60/32rem;
-      width: 480/32rem;
-      height: auto;
-      .name {
-        float: left;
-        width: 280/32rem;
-        word-wrap: break-word;
-      }
-      .phone {
-        float: right;
-        color: #7e7e7e;
-      }
-    }
-    .addr {
-      margin-top: 15/32rem;
-      font-size: 26/32rem;
-      height: 70/32rem;
-      line-height: 35/32rem;
-      overflow: hidden;
-      word-wrap: break-word;
-    }
-  }
-  .detail {
-    margin-top: 10/32rem;
-    width: 580/32rem;
-    padding: 0 30/32rem;
-    background-color: #FFFFFF;
-    .orderLi {
-      .orderLiDetail {
-        width: 560/32rem;
-        height: 180/32rem;
-        margin: 0rem auto;
-        padding-bottom: 10/32rem;
-        border-bottom: 1/32rem solid #e9e9e9;
-        background-color: #ffffff;
-        overflow: hidden;
-        .proImg {
-          float: left;
-          height: 160/32rem;
-          width: 160/32rem;
-          margin-top: 15/32rem;
-          img {
-            display: block;
-            height: 160/32rem;
-            width: 160/32rem;
-          }
-        }
-        .orderDetail-pro {
-          width: 370/32rem;
-          height: 180/32rem;
-          padding: 5/32rem 0rem;
-          position: relative;
-          float: right;
-          overflow: hidden;
-          .proName {
-            margin-top: 5/32rem;
-            width: 100%;
-            height: 80/32rem;
-            overflow: hidden;
-            line-height: 40/32rem;
-            font-size: 26/32rem;
-            font-weight: 600;
-            color: #3f3f3f;
-            text-align: justify;
-          }
-          .proInfo {
-            width: 100%;
-            height: 40/32rem;
-            overflow: hidden;
-            line-height: 40/32rem;
-            font-size: 26/32rem;
-            color: #878787;
-          }
-          .proPrice {
-            float: left;
-            width: 200/32rem;
-            height: 55/32rem;
-            line-height: 55/32rem;
-            font-size: 30/32rem;
-            color: #878787;
-          }
-          .proNum {
-            float: right;
-            color: #8a8a8a;
-            font-size: 30/32rem;
-            height: 40/32rem;
-            line-height: 40/32rem;
-            text-align: center;
-            margin-top: 8/32rem;
-            span {
-              float: left;
-              width: 35/32rem;
-            }
-            input {
-              float: left;
-              width: 50/32rem;
-              text-align: center;
-              height: 38/32rem;
-              padding: 0rem;
-              margin-top: 1/32rem;
-              line-height: 38/32rem;
-              border: 0rem;
-              border-right: 1/32rem solid #d4d4d4;
-              border-left: 1/32rem solid #e8e8e8;
-            }
-          }
-        }
-      }
-    }
-
-  }
-  .orderLi-price, .orderLi-info {
-    width: 640/32rem;
-    padding: 0 30/32rem;
-    background-color: #FFFFFF;
-    tr {
-      width: 100%;
-      height: 40/32rem;
-      line-height: 40/32rem;
-      font-size: 24/32rem;
-      color: #7e7e7e;
-      td:first-of-type {
-        width: 200/32rem;
-      }
-      td:last-of-type {
-        text-align: right;
-      }
-    }
-    .info-t {
-      height: 50/32rem;
-      line-height: 50/32rem;
-      color: #4f4f50;
-      float: left;
-      font-size: 26/32rem;
-      text-align: left;
-      font-weight: bold;
-    }
-    .actual {
-      color: #4f4f50;
-      font-size: 26/32rem;
-      font-weight: bold;
-      .actualAmount {
-        font-size: 28/32rem;
-        color: @activeColor;
-      }
-    }
-  }
-  .orderLi-info {
-    margin-top: 10/32rem;
-  }
-  .orderBtn {
-    width: 580/32rem;
-    padding: 0/32rem 30/32rem;
-    background-color: #FFFFFF;
-    button {
-      margin: 20/32rem 0;
-      width: 150/32rem;
-      height: 60/32rem;
-      line-height: 60/32rem;
-      font-size: 26/32rem;
-      float: right;
-      padding: 0rem;
-      border: 1/32rem solid #b4b4b4;
-      background-color: #fcfcfc;
-      border-radius: 15/32rem 15/32rem;
-      color: #757575;
-    }
   }
 }
 
@@ -1400,6 +1653,7 @@ html, body {
   right: 0rem;
   left: 0rem;
   padding: 50/32rem 50/32rem 0rem;
+  .dialogShow;
   div {
     border: 1/32rem solid #cfcfcf;
     width: 500/32rem;
@@ -1409,16 +1663,17 @@ html, body {
   }
   p {
     display: block;
-    padding: (24rem / 32) (30rem / 32);
+    padding: (20rem / 32) (0rem / 32);
     font-size: (22rem / 32);
     color: #010101;
     margin: 0 auto;
+    width: 15.625rem;
   }
   input {
     display: block;
     width: 400/32rem;
     padding: (12rem / 32) 90/32rem (12rem / 32) 10/32rem;
-    font-size: (28rem / 32);
+    font-size: (24rem / 32);
     color: #515151;
     border: none;
   }
@@ -1440,7 +1695,8 @@ html, body {
     border: none;
     border-radius: 8/32rem;
     padding: (24rem /32) 0;
-    font-size: (28rem /32);
+    font-size: (24rem /32);
+    letter-spacing: 2/32rem;
     color: #ffffff;
     background-color: #494949;
     margin-bottom: 15/32rem;
@@ -1451,20 +1707,61 @@ html, body {
     color: #010101;
     border: 1/32rem solid #010101;
   }
-  .info-x{
+  .info-x {
     color: #ff3d27;
     font-size: 20/32rem;
     position: absolute;
     top: 20/32rem;
     right: 20/32rem;
   }
-  .delText{
+  .delText {
     color: #d6d6d6;
+    width: 40/32rem;
+    height: 40/32rem;
+    top: 50%;
+    margin-top: -20/32rem;
+    line-height: 40/32rem;
+    text-align: center;
   }
   .info {
     color: #ff3d27;
-    width: auto;
     height: auto;
+  }
+  .forgetPsd {
+    span {
+      display: inline-block;
+      color: #585c5e;
+      width: auto;
+      height: 28/32rem;
+      line-height: 28/32rem;
+      border-bottom: 1/32rem solid #c3c5c0;
+    }
+  }
+  .forgetDialog {
+    position: absolute;
+    width: 640/32rem;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFFFF;
+    z-index: 100;
+    font-size: 0.75rem;
+    .content {
+      width: 600/32rem;
+      margin: 100/32rem auto 0;
+      border: none;
+      .title {
+        .titleFont;
+        .close-dialog {
+          right: 50/32rem;
+        }
+
+      }
+      .text {
+        line-height: 32/32rem;
+      }
+    }
   }
 }
 

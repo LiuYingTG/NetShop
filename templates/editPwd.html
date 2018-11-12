@@ -1,0 +1,64 @@
+<div class="content">
+    <p class="title">密码修改
+        <span class="icon-x-altx-alt close-dialog" ng-click="setStatus.editPwd=false"></span>
+    </p>
+    <p class="text">密码修改后原密码将作废，请牢记您的新密码，如有遗忘可通过注册账户的邮箱找回！</p>
+    <form role="form" novalidate name="editPwd_form">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td>{{username}}</td>
+            </tr>
+            <tr>
+                <td>旧密码：</td>
+                <td>
+                    <input type="text" ng-model="oldPwd"
+                           ng-check
+                           name="email"
+                           required
+                           ensure-unique="checkEmail"
+                           ng-pattern="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/"/>
+                    <span class="delText icon-x-altx-alt info-x" ng-show="!forgetDialog_form.email.$error.required"
+                          ng-click="userEmail=''"></span>
+                    <span class="info-x"
+                          ng-show="forgetDialog_form.email.$invalid&&forgetDialog_form.email.$error.required">*必填</span>
+                </td>
+            </tr>
+            <tr>
+                <td>新密码：</td>
+                <td>
+                    <input type="text" ng-model="newPwd"
+                           ng-check
+                           name="email"
+                           required
+                           ensure-unique="checkEmail"
+                           ng-pattern="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/"/>
+                    <span class="delText icon-x-altx-alt info-x" ng-show="!forgetDialog_form.email.$error.required"
+                          ng-click="userEmail=''"></span>
+                    <span class="info-x"
+                          ng-show="forgetDialog_form.email.$invalid&&forgetDialog_form.email.$error.required">*必填</span>
+                </td>
+            </tr>
+            <tr>
+                <td>确认密码：</td>
+                <td>
+                    <input type="text" ng-model="confirmNewPwd"
+                           ng-check
+                           name="email"
+                           required
+                           ensure-unique="checkEmail"
+                           ng-pattern="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/"/>
+                    <span class="delText icon-x-altx-alt info-x" ng-show="!forgetDialog_form.email.$error.required"
+                          ng-click="userEmail=''"></span>
+                    <span class="info-x"
+                          ng-show="forgetDialog_form.email.$invalid&&forgetDialog_form.email.$error.required">*必填</span>
+                </td>
+            </tr>
+        </table>
+        <br>
+    </form>
+    <p class="text">密码必须为4-12位字符，可由字母或数字组成</p>
+    <button class="confirmEditPwd" type="button"
+            ng-click="confirmEditPwd(forgetDialog_form.$invalid&&(!forgetDialog_form.email.$error.unique))">确认修改
+    </button>
+</div>

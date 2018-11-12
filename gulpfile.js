@@ -98,12 +98,12 @@ gulp.task('rev', ['less', 'imagemin', 'useref','html'], function () {
         }))
         .pipe(gulp.dest('./release'));
 });
-gulp.task('revCss',function () {
-    gulp.src(['./release/rev/*.json' , './release/static/css/*.css'])
+gulp.task('revHtml',function () {
+    gulp.src(['./release/rev/*.json' , './release/templater/*.html'])
         .pipe(revCollector({
             replaceReved: true
         }))
-        .pipe(gulp.dest('./release/static/css/'));
+        .pipe(gulp.dest('./release/templater'));
 });
 gulp.task('default',function () {
     gulp.start('rev', 'other');
