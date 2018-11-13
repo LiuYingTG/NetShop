@@ -3,31 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name=”viewport” content=”width=device-width, initial-scale=1, user-scalable=no″>
-	<title>XXX的小店</title>
+	<meta name=”viewport” content=”width=device-width;initial-scale=1.0;user-scalable=no;minimum-scale=1.0;maximum-scale=1.0″>
+	<title>GoodGoods</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!--<link rel="stylesheet" href="static/less/main.less">-->
-	<link rel="stylesheet" href="./static/css/main.css">
+	<link rel="stylesheet" href="./static/css/main-a059011263.css">
 </head>
 <body ng-app="NetShop">
 	<div class="viewport" ng-cloak>
 		<!-- 侧边导航 -->
 		<div id="navs" ng-class="{navs: true, collapse: collapsed}" ng-controller="NavController">
 			<dl>
-				<dt class="login" ng-click="login()">
+				<dd class="login" ng-click="login()" ng-cloak>
 					<div class="avatar">
 						<a ng-class={'icon-user':true,'icon-user-loged':loged}></a>
 					</div>
 					<span >{{loged?username:'登录'}}</span>
-				</dt>
-				<dd  ng-class="{active: categoryType == categoryList.categoryType}" ng-repeat="categoryList in categoryLists">
+				</dd>
+				<dd ng-cloak  ng-class="{active: categoryType == categoryList.categoryType}" ng-repeat="categoryList in categoryLists">
 					<a ng-click="byCategory(categoryList.categoryType)" class="{{iconList[$index]}}">
 						<span>{{categoryList.categoryName}}</span>
-					</a>
-				</dd>
-				<dd>
-					<a  ng-click="loged?userLogout():''" class="icon-bin">
-						<span>用户注销</span>
 					</a>
 				</dd>
 			</dl>
@@ -45,7 +40,7 @@
 			</div>
 			<!-- 主体 -->
 			<div ng-class="{body: true, collapse: collapsed}" ng-click="closeNav(collapsed)" nav-collapse="collapsed">
-				<div loading class="loading" ng-hide="loaded" src="static/images/loading.gif"></div>
+				<div loading class="loading" ng-hide="loaded" src="static/images/loading-50c5e3e79b.gif"></div>
 				<!-- 占位符 -->
 				<div ng-view class="view"></div>
 			</div>
@@ -57,9 +52,9 @@
 			<div ng-show="showRegister" ng-class="{userRegister:true}" ng-controller="registerController" ng-include="'./templates/register.html'"></div>
 		</div>
 	</div>
-	<script src="./static/libs/jquery.js"></script>
-	<script src="./static/libs/xcConfirm.js"></script>
-	<script src="./static/libs/angular.js"></script>
-	<script src="./scripts/main.js"></script>
+	<script src="./static/libs/jquery-252b0b512a.js"></script>
+	<script src="./static/libs/xcConfirm-992fb908e3.js"></script>
+	<script src="./static/libs/angular-7d432c4a3e.js"></script>
+	<script src="./scripts/main-4b8d5c572d.js"></script>
 </body>
 </html>
