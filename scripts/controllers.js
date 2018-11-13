@@ -1,7 +1,7 @@
 // 实例一个模块，用来专门管理所有的控制器
 angular.module('Controllers', [])
 
-    // 导航菜单
+// 导航菜单
     .controller('NavController', ['$scope', '$location', '$rootScope', '$http', '$routeParams', '$cookies', function ($scope, $location, $rootScope, $http, $routeParams, $cookies) {
         // 导航数据,获取导航栏目
         $http.get(PUBLIC + '/netshop/buyer/category/list')
@@ -168,23 +168,23 @@ angular.module('Controllers', [])
         };
         /*修改提交的商品数量*/
         $scope.changeNum = function (symbol) {
-            if (symbol == "+" ) {
-                if($scope.product.productStock < ($scope.num + 1)){
+            if (symbol == "+") {
+                if ($scope.product.productStock < ($scope.num + 1)) {
                     alert('库存不足！');
                     return
-                }else{
+                } else {
                     $scope.num++;
                 }
-            }else if(!symbol){
-                if($scope.product.productStock < $scope.num ){
+            } else if (!symbol) {
+                if ($scope.product.productStock < $scope.num) {
                     alert('库存不足！');
                     return;
                 }
-                if($scope.num<1){
+                if ($scope.num < 1) {
                     alert('商品数量不得少于1！');
                     $scope.num = 1
                 }
-            }else{
+            } else {
                 $scope.num--;
             }
             $scope.numDown = $scope.num <= 1 ? true : false;
@@ -254,8 +254,8 @@ angular.module('Controllers', [])
     .controller('loginController', ['$scope', '$http', '$rootScope', '$location', '$cookies', function ($scope, $http, $rootScope, $location, $cookies) {
         /*用户登录*/
         $scope.userLog = {};
-        $scope.forgetDialog=false;
-        $scope.userEmail='';
+        $scope.forgetDialog = false;
+        $scope.userEmail = '';
         $scope.userLogin = function (formValid) {
             if (formValid) {
                 alert('输入信息有误！');
@@ -282,24 +282,24 @@ angular.module('Controllers', [])
                 });
         };
         /*忘记密码,发送邮件*/
-        $scope.sendEmail=function(invalid){
-            if(invalid){
+        $scope.sendEmail = function (invalid) {
+            if (invalid) {
                 alert("输入信息有误！");
                 return;
             }
-            $http.get(PUBLIC+'/netshop/buyer/getBackPwd',{params:{email:this.userEmail}})
+            $http.get(PUBLIC + '/netshop/buyer/getBackPwd', {params: {email: this.userEmail}})
                 .then(function (res) {
                     console.log(res.data);
-                    if(res.data.msg=='success'){
+                    if (res.data.msg == 'success') {
                         alert('系统正在校验您的个人信息，稍后将发送密码至您的邮箱，请耐心等待！');
-                        $scope.forgetDialog=false;
+                        $scope.forgetDialog = false;
                         console.log($scope.forgetDialog);
                     }
-                },function (err) {
-                        alert("该邮箱未注册！")
+                }, function (err) {
+                    alert("该邮箱未注册！")
                 });
         };
-        $scope.$watch('forgetDialog',function () {
+        $scope.$watch('forgetDialog', function () {
             console.log($scope.forgetDialog);
         })
         /*注册新用户*/
@@ -310,18 +310,17 @@ angular.module('Controllers', [])
     }])
     //注册新用户
     .controller('registerController', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
-        $scope.registerInfo = {};
         $scope.userRegister = function (btnValid) {
+            var user = {
+                username: this.newName,
+                password: this.newPwd,
+                phone: this.phone,
+                email: this.email
+            }
             if (btnValid) {//如果表单不可提交
                 alert('输入信息有误!');
                 return;
             }
-            var user = {
-                username: $scope.registerInfo.newName,
-                password: $scope.registerInfo.newPwd,
-                phone: $scope.registerInfo.phone,
-                email: $scope.registerInfo.email
-            };
             $http({
                 method: 'post',
                 url: PUBLIC + '/netshop/buyer/save',
@@ -407,7 +406,7 @@ angular.module('Controllers', [])
                 console.log('登录' + err);
             });
         /*进入商品详情页*/
-        $scope.toProDetail=function(index){
+        $scope.toProDetail = function (index) {
             if ($rootScope.collapsed) {
                 return;
             } else {
@@ -445,21 +444,21 @@ angular.module('Controllers', [])
             }
         };
         /*直接修改购物车内的商品数量*/
-        $scope.editQuantity=function(productId,productQuantity,index){
-            if(productQuantity<1){
+        $scope.editQuantity = function (productId, productQuantity, index) {
+            if (productQuantity < 1) {
                 alert('商品数量不得少于1');
-                $scope.cartLists[index].productQuantity=1;
+                $scope.cartLists[index].productQuantity = 1;
             }
-                $http.get(PUBLIC+'/netshop/buyer/cart/editQuantity',{
-                    params:{
-                        itemId:productId,
-                        quantity:productQuantity
-                    }
-                })
-                    .then(function (res) {
-                    },function (err) {
-                        alert('商品数量超出范围！');
-                    });
+            $http.get(PUBLIC + '/netshop/buyer/cart/editQuantity', {
+                params: {
+                    itemId: productId,
+                    quantity: productQuantity
+                }
+            })
+                .then(function (res) {
+                }, function (err) {
+                    alert('商品数量超出范围！');
+                });
         }
         /*单个删除购车商品*/
         $scope.delete = function (index) {
@@ -678,12 +677,12 @@ angular.module('Controllers', [])
         }
     }])
     /*订单详情*/
-    .controller('orderDetailController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies','$q', function ($scope, $http, $rootScope, $location, $routeParams, $cookies,$q) {
+    .controller('orderDetailController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies', '$q', function ($scope, $http, $rootScope, $location, $routeParams, $cookies, $q) {
         $rootScope.title = '订单详情';
         $rootScope.categoryType = 'order';
-        $scope.hasDetail=false;
-        $scope.hasExpress=false;
-        $scope.showExDetail=false;
+        $scope.hasDetail = false;
+        $scope.hasExpress = false;
+        $scope.showExDetail = false;
         $http.get(PUBLIC + '/netshop/buyer/order/detail', {
             params: {
                 orderId: $routeParams.orderId
@@ -693,22 +692,22 @@ angular.module('Controllers', [])
                 if (res.data.msg == 'success') {
                     $scope.orderDetail = res.data.data;
                     $rootScope.loaded = true;
-                    if($scope.orderDetail.orderStatus==4||$scope.orderDetail.orderStatus==5){
+                    if ($scope.orderDetail.orderStatus == 4 || $scope.orderDetail.orderStatus == 5) {
                         $http.get(PUBLIC + '/netshop/express/findOne', {
                             params: {
                                 orderId: $routeParams.orderId
                             }
                         }).then(function (res) {
-                            if(res.data.msg=='success'){
-                                $scope.orderExpress=res.data.data;
-                                $scope.hasExpress=true;
-                                if($scope.orderExpress.logisticsDetail){
-                                    $scope.hasDetail=true;
-                                    $scope.logisticsDetail=eval('('+$scope.orderExpress.logisticsDetail+')').data;
+                            if (res.data.msg == 'success') {
+                                $scope.orderExpress = res.data.data;
+                                $scope.hasExpress = true;
+                                if ($scope.orderExpress.logisticsDetail) {
+                                    $scope.hasDetail = true;
+                                    $scope.logisticsDetail = eval('(' + $scope.orderExpress.logisticsDetail + ')').data;
                                     console.log($scope.logisticsDetail);
                                 }
                             }
-                        },function (err) {
+                        }, function (err) {
                             console.log(err.data);
                         });
                     }
@@ -719,9 +718,9 @@ angular.module('Controllers', [])
                 console.log("orderDetail" + err);
             })
         /*查看物流详细信息*/
-        $scope.showExpressDetail=function(){
-            if(this.hasDetail){//当有物流详情时，显示
-                this.showExDetail=true;
+        $scope.showExpressDetail = function () {
+            if (this.hasDetail) {//当有物流详情时，显示
+                this.showExDetail = true;
 
             }
         }
@@ -789,7 +788,7 @@ angular.module('Controllers', [])
             }
         }
         /*进入商品详情页*/
-        $scope.toProDetail=function(index){
+        $scope.toProDetail = function (index) {
             if ($rootScope.collapsed) {
                 return;
             } else {
@@ -802,14 +801,14 @@ angular.module('Controllers', [])
         $rootScope.title = '用户设置';
         $rootScope.categoryType = 'order';
         $rootScope.loaded = true;
-        var originStatus={
-            setDetail:true,
-            editAddress:false,
-            editPwd:false
+        var originStatus = {
+            setDetail: true,
+            editAddress: false,
+            editPwd: false
         };
-        $scope.setStatus={
-            editAddress:false,
-            editPwd:false
+        $scope.setStatus = {
+            editAddress: false,
+            editPwd: false
         };
         /*用户注销*/
         $scope.userLogout = function () {
@@ -819,7 +818,6 @@ angular.module('Controllers', [])
                         if (res.data.msg == 'success') {//注销成功
                             alert('注销成功！');
                             $rootScope.loged = false;//更改登录状态
-                            $rootScope.toggle();
                             $rootScope.cartNotEmp = false;
                             $cookies.remove('username');
                             $rootScope.categoryType = 'all';
@@ -835,4 +833,25 @@ angular.module('Controllers', [])
             }
 
         };
+        /*修改密码*/
+        $scope.confirmEditPwd = function (valid) {
+            if (valid) {
+                alert('输入信息有误！');
+                return;
+            }
+         $http.post(PUBLIC+'/netshop/buyer/editPwd',{
+                 newPassword:this.newPwd
+             })
+             .then(function (res) {
+                 alert('修改成功,请重新登录！');
+                 $rootScope.loged = false;//更改登录状态
+                 $rootScope.toggle();
+                 $rootScope.cartNotEmp = false;
+                 $cookies.remove('username');
+                 $rootScope.categoryType = 'all';
+                 $location.path('/allPro/all');
+             },function (err) {
+                 alert('修改失败，请稍后再试！');
+             });
+        }
     }])

@@ -39,6 +39,7 @@ angular.module('Directives', [])
                     ctrl.$setValidity('unique', true);//不存在，可以注册
                 }).bind('blur', function () {
                     /*测试用地址*/
+                    console.log(scope[attrs.ngModel]);
                     var url = 'http://106.14.183.207:8085/netshop/buyer/' + attrs.ensureUnique + '?' + attrs.name + '=' + (scope[attrs.ngModel]);
                     console.log(url);
                     if (scope[attrs.ngModel] != null) {
@@ -67,6 +68,8 @@ angular.module('Directives', [])
                 element.bind('focus', function () {
                     ctrl.$setValidity('same', true);//获取焦点时不验证
                 }).bind('blur', function () {
+                    console.log(scope.newPwd);
+                    console.log(scope.repwd);
                         if (scope.newPwd == scope.repwd) {
                             ctrl.$setValidity('same', true);
                         } else {

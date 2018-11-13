@@ -7,7 +7,7 @@
     <p>用户名</p>
     <div>
         <input type="text"
-               ng-model="registerInfo.newName"
+               ng-model="newName"
                name="username"
                ng-minlength="4"
                ng-maxlength="12"
@@ -17,7 +17,7 @@
                ng-pattern="/^[a-zA-Z0-9]{4,12}$/"
                placeholder="4-12位英文或数字"/>
         <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.username.$error.required"
-              ng-click="registerInfo.newName=''"></span>
+              ng-click="newName=''"></span>
         <span class="info-x"
               ng-show="register_form.username.$invalid&&register_form.username.$error.required">*必填</span>
     </div>
@@ -31,7 +31,7 @@
     <p>密码</p>
     <div>
         <input type="password"
-               ng-model="registerInfo.newPwd"
+               ng-model="newPwd"
                name="pwd"
                required
                ng-check
@@ -41,7 +41,7 @@
                placeholder="6-12位英文或数字"
         />
         <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.pwd.$error.required"
-              ng-click="registerInfo.newPwd=''"></span>
+              ng-click="newPwd=''"></span>
         <span class="info-x" ng-show="register_form.pwd.$invalid&&register_form.pwd.$error.required">*必填</span>
     </div>
     <p class="info"
@@ -54,13 +54,13 @@
     <div>
         <input type="password"
                placeholder="确认密码"
-               ng-model="registerInfo.repwd"
+               ng-model="repwd"
                name="repwd"
                ng-check
                required
                ensure-same/>
         <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.repwd.$error.required"
-              ng-click="registerInfo.repwd=''"></span>
+              ng-click="repwd=''"></span>
         <span class="info-x" ng-show="register_form.repwd.$invalid&&register_form.repwd.$error.required">*必填</span>
     </div>
     <p class="info"
@@ -69,13 +69,13 @@
     </p>
     <p>手机号码</p>
     <div>
-        <input type="text" ng-model="registerInfo.phone"
+        <input type="text" ng-model="phone"
                name="phone"
                ng-check
                required
                ng-pattern="/^(1[3456789]\d{9})$/"/>
         <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.phone.$error.required"
-              ng-click="registerInfo.phone=''"></span>
+              ng-click="phone=''"></span>
         <span class="info-x" ng-show="register_form.phone.$invalid&&register_form.phone.$error.required">
                 *必填
             </span>
@@ -86,14 +86,14 @@
     </p>
     <p>电子邮箱</p>
     <div>
-        <input type="text" ng-model="registerInfo.email" placeholder="用于找回密码"
+        <input type="text" ng-model="email" placeholder="用于找回密码"
                ng-check
                name="email"
                required
                ng-pattern="/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/"
                ensure-unique="checkEmail"/>
         <span class="delText icon-x-altx-alt info-x" ng-show="!register_form.email.$error.required"
-              ng-click="registerInfo.email=''"></span>
+              ng-click="email=''"></span>
         <span class="info-x" ng-show="register_form.email.$invalid&&register_form.email.$error.required">*必填</span>
     </div>
     <p class="info"
