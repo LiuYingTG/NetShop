@@ -56,7 +56,7 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
     $rootScope.$on('cartUpload', function (event) {
         // window.location.reload();
         $rootScope.cartNotEmp = true;
-        $http.get(PUBLIC + '/netshop/buyer/cart/list').then(
+        $http.get(PUBLIC + '/buyer/cart/list').then(
             function (res) {
                 $rootScope.cartNum = 0;
                 var num = eval(res.data.data.cartItems);

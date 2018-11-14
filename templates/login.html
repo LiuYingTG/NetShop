@@ -25,7 +25,7 @@
         <span class="delText icon-x-altx-alt info-x" ng-show="!login_form.pwd.$error.required" ng-click="userLog.password=''"></span>
         <span class="info-x" ng-show="login_form.pwd.$invalid&&login_form.pwd.$error.required">*必填</span>
     </div>
-    <p class="info forgetPsd" ng-click="forgetDialog=!forgetDialog"><span>忘了密码?</span></p>
+    <p class="info forgetPsd"><span ng-click="forgetDialog=!forgetDialog">忘了密码?</span></p>
     <br>
     <button type="button" ng-click="userLogin(login_form.$invalid)">登&nbsp;&nbsp;录</button>
     <hr>

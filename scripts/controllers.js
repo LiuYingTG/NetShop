@@ -952,13 +952,13 @@ angular.module('Controllers', [])
         };
         /*用户注销*/
         $scope.userLogout = function () {
-            window.wxc.xcConfirm('确定要注销吗？','confirm',{
+            window.wxc.xcConfirm('确定要退出吗？','confirm',{
                 onOk:function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/logout')
                             .then(function (res) {
-                                if (res.data.msg == 'success') {//注销成功
-                                    window.wxc.xcConfirm("注销成功！","info",{
+                                if (res.data.msg == 'success') {//退出成功
+                                    window.wxc.xcConfirm("退出成功！","info",{
                                         onOk:function () {
                                             $rootScope.$apply(function () {
                                                 $rootScope.loged = false;//更改登录状态

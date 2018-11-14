@@ -1703,6 +1703,8 @@ body {
   margin: 0rem auto;
   height: 5.625rem;
   overflow: hidden;
+  border: none;
+  border-radius: 0;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLiDetail .proImg {
   float: left;

@@ -1,4 +1,4 @@
-/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize-e4b737bb11.css */
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
@@ -448,8 +448,17 @@ textarea {
 .icon-coin-yen:before {
   content: "\e93e";
 }
+.icon-location:before {
+  content: "\e947";
+}
 .icon-search1:before {
   content: "\e986";
+}
+.icon-search:before {
+  content: "\e987";
+}
+.icon-cog:before {
+  content: "\e994";
 }
 .icon-bin:before {
   content: "\e9ac";
@@ -466,23 +475,26 @@ textarea {
 .icon-point-down:before {
   content: "\ea06";
 }
+.icon-arrow-left:before {
+  content: "\ea38";
+}
 .icon-checkbox-checked:before {
   content: "\ea52";
 }
 .icon-checkbox-unchecked:before {
   content: "\ea53";
 }
-.icon-location:before {
-  content: "\e947";
+.icon-compass:before {
+  content: "\e949";
 }
-.icon-search:before {
-  content: "\e987";
+.icon-airplane:before {
+  content: "\e9af";
 }
-.icon-cog:before {
-  content: "\e994";
+.icon-truck:before {
+  content: "\e9b0";
 }
-.icon-arrow-left:before {
-  content: "\ea38";
+.icon-circle-right:before {
+  content: "\ea42";
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -525,6 +537,13 @@ img {
 button.disabled {
   cursor: not-allowed;
 }
+input:focus,
+textarea:focus {
+  outline: none;
+}
+textarea {
+  resize: none;
+}
 .viewport {
   max-width: 640px;
   margin: 0 auto;
@@ -551,13 +570,14 @@ button.disabled {
   vertical-align: middle;
   display: inline-block;
   height: 100%;
-  margin-left: -1px;
+  margin-left: -0.03125rem;
 }
 .xcConfirm .xc_layer {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 12.5rem;
+  padding: 0 3.75rem;
   height: 100%;
   background-color: #666666;
   opacity: 0.5;
@@ -569,93 +589,66 @@ button.disabled {
   top: 50%;
   background-color: #ffffff;
   z-index: 2147000001;
-  width: 570px;
-  height: 300px;
-  margin-left: -285px;
-  margin-top: -150px;
-  border-radius: 5px;
-  font-weight: bold;
+  width: 12.5rem;
+  margin-left: -6.25rem;
+  margin-top: -4.6875rem;
+  border-radius: 0.3125rem;
   color: #535e66;
-}
-.xcConfirm .popBox .ttBox {
-  height: 30px;
-  line-height: 30px;
-  padding: 14px 30px;
-  border-bottom: solid 1px #eef0f1;
-}
-.xcConfirm .popBox .ttBox .tt {
-  font-size: 18px;
-  display: block;
-  float: left;
-  height: 30px;
-  position: relative;
-}
-.xcConfirm .popBox .ttBox .clsBtn {
-  display: block;
-  cursor: pointer;
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  top: 22px;
-  right: 30px;
-  background: url(../images/xcConfirm-icon.png) -48px -96px no-repeat;
-}
-.xcConfirm .popBox .txtBox {
-  margin: 40px 100px;
-  height: 100px;
   overflow: hidden;
 }
-.xcConfirm .popBox .txtBox .bigIcon {
-  float: left;
-  margin-right: 20px;
-  width: 48px;
-  height: 48px;
-  background-image: url(../images/xcConfirm-icon.png);
-  background-repeat: no-repeat;
-  background-position: 48px 0;
+.xcConfirm .popBox .txtBox {
+  width: 12.5rem;
+  margin: 0 auto;
+  padding: 0rem;
+  overflow: hidden;
+  border-bottom: solid 0.03125rem #eef0f1;
 }
 .xcConfirm .popBox .txtBox p {
-  height: 84px;
-  margin-top: 16px;
-  line-height: 26px;
+  width: 9.375rem;
+  margin: 1.09375rem auto;
+  max-height: 2.5rem;
+  overflow: hidden;
+  text-align: center;
+  line-height: 1.25rem;
+  font-size: 0.75rem;
   overflow-x: hidden;
-  overflow-y: auto;
+  color: #1a1a1a;
 }
 .xcConfirm .popBox .txtBox p input {
-  width: 364px;
-  height: 30px;
-  border: solid 1px #eef0f1;
-  font-size: 18px;
-  margin-top: 6px;
+  width: 11.375rem;
+  height: 0.9375rem;
+  border: solid 0.03125rem #eef0f1;
+  font-size: 0.5625rem;
+  margin-top: 0.1875rem;
 }
 .xcConfirm .popBox .btnArea {
-  border-top: solid 1px #eef0f1;
+  width: 100%;
+  height: 2.1875rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.0625rem;
 }
 .xcConfirm .popBox .btnGroup {
-  float: right;
+  width: 100%;
 }
 .xcConfirm .popBox .btnGroup .sgBtn {
-  margin-top: 14px;
-  margin-right: 10px;
+  width: 50%;
+  height: 100%;
+  line-height: 2.1875rem;
+  float: left;
 }
 .xcConfirm .popBox .sgBtn {
   display: block;
   cursor: pointer;
-  float: left;
-  width: 95px;
-  height: 35px;
-  line-height: 35px;
   text-align: center;
-  color: #FFFFFF;
-  border-radius: 5px;
 }
-.xcConfirm .popBox .sgBtn.ok {
-  background-color: #0095d9;
-  color: #FFFFFF;
+.xcConfirm .popBox .sgBtn.justOk {
+  width: 100%;
+  text-align: center;
+  float: none;
 }
 .xcConfirm .popBox .sgBtn.cancel {
-  background-color: #546a79;
-  color: #FFFFFF;
+  background-color: #f9f9f9;
+  color: #313131;
 }
 html,
 body {
@@ -664,6 +657,48 @@ body {
   overflow-x: hidden;
   position: fixed;
   padding-bottom: 3.125rem;
+  -webkit-overflow-scrolling: touch;
+}
+.textFont {
+  font-size: 0.7rem;
+}
+.titleFont {
+  font-size: 0.7rem;
+}
+.priceFont {
+  font-size: 0.7rem;
+}
+.navFont {
+  font-size: 0.85rem;
+}
+.bold {
+  font-weight: bold;
+}
+.orderButton {
+  margin: 0 0 0.625rem 0;
+  width: 4rem;
+  height: 1.4rem;
+  padding: 0rem;
+  float: right;
+  border: 0.03125rem solid #b4b4b4;
+  background-color: #fcfcfc;
+  border-radius: 0.46875rem 0.46875rem;
+  color: #757575;
+  letter-spacing: 0.03125rem;
+}
+.dialogShow {
+  animation: showDialog 300ms;
+}
+@keyframes showDialog {
+  0% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .navs {
   width: 10rem;
@@ -680,47 +715,47 @@ body {
   padding-left: 1rem;
 }
 .navs .login {
-  height: 2.1875rem;
-  margin: 1.6875rem 0;
+  height: 1rem;
+  margin: 1.875rem 0 0rem;
 }
 .navs .login .avatar {
   height: 100%;
   float: left;
   line-height: 1;
-  font-size: 1.125rem;
+  font-size: 0.85rem;
   color: #1e1e1e;
 }
 .navs .login .avatar a {
   display: block;
-  padding-top: 0.5rem;
+  color: #000000;
+  line-height: 1rem;
 }
 .navs .login .avatar .icon-user-loged {
   color: red;
 }
 .navs .login span {
   display: block;
-  line-height: 1;
-  padding: 0.59375rem 0;
-  margin-left: 1.75rem;
-  font-size: 1rem;
+  line-height: 1rem;
+  margin-left: 1.5625rem;
+  font-size: 0.85rem;
 }
 .navs dd {
   line-height: 1;
-  padding: 0.5rem 0;
-  margin: 0.5rem 0;
+  padding: 0.625rem 0;
+  margin: 0.3125rem 0;
   transform: translate(-100%);
 }
 .navs dd a {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: #FFF;
-  height: 1.125rem;
-  line-height: 1.125rem;
+  height: 0.875rem;
+  line-height: 0.875rem;
 }
 .navs dd a[class^="icon"]:before {
   display: inline-block;
   width: 1.125rem;
   height: 1.125rem;
-  line-height: 1.125rem;
+  line-height: 1.15rem;
   text-align: center;
   border-radius: 50%;
   font-size: 0.75rem;
@@ -745,7 +780,7 @@ body {
 .navs dd .icon-tie:before {
   background-color: #fdcc65;
 }
-.navs dd .icon-bin:before {
+.navs dd .icon-cog:before {
   background-color: #beb3fd;
 }
 .navs dd span {
@@ -795,6 +830,7 @@ body {
   width: 20rem;
   height: 2.5rem;
   max-width: 20rem;
+  font-size: 0.875rem;
   border-bottom: 0.0625rem solid #ededed;
   box-shadow: 0 0.0625rem 0.0625rem #f7f7f7;
   padding-left: 1.5625rem;
@@ -815,8 +851,8 @@ body {
   line-height: 2.5rem;
   font-style: normal;
   text-align: center;
-  font-size: 1rem;
   font-weight: normal;
+  font-size: 0.875rem;
 }
 .header .menu {
   display: block;
@@ -826,6 +862,7 @@ body {
   position: relative;
   height: 2.5rem;
   line-height: 2.5rem;
+  font-size: 0.8125rem;
 }
 .header .headerNavs {
   float: left;
@@ -840,7 +877,7 @@ body {
   text-align: left;
 }
 .header .headerNavs li a {
-  font-size: 1rem;
+  font-size: 0.8125rem;
   color: #010101;
   line-height: 2.5rem;
 }
@@ -854,11 +891,11 @@ body {
   position: absolute;
   top: 0.21875rem;
   height: 1rem;
-  font-size: 1rem;
   text-align: center;
   line-height: 1rem;
   background-color: #f6f6f3;
   color: #ff6c12;
+  width: 0.7rem;
 }
 .header .headerNavs .cart .changed {
   animation: twinkling 300ms;
@@ -871,11 +908,11 @@ body {
   }
   40% {
     opacity: 0.8;
-    font-size: 2rem;
+    font-size: 0.9375rem;
   }
   100% {
     opacity: 1;
-    font-size: 0.3125rem;
+    font-size: 0.625rem;
   }
 }
 .header .search {
@@ -894,14 +931,19 @@ body {
 }
 .dialogue .dialogHead {
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8125rem;
   position: relative;
+  height: 1rem;
 }
-.dialogue .dialogHead .close-dialog {
+.dialogue .close-dialog {
   position: absolute;
   right: 0rem;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: #7e7e7e;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: right;
 }
 .body {
   transition: all 0.5s 0.1s;
@@ -944,15 +986,16 @@ body {
   vertical-align: middle;
   overflow: hidden;
   line-height: 0.9375rem;
-  font-size: 0.75rem;
+  font-weight: normal;
+  font-size: 0.7rem;
   padding: 0 0.46875rem;
 }
 .body .allPro .allProLists ul li .productPrice {
   margin-top: 0.3125rem;
-  font-size: 0.75rem;
-  height: 1rem;
-  line-height: 1rem;
-  margin-bottom: 0.46875rem;
+  font-size: 0.7rem;
+  height: 0.875rem;
+  line-height: 0.875rem;
+  margin-bottom: 0.15625rem;
 }
 .body .allPro .nextLoading {
   width: 12.5rem;
@@ -970,7 +1013,7 @@ body {
 }
 .body .proDetail {
   overflow-x: hidden;
-  margin-bottom: 3.75rem;
+  min-height: 37.5rem;
   /*商品展示*/
   /*底部按钮*/
   /*商品属性选择*/
@@ -987,8 +1030,7 @@ body {
 }
 .body .proDetail .product .proTitle {
   padding: 0.46875rem 0.625rem;
-  font-size: 0.8125rem;
-  font-weight: 700;
+  font-size: 0.8rem;
   line-height: 1.25rem;
   background-color: #FFFFFF;
   color: #494949;
@@ -996,16 +1038,16 @@ body {
 }
 .body .proDetail .product .proTitle span {
   float: right;
-  width: 5rem;
+  width: 4.6875rem;
   text-align: right;
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   color: #ff2d36;
 }
 .body .proDetail .product .info {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   color: #565656;
-  height: 2.1875rem;
-  line-height: 2.1875rem;
+  height: 2.03125rem;
+  line-height: 2.03125rem;
   text-align: center;
   background-color: #fafafa;
   border-top: 0.03125rem solid #FFFFFF;
@@ -1023,7 +1065,7 @@ body {
 .body .proDetail .product .productDescription p {
   width: 17.5rem;
   margin: 0 auto;
-  font-size: 0.8125rem;
+  font-size: 0.7rem;
   text-align: center;
 }
 .body .proDetail .product .productDescription .proId {
@@ -1052,12 +1094,13 @@ body {
   margin: 0 auto;
 }
 .body .proDetail .footer div button {
+  letter-spacing: 0.03125rem;
   width: 8.28125rem;
   height: 2.1875rem;
   padding: 0.3125rem 0.625rem;
   line-height: 1.125rem;
   float: left;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   border: 0.03125rem solid #dedede;
   border-radius: 3%;
   background-color: #e4e4e4;
@@ -1104,13 +1147,13 @@ body {
   position: absolute;
   left: 6.5625rem;
   bottom: 0.9375rem;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   text-align: left;
 }
 .body .proDetail .dialog .show .showInfo .price {
   color: #ff2d36;
-  font-size: 1.0625rem;
-  line-height: 1.875rem;
+  font-size: 0.85rem;
+  line-height: 1.40625rem;
 }
 .body .proDetail .dialog .show .showInfo .productStock {
   color: #8a8a8a;
@@ -1119,7 +1162,7 @@ body {
 .body .proDetail .dialog .info {
   display: block;
   border-top: 0.03125rem solid #ededed;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   line-height: 2.03125rem;
 }
 .body .proDetail .dialog ul {
@@ -1130,8 +1173,8 @@ body {
   float: left;
   background-color: #F5F5F5;
   color: #3B3B3B;
-  font-size: 0.75rem;
-  line-height: 1.25rem;
+  font-size: 0.6875rem;
+  line-height: 1.09375rem;
   border-radius: 15%;
   margin-right: 0.625rem;
   margin-bottom: 0.46875rem;
@@ -1163,7 +1206,7 @@ body {
   padding: 0rem;
   float: left;
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   line-height: 1.5625rem;
   border: none;
   border-radius: 0.0625rem;
@@ -1190,6 +1233,7 @@ body {
   width: 100%;
   padding: 0.3125rem 0.625rem;
   line-height: 1.125rem;
+  letter-spacing: 0.15625rem;
   font-size: 0.875rem;
   border: 0.03125rem solid #fbfbfb;
   border-radius: 0.46875rem;
@@ -1203,22 +1247,20 @@ body {
 .body .cartList {
   overflow-x: hidden;
   overflow-y: auto;
-  margin-bottom: 4.0625rem;
   width: 100%;
-  height: 100%;
+  min-height: 37.5rem;
 }
 .body .cartList .info {
   height: 3.125rem;
   line-height: 3.125rem;
   text-align: center;
-  font-size: 0.8125rem;
+  font-size: 0.7rem;
   color: #bababa;
 }
 .body .cartList .cartAll {
   width: 100%;
   position: relative;
   overflow: hidden;
-  height: 100%;
 }
 .body .cartList .cartAll .cartInfo {
   position: fixed;
@@ -1226,7 +1268,7 @@ body {
   -webkit-box-shadow: inset 0 -0.15625rem 0.15625rem #efefef;
   -moz-box-shadow: inset 0 -0.15625rem 0.15625rem #efefef;
   box-shadow: inset 0 -0.15625rem 0.15625rem #efefef;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   height: 2.1875rem;
   width: 18.125rem;
   line-height: 2.1875rem;
@@ -1240,14 +1282,13 @@ body {
   display: inline-block;
   color: #ff6c12;
   line-height: 2.5rem;
-  font-size: 1.1875rem;
   font-weight: bold;
 }
 .body .cartList .cartAll .cartInfo .batchDelete {
   float: right;
   line-height: 2.1875rem;
   color: #8a8a8a;
-  font-size: 1rem;
+  font-size: 0.8125rem;
 }
 .body .cartList .cartAll .list {
   width: 19.0625rem;
@@ -1259,7 +1300,7 @@ body {
   width: 100%;
 }
 .body .cartList .cartAll .list ul li {
-  height: 6.5625rem;
+  height: 5.625rem;
   width: 100%;
   margin-bottom: 0.3125rem;
   background-color: #fcfcfc;
@@ -1270,11 +1311,12 @@ body {
 .body .cartList .cartAll .list ul li .check {
   float: left;
   width: 1.875rem;
-  height: 6.5625rem;
+  height: 5.625rem;
 }
 .body .cartList .cartAll .list ul li .check a {
+  font-size: 0.8125rem;
   text-align: center;
-  line-height: 6.5625rem;
+  line-height: 5.625rem;
   color: #a5a5a5;
   opacity: 0.9;
 }
@@ -1287,25 +1329,26 @@ body {
 }
 .body .cartList .cartAll .list ul li .cartLi .proImg {
   float: left;
-  height: 6.5625rem;
-  width: 5rem;
+  height: 5.625rem;
+  width: 4.375rem;
 }
 .body .cartList .cartAll .list ul li .cartLi .proImg img {
   display: block;
-  height: 5rem;
+  height: 4.375rem;
   margin-top: 0.625rem;
 }
 .body .cartList .cartAll .list ul li .cartLi .proDetail {
   float: right;
-  width: 10rem;
-  height: 6.25rem;
+  width: 10.625rem;
+  height: 5rem;
   padding: 0.3125rem 1.25rem 0rem 0.46875rem;
   position: relative;
   margin-bottom: 0rem;
+  min-height: 0rem;
 }
 .body .cartList .cartAll .list ul li .cartLi .proDetail .delThis {
   color: #ff6c12;
-  opacity: 0.6;
+  opacity: 0.7;
   display: block;
   position: absolute;
   top: 0.25rem;
@@ -1314,28 +1357,27 @@ body {
 .body .cartList .cartAll .list ul li .cartLi .proDetail .proName {
   margin-top: 0.15625rem;
   width: 9.84375rem;
-  height: 2.5rem;
+  height: 2rem;
   overflow: hidden;
-  line-height: 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  line-height: 1rem;
+  font-size: 0.75rem;
   color: #3f3f3f;
   text-align: justify;
 }
 .body .cartList .cartAll .list ul li .cartLi .proDetail .proInfo {
   width: 100%;
-  height: 1.25rem;
+  height: 1.09375rem;
   overflow: hidden;
-  line-height: 1.25rem;
+  line-height: 1.09375rem;
   font-size: 0.75rem;
   color: #878787;
 }
 .body .cartList .cartAll .list ul li .cartLi .proDetail .proPrice {
   float: left;
   width: 5.3125rem;
-  height: 1.875rem;
-  line-height: 1.875rem;
-  font-size: 0.9375rem;
+  height: 1.71875rem;
+  line-height: 1.71875rem;
+  font-size: 0.75rem;
   color: #ff6c12;
   font-weight: 600;
 }
@@ -1344,9 +1386,9 @@ body {
   border: 0.03125rem solid #cfcfcf;
   border-radius: 0.15625rem 0.15625rem;
   color: #8a8a8a;
-  font-size: 0.9375rem;
-  height: 1.25rem;
-  line-height: 1.25rem;
+  font-size: 0.75rem;
+  height: 1.09375rem;
+  line-height: 1.09375rem;
   text-align: center;
   margin-top: 0.25rem;
 }
@@ -1358,10 +1400,9 @@ body {
   float: left;
   width: 1.875rem;
   text-align: center;
-  height: 1.1875rem;
+  height: 1.09375rem;
   padding: 0rem;
-  margin-top: 0.03125rem;
-  line-height: 1.1875rem;
+  line-height: 1.09375rem;
   border: 0rem;
   border-right: 0.03125rem solid #d4d4d4;
   border-left: 0.03125rem solid #e8e8e8;
@@ -1379,6 +1420,7 @@ body {
   float: left;
   width: 6.25rem;
   height: 3.125rem;
+  font-size: 0.8125rem;
 }
 .body .cartList .footer .all a {
   float: left;
@@ -1390,10 +1432,10 @@ body {
 }
 .body .cartList .footer .all span {
   float: left;
-  margin-left: 0.3125rem;
+  margin-left: 0.25rem;
   height: 3.125rem;
   line-height: 3.125rem;
-  font-size: 0.8125rem;
+  font-size: 0.7rem;
   color: #7e7e7e;
   font-weight: 500;
 }
@@ -1407,27 +1449,26 @@ body {
 }
 .body .cartList .footer .option p {
   float: left;
-  height: 1.875rem;
-  margin-top: 0.78125rem;
-  line-height: 1.875rem;
-  font-size: 0.75rem;
+  height: 3.125rem;
+  line-height: 3.125rem;
+  font-size: 0.7rem;
 }
 .body .cartList .footer .option p .total {
   color: #ff6c12;
   font-weight: bold;
-  font-size: 0.875rem;
+  font-size: 0.7rem;
 }
 .body .cartList .footer .option button {
   float: right;
-  margin: 0.625rem 0.15625rem;
+  margin: 0.78125rem 0.15625rem;
   padding: 0rem;
-  width: 4.6875rem;
-  height: 1.875rem;
-  line-height: 1.875rem;
+  width: 4.375rem;
+  height: 1.5625rem;
+  line-height: 1.5625rem;
   text-align: center;
   border: none;
   border-radius: 0.625rem 0.625rem;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   letter-spacing: 0.0625rem;
   background-color: rgba(255, 91, 2, 0.8);
   color: #fffef5;
@@ -1436,6 +1477,7 @@ body {
   overflow-x: hidden;
   width: 100%;
   margin-top: 0.3125rem;
+  font-size: 0.7rem;
 }
 .body .createOrder form {
   width: 19.375rem;
@@ -1449,7 +1491,6 @@ body {
   background-color: #FFFFFF;
   height: 6.25rem;
   border-radius: 0.46875rem 0.46875rem;
-  font-size: 0.75rem;
   color: #666666;
   border-collapse: separate;
   border-spacing: 0 0.46875rem;
@@ -1459,9 +1500,11 @@ body {
 }
 .body .createOrder form .buyer tr td input,
 .body .createOrder form .buyer tr td textarea {
-  padding: 0.3125rem 3.90625rem 0.3125rem 0.3125rem;
-  width: 9.0625rem;
+  padding: 0.15625rem 0.3125rem;
+  width: 10.625rem;
   border: none;
+  line-height: 0.9rem;
+  font-size: 0.7rem;
 }
 .body .createOrder form .buyer tr td:first-of-type {
   width: 4.375rem;
@@ -1471,21 +1514,23 @@ body {
   position: relative;
   border: 0.0625rem solid #dadada;
   border-radius: 0.09375rem;
+  padding: 0.15625rem 0rem;
+  line-height: 0.9rem;
 }
 .body .createOrder form .buyer tr td:last-of-type .info {
   display: block;
-  width: 4.0625rem;
+  width: 5.3125rem;
   position: absolute;
   color: #ff6c12;
   top: 0rem;
-  right: 1.09375rem;
-  margin-top: 0.3rem;
+  right: 1.40625rem;
   text-align: right;
+  padding: 0.15625rem 0rem;
+  line-height: 1.1rem;
 }
 .body .createOrder form .buyer tr td:last-of-type .delText {
   color: #d6d6d6;
-  right: 0.125rem;
-  margin-top: 0.4rem;
+  right: 0.3125rem;
 }
 .body .createOrder form .proLists {
   background-color: #FFFFFF;
@@ -1495,36 +1540,36 @@ body {
 }
 .body .createOrder form .proLists .cartLi {
   width: 18.125rem;
-  height: 6.5625rem;
+  height: 5.625rem;
   margin: 0 auto;
   border-bottom: 0.03125rem solid #dedede;
 }
 .body .createOrder form .proLists .cartLi .proImg {
   float: left;
-  height: 6.5625rem;
-  width: 5rem;
+  height: 5.625rem;
+  width: 4.375rem;
 }
 .body .createOrder form .proLists .cartLi .proImg img {
   display: block;
-  height: 5rem;
-  margin-top: 0.625rem;
+  height: 4.375rem;
+  margin-top: 0.3125rem;
 }
 .body .createOrder form .proLists .cartLi .proDetail {
-  width: 12.1875rem;
-  height: 5.3125rem;
-  padding-top: 0.625rem;
+  width: 13.125rem;
+  height: 5rem;
+  padding-top: 0.3125rem;
   position: relative;
   margin-bottom: 0rem;
   overflow: hidden;
   float: right;
+  min-height: 0rem;
 }
 .body .createOrder form .proLists .cartLi .proDetail .proName {
-  width: 11.25rem;
-  height: 2.1875rem;
+  width: 12.1875rem;
+  height: 2rem;
   overflow: hidden;
-  line-height: 1.09375rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  line-height: 1rem;
+  font-size: 0.75rem;
   color: #3f3f3f;
   text-align: justify;
 }
@@ -1539,9 +1584,9 @@ body {
 .body .createOrder form .proLists .cartLi .proDetail .proPrice {
   float: left;
   width: 5.625rem;
-  height: 1.71875rem;
-  line-height: 1.71875rem;
-  font-size: 0.9375rem;
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.8125rem;
   color: #ff6c12;
   font-weight: 600;
 }
@@ -1549,24 +1594,57 @@ body {
   float: right;
   width: 4.0625rem;
   color: #8a8a8a;
-  font-size: 0.9375rem;
-  height: 1.71875rem;
-  line-height: 1.71875rem;
+  font-size: 0.75rem;
+  height: 1.40625rem;
+  line-height: 1.40625rem;
   text-align: center;
 }
-.body .createOrder form .total {
-  padding-right: 0.625rem;
-  text-align: right;
-  font-size: 0.875rem;
+.body .createOrder form .orderInfo {
+  width: 19.375rem;
+  margin: 0.3125rem auto 0;
+  border-radius: 0.3125rem 0.3125rem;
   color: #8a8a8a;
   background-color: #FFFFFF;
+}
+.body .createOrder form .orderInfo p {
+  width: 17.5rem;
+  margin: 0 auto;
+}
+.body .createOrder form .orderInfo .orderRemark {
+  height: 1.75rem;
+  line-height: 1.75rem;
+  border-bottom: 0.03125rem solid #eeeeee;
+}
+.body .createOrder form .orderInfo .orderRemark .info {
+  float: left;
+  width: 4rem;
+}
+.body .createOrder form .orderInfo .orderRemark input {
+  border: none;
+  width: 10.625rem;
+  height: 1.375rem;
+  padding: 0.15625rem 0.09375rem;
+}
+.body .createOrder form .orderInfo .orderRemark .delText {
+  float: right;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  color: #d6d6d6;
+  line-height: 1.5625rem;
+  text-align: center;
+}
+.body .createOrder form .orderInfo .total {
+  padding-right: 0.625rem;
+  text-align: right;
+  font-size: 0.8125rem;
   line-height: 2.5rem;
 }
-.body .createOrder form .total span {
+.body .createOrder form .orderInfo .total span {
   color: #ff6c12;
   font-weight: bold;
 }
 .body .createOrder form button {
+  font-size: 0.875rem;
   width: 18.75rem;
   height: 2.1875rem;
   line-height: 2.1875rem;
@@ -1581,6 +1659,7 @@ body {
 .body .orderList {
   overflow-x: hidden;
   width: 100%;
+  font-size: 0.7rem;
 }
 .body .orderList .orderAll {
   width: 100%;
@@ -1596,7 +1675,7 @@ body {
 }
 .body .orderList .orderAll .orderLists .orderList li {
   width: 100%;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.3125rem;
   background-color: #fcfcfc;
   border: 0.03125rem solid #ffffff;
   border-radius: 0.625rem 0.625rem;
@@ -1609,7 +1688,6 @@ body {
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLi-t {
   height: 1.875rem;
   line-height: 1.875rem;
-  font-size: 0.8125rem;
   color: #6f6f6f;
   border-bottom: 0.03125rem solid #ebebeb;
 }
@@ -1617,40 +1695,41 @@ body {
   float: right;
   padding-right: 0.3125rem;
   color: #ff6c12;
-  font-weight: bold;
   opacity: 0.8;
+  font-weight: bold;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLiDetail {
   width: 17.5rem;
   margin: 0rem auto;
-  height: 6.25rem;
+  height: 5.625rem;
   overflow: hidden;
+  border: none;
+  border-radius: 0;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLiDetail .proImg {
   float: left;
-  height: 6.25rem;
-  width: 5rem;
+  height: 5.625rem;
+  width: 4.375rem;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLiDetail .proImg img {
   display: block;
-  height: 5rem;
-  margin-top: 0.625rem;
+  height: 4.375rem;
+  margin-top: 0.3125rem;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLiDetail .order-proDetail {
-  width: 10.625rem;
-  height: 5.625rem;
+  width: 11.5625rem;
+  height: 5rem;
   padding: 0.3125rem 0.78125rem 0.3125rem 0.46875rem;
   float: right;
   position: relative;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLiDetail .order-proDetail .proName {
   margin-top: 0.15625rem;
-  width: 10.625rem;
-  height: 2.5rem;
+  width: 11.5625rem;
+  height: 2rem;
   overflow: hidden;
-  line-height: 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  line-height: 1rem;
+  font-size: 0.75rem;
   color: #3f3f3f;
   text-align: justify;
 }
@@ -1659,42 +1738,41 @@ body {
   height: 1.25rem;
   overflow: hidden;
   line-height: 1.25rem;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: #878787;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLiDetail .order-proDetail .proPrice {
   float: left;
   width: 6.25rem;
-  height: 1.5625rem;
-  line-height: 1.5625rem;
-  font-size: 0.9375rem;
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.8125rem;
   color: #878787;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLiDetail .order-proDetail .proNum {
   float: right;
   color: #8a8a8a;
-  font-size: 0.9375rem;
-  height: 1.5625rem;
-  line-height: 1.5625rem;
+  height: 1.40625rem;
+  line-height: 1.40625rem;
   text-align: center;
+  font-size: 0.8125rem;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi-info {
   overflow: hidden;
   color: #454545;
   width: 17.5rem;
   border-top: 0.03125rem solid #f3f3f3;
-  font-size: 0.875rem;
   margin: 0rem auto;
   padding: 0.3125rem;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi-info .proNum {
   float: left;
-  height: 2.5rem;
-  line-height: 2.5rem;
+  height: 2.1875rem;
+  line-height: 2.1875rem;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi-info .total {
   float: right;
-  height: 2.5rem;
+  height: 2.1875rem;
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi-info .total .actualAmount {
   color: #ff6c12;
@@ -1708,200 +1786,239 @@ body {
 }
 .body .orderList .orderAll .orderLists .orderList li .orderBtn button {
   margin: 0 0 0.625rem 0;
-  width: 4.6875rem;
-  height: 1.5625rem;
-  font-size: 0.8125rem;
+  width: 4rem;
+  height: 1.4rem;
   padding: 0rem;
   float: right;
   border: 0.03125rem solid #b4b4b4;
   background-color: #fcfcfc;
   border-radius: 0.46875rem 0.46875rem;
   color: #757575;
+  letter-spacing: 0.03125rem;
 }
 .body .orderList .info {
-  height: 3.125rem;
-  line-height: 3.125rem;
+  width: 100%;
+  color: #7e7e7e;
   text-align: center;
-  font-size: 0.8125rem;
-  color: #bababa;
+  font-size: 0.625rem;
+  line-height: 1rem;
+  height: 3rem;
+  overflow: hidden;
 }
-.body .orderList .info img {
-  width: 0.9375rem;
-  height: 0.9375rem;
-  margin: 0 auto;
-}
-.view {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-.view > div {
-  min-height: 100%;
-}
-.orderDetail {
+.body .orderDetail {
   overflow-x: hidden;
   background-color: #ffffff;
   padding-bottom: 2.1875rem;
   min-height: 33.1875rem;
+  position: relative;
+  font-size: 0.7rem;
 }
-.orderDetail .orderStatus {
+.body .orderDetail .orderStatus {
   width: 100%;
-  height: 4.6875rem;
+  height: 3.75rem;
   background: linear-gradient(to left, #fec98d 0%, #ff6c12 100%);
   box-shadow: 0 0.15625rem 0.15625rem #f8f8f8;
   text-align: center;
 }
-.orderDetail .orderStatus .orderInfo {
-  float: left;
-  width: 12.1875rem;
-  margin-left: 1.5625rem;
-  height: 4.6875rem;
-  line-height: 4.6875rem;
+.body .orderDetail .orderStatus .orderInfo {
+  width: 16.875rem;
+  margin: 0 auto;
+  height: 3.75rem;
+  line-height: 3.75rem;
   color: #fff0d0;
-  font-size: 0.9375rem;
   letter-spacing: 0.03125rem;
-  text-align: left;
+  text-align: center;
   overflow: hidden;
 }
-.orderDetail .orderStatus .orderInfo p {
+.body .orderDetail .orderStatus .orderInfo p {
   overflow: hidden;
-  height: 4.6875rem;
+  height: 3.75rem;
   width: 100%;
+  font-size: 0.8125rem;
+  letter-spacing: 0.09375rem;
 }
-.orderDetail .orderStatus .statusIcon {
+.body .orderDetail .orderStatus .statusIcon {
+  margin-right: 1.3125rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+}
+.body .orderDetail .orderStatus .statusIcon img {
   float: right;
-  background-image: url("../images/diaopai.png");
-  background-position: right center;
-  background-size: 4.6875rem 4.6875rem;
-  background-repeat: no-repeat;
-  margin-right: 0.9375rem;
-  width: 5rem;
-  height: 4.6875rem;
+  margin-top: 0.3125rem;
+  width: 3.125rem;
+  height: 3.125rem;
 }
-.orderDetail .orderStatus .statusIcon span {
+.body .orderDetail .orderStatus .statusIcon span {
   display: block;
   color: #ff6c12;
-  font-size: 0.78125rem;
+  font-size: 0.625rem;
   height: 1.5625rem;
-  line-height: 1.5625rem;
   font-weight: bold;
-  position: relative;
-  top: 2.03125rem;
-  left: 0rem;
+  line-height: 1.5625rem;
+  position: absolute;
+  top: 1.40625rem;
+  right: 0.8125rem;
   transform-origin: center center;
   transform: rotate(5deg);
 }
-.orderDetail .orderAddr {
+.body .orderDetail .orderExpress {
   width: 17.5rem;
   padding: 0.3125rem 1.25rem;
+  text-align: left;
+  min-height: 2.5rem;
+  border-bottom: 0.15625rem solid #f4f4f4;
+  position: relative;
+  overflow: hidden;
+}
+.body .orderDetail .orderExpress .expressIcon {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #339CE3;
+  border: 0.03125rem solid transparent;
+  border-radius: 50%;
+  position: relative;
+  top: 0.625rem;
+  float: left;
+}
+.body .orderDetail .orderExpress p {
+  margin-left: 1.875rem;
+  width: 14.0625rem;
+  margin-bottom: 0.15625rem;
+  line-height: 0.875rem;
+}
+.body .orderDetail .orderExpress .updateTime {
+  color: #7e7e7e;
+}
+.body .orderDetail .orderExpress .icon-circle-right {
+  font-size: 0.8125rem;
+  line-height: 1.875rem;
+  width: 1.25rem;
+  height: 1.875rem;
+  text-align: center;
+  position: absolute;
+  top: 0.625rem;
+  right: 1.25rem;
+  color: #7e7e7e;
+  font-weight: bold;
+}
+.body .orderDetail .orderAddr {
+  width: 17.5rem;
+  margin: 0 auto;
+  padding: 0.3125rem 0rem;
   background: #FFFFFF;
   text-align: left;
-  font-size: 0.9375rem;
+  border-bottom: 0.03125rem solid #e9e9e9;
 }
-.orderDetail .orderAddr .addIcon {
+.body .orderDetail .orderAddr .addIcon {
   float: left;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 2.5rem;
   color: #ff6c12;
 }
-.orderDetail .orderAddr p {
+.body .orderDetail .orderAddr p {
   line-height: 1.25rem;
   margin-left: 1.875rem;
   width: 15rem;
   height: auto;
+  overflow: hidden;
 }
-.orderDetail .orderAddr p .name {
+.body .orderDetail .orderAddr p .name {
   float: left;
   width: 8.75rem;
   word-wrap: break-word;
 }
-.orderDetail .orderAddr p .phone {
+.body .orderDetail .orderAddr p .phone {
   float: right;
   color: #7e7e7e;
 }
-.orderDetail .orderAddr .addr {
-  margin-top: 0.46875rem;
-  font-size: 0.8125rem;
-  height: 2.1875rem;
-  line-height: 1.09375rem;
+.body .orderDetail .orderAddr .addr {
+  margin-top: 0.15625rem;
+  line-height: 0.9375rem;
+  min-height: 0.9375rem;
   overflow: hidden;
   word-wrap: break-word;
 }
-.orderDetail .detail {
+.body .orderDetail .detail {
   margin-top: 0.3125rem;
   width: 18.125rem;
   padding: 0 0.9375rem;
   background-color: #FFFFFF;
 }
-.orderDetail .detail .orderLi .orderLiDetail {
+.body .orderDetail .detail .orderLi .orderLiDetail {
   width: 17.5rem;
-  height: 5.625rem;
+  height: 5rem;
   margin: 0rem auto;
   padding-bottom: 0.3125rem;
   border-bottom: 0.03125rem solid #e9e9e9;
   background-color: #ffffff;
   overflow: hidden;
 }
-.orderDetail .detail .orderLi .orderLiDetail .proImg {
+.body .orderDetail .detail .orderLi .orderLiDetail .proImg {
   float: left;
-  height: 5rem;
-  width: 5rem;
-  margin-top: 0.46875rem;
+  height: 4.375rem;
+  width: 4.375rem;
+  margin-top: 0.3125rem;
 }
-.orderDetail .detail .orderLi .orderLiDetail .proImg img {
+.body .orderDetail .detail .orderLi .orderLiDetail .proImg img {
   display: block;
-  height: 5rem;
-  width: 5rem;
+  height: 4.375rem;
+  width: 4.375rem;
 }
-.orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro {
-  width: 11.5625rem;
-  height: 5.625rem;
+.body .orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro {
+  width: 12.5rem;
+  height: 5.3125rem;
   padding: 0.15625rem 0rem;
   position: relative;
   float: right;
   overflow: hidden;
 }
-.orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proName {
+.body .orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proName {
   margin-top: 0.15625rem;
   width: 100%;
-  height: 2.5rem;
+  height: 2rem;
   overflow: hidden;
-  line-height: 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
+  line-height: 1rem;
+  font-size: 0.75rem;
   color: #3f3f3f;
   text-align: justify;
 }
-.orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proInfo {
+.body .orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proInfo {
   width: 100%;
-  height: 1.25rem;
+  height: 1.09375rem;
   overflow: hidden;
-  line-height: 1.25rem;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
+  line-height: 1.09375rem;
   color: #878787;
 }
-.orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proPrice {
+.body .orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proPrice {
   float: left;
   width: 6.25rem;
-  height: 1.71875rem;
-  line-height: 1.71875rem;
-  font-size: 0.9375rem;
+  height: 1.40625rem;
+  line-height: 1.40625rem;
+  font-size: 0.75rem;
   color: #878787;
 }
-.orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proNum {
+.body .orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proNum {
   float: right;
   color: #8a8a8a;
-  font-size: 0.9375rem;
-  height: 1.25rem;
-  line-height: 1.25rem;
+  font-size: 0.75rem;
+  height: 1.40625rem;
+  line-height: 1.40625rem;
   text-align: center;
   margin-top: 0.25rem;
 }
-.orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proNum span {
+.body .orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proNum span {
   float: left;
   width: 1.09375rem;
 }
-.orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proNum input {
+.body .orderDetail .detail .orderLi .orderLiDetail .orderDetail-pro .proNum input {
   float: left;
   width: 1.5625rem;
   text-align: center;
@@ -1913,69 +2030,251 @@ body {
   border-right: 0.03125rem solid #d4d4d4;
   border-left: 0.03125rem solid #e8e8e8;
 }
-.orderDetail .orderLi-price,
-.orderDetail .orderLi-info {
+.body .orderDetail .orderLi-price,
+.body .orderDetail .orderLi-info {
   width: 20rem;
   padding: 0 0.9375rem;
   background-color: #FFFFFF;
 }
-.orderDetail .orderLi-price tr,
-.orderDetail .orderLi-info tr {
+.body .orderDetail .orderLi-price tr,
+.body .orderDetail .orderLi-info tr {
   width: 100%;
   height: 1.25rem;
   line-height: 1.25rem;
   font-size: 0.75rem;
   color: #7e7e7e;
 }
-.orderDetail .orderLi-price tr td:first-of-type,
-.orderDetail .orderLi-info tr td:first-of-type {
+.body .orderDetail .orderLi-price tr td:first-of-type,
+.body .orderDetail .orderLi-info tr td:first-of-type {
   width: 6.25rem;
 }
-.orderDetail .orderLi-price tr td:last-of-type,
-.orderDetail .orderLi-info tr td:last-of-type {
+.body .orderDetail .orderLi-price tr td:last-of-type,
+.body .orderDetail .orderLi-info tr td:last-of-type {
   text-align: right;
 }
-.orderDetail .orderLi-price .info-t,
-.orderDetail .orderLi-info .info-t {
+.body .orderDetail .orderLi-price .info-t,
+.body .orderDetail .orderLi-info .info-t {
   height: 1.5625rem;
   line-height: 1.5625rem;
-  color: #4f4f50;
   float: left;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   text-align: left;
-  font-weight: bold;
+  color: #000000;
 }
-.orderDetail .orderLi-price .actual,
-.orderDetail .orderLi-info .actual {
+.body .orderDetail .orderLi-price .info-t td,
+.body .orderDetail .orderLi-info .info-t td {
+  padding: 0rem;
   color: #4f4f50;
-  font-size: 0.8125rem;
+}
+.body .orderDetail .orderLi-price .actual,
+.body .orderDetail .orderLi-info .actual {
+  color: #4f4f50;
+  font-size: 0.75rem;
   font-weight: bold;
 }
-.orderDetail .orderLi-price .actual .actualAmount,
-.orderDetail .orderLi-info .actual .actualAmount {
+.body .orderDetail .orderLi-price .actual .actualAmount,
+.body .orderDetail .orderLi-info .actual .actualAmount {
   font-size: 0.875rem;
   color: #ff6c12;
 }
-.orderDetail .orderLi-info {
+.body .orderDetail .orderLi-info {
   margin-top: 0.3125rem;
 }
-.orderDetail .orderBtn {
+.body .orderDetail .orderBtn {
   width: 18.125rem;
-  padding: 0rem 0.9375rem;
+  padding: 0rem 0.625rem;
   background-color: #FFFFFF;
 }
-.orderDetail .orderBtn button {
-  margin: 0.625rem 0;
-  width: 4.6875rem;
-  height: 1.875rem;
-  line-height: 1.875rem;
-  font-size: 0.8125rem;
-  float: right;
+.body .orderDetail .orderBtn button {
+  margin: 0 0 0.625rem 0;
+  width: 4rem;
+  height: 1.4rem;
   padding: 0rem;
+  float: right;
   border: 0.03125rem solid #b4b4b4;
   background-color: #fcfcfc;
   border-radius: 0.46875rem 0.46875rem;
   color: #757575;
+  letter-spacing: 0.03125rem;
+  margin: 0.625rem 0;
+}
+.body .orderDetail .expressDialog {
+  position: absolute;
+  background-color: #f4f4f4;
+  z-index: 100;
+  top: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  right: 0rem;
+  width: 18.75rem;
+  padding: 0.625rem;
+  overflow: hidden;
+  font-size: 0.65rem;
+  animation: showDialog 300ms;
+}
+.body .orderDetail .expressDialog .context {
+  height: 21.875rem;
+  width: 18.75rem;
+  background-color: #FFFFFF;
+  border-radius: 0.3125rem 0.3125rem;
+  position: relative;
+  padding: 1.40625rem 0rem;
+  overflow: hidden;
+}
+.body .orderDetail .expressDialog .context .close-dialog {
+  position: absolute;
+  display: block;
+  top: 0.3125rem;
+  right: 0.3125rem;
+  color: #7e7e7e;
+  font-size: 0.8rem;
+  width: 1rem;
+  height: 1rem;
+  text-align: right;
+  line-height: 1rem;
+}
+.body .orderDetail .expressDialog .context ul {
+  width: 17.5rem;
+  height: 21.875rem;
+  padding: 0 0.625rem;
+  overflow-y: auto;
+}
+.body .orderDetail .expressDialog .context ul li {
+  width: 16.25rem;
+  padding: 0 0.625rem 0.625rem;
+  border-left: 0.0625rem solid #d5d5d5;
+  position: relative;
+}
+.body .orderDetail .expressDialog .context ul li .point {
+  position: absolute;
+  margin-top: 0.3125rem;
+  left: -0.2rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: #d5d5d5;
+  border-radius: 50%;
+}
+.body .orderDetail .expressDialog .context ul li .detailTime {
+  color: #7e7e7e;
+}
+.body .orderDetail .expressDialog .context ul li p {
+  line-height: 1rem;
+  margin: 0 0.15625rem;
+}
+.body .userSetting {
+  overflow-x: hidden;
+  padding-bottom: 2.1875rem;
+  min-height: 33.1875rem;
+  position: relative;
+  background-color: #f3f3f3;
+  width: 100%;
+  margin-top: 0.0625rem;
+  font-size: 0.75rem;
+}
+.body .userSetting .showSetting p {
+  width: 17.5rem;
+  padding: 0 1.25rem 0 1.25rem;
+  background-color: #FFFFFF;
+  height: 2.1875rem;
+  margin-top: -0.03125rem;
+  line-height: 2.1875rem;
+  border-top: 0.03125rem solid #e0e0e0;
+  border-bottom: 0.03125rem solid #e0e0e0;
+}
+.body .userSetting .showSetting p b {
+  float: right;
+  line-height: 2.1875rem;
+}
+.body .userSetting .showSetting .logout {
+  margin-top: 0.9375rem;
+  text-align: center;
+}
+.body .userSetting .editPwd,
+.body .userSetting .editAddr {
+  width: 17.5rem;
+  height: 20.3125rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.9375rem 1.25rem;
+  background-color: #FFFFFF;
+  font-size: 0.7rem;
+}
+.body .userSetting .editPwd .title,
+.body .userSetting .editAddr .title {
+  line-height: 1.5625rem;
+  height: 1.5625rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.46875rem;
+}
+.body .userSetting .editPwd .title span,
+.body .userSetting .editAddr .title span {
+  float: right;
+  color: #7e7e7e;
+  line-height: 1.5625rem;
+  height: 1.5625rem;
+}
+.body .userSetting .editPwd .text,
+.body .userSetting .editAddr .text {
+  line-height: 0.9375rem;
+  color: #757575;
+}
+.body .userSetting .editPwd form,
+.body .userSetting .editAddr form {
+  text-align: left;
+}
+.body .userSetting .editPwd form table,
+.body .userSetting .editAddr form table {
+  width: 100%;
+}
+.body .userSetting .editPwd form table tr td,
+.body .userSetting .editAddr form table tr td {
+  padding: 0.46875rem 0 0.15625rem 0;
+  border-bottom: 0.03125rem solid #e3e3e3;
+  width: 4.6875rem;
+}
+.body .userSetting .editPwd form table tr td:last-of-type,
+.body .userSetting .editAddr form table tr td:last-of-type {
+  width: 14.375rem;
+}
+.body .userSetting .editPwd form table tr td:last-of-type input,
+.body .userSetting .editAddr form table tr td:last-of-type input {
+  border: none;
+  width: 8.75rem;
+  line-height: 1rem;
+}
+.body .userSetting .editPwd form table tr td:last-of-type span,
+.body .userSetting .editAddr form table tr td:last-of-type span {
+  float: right;
+  color: #ff6c12;
+}
+.body .userSetting .editPwd form table tr td:last-of-type .delText,
+.body .userSetting .editAddr form table tr td:last-of-type .delText {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.125rem;
+  color: #d6d6d6;
+}
+.body .userSetting .editPwd button,
+.body .userSetting .editAddr button {
+  display: block;
+  margin: 0 auto;
+  width: 17.5rem;
+  border: 0.03125rem solid #000000;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.0625rem;
+  color: #040404;
+  background-color: #fefefe;
+  margin-top: 1.40625rem;
+}
+.view {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.view > div {
+  min-height: 100%;
 }
 .userLogin,
 .userRegister {
@@ -1986,6 +2285,7 @@ body {
   right: 0rem;
   left: 0rem;
   padding: 1.5625rem 1.5625rem 0rem;
+  animation: showDialog 300ms;
 }
 .userLogin div,
 .userRegister div {
@@ -1998,17 +2298,18 @@ body {
 .userLogin p,
 .userRegister p {
   display: block;
-  padding: 0.75rem 0.9375rem;
+  padding: 0.625rem 0rem;
   font-size: 0.6875rem;
   color: #010101;
   margin: 0 auto;
+  width: 15.625rem;
 }
 .userLogin input,
 .userRegister input {
   display: block;
   width: 12.5rem;
   padding: 0.375rem 2.8125rem 0.375rem 0.3125rem;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #515151;
   border: none;
 }
@@ -2033,7 +2334,8 @@ body {
   border: none;
   border-radius: 0.25rem;
   padding: 0.75rem 0;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.0625rem;
   color: #ffffff;
   background-color: #494949;
   margin-bottom: 0.46875rem;
@@ -2056,10 +2358,231 @@ body {
 .userLogin .delText,
 .userRegister .delText {
   color: #d6d6d6;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: 50%;
+  margin-top: -0.625rem;
+  line-height: 1.25rem;
+  text-align: center;
 }
 .userLogin .info,
 .userRegister .info {
   color: #ff3d27;
-  width: auto;
   height: auto;
 }
+.userLogin .forgetPsd span,
+.userRegister .forgetPsd span {
+  display: inline-block;
+  color: #585c5e;
+  width: auto;
+  height: 0.875rem;
+  line-height: 0.875rem;
+  border-bottom: 0.03125rem solid #c3c5c0;
+}
+.userLogin .forgetDialog,
+.userRegister .forgetDialog {
+  position: absolute;
+  width: 20rem;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  z-index: 100;
+  font-size: 0.75rem;
+}
+.userLogin .forgetDialog .content,
+.userRegister .forgetDialog .content {
+  width: 18.75rem;
+  margin: 3.125rem auto 0;
+  border: none;
+}
+.userLogin .forgetDialog .content .title,
+.userRegister .forgetDialog .content .title {
+  font-size: 0.7rem;
+}
+.userLogin .forgetDialog .content .title .close-dialog,
+.userRegister .forgetDialog .content .title .close-dialog {
+  right: 1.5625rem;
+}
+.userLogin .forgetDialog .content .text,
+.userRegister .forgetDialog .content .text {
+  line-height: 1rem;
+}
+
+var NetShop = angular.module('NetShop', ['ngRoute', 'ngCookies', 'infinite-scroll', 'Controllers', 'Directives']);
+/*解决href=‘JavaScript：void(0)’报错*/
+NetShop.config(['$compileProvider',
+    function ($compileProvider) {
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|sms):/);
+    }]);
+NetShop.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    $locationProvider.hashPrefix('');
+    $routeProvider.when('/allPro/:categoryType', {//全部商品
+        templateUrl: './templates/allPro.html',
+        controller: 'allProController'
+    }).when('/proDetail/:categoryType/:productId', {//商品详情
+        templateUrl: './templates/proDetail.html',
+        controller: 'proDetailController'
+    })
+        .when('/cartList', {
+            templateUrl: './templates/cartList.html',
+            controller: 'cartListController'
+        })
+        .when('/createOrder', {
+            templateUrl: './templates/createOrder.html',
+            controller: 'createOrderController'
+        })
+        .when('/orderList', {
+            templateUrl: './templates/orderList.html',
+            controller: 'orderListController'
+        })
+        .when('/orderDetail/:orderId', {
+            templateUrl: './templates/orderDetail.html',
+            controller: 'orderDetailController'
+        })
+        .when('/setting', {
+            templateUrl: './templates/userSetting.html',
+            controller: 'userSettingController'
+        })
+        .otherwise({
+            redirectTo: '/allPro/all'
+        });
+
+}]);
+/*配置cookie跨域问题*/
+NetShop.config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.defaults.withCredentials = true;
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    // $httpProvider.defaults.headers.common['Authorization'] = "89757";
+}]);
+
+NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScope, $cookies, $http, $location) {
+    // 设置类名初始值
+    $rootScope.collapsed = false;//默认关闭导航栏
+    $rootScope.showDialogue = false;//默认隐藏弹窗
+    $rootScope.showUserLogin = false;//默认隐藏登录页
+    $rootScope.showRegister = false;//默认隐藏注册页
+    //获取购物车内商品数量
+    $rootScope.$on('cartUpload', function (event) {
+        // window.location.reload();
+        $rootScope.cartNotEmp = true;
+        $http.get(PUBLIC + '/buyer/cart/list').then(
+            function (res) {
+                $rootScope.cartNum = 0;
+                var num = eval(res.data.data.cartItems);
+                if (num) {
+                    $rootScope.cartNum = num.length;
+                }
+                $rootScope.cartChaged = true;
+            }, function (err) {
+                console.log(err);
+            });
+        $rootScope.cartChaged = false;
+    });
+    $rootScope.loged = (function () {
+        var username = $cookies.get('username');
+        if (username) {
+            $rootScope.username = username;
+            $rootScope.$broadcast('cartUpload', true);
+            return true;
+        } else {
+            $rootScope.username = '登录';
+            return false;
+        }
+    })();
+    $rootScope.categoryType = 'all';//默认展开的商品类别
+    // 全局方法
+    $rootScope.toggle = function () {
+        // 改变类名初始值
+        $rootScope.collapsed = !$rootScope.collapsed;
+        // 获取所有导航
+        var navs = document.querySelectorAll('.navs dd');
+
+        if ($rootScope.collapsed) {//如果侧边栏展开时
+            for (var i = 0; i < navs.length; i++) {
+                navs[i].style.transform = 'translate(0)';
+                navs[i].style.transitionDelay = '0.1s';
+                navs[i].style.transitionDuration = (i + 1) * 0.05 + 's';
+            }
+        } else {
+            var len = navs.length - 1;
+            for (var j = len; j > 0; j--) {
+                navs[j].style.transform = 'translate(-100%)';
+                navs[j].style.transitionDelay = '';
+                navs[j].style.transitionDuration = (len - j) * 0.05 + 's';
+            }
+        }
+    };
+    /*显示或关闭登录弹窗*/
+    $rootScope.toggleDialog = function () {
+        $rootScope.showDialogue = !$rootScope.showDialogue;//关闭弹窗
+        if ($rootScope.showDialogue) {
+            $rootScope.username = '';
+            $rootScope.showUserLogin = true;//关闭弹窗
+        } else {
+            $rootScope.showUserLogin = false;//关闭弹窗
+            $rootScope.showRegister = false;//关闭弹窗
+            if ($rootScope.collapsed) {
+                $rootScope.toggle();
+            }
+        }
+    }
+    /*点击购物车icon跳转*/
+    $rootScope.toCartList = function () {
+        if ($rootScope.loged) {//如果已登录
+            $location.path('/cartList');
+        } else {
+            window.wxc.xcConfirm("请登录!","info",{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $rootScope.toggleDialog();
+                    })
+                }
+            });
+        }
+    }
+    $rootScope.closeNav = function (status) {
+        if (status) {//nav开启状态
+            $rootScope.toggle();
+        }
+        else {
+            return;
+        }
+    }
+    /*页面刷新*/
+    $rootScope.$on('$locationChangeSuccess', function (event, newVal, current) {//返回前页时，刷新前页
+        if ((current != newVal) && (newVal.split('?')[0].split('#')[1] .indexOf('createOrder')== -1)) {
+            console.log('createOrder');
+            window.location.reload();
+        } else {
+            return;
+        }
+        ;
+    });
+    /*获取订单状态表*/
+    if($rootScope.loged){
+        $http.get(PUBLIC + '/buyer/order/listStatus').then(
+            function (res) {
+                if (res.data.msg == 'success') {
+                    $rootScope.listStatus = res.data.data;
+                }
+            }, function (err) {
+                console.log('网络异常，稍后再试');
+            }
+        );
+    }
+
+}]);
+/*common模块彻底解决post请求头和请求数据不规范的问题，可以直接引用模块名：common*/
+NetShop.config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.defaults.headers.post['Content-Type'] = "application/x-www-form-urlencoded;charset=UTF-8";
+    $httpProvider.defaults.transformRequest = function (data) {
+        var arr = [];
+        for (var key in data) {
+            arr.push(key + '=' + data[key]);
+        }
+        return arr.join('&');
+    }
+}]);
