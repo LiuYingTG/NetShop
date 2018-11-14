@@ -2,9 +2,9 @@
 angular.module('Controllers', [])
 
 // 导航菜单
-    .controller('NavController', ['$scope', '$location', '$rootScope', '$http', '$routeParams', '$cookies', function ($scope, $location, $rootScope, $http, $routeParams, $cookies) {
+    .controller('NavController', ['$scope', '$location', '$rootScope', '$http', '$routeParams', '$cookies','$interval', function ($scope, $location, $rootScope, $http, $routeParams, $cookies,$interval) {
         // 导航数据,获取导航栏目
-        $http.get(PUBLIC + '/netshop/buyer/category/list')
+        $http.get(PUBLIC + '/buyer/category/list')
             .then(function (res) {
                 if (res.data.msg == 'success') {
                     var allProCategory = [{
@@ -21,11 +21,9 @@ angular.module('Controllers', [])
                     $scope.iconList = ['icon-menu', 'icon-apparel', 'icon-tie', 'icon-sports-shoe', 'icon-shuttlecock', 'icon-heart-fill', 'icon-cog']
                     $scope.categoryLists = allProCategory.concat(res.data.data.slice(1)).concat(others);
                     console.log($scope.categoryLists);
-                } else {
-                    alert('获取商品列表失败，请刷新！');
                 }
             }, function (err) {
-                alert('获取商品列表失败，请刷新！');
+                window.wxc.xcConfirm("获取商品列表失败，请刷新！","info");
             });
         //用户登录
         $scope.login = function () {
@@ -43,17 +41,29 @@ angular.module('Controllers', [])
                     $rootScope.collapsed && $rootScope.toggle();
                     $location.path('/orderList');
                 } else {
-                    alert('请登录！');
-                    $rootScope.toggleDialog();
+                    window.wxc.xcConfirm("请登录！","info",{
+                        onOk:function () {
+                            $rootScope.$apply(function () {
+                                $rootScope.toggleDialog();
+                            })
+                        }
+                    });
+
                 }
             } else if (categoryType == 'setting') {
-                /*查看用户订单*/
+                /*查看用户设置*/
                 if ($rootScope.loged) {
                     $rootScope.collapsed && $rootScope.toggle();
                     $location.path('/setting');
                 } else {
-                    alert('请登录！');
-                    $rootScope.toggleDialog();
+                    window.wxc.xcConfirm("请登录！","info",{
+                        onOk:function () {
+                            $rootScope.$apply(function () {
+                                $rootScope.toggleDialog();
+                            })
+                        }
+                    });
+
                 }
             }
             else {
@@ -73,7 +83,6 @@ angular.module('Controllers', [])
         $scope.isLast = false;
         $scope.nextLoading = false;
         $scope.allProLists = [];
-        // window.wxc.xcConfirm('这是一个测试', window.wxc.xcConfirm.typeEnum.info);
         /*自动加载下一页*/
         $scope.vm.nextPage = function () {
             if ($scope.vm.busy) {
@@ -83,8 +92,8 @@ angular.module('Controllers', [])
             $scope.nextLoading = true;
             ($routeParams.categoryType == 'all') && ($routeParams.categoryType = '');
             //根据商品类目获取信息，如果是全部商品，请求all接口
-            /*netshop/buyer/category/list?categoryType*/
-            $http.get(PUBLIC + '/netshop/buyer/product/list',
+            /*buyer/category/list?categoryType*/
+            $http.get(PUBLIC + '/buyer/product/list',
                 {
                     params: {
                         categoryType: $routeParams.categoryType,
@@ -106,7 +115,7 @@ angular.module('Controllers', [])
                             $scope.vm.busy = false;
                         }
                     } else {
-                        alert('获取商品信息失败，稍后再试');
+                        window.wxc.xcConfirm('获取商品信息失败，稍后再试！',"info");
                     }
                 }, function (err) {
                     console.log(err);
@@ -131,7 +140,7 @@ angular.module('Controllers', [])
         $scope.num = 1;
         $scope.numDown = true;//默认禁止减少数量
         /*断网时，测试数据*/
-        $http.get(PUBLIC + '/netshop/buyer/product/detail',
+        $http.get(PUBLIC + '/buyer/product/detail',
             {params: {productId: productId}}).then(function (res) {
             if (res.data.msg == 'success') {
                 $rootScope.loaded = true;
@@ -151,7 +160,7 @@ angular.module('Controllers', [])
                     $scope.size = '';
                 }
             } else {
-                alert('网络卡了，稍后再试');
+                window.wxc.xcConfirm('网络卡了，稍后再试！','info');
             }
         }, function (err) {
             console.log('网络卡了，稍后再试');
@@ -170,19 +179,33 @@ angular.module('Controllers', [])
         $scope.changeNum = function (symbol) {
             if (symbol == "+") {
                 if ($scope.product.productStock < ($scope.num + 1)) {
-                    alert('库存不足！');
-                    return
+                    window.wxc.xcConfirm('库存不足！','info',{
+                        onOk:function () {
+                           return;
+                        }
+                    });
                 } else {
                     $scope.num++;
                 }
             } else if (!symbol) {
                 if ($scope.product.productStock < $scope.num) {
-                    alert('库存不足！');
-                    return;
+                    window.wxc.xcConfirm('库存不足！','info',{
+                        onOk:function () {
+                            $scope.$apply(function () {
+                                $scope.num=1;
+                                return;
+                            })
+                        }
+                    });
                 }
                 if ($scope.num < 1) {
-                    alert('商品数量不得少于1！');
-                    $scope.num = 1
+                    window.wxc.xcConfirm('商品数量不得少于1！','info',{
+                        onOk:function () {
+                            $scope,$apply(function () {
+                                $scope.num = 1
+                            });
+                        }
+                    });
                 }
             } else {
                 $scope.num--;
@@ -207,46 +230,60 @@ angular.module('Controllers', [])
         });
         $scope.confirmOrder = function () {
             if (!$rootScope.loged) {
-                alert('请登录！');
-                $rootScope.toggleDialog();
-                return;
-            }
-            if ($scope.product.productStock < $scope.num) {
-                alert('库存不足！');
-                return;
-            }
-            if ($scope.type == 1) {//添加到购物车
-                $http.post(PUBLIC + '/netshop/buyer/cart/add',
-                    {
-                        productId: $scope.product.productId,
-                        productColor: $scope.productColor,
-                        productSize: $scope.productSize,
-                        productQuantity: $scope.num
-                    })
-                    .then(function (res) {
-                        if (res.data.msg == 'success') {
-                            alert('添加购物车成功');
-                            $scope.showed = false;
-                            $rootScope.$broadcast('cartUpload', true);
-                        } else {
-                            alert('请登录');
-                        }
-                    }, function (err) {
-                        console.log('网络异常，请稍后再试');
-                    });
-            }
-            else if ($scope.type == 2) {//立即购买
-                $location.path('/createOrder').search({
-                    params: [{
-                        "productColor": $scope.productColor,
-                        "productId": $scope.product.productId,
-                        "img": $scope.product.productImgMd,
-                        'name': $scope.product.productName,
-                        "productQuantity": $scope.num,
-                        "productSize": $scope.productSize,
-                        'productPrice': $scope.product.productPrice
-                    }], total: $scope.num * $scope.product.productPrice
+                window.wxc.xcConfirm('请登录！','info',{
+                    onOk: function () {
+                        $rootScope.$apply(function () {
+                            $rootScope.toggleDialog();
+                            return;
+                        })
+                    }
                 });
+            }else if ($scope.product.productStock < $scope.num) {
+                window.wxc.xcConfirm('库存不足！','info',{
+                    onOk :function () {
+                        $rootScope.$apply(function () {
+                            $scope.num=1;
+                            return;
+                        });
+                    }
+                });
+            }else{
+                if ($scope.type == 1) {//添加到购物车
+                    $http.post(PUBLIC + '/buyer/cart/add',
+                        {
+                            productId: $scope.product.productId,
+                            productColor: $scope.productColor,
+                            productSize: $scope.productSize,
+                            productQuantity: $scope.num
+                        })
+                        .then(function (res) {
+                            if (res.data.msg == 'success') {
+                                window.wxc.xcConfirm('添加购物车成功！','info',{
+                                    onOk:function () {
+                                        $rootScope.$apply(function () {
+                                            $scope.showed = false;
+                                            $rootScope.$broadcast('cartUpload', true);
+                                        });
+                                    }
+                                });
+                            }
+                        }, function (err) {
+                            console.log('网络异常，请稍后再试！');
+                        });
+                }
+                else if ($scope.type == 2) {//立即购买
+                    $location.path('/createOrder').search({
+                        params: [{
+                            "productColor": $scope.productColor,
+                            "productId": $scope.product.productId,
+                            "img": $scope.product.productImgMd,
+                            'name': $scope.product.productName,
+                            "productQuantity": $scope.num,
+                            "productSize": $scope.productSize,
+                            'productPrice': $scope.product.productPrice
+                        }], total: $scope.num * $scope.product.productPrice
+                    });
+                }
             }
         }
     }])
@@ -258,45 +295,57 @@ angular.module('Controllers', [])
         $scope.userEmail = '';
         $scope.userLogin = function (formValid) {
             if (formValid) {
-                alert('输入信息有误！');
-                return;
+                window.wxc.xcConfirm('输入信息有误！','info',{
+                    onOk:function () {
+                        return;
+                    }
+                });
             }
-            $http.post(PUBLIC + '/netshop/buyer/login',
+            $http.post(PUBLIC + '/buyer/login',
                 $scope.userLog)
                 .then(function successCallback(res) {//登录成功
                     if (res.data.msg == 'success') {
-                        alert('登录成功！');
-                        $rootScope.toggleDialog();
-                        $rootScope.loged = true;
-                        $rootScope.userName = $scope.userLog.username;
-                        $rootScope.toggle();
-                        /*创建cookie，保持用户的登录状态*/
-                        var expireDate = new Date();
-                        expireDate.setHours(expireDate.getHours() + 1);
-                        $cookies.put('username', $scope.userLog.username, {expires: expireDate});
-                        $scope.userLog = {};
-                        window.location.reload();
+                        window.wxc.xcConfirm('登录成功！','info',{
+                            onOk:function () {
+                                $rootScope.$apply(function () {
+                                    $rootScope.toggleDialog();
+                                    $rootScope.loged = true;
+                                    $rootScope.userName = $scope.userLog.username;
+                                    $rootScope.toggle();
+                                    /*创建cookie，保持用户的登录状态*/
+                                    var expireDate = new Date();
+                                    expireDate.setHours(expireDate.getHours() + 1);
+                                    $cookies.put('username', $scope.userLog.username, {expires: expireDate});
+                                    $scope.userLog = {};
+                                    window.location.reload();
+                                })
+                            }
+                        });
                     }
                 }, function failedCallback(err) {//登录失败
-                    alert('用户名或密码错误！');
+                    window.wxc.xcConfirm('用户名或密码错误！','info');
                 });
         };
         /*忘记密码,发送邮件*/
         $scope.sendEmail = function (invalid) {
             if (invalid) {
-                alert("输入信息有误！");
+                window.wxc.xcConfirm('输入信息有误！','info');
                 return;
             }
-            $http.get(PUBLIC + '/netshop/buyer/getBackPwd', {params: {email: this.userEmail}})
+            $http.get(PUBLIC + '/buyer/getBackPwd', {params: {email: this.userEmail}})
                 .then(function (res) {
                     console.log(res.data);
                     if (res.data.msg == 'success') {
-                        alert('系统正在校验您的个人信息，稍后将发送密码至您的邮箱，请耐心等待！');
-                        $scope.forgetDialog = false;
-                        console.log($scope.forgetDialog);
+                        window.wxc.xcConfirm('系统正在校验您的个人信息，稍后将发送密码至您的邮箱，请耐心等待！','info',{
+                            onOk:function () {
+                                $scope.$apply(function () {
+                                    $scope.forgetDialog = false;
+                                })
+                            }
+                        });
                     }
                 }, function (err) {
-                    alert("该邮箱未注册！")
+                    window.wxc.xcConfirm('该邮箱未注册！','info');
                 });
         };
         $scope.$watch('forgetDialog', function () {
@@ -318,20 +367,26 @@ angular.module('Controllers', [])
                 email: this.email
             }
             if (btnValid) {//如果表单不可提交
-                alert('输入信息有误!');
+                window.wxc.xcConfirm("输入信息有误!","info");
                 return;
             }
             $http({
                 method: 'post',
-                url: PUBLIC + '/netshop/buyer/save',
+                url: PUBLIC + '/buyer/save',
                 data: user
             }).then(function (res) {
-                alert('注册成功！请登录');
-                $scope.registerInfo = {};
-                $rootScope.showRegister = false;
-                $rootScope.showUserLogin = true;
+                window.wxc.xcConfirm("注册成功,请登录!","info",{
+                    onOk:function () {
+                        $rootScope.$apply(function () {
+                            $scope.registerInfo = {};
+                            $rootScope.showRegister = false;
+                            $rootScope.showUserLogin = true;
+                        });
+                    }
+                });
+
             }, function (err) {
-                alert('注册' + err);
+                console.log(err);
             });
         }
     }])
@@ -359,7 +414,7 @@ angular.module('Controllers', [])
                 });
             }
             items = JSON.stringify(itemList);
-            $http.post(PUBLIC + '/netshop/buyer/order/create',
+            $http.post(PUBLIC + '/buyer/order/create',
                 {
                     buyerName: $scope.orderName,
                     buyerPhone: $scope.phone,
@@ -369,15 +424,21 @@ angular.module('Controllers', [])
                 })
                 .then(function (res) {
                     if (res.data.msg == 'success') {
-                        alert(res.data.data.msg);
-                        itemList = [];
-                        $rootScope.$broadcast('cartUpload', true);
-                        $location.path('/orderDetail/' + res.data.data.orderId);
+                        window.wxc.xcConfirm(res.data.data.msg,"info",{
+                            onOk:function () {
+                                $rootScope.$apply(function () {
+                                    itemList = [];
+                                    $rootScope.$broadcast('cartUpload', true);
+                                    $location.path('/orderDetail/' + res.data.data.orderId);
+                                })
+                            }
+                        });
+
                     } else {
-                        alert(res.data.msg);
+                        window.wxc.xcConfirm(res.data.data.msg,"info");
                     }
                 }, function (err) {
-                    alert('加购物车！' + err);
+                    console.log(err);
                 });
         }
     }])
@@ -388,7 +449,7 @@ angular.module('Controllers', [])
         $scope.items = [];
         $scope.checkAll = false;//默认不选中购物车全部商品
         $scope.checkNum = 0;
-        $http.get(PUBLIC + '/netshop/buyer/cart/list')
+        $http.get(PUBLIC + '/buyer/cart/list')
             .then(function (res) {
                 if (res.data.msg == 'success') {
                     $rootScope.loaded = true;
@@ -399,8 +460,13 @@ angular.module('Controllers', [])
                         });
                     }
                 } else {
-                    alert('请登录');
-                    $rootScope.toggleDialog();
+                    window.wxc.xcConfirm("请登录!","info",{
+                        onOk:function () {
+                            $rootScope.$apply(function () {
+                                $rootScope.toggleDialog();
+                            });
+                        }
+                    });
                 }
             }, function (err) {
                 console.log('登录' + err);
@@ -419,68 +485,79 @@ angular.module('Controllers', [])
                 if ($scope.cartLists[index].productQuantity <= 1) {
                     return;
                 } else {
-                    $http.get(PUBLIC + '/netshop/buyer/cart/decrease',
+                    $http.get(PUBLIC + '/buyer/cart/decrease',
                         {params: {itemId: $scope.cartLists[index].itemId}})
                         .then(function (res) {
                             if (res.data.msg == 'success') {
                                 $scope.cartLists[index].productQuantity--;
                             } else {
-                                alert('网络出错了，稍等一下！');
+                                window.wxc.xcConfirm("网络出错了，稍等一下！","info");
                             }
                         }, function (err) {
-                            alert('网络出错了，稍等一下！');
+                            window.wxc.xcConfirm("网络出错了，稍等一下！","info");
                         });
                 }
             } else {
-                $http.get(PUBLIC + '/netshop/buyer/cart/increase',
+                $http.get(PUBLIC + '/buyer/cart/increase',
                     {params: {itemId: $scope.cartLists[index].itemId}})
                     .then(function (res) {
                         if (res.data.msg == 'success') {
                             $scope.cartLists[index].productQuantity++;
                         }
                     }, function (err) {
-                        alert('商品数量超出范围！');
+                        window.wxc.xcConfirm("商品数量超出范围！","info");
+                        $scope.cartLists[index].productQuantity=1;
                     });
             }
         };
         /*直接修改购物车内的商品数量*/
         $scope.editQuantity = function (productId, productQuantity, index) {
             if (productQuantity < 1) {
-                alert('商品数量不得少于1');
-                $scope.cartLists[index].productQuantity = 1;
+                window.wxc.xcConfirm("商品数量不得少于1！","info",{
+                    onOk:function () {
+                        $scope.$apply(function () {
+                            $scope.cartLists[index].productQuantity = 1;
+                        })
+                    }
+                });
             }
-            $http.get(PUBLIC + '/netshop/buyer/cart/editQuantity', {
+            $http.get(PUBLIC + '/buyer/cart/editQuantity', {
                 params: {
-                    itemId: productId,
+                    itemId: $scope.cartLists[index].itemId,
                     quantity: productQuantity
                 }
             })
                 .then(function (res) {
+
                 }, function (err) {
-                    alert('商品数量超出范围！');
+                    window.wxc.xcConfirm("商品数量超出范围！","info");
+                    $scope.cartLists[index].productQuantity=1;
                 });
         }
         /*单个删除购车商品*/
         $scope.delete = function (index) {
-            if (window.confirm('确定删除该商品吗？')) {
-                $http.get(PUBLIC + '/netshop/buyer/cart/delete',
-                    {params: {itemId: $scope.cartLists[index].itemId}})
-                    .then(function (res) {
-                        if (res.data.msg == 'success') {
-                            var oldLists = $scope.cartLists;
-                            /*删除该数据*/
-                            $scope.cartLists = oldLists.slice(0, index).concat(oldLists.slice(index + 1));
-                            $rootScope.cartNum--;
-                        } else {
-                            alert('网络出错了，稍等一下！');
-                        }
+            window.wxc.xcConfirm('确定删除该商品吗？','confirm',{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $http.get(PUBLIC + '/buyer/cart/delete',
+                            {params: {itemId: $scope.cartLists[index].itemId}})
+                            .then(function (res) {
+                                if (res.data.msg == 'success') {
+                                    var oldLists = $scope.cartLists;
+                                    /*删除该数据*/
+                                    $scope.cartLists = oldLists.slice(0, index).concat(oldLists.slice(index + 1));
+                                    $rootScope.cartNum--;
+                                }
 
-                    }, function (err) {
-                        console.log('删除该商品' + err);
-                    });
-            } else {
-                return;
-            }
+                            }, function (err) {
+                                window.wxc.xcConfirm("网络出错了，稍等一下！","info");
+                            });
+                    })
+                },
+                onCancel:function () {
+                    return;
+                }
+            });
         };
         /*选择或取消选择全部商品*/
         $scope.checkAllPros = function () {
@@ -494,25 +571,28 @@ angular.module('Controllers', [])
         /*批量删除*/
         $scope.batchDelete = function () {
             if ($scope.checkNum == 0) {
-                alert('请至少选择一件商品！');
+                window.wxc.xcConfirm("请至少选择一件商品！","info");
             } else {
-                if (window.confirm('确定删除' + $scope.items.length + '件商品吗？')) {
-                    var items = $scope.items.join('_');
-                    $http.get(PUBLIC + '/netshop/buyer/cart/batchDelete', {
-                        params: {itemIds: items}
-                    })
-                        .then(function (res) {
-                            if (res.data.msg == 'success') {
-                                history.go(0);
-                            } else {
-                                alert('出错了，稍后再试');
-                            }
-                        }, function (err) {
-                            console.log('删除' + err);
-                        });
-                } else {
-                    return;
-                }
+                window.wxc.xcConfirm('确定删除' + $scope.items.length + '件商品吗？','confirm',{
+                    onOk:function () {
+                        $rootScope.$apply(function () {
+                            var items = $scope.items.join('_');
+                            $http.get(PUBLIC + '/buyer/cart/batchDelete', {
+                                params: {itemIds: items}
+                            })
+                                .then(function (res) {
+                                    if (res.data.msg == 'success') {
+                                        window.location.reload();
+                                    }
+                                }, function (err) {
+                                    window.wxc.xcConfirm("网络出错了，稍等一下！","info");
+                                });
+                        })
+                    },
+                    onCancel:function () {
+                        return;
+                    }
+                })
             }
 
         };
@@ -554,7 +634,7 @@ angular.module('Controllers', [])
             if ($scope.itemsDetail.length) {
                 $location.path('/createOrder').search({params: $scope.itemsDetail, total: $scope.cartTotal});
             } else {
-                alert('请选择要购买的商品！');
+                window.wxc.xcConfirm("请选择要购买的商品！","info");
                 return;
             }
         }
@@ -575,7 +655,7 @@ angular.module('Controllers', [])
                 return;
             }
             $scope.vm.busy = true;
-            $http.get(PUBLIC + '/netshop/buyer/order/list',
+            $http.get(PUBLIC + '/buyer/order/list',
                 {
                     params: {
                         page: $scope.vm.page
@@ -604,69 +684,100 @@ angular.module('Controllers', [])
         };
         /*删除订单*/
         $scope.delOrder = function (index) {
-            if (window.confirm('该订单信息将被删除，不再显示在订单页，是否继续？')) {
-                $http.get(PUBLIC + '/netshop/buyer/order/delete', {
-                    params: {
-                        orderId: $scope.orderLists[index].orderId
-                    }
-                })
-                    .then(function (res) {
-                        if (res.data.msg == 'success') {
-                            alert('删除成功');
-                            $scope.orderLists = $scope.orderLists.slice(0, index).concat($scope.orderLists.slice(index + 1));
-                        }
-                    }, function (err) {
-                        console.log('删除成功' + err);
+            window.wxc.xcConfirm('该订单信息将被删除，不再显示在订单页，是否继续？','confirm',{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $http.get(PUBLIC + '/buyer/order/delete', {
+                            params: {
+                                orderId: $scope.orderLists[index].orderId
+                            }
+                        })
+                            .then(function (res) {
+                                if (res.data.msg == 'success') {
+                                    window.wxc.xcConfirm("删除成功！","info",{
+                                        onOk:function () {
+                                            $scope.$apply(function () {
+                                                $scope.orderLists = $scope.orderLists.slice(0, index).concat($scope.orderLists.slice(index + 1));
+                                            })
+                                        }
+                                    });
+                                }
+                            }, function (err) {
+                                window.wxc.xcConfirm("删除成功！","info");
+                            });
                     });
-            } else {
-                return;
-            }
+                },
+                onCancel:function () {
+                    return;
+                }
+            })
+
+
 
         }
         /*取消订单*/
         $scope.cancelOrder = function (index) {
-            if (window.confirm('取消该订单吗？')) {
-                $http.get(PUBLIC + '/netshop/buyer/order/cancel', {
-                    params: {
-                        orderId: $scope.orderLists[index].orderId
-                    }
-                })
-                    .then(function (res) {
-                        if (res.data.msg == 'success') {
-                            alert('取消成功!');
-                            $scope.orderLists[index].orderStatus = '1';
-                        } else {
-                            alert('取消失败，请稍后再试！');
-                        }
-                    }, function (err) {
-                        console.log('取消成功order!');
+            window.wxc.xcConfirm('取消该订单吗？','confirm',{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $http.get(PUBLIC + '/buyer/order/cancel', {
+                            params: {
+                                orderId: $scope.orderLists[index].orderId
+                            }
+                        })
+                            .then(function (res) {
+                                if (res.data.msg == 'success') {
+                                    window.wxc.xcConfirm("取消成功！","info",{
+                                        onOk:function () {
+                                            $scope.$apply(function () {
+                                                $scope.orderLists[index].orderStatus = '1';
+                                            })
+                                        }
+                                    });
+                                } else {
+                                    window.wxc.xcConfirm("取消失败，请稍后再试！","info");
+                                }
+                            }, function (err) {
+                            });
                     });
-            } else {
-                return;
-            }
-        }
+                },
+                onCancel:function () {
+                    return;
+                }
+            });
+        };
         /*确认收货*/
         $scope.receiveOrder = function (index) {
-            if (window.confirm('确认收货后，默认交易完成，是否继续？')) {
-                $http.get(PUBLIC + '/netshop/buyer/order/receive', {
-                    params: {
-                        orderId: $scope.orderLists[index].orderId
-                    }
-                })
-                    .then(function (res) {
-                        if (res.data.msg == 'success') {
-                            alert('确认成功!');
-                            $scope.orderLists[index].orderStatus = '5';
-                        } else {
-                            alert('确认收货失败，请稍后再试！')
-                        }
-                    }, function (err) {
-                        console.log('确认收货失败!');
+            window.wxc.xcConfirm('确认收货后，默认交易完成，是否继续？','confirm',{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $http.get(PUBLIC + '/buyer/order/receive', {
+                            params: {
+                                orderId: $scope.orderLists[index].orderId
+                            }
+                        })
+                            .then(function (res) {
+                                if (res.data.msg == 'success') {
+                                    window.wxc.xcConfirm("确认成功！","info",{
+                                        onOk:function () {
+                                            $scope.$apply(function () {
+                                                $scope.orderLists[index].orderStatus = '5';
+                                            })
+                                        }
+                                    });
+                                } else {
+                                    window.wxc.xcConfirm("确认收货失败，请稍后再试！","info");
+                                }
+                            }, function (err) {
+                                console.log('确认收货失败!');
+                            });
                     });
-            } else {
-                return;
-            }
-        }
+                },
+                onCancel:function () {
+                    return;
+                }
+            })
+        };
         /*进入详情页*/
         $scope.orderDetail = function (index) {
             if (!$rootScope.collapsed) {
@@ -683,7 +794,7 @@ angular.module('Controllers', [])
         $scope.hasDetail = false;
         $scope.hasExpress = false;
         $scope.showExDetail = false;
-        $http.get(PUBLIC + '/netshop/buyer/order/detail', {
+        $http.get(PUBLIC + '/buyer/order/detail', {
             params: {
                 orderId: $routeParams.orderId
             }
@@ -693,7 +804,7 @@ angular.module('Controllers', [])
                     $scope.orderDetail = res.data.data;
                     $rootScope.loaded = true;
                     if ($scope.orderDetail.orderStatus == 4 || $scope.orderDetail.orderStatus == 5) {
-                        $http.get(PUBLIC + '/netshop/express/findOne', {
+                        $http.get(PUBLIC + '/express/findOne', {
                             params: {
                                 orderId: $routeParams.orderId
                             }
@@ -712,7 +823,7 @@ angular.module('Controllers', [])
                         });
                     }
                 } else {
-                    alert("网络出错了，稍后再试");
+                    window.wxc.xcConfirm("网络出错了，稍后再试！","info");
                 }
             }, function (err) {
                 console.log("orderDetail" + err);
@@ -726,66 +837,95 @@ angular.module('Controllers', [])
         }
         /*确认收货*/
         $scope.receiveOrder = function (orderId) {
-            if (window.confirm('确认收货后，默认交易完成，是否继续？')) {
-                $http.get(PUBLIC + '/netshop/buyer/order/receive', {
-                    params: {
-                        orderId: orderId
-                    }
-                })
-                    .then(function (res) {
-                        if (res.data.msg == 'success') {
-                            alert('确认成功!');
-                            $scope.orderDetail.orderStatus = '5';
-                        } else {
-                            alert('确认收货失败，请稍后再试！')
-                        }
-                    }, function (err) {
-                        console.log('确认收货失败!');
+            window.wxc.xcConfirm('确认收货后，默认交易完成，是否继续？','confirm',{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $http.get(PUBLIC + '/buyer/order/receive', {
+                            params: {
+                                orderId: orderId
+                            }
+                        })
+                            .then(function (res) {
+                                if (res.data.msg == 'success') {
+                                    window.wxc.xcConfirm("确认成功！","info",{
+                                        onOk:function () {
+                                            $scope.$apply(function () {
+                                                $scope.orderDetail.orderStatus = '5';
+                                            })
+                                        }
+                                    });
+                                } else {
+                                    window.wxc.xcConfirm("确认收货失败，请稍后再试！","info");
+                                }
+                            }, function (err) {
+                                console.log('确认收货失败!');
+                            });
                     });
-            } else {
-                return;
-            }
-        }
+                },
+                onCancel:function () {
+                    return;
+                }
+            });
+        };
         /*删除订单*/
         $scope.delOrder = function (orderId) {
-            if (window.confirm('该订单信息将被删除，不再显示在订单页，是否继续？')) {
-                $http.get(PUBLIC + '/netshop/buyer/order/delete', {
-                    params: {
-                        orderId: orderId
-                    }
-                })
-                    .then(function (res) {
-                        if (res.data.msg == 'success') {
-                            alert('删除成功');
-                            $location.path('/orderList');
-                        }
-                    }, function (err) {
-                        console.log('网络异常，稍后再试');
+            window.wxc.xcConfirm('该订单信息将被删除，不再显示在订单页，是否继续？','confirm',{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $http.get(PUBLIC + '/buyer/order/delete', {
+                            params: {
+                                orderId: orderId
+                            }
+                        })
+                            .then(function (res) {
+                                if (res.data.msg == 'success') {
+                                    window.wxc.xcConfirm("删除成功!","info",{
+                                        onOk:function () {
+                                            $scope.$apply(function () {
+                                                $location.path('/orderList');
+                                            })
+                                        }
+                                    });
+                                }
+                            }, function (err) {
+                                console.log('网络异常，稍后再试！');
+                            });
                     });
-            } else {
-                return;
-            }
-
+                },
+                onCancel:function () {
+                    return;
+                }
+            })
         }
         /*取消订单*/
         $scope.cancelOrder = function (orderId) {
-            if (window.confirm('取消该订单吗？')) {
-                $http.get(PUBLIC + '/netshop/buyer/order/cancel', {
-                    params: {
-                        orderId: orderId
-                    }
-                })
-                    .then(function (res) {
-                        if (res.data.msg == 'success') {
-                            alert('取消成功');
-                            $scope.orderDetail.orderStatus = '1';
-                        }
-                    }, function (err) {
-                        console.log('取消成功' + err);
+            window.wxc.xcConfirm('取消该订单吗？','confirm',{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $http.get(PUBLIC + '/buyer/order/cancel', {
+                            params: {
+                                orderId: orderId
+                            }
+                        })
+                            .then(function (res) {
+                                if (res.data.msg == 'success') {
+                                    window.wxc.xcConfirm("取消成功！","info",{
+                                        onOk:function () {
+                                            $scope.$apply(function () {
+                                                $scope.orderDetail.orderStatus = '1';
+                                            })
+                                        }
+                                    });
+                                }
+                            }, function (err) {
+                                console.log('取消成功' + err);
+                            });
                     });
-            } else {
-                return;
-            }
+                },
+                onCancel:function () {
+                    return;
+                }
+            })
         }
         /*进入商品详情页*/
         $scope.toProDetail = function (index) {
@@ -812,46 +952,58 @@ angular.module('Controllers', [])
         };
         /*用户注销*/
         $scope.userLogout = function () {
-            if (window.confirm('确定要注销吗？')) {
-                $http.get(PUBLIC + '/netshop/buyer/logout')
-                    .then(function (res) {
-                        if (res.data.msg == 'success') {//注销成功
-                            alert('注销成功！');
-                            $rootScope.loged = false;//更改登录状态
-                            $rootScope.cartNotEmp = false;
-                            $cookies.remove('username');
-                            $rootScope.categoryType = 'all';
-                            $location.path('/allPro/all');
-                        } else {
-                            alert('出错了哦，请稍后再试！');
-                        }
-                    }, function (err) {
-                        alert('出错了哦，请稍后再试！');
+            window.wxc.xcConfirm('确定要注销吗？','confirm',{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $http.get(PUBLIC + '/buyer/logout')
+                            .then(function (res) {
+                                if (res.data.msg == 'success') {//注销成功
+                                    window.wxc.xcConfirm("注销成功！","info",{
+                                        onOk:function () {
+                                            $rootScope.$apply(function () {
+                                                $rootScope.loged = false;//更改登录状态
+                                                $rootScope.cartNotEmp = false;
+                                                $cookies.remove('username');
+                                                $rootScope.categoryType = 'all';
+                                                $location.path('/allPro/all');
+                                            })
+                                        }
+                                    });
+                                }
+                            }, function (err) {
+                                window.wxc.xcConfirm("出错了哦，请稍后再试！","info");
+                            });
                     });
-            } else {
-                return;
-            }
-
+                },
+                onCancel:function () {
+                    return;
+                }
+            })
         };
         /*修改密码*/
         $scope.confirmEditPwd = function (valid) {
             if (valid) {
-                alert('输入信息有误！');
+                window.wxc.xcConfirm("输入信息有误！","info");
                 return;
             }
-         $http.post(PUBLIC+'/netshop/buyer/editPwd',{
+         $http.post(PUBLIC+'/buyer/editPwd',{
                  newPassword:this.newPwd
              })
              .then(function (res) {
-                 alert('修改成功,请重新登录！');
-                 $rootScope.loged = false;//更改登录状态
-                 $rootScope.toggle();
-                 $rootScope.cartNotEmp = false;
-                 $cookies.remove('username');
-                 $rootScope.categoryType = 'all';
-                 $location.path('/allPro/all');
+                 window.wxc.xcConfirm("修改成功,请重新登录！","info",{
+                     onOk:function () {
+                         $rootScope.$apply(function () {
+                             $rootScope.loged = false;//更改登录状态
+                             $rootScope.toggle();
+                             $rootScope.cartNotEmp = false;
+                             $cookies.remove('username');
+                             $rootScope.categoryType = 'all';
+                             $location.path('/allPro/all');
+                         })
+                     }
+                 });
              },function (err) {
-                 alert('修改失败，请稍后再试！');
+                 window.wxc.xcConfirm("修改失败，请稍后再试！","info");
              });
         }
     }])

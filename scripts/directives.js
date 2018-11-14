@@ -40,7 +40,7 @@ angular.module('Directives', [])
                 }).bind('blur', function () {
                     /*测试用地址*/
                     console.log(scope[attrs.ngModel]);
-                    var url = 'http://106.14.183.207:8085/netshop/buyer/' + attrs.ensureUnique + '?' + attrs.name + '=' + (scope[attrs.ngModel]);
+                    var url = PUBLIC+'/buyer/' + attrs.ensureUnique + '?' + attrs.name + '=' + (scope[attrs.ngModel]);
                     console.log(url);
                     if (scope[attrs.ngModel] != null) {
                         $http.get(url)

@@ -39,6 +39,13 @@ img {
 button.disabled {
   cursor: not-allowed;
 }
+input:focus,
+textarea:focus {
+  outline: none;
+}
+textarea {
+  resize: none;
+}
 .viewport {
   max-width: 640px;
   margin: 0 auto;

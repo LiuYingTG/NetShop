@@ -8,7 +8,6 @@
 @import 'base.less';
 // 弹窗插件样式
 @import 'xcConfirm.less';
-
 html, body {
   background-color: #f4f4f4;
   color: #191919;
@@ -36,6 +35,19 @@ html, body {
 
 .bold {
   font-weight: bold;
+}
+
+.orderButton {
+  margin: 0 0 20/32rem 0;
+  width: 4rem;
+  height: 1.4rem;
+  padding: 0rem;
+  float: right;
+  border: 1/32rem solid #b4b4b4;
+  background-color: #fcfcfc;
+  border-radius: 15/32rem 15/32rem;
+  color: #757575;
+  letter-spacing: 1/32rem;
 }
 
 .dialogShow {
@@ -288,7 +300,7 @@ html, body {
         }
         100% {
           opacity: 1;
-          font-size: 22/32rem;
+          font-size: 20/32rem;
         }
       }
     }
@@ -402,7 +414,7 @@ html, body {
   // 商品详情页
   .proDetail {
     overflow-x: hidden;
-    margin-bottom: 120/32rem;
+    min-height: 1200/32rem;
     /*商品展示*/
     .product {
       @marginB: 5/32rem;
@@ -642,9 +654,9 @@ html, body {
   .cartList {
     overflow-x: hidden;
     overflow-y: auto;
-    padding-bottom: 140/32rem;
+    //padding-bottom: 140/32rem;
     width: 100%;
-    min-height: 580/32rem;
+    min-height: 1200/32rem;
     .info {
       height: 100/32rem;
       line-height: 100/32rem;
@@ -739,6 +751,7 @@ html, body {
                 padding: 10/32rem 40/32rem 0/32rem 15/32rem;
                 position: relative;
                 margin-bottom: 0rem;
+                min-height: 0/32rem;
                 .delThis {
                   color: @activeColor;
                   opacity: 0.7;
@@ -902,9 +915,12 @@ html, body {
           padding: 5/32rem 0;
           td {
             input, textarea {
-              padding: 10/32rem 185/32rem 10/32rem 10/32rem;
-              width: 230/32rem;
+              //padding: 5/32rem 185/32rem 5/32rem 10/32rem;
+              padding: 5/32rem 10/32rem;
+              width: 340/32rem;
               border: none;
+              line-height: 0.9rem;
+              .textFont;
             }
           }
           td:first-of-type {
@@ -915,6 +931,8 @@ html, body {
             position: relative;
             border: 2/32rem solid #dadada;
             border-radius: 3/32rem;
+            padding: 0.15625rem 0rem;
+            line-height: 0.9rem;
             .info {
               display: block;
               width: 170/32rem;
@@ -922,13 +940,13 @@ html, body {
               color: @activeColor;
               top: 0rem;
               right: 45/32rem;
-              margin-top: 0.3rem;
               text-align: right;
+              padding: 0.15625rem 0rem;
+              line-height: 1.1rem;
             }
             .delText {
               color: #d6d6d6;
               right: 10/32rem;
-              margin-top: 0.4rem;
             }
           }
         }
@@ -962,6 +980,7 @@ html, body {
             margin-bottom: 0rem;
             overflow: hidden;
             float: right;
+            min-height: 0rem;
             .proName {
               width: 390/32rem;
               height: 64/32rem;
@@ -1015,11 +1034,12 @@ html, body {
           line-height: 56/32rem;
           border-bottom: 1/32rem solid #eeeeee;
           .info {
-            width: 144/32rem;
+            float: left;
+            width: 128/32rem;
           }
           input {
             border: none;
-            width: 380/32rem;
+            width: 340/32rem;
             height: 44/32rem;
             padding: 5/32rem 3/32rem;
 
@@ -1187,15 +1207,7 @@ html, body {
               width: 560/32rem;
               margin: 0 auto;
               button {
-                margin: 0 0 20/32rem 0;
-                width: 140/32rem;
-                height: 50/32rem;
-                padding: 0rem;
-                float: right;
-                border: 1/32rem solid #b4b4b4;
-                background-color: #fcfcfc;
-                border-radius: 15/32rem 15/32rem;
-                color: #757575;
+                .orderButton;
               }
             }
           }
@@ -1203,16 +1215,13 @@ html, body {
       }
     }
     .info {
-      height: 100/32rem;
-      line-height: 100/32rem;
-      text-align: center;
-      font-size: 26/32rem;
-      color: #bababa;
-      img {
-        width: 30/32rem;
-        height: 30/32rem;
-        margin: 0 auto;
-      }
+      width: 100%;
+    color: #7e7e7e;
+    text-align: center;
+    font-size: 0.625rem;
+    line-height: 1rem;
+    height: 3rem;
+    overflow: hidden;
     }
   }
 
@@ -1232,9 +1241,8 @@ html, body {
       box-shadow: 0 5/32rem 5/32rem #f8f8f8;
       text-align: center;
       .orderInfo {
-        float: left;
-        width: 390/32rem;
-        margin-left: 50/32rem;
+        width: 540/32rem;
+        margin: 0 auto;
         height: @height;
         line-height: @height;
         color: #fff0d0;
@@ -1245,16 +1253,17 @@ html, body {
           overflow: hidden;
           height: @height;
           width: 100%;
-          font-size: 24/32rem;
-          letter-spacing: 2/32rem;
+          font-size: 26/32rem;
+          letter-spacing: 3/32rem;
         }
       }
       .statusIcon {
-        float: right;
         margin-right: 42/32rem;
         width: @height;
         height: @height;
-        position: relative;
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
         img {
           float: right;
           margin-top: 10/32rem;
@@ -1353,8 +1362,8 @@ html, body {
       }
       .addr {
         margin-top: 5/32rem;
-        height: 55/32rem;
         line-height: 30/32rem;
+        min-height: 30/32rem;
         overflow: hidden;
         word-wrap: break-word;
       }
@@ -1467,11 +1476,14 @@ html, body {
       .info-t {
         height: 50/32rem;
         line-height: 50/32rem;
-        color: #4f4f50;
         float: left;
         font-size: 24/32rem;
         text-align: left;
         color: #000000;
+        td{
+          padding: 0rem;
+          color: #4f4f50;
+        }
       }
       .actual {
         color: #4f4f50;
@@ -1491,17 +1503,8 @@ html, body {
       padding: 0/32rem 20/32rem;
       background-color: #FFFFFF;
       button {
+        .orderButton;
         margin: 20/32rem 0;
-        width: 140/32rem;
-        height: 50/32rem;
-        line-height: 50/32rem;
-        font-size: 25/32rem;
-        float: right;
-        padding: 0rem;
-        border: 1/32rem solid #b4b4b4;
-        background-color: #fcfcfc;
-        border-radius: 15/32rem 15/32rem;
-        color: #757575;
       }
     }
     .expressDialog {

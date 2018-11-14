@@ -21,7 +21,7 @@
 					<div class="avatar">
 						<a ng-class={'icon-user':true,'icon-user-loged':loged}></a>
 					</div>
-					<span >{{loged?username:'登录'}}</span>
+					<span ng-cloak="">{{loged?username:'登录'}}</span>
 				</dd>
 				<dd ng-cloak  ng-class="{active: categoryType == categoryList.categoryType}" ng-repeat="categoryList in categoryLists">
 					<a ng-click="byCategory(categoryList.categoryType)" class="{{iconList[$index]}}">
@@ -33,7 +33,7 @@
 		<div class="container">
 			<!-- 头部 -->
 			<div ng-class="{header: true, collapse: collapsed}">
-				<h2>{{title}}</h2>
+				<h2 ng-cloak>{{title}}</h2>
 				<a  ng-click="toggle()" class="menu icon-menu"></a>
 				<ul class="headerNavs">
 					<!--<li><a class="icon-search"></a></li>-->

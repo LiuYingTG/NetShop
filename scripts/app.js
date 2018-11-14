@@ -91,15 +91,15 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
         if ($rootScope.collapsed) {//如果侧边栏展开时
             for (var i = 0; i < navs.length; i++) {
                 navs[i].style.transform = 'translate(0)';
-                navs[i].style.transitionDelay = '0.2s';
-                navs[i].style.transitionDuration = (i + 1) * 0.15 + 's';
+                navs[i].style.transitionDelay = '0.1s';
+                navs[i].style.transitionDuration = (i + 1) * 0.05 + 's';
             }
         } else {
             var len = navs.length - 1;
             for (var j = len; j > 0; j--) {
                 navs[j].style.transform = 'translate(-100%)';
                 navs[j].style.transitionDelay = '';
-                navs[j].style.transitionDuration = (len - j) * 0.15 + 's';
+                navs[j].style.transitionDuration = (len - j) * 0.05 + 's';
             }
         }
     };
@@ -122,8 +122,13 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
         if ($rootScope.loged) {//如果已登录
             $location.path('/cartList');
         } else {
-            alert('请登录');
-            $rootScope.toggleDialog();
+            window.wxc.xcConfirm("请登录!","info",{
+                onOk:function () {
+                    $rootScope.$apply(function () {
+                        $rootScope.toggleDialog();
+                    })
+                }
+            });
         }
     }
     $rootScope.closeNav = function (status) {
@@ -146,13 +151,10 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
     });
     /*获取订单状态表*/
     if($rootScope.loged){
-        $http.get(PUBLIC + '/netshop/buyer/order/listStatus').then(
+        $http.get(PUBLIC + '/buyer/order/listStatus').then(
             function (res) {
                 if (res.data.msg == 'success') {
                     $rootScope.listStatus = res.data.data;
-                    console.log($rootScope.listStatus);
-                } else {
-                    alert('网络异常，稍后再试');
                 }
             }, function (err) {
                 console.log('网络异常，稍后再试');
