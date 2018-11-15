@@ -7,25 +7,28 @@
 	<title>GoodGoods</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!--<link rel="stylesheet" href="static/less/main.less">-->
-	<link rel="stylesheet" href="./static/css/main-8c53890d8c.css">
+	<link rel="stylesheet" href="./static/css/main-1a658942d1.css">
 </head>
 <body ng-app="NetShop">
 	<div class="viewport" ng-cloak>
 		<!-- 侧边导航 -->
 		<div id="navs" ng-class="{navs: true, collapse: collapsed}" ng-controller="NavController">
-			<dl>
-				<dd class="login" ng-click="login()" ng-cloak>
-					<div class="avatar">
-						<a ng-class={'icon-user':true,'icon-user-loged':loged}></a>
-					</div>
-					<span ng-cloak="">{{loged?username:'登录'}}</span>
-				</dd>
-				<dd ng-cloak  ng-class="{active: categoryType == categoryList.categoryType}" ng-repeat="categoryList in categoryLists">
-					<a ng-click="byCategory(categoryList.categoryType)" class="{{iconList[$index]}}">
-						<span>{{categoryList.categoryName}}</span>
-					</a>
-				</dd>
-			</dl>
+			<div class="login" ng-click="login()" ng-cloak>
+				<div class="avatar">
+					<a ng-class={'icon-user':true,'icon-user-loged':loged}></a>
+				</div>
+				<span ng-cloak="">{{loged?username:'登录'}}</span>
+			</div>
+			<div class="navLists">
+				<dl>
+					<dd ng-cloak  ng-class="{active: categoryType == categoryList.categoryType}" ng-repeat="categoryList in categoryLists track by $index">
+						<a ng-click="byCategory(categoryList.categoryType)">
+							<span>{{categoryList.categoryName}}</span>
+						</a>
+					</dd>
+				</dl>
+			</div>
+
 		</div>
 		<div class="container">
 			<!-- 头部 -->
@@ -55,6 +58,6 @@
 	<script src="./static/libs/jquery-252b0b512a.js"></script>
 	<script src="./static/libs/xcConfirm-6ccb214e29.js"></script>
 	<script src="./static/libs/angular-7d432c4a3e.js"></script>
-	<script src="./scripts/main-9a0dd8ee23.js"></script>
+	<script src="./scripts/main-86f76534a9.js"></script>
 </body>
 </html>

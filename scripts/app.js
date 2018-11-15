@@ -53,6 +53,27 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
     $rootScope.showUserLogin = false;//默认隐藏登录页
     $rootScope.showRegister = false;//默认隐藏注册页
     //获取购物车内商品数量
+    // 导航数据,获取导航栏目
+    $http.get(PUBLIC + '/buyer/category/list')
+        .then(function (res) {
+            if (res.data.msg == 'success') {
+                var allProCategory = [{
+                    categoryName: '全部商品',
+                    categoryType: 'all'
+                }];
+                var others = [{
+                    categoryName: '我的订单',
+                    categoryType: 'order'
+                }, {
+                    categoryName: '用户设置',
+                    categoryType: 'setting'
+                }];
+                // $scope.iconList = ['icon-menu', 'icon-apparel', 'icon-tie', 'icon-sports-shoe', 'icon-shuttlecock', 'icon-heart-fill', 'icon-cog']
+                $rootScope.categoryLists = allProCategory.concat(res.data.data.slice(1)).concat(others);
+            }
+        }, function (err) {
+            window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+        });
     $rootScope.$on('cartUpload', function (event) {
         // window.location.reload();
         $rootScope.cartNotEmp = true;
@@ -81,7 +102,6 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
         }
     })();
     $rootScope.categoryType = 'all';//默认展开的商品类别
-    // 全局方法
     $rootScope.toggle = function () {
         // 改变类名初始值
         $rootScope.collapsed = !$rootScope.collapsed;

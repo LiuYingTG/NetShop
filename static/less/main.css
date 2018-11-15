@@ -709,14 +709,13 @@ textarea {
   left: -10rem;
   top: 0;
   z-index: 20;
-}
-.navs dl {
-  float: left;
-  padding-left: 1rem;
+  overflow: hidden;
 }
 .navs .login {
   height: 1rem;
-  margin: 1.875rem 0 0rem;
+  position: fixed;
+  top: 2.5rem;
+  padding-left: 1.5625rem;
 }
 .navs .login .avatar {
   height: 100%;
@@ -739,9 +738,22 @@ textarea {
   margin-left: 1.5625rem;
   font-size: 0.85rem;
 }
+.navs .navLists {
+  float: left;
+  width: 100%;
+  height: 20rem;
+  padding-left: 1.5625rem;
+  overflow: hidden;
+  padding-top: 4rem;
+}
+.navs dl {
+  width: 100%;
+  height: 19rem;
+  overflow-y: auto;
+}
 .navs dd {
   line-height: 1;
-  padding: 0.625rem 0;
+  padding: 0.5625rem 0;
   margin: 0.3125rem 0;
   transform: translate(-100%);
 }
@@ -967,7 +979,7 @@ textarea {
   margin-bottom: 0.46875rem;
   background-color: #FFFFFF;
   width: 9.28125rem;
-  height: 13.59375rem;
+  height: 13rem;
   margin-right: 0.46875rem;
 }
 .body .allPro .allProLists ul li .proImg {
@@ -991,11 +1003,10 @@ textarea {
   padding: 0 0.46875rem;
 }
 .body .allPro .allProLists ul li .productPrice {
-  margin-top: 0.3125rem;
+  margin-top: 0.15625rem;
   font-size: 0.7rem;
   height: 0.875rem;
   line-height: 0.875rem;
-  margin-bottom: 0.15625rem;
 }
 .body .allPro .nextLoading {
   width: 12.5rem;
@@ -1029,6 +1040,7 @@ textarea {
   width: 100%;
 }
 .body .proDetail .product .proTitle {
+  width: 18.75rem;
   padding: 0.46875rem 0.625rem;
   font-size: 0.8rem;
   line-height: 1.25rem;
@@ -1036,12 +1048,30 @@ textarea {
   color: #494949;
   box-shadow: 0 0.0625rem 0.0625rem #f7f7f7;
 }
+.body .proDetail .product .proTitle p {
+  width: 14.0625rem;
+  padding-right: 4.6875rem;
+}
 .body .proDetail .product .proTitle span {
   float: right;
   width: 4.6875rem;
+}
+.body .proDetail .product .proTitle span b {
+  float: right;
+  display: inline-block;
+  font-size: 0.625rem;
+  margin-top: -0.0625rem;
+  color: #ff6c12;
+}
+.body .proDetail .product .proTitle span .price {
   text-align: right;
   font-size: 0.8125rem;
-  color: #ff2d36;
+}
+.body .proDetail .product .proTitle span .price-icon {
+  font-size: 0.5625rem;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  margin-top: 0.22rem;
 }
 .body .proDetail .product .info {
   font-size: 0.6875rem;
@@ -1391,6 +1421,7 @@ textarea {
   line-height: 1.09375rem;
   text-align: center;
   margin-top: 0.25rem;
+  margin-right: -1rem;
 }
 .body .cartList .cartAll .list ul li .cartLi .proDetail .proNum span {
   float: left;
@@ -1451,12 +1482,12 @@ textarea {
   float: left;
   height: 3.125rem;
   line-height: 3.125rem;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 .body .cartList .footer .option p .total {
   color: #ff6c12;
   font-weight: bold;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 .body .cartList .footer .option button {
   float: right;
@@ -1693,7 +1724,6 @@ textarea {
 }
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLi-t .orderSta {
   float: right;
-  padding-right: 0.3125rem;
   color: #ff6c12;
   opacity: 0.8;
   font-weight: bold;
@@ -1719,7 +1749,7 @@ textarea {
 .body .orderList .orderAll .orderLists .orderList li .orderLi .orderLiDetail .order-proDetail {
   width: 11.5625rem;
   height: 5rem;
-  padding: 0.3125rem 0.78125rem 0.3125rem 0.46875rem;
+  padding: 0.3125rem 0rem 0.3125rem 0.78125rem;
   float: right;
   position: relative;
 }
@@ -1821,8 +1851,9 @@ textarea {
   text-align: center;
 }
 .body .orderDetail .orderStatus .orderInfo {
-  width: 16.875rem;
+  width: 12rem;
   margin: 0 auto;
+  margin-left: 2.6rem;
   height: 3.75rem;
   line-height: 3.75rem;
   color: #fff0d0;
@@ -1835,7 +1866,7 @@ textarea {
   height: 3.75rem;
   width: 100%;
   font-size: 0.8125rem;
-  letter-spacing: 0.09375rem;
+  letter-spacing: 0.0625rem;
 }
 .body .orderDetail .orderStatus .statusIcon {
   margin-right: 1.3125rem;
@@ -1854,7 +1885,7 @@ textarea {
 .body .orderDetail .orderStatus .statusIcon span {
   display: block;
   color: #ff6c12;
-  font-size: 0.625rem;
+  font-size: 0.6rem;
   height: 1.5625rem;
   font-weight: bold;
   line-height: 1.5625rem;

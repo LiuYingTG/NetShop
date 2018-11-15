@@ -16,19 +16,22 @@
 	<div class="viewport" ng-cloak>
 		<!-- 侧边导航 -->
 		<div id="navs" ng-class="{navs: true, collapse: collapsed}" ng-controller="NavController">
-			<dl>
-				<dd class="login" ng-click="login()" ng-cloak>
-					<div class="avatar">
-						<a ng-class={'icon-user':true,'icon-user-loged':loged}></a>
-					</div>
-					<span ng-cloak="">{{loged?username:'登录'}}</span>
-				</dd>
-				<dd ng-cloak  ng-class="{active: categoryType == categoryList.categoryType}" ng-repeat="categoryList in categoryLists">
-					<a ng-click="byCategory(categoryList.categoryType)" class="{{iconList[$index]}}">
-						<span>{{categoryList.categoryName}}</span>
-					</a>
-				</dd>
-			</dl>
+			<div class="login" ng-click="login()" ng-cloak>
+				<div class="avatar">
+					<a ng-class={'icon-user':true,'icon-user-loged':loged}></a>
+				</div>
+				<span ng-cloak="">{{loged?username:'登录'}}</span>
+			</div>
+			<div class="navLists">
+				<dl>
+					<dd ng-cloak  ng-class="{active: categoryType == categoryList.categoryType}" ng-repeat="categoryList in categoryLists track by $index">
+						<a ng-click="byCategory(categoryList.categoryType)">
+							<span>{{categoryList.categoryName}}</span>
+						</a>
+					</dd>
+				</dl>
+			</div>
+
 		</div>
 		<div class="container">
 			<!-- 头部 -->
