@@ -23,7 +23,7 @@ angular.module('Controllers', [])
                     console.log($scope.categoryLists);
                 }
             }, function (err) {
-                window.wxc.xcConfirm("获取商品列表失败，请刷新！","info");
+                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
             });
         //用户登录
         $scope.login = function () {
@@ -41,7 +41,7 @@ angular.module('Controllers', [])
                     $rootScope.collapsed && $rootScope.toggle();
                     $location.path('/orderList');
                 } else {
-                    window.wxc.xcConfirm("请登录！","info",{
+                    window.wxc.xcConfirm("需要登录哦，亲~","info",{
                         onOk:function () {
                             $rootScope.$apply(function () {
                                 $rootScope.toggleDialog();
@@ -56,7 +56,7 @@ angular.module('Controllers', [])
                     $rootScope.collapsed && $rootScope.toggle();
                     $location.path('/setting');
                 } else {
-                    window.wxc.xcConfirm("请登录！","info",{
+                    window.wxc.xcConfirm("需要登录哦，亲~","info",{
                         onOk:function () {
                             $rootScope.$apply(function () {
                                 $rootScope.toggleDialog();
@@ -114,11 +114,9 @@ angular.module('Controllers', [])
                             $scope.vm.page++;
                             $scope.vm.busy = false;
                         }
-                    } else {
-                        window.wxc.xcConfirm('获取商品信息失败，稍后再试！',"info");
                     }
                 }, function (err) {
-                    console.log(err);
+                    window.wxc.xcConfirm('出错了，稍后再试哦亲~',"info");
                 });
         };
         /*跳转至商品详情页，携带参数，正在浏览的*/
@@ -159,11 +157,9 @@ angular.module('Controllers', [])
                     $scope.product.productSize = [];
                     $scope.size = '';
                 }
-            } else {
-                window.wxc.xcConfirm('网络卡了，稍后再试！','info');
             }
         }, function (err) {
-            console.log('网络卡了，稍后再试');
+            window.wxc.xcConfirm('出错了，稍后再试哦亲~','info');
         });
         $scope.chooseColor = function (index) {
             $scope.product.colorChoosed = index;
@@ -179,7 +175,7 @@ angular.module('Controllers', [])
         $scope.changeNum = function (symbol) {
             if (symbol == "+") {
                 if ($scope.product.productStock < ($scope.num + 1)) {
-                    window.wxc.xcConfirm('库存不足！','info',{
+                    window.wxc.xcConfirm('数量超出范围~','info',{
                         onOk:function () {
                            return;
                         }
@@ -189,7 +185,7 @@ angular.module('Controllers', [])
                 }
             } else if (!symbol) {
                 if ($scope.product.productStock < $scope.num) {
-                    window.wxc.xcConfirm('库存不足！','info',{
+                    window.wxc.xcConfirm('数量超出范围~','info',{
                         onOk:function () {
                             $scope.$apply(function () {
                                 $scope.num=1;
@@ -199,7 +195,7 @@ angular.module('Controllers', [])
                     });
                 }
                 if ($scope.num < 1) {
-                    window.wxc.xcConfirm('商品数量不得少于1！','info',{
+                    window.wxc.xcConfirm('不能再少啦，亲~','info',{
                         onOk:function () {
                             $scope,$apply(function () {
                                 $scope.num = 1
@@ -230,7 +226,7 @@ angular.module('Controllers', [])
         });
         $scope.confirmOrder = function () {
             if (!$rootScope.loged) {
-                window.wxc.xcConfirm('请登录！','info',{
+                window.wxc.xcConfirm('需要登录哦，亲~','info',{
                     onOk: function () {
                         $rootScope.$apply(function () {
                             $rootScope.toggleDialog();
@@ -239,7 +235,7 @@ angular.module('Controllers', [])
                     }
                 });
             }else if ($scope.product.productStock < $scope.num) {
-                window.wxc.xcConfirm('库存不足！','info',{
+                window.wxc.xcConfirm('数量超出范围~','info',{
                     onOk :function () {
                         $rootScope.$apply(function () {
                             $scope.num=1;
@@ -268,7 +264,7 @@ angular.module('Controllers', [])
                                 });
                             }
                         }, function (err) {
-                            console.log('网络异常，请稍后再试！');
+                            window.wxc.xcConfirm('出错了，稍后再试哦亲~','info');
                         });
                 }
                 else if ($scope.type == 2) {//立即购买
@@ -295,7 +291,7 @@ angular.module('Controllers', [])
         $scope.userEmail = '';
         $scope.userLogin = function (formValid) {
             if (formValid) {
-                window.wxc.xcConfirm('输入信息有误！','info',{
+                window.wxc.xcConfirm('输入信息有误哦，亲~','info',{
                     onOk:function () {
                         return;
                     }
@@ -323,20 +319,20 @@ angular.module('Controllers', [])
                         });
                     }
                 }, function failedCallback(err) {//登录失败
-                    window.wxc.xcConfirm('用户名或密码错误！','info');
+                    window.wxc.xcConfirm('用户名或密码错误~','info');
                 });
         };
         /*忘记密码,发送邮件*/
         $scope.sendEmail = function (invalid) {
             if (invalid) {
-                window.wxc.xcConfirm('输入信息有误！','info');
+                window.wxc.xcConfirm('输入信息有误哦，亲~','info');
                 return;
             }
             $http.get(PUBLIC + '/buyer/getBackPwd', {params: {email: this.userEmail}})
                 .then(function (res) {
                     console.log(res.data);
                     if (res.data.msg == 'success') {
-                        window.wxc.xcConfirm('系统正在校验您的个人信息，稍后将发送密码至您的邮箱，请耐心等待！','info',{
+                        window.wxc.xcConfirm('系统正在校验您的个人信息，稍后将发送密码至您的邮箱，请耐心等待哦，亲~','info',{
                             onOk:function () {
                                 $scope.$apply(function () {
                                     $scope.forgetDialog = false;
@@ -345,7 +341,7 @@ angular.module('Controllers', [])
                         });
                     }
                 }, function (err) {
-                    window.wxc.xcConfirm('该邮箱未注册！','info');
+                    window.wxc.xcConfirm('邮箱未注册哦，亲~','info');
                 });
         };
         $scope.$watch('forgetDialog', function () {
@@ -367,7 +363,7 @@ angular.module('Controllers', [])
                 email: this.email
             }
             if (btnValid) {//如果表单不可提交
-                window.wxc.xcConfirm("输入信息有误!","info");
+                window.wxc.xcConfirm("输入信息有误哦，亲~","info");
                 return;
             }
             $http({
@@ -375,7 +371,7 @@ angular.module('Controllers', [])
                 url: PUBLIC + '/buyer/save',
                 data: user
             }).then(function (res) {
-                window.wxc.xcConfirm("注册成功,请登录!","info",{
+                window.wxc.xcConfirm("注册成功,快去登录吧~","info",{
                     onOk:function () {
                         $rootScope.$apply(function () {
                             $scope.registerInfo = {};
@@ -460,7 +456,7 @@ angular.module('Controllers', [])
                         });
                     }
                 } else {
-                    window.wxc.xcConfirm("请登录!","info",{
+                    window.wxc.xcConfirm("需要登录哦，亲~","info",{
                         onOk:function () {
                             $rootScope.$apply(function () {
                                 $rootScope.toggleDialog();
@@ -490,11 +486,9 @@ angular.module('Controllers', [])
                         .then(function (res) {
                             if (res.data.msg == 'success') {
                                 $scope.cartLists[index].productQuantity--;
-                            } else {
-                                window.wxc.xcConfirm("网络出错了，稍等一下！","info");
                             }
                         }, function (err) {
-                            window.wxc.xcConfirm("网络出错了，稍等一下！","info");
+                            window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                         });
                 }
             } else {
@@ -505,7 +499,7 @@ angular.module('Controllers', [])
                             $scope.cartLists[index].productQuantity++;
                         }
                     }, function (err) {
-                        window.wxc.xcConfirm("商品数量超出范围！","info");
+                        window.wxc.xcConfirm("数量超出范围~","info");
                         $scope.cartLists[index].productQuantity=1;
                     });
             }
@@ -513,7 +507,7 @@ angular.module('Controllers', [])
         /*直接修改购物车内的商品数量*/
         $scope.editQuantity = function (productId, productQuantity, index) {
             if (productQuantity < 1) {
-                window.wxc.xcConfirm("商品数量不得少于1！","info",{
+                window.wxc.xcConfirm("不能再少啦，亲~","info",{
                     onOk:function () {
                         $scope.$apply(function () {
                             $scope.cartLists[index].productQuantity = 1;
@@ -530,7 +524,7 @@ angular.module('Controllers', [])
                 .then(function (res) {
 
                 }, function (err) {
-                    window.wxc.xcConfirm("商品数量超出范围！","info");
+                    window.wxc.xcConfirm("数量超出范围~","info");
                     $scope.cartLists[index].productQuantity=1;
                 });
         }
@@ -550,7 +544,7 @@ angular.module('Controllers', [])
                                 }
 
                             }, function (err) {
-                                window.wxc.xcConfirm("网络出错了，稍等一下！","info");
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                             });
                     })
                 },
@@ -571,9 +565,9 @@ angular.module('Controllers', [])
         /*批量删除*/
         $scope.batchDelete = function () {
             if ($scope.checkNum == 0) {
-                window.wxc.xcConfirm("请至少选择一件商品！","info");
+                window.wxc.xcConfirm("至少要选择一件商品哦，亲~","info");
             } else {
-                window.wxc.xcConfirm('确定删除' + $scope.items.length + '件商品吗？','confirm',{
+                window.wxc.xcConfirm('确定删除' + $scope.items.length + '件商品吗，亲？','confirm',{
                     onOk:function () {
                         $rootScope.$apply(function () {
                             var items = $scope.items.join('_');
@@ -585,7 +579,7 @@ angular.module('Controllers', [])
                                         window.location.reload();
                                     }
                                 }, function (err) {
-                                    window.wxc.xcConfirm("网络出错了，稍等一下！","info");
+                                    window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                                 });
                         })
                     },
@@ -604,7 +598,10 @@ angular.module('Controllers', [])
             $scope.checkNum = 0;
             for (var i = 0; i < $scope.cartLists.length; i++) {
                 if ($scope.cartLists[i].checked) {
-                    $scope.cartTotal += parseFloat($scope.cartLists[i].productPrice * $scope.cartLists[i].productQuantity);
+                    /*增加精度*/
+                    var singleItem=parseFloat($scope.cartLists[i].productPrice * $scope.cartLists[i].productQuantity)*1000;
+                    $scope.cartTotal=(singleItem+$scope.cartTotal*1000)/1000;
+                    // $scope.cartTotal += parseFloat($scope.cartLists[i].productPrice * $scope.cartLists[i].productQuantity);
                     $scope.checkNum++;
                     $scope.items.push($scope.cartLists[i].itemId);
                     $scope.itemsDetail.push({
@@ -634,7 +631,7 @@ angular.module('Controllers', [])
             if ($scope.itemsDetail.length) {
                 $location.path('/createOrder').search({params: $scope.itemsDetail, total: $scope.cartTotal});
             } else {
-                window.wxc.xcConfirm("请选择要购买的商品！","info");
+                window.wxc.xcConfirm("至少要选择一件商品哦，亲~","info");
                 return;
             }
         }
@@ -703,7 +700,7 @@ angular.module('Controllers', [])
                                     });
                                 }
                             }, function (err) {
-                                window.wxc.xcConfirm("删除成功！","info");
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                             });
                     });
                 },
@@ -717,7 +714,7 @@ angular.module('Controllers', [])
         }
         /*取消订单*/
         $scope.cancelOrder = function (index) {
-            window.wxc.xcConfirm('取消该订单吗？','confirm',{
+            window.wxc.xcConfirm('取消该订单吗，亲?','confirm',{
                 onOk:function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/cancel', {
@@ -735,7 +732,7 @@ angular.module('Controllers', [])
                                         }
                                     });
                                 } else {
-                                    window.wxc.xcConfirm("取消失败，请稍后再试！","info");
+                                    window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                                 }
                             }, function (err) {
                             });
@@ -765,11 +762,9 @@ angular.module('Controllers', [])
                                             })
                                         }
                                     });
-                                } else {
-                                    window.wxc.xcConfirm("确认收货失败，请稍后再试！","info");
                                 }
                             }, function (err) {
-                                console.log('确认收货失败!');
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                             });
                     });
                 },
@@ -823,7 +818,7 @@ angular.module('Controllers', [])
                         });
                     }
                 } else {
-                    window.wxc.xcConfirm("网络出错了，稍后再试！","info");
+                    window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                 }
             }, function (err) {
                 console.log("orderDetail" + err);
@@ -854,11 +849,9 @@ angular.module('Controllers', [])
                                             })
                                         }
                                     });
-                                } else {
-                                    window.wxc.xcConfirm("确认收货失败，请稍后再试！","info");
                                 }
                             }, function (err) {
-                                console.log('确认收货失败!');
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                             });
                     });
                 },
@@ -888,7 +881,7 @@ angular.module('Controllers', [])
                                     });
                                 }
                             }, function (err) {
-                                console.log('网络异常，稍后再试！');
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                             });
                     });
                 },
@@ -899,7 +892,7 @@ angular.module('Controllers', [])
         }
         /*取消订单*/
         $scope.cancelOrder = function (orderId) {
-            window.wxc.xcConfirm('取消该订单吗？','confirm',{
+            window.wxc.xcConfirm('取消该订单吗，亲?','confirm',{
                 onOk:function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/cancel', {
@@ -952,13 +945,13 @@ angular.module('Controllers', [])
         };
         /*用户注销*/
         $scope.userLogout = function () {
-            window.wxc.xcConfirm('确定要退出吗？','confirm',{
+            window.wxc.xcConfirm('确定要退出吗，亲？','confirm',{
                 onOk:function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/logout')
                             .then(function (res) {
                                 if (res.data.msg == 'success') {//退出成功
-                                    window.wxc.xcConfirm("退出成功！","info",{
+                                    window.wxc.xcConfirm("退出成功，期待下次光顾！","info",{
                                         onOk:function () {
                                             $rootScope.$apply(function () {
                                                 $rootScope.loged = false;//更改登录状态
@@ -971,7 +964,7 @@ angular.module('Controllers', [])
                                     });
                                 }
                             }, function (err) {
-                                window.wxc.xcConfirm("出错了哦，请稍后再试！","info");
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
                             });
                     });
                 },
@@ -983,14 +976,14 @@ angular.module('Controllers', [])
         /*修改密码*/
         $scope.confirmEditPwd = function (valid) {
             if (valid) {
-                window.wxc.xcConfirm("输入信息有误！","info");
+                window.wxc.xcConfirm("输入信息有误哦，亲~","info");
                 return;
             }
          $http.post(PUBLIC+'/buyer/editPwd',{
                  newPassword:this.newPwd
              })
              .then(function (res) {
-                 window.wxc.xcConfirm("修改成功,请重新登录！","info",{
+                 window.wxc.xcConfirm("修改成功,请重新登录~","info",{
                      onOk:function () {
                          $rootScope.$apply(function () {
                              $rootScope.loged = false;//更改登录状态
@@ -1003,7 +996,7 @@ angular.module('Controllers', [])
                      }
                  });
              },function (err) {
-                 window.wxc.xcConfirm("修改失败，请稍后再试！","info");
+                 window.wxc.xcConfirm("修改失败，稍后再试哦亲~","info");
              });
         }
     }])

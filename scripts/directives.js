@@ -41,7 +41,6 @@ angular.module('Directives', [])
                     /*测试用地址*/
                     console.log(scope[attrs.ngModel]);
                     var url = PUBLIC+'/buyer/' + attrs.ensureUnique + '?' + attrs.name + '=' + (scope[attrs.ngModel]);
-                    console.log(url);
                     if (scope[attrs.ngModel] != null) {
                         $http.get(url)
                             .then(function (res) {
@@ -68,8 +67,6 @@ angular.module('Directives', [])
                 element.bind('focus', function () {
                     ctrl.$setValidity('same', true);//获取焦点时不验证
                 }).bind('blur', function () {
-                    console.log(scope.newPwd);
-                    console.log(scope.repwd);
                         if (scope.newPwd == scope.repwd) {
                             ctrl.$setValidity('same', true);
                         } else {
@@ -144,6 +141,22 @@ angular.module('Directives', [])
                         $(".view").css('overflow-y', 'scroll');//禁止页面滑动
                     }
                 });
+            }
+        }
+    })
+    /*为商品描述进行换行显示*/
+    .directive('handleDescription', function () {
+        return {
+            restrict: 'A',
+            template: '<p style="white-space: pre-wrap;">{{productDescription}}</p>',
+            replace: true,
+            link: function (scope, ele, attr) {
+                scope.$watch(attr.handleDescription, function (newVal) {
+                    if(newVal){
+                        var str=newVal.split('\n').join('&#10;');
+                        scope.productDescription=newVal;
+                    }
+                })
             }
         }
     })

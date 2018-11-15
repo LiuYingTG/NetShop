@@ -512,6 +512,56 @@ p {
   padding: 0;
   margin: 0;
 }
+html,
+body {
+  background-color: #f4f4f4;
+  color: #191919;
+  overflow-x: hidden;
+  position: fixed;
+  padding-bottom: 3.125rem;
+  -webkit-overflow-scrolling: touch;
+}
+.textFont {
+  font-size: 0.7rem;
+}
+.titleFont {
+  font-size: 0.7rem;
+}
+.priceFont {
+  font-size: 0.7rem;
+}
+.navFont {
+  font-size: 0.85rem;
+}
+.bold {
+  font-weight: bold;
+}
+.orderButton {
+  margin: 0 0 0.625rem 0;
+  width: 4rem;
+  height: 1.4rem;
+  padding: 0rem;
+  float: right;
+  border: 0.03125rem solid #b4b4b4;
+  background-color: #fcfcfc;
+  border-radius: 0.46875rem 0.46875rem;
+  color: #757575;
+  letter-spacing: 0.03125rem;
+}
+.dialogShow {
+  animation: showDialog 300ms;
+}
+@keyframes showDialog {
+  0% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   font-family: roman, Arial, Helvetica, sans-serif;
   -webkit-text-size-adjust: none;
@@ -649,56 +699,6 @@ textarea {
 .xcConfirm .popBox .sgBtn.cancel {
   background-color: #f9f9f9;
   color: #313131;
-}
-html,
-body {
-  background-color: #f4f4f4;
-  color: #191919;
-  overflow-x: hidden;
-  position: fixed;
-  padding-bottom: 3.125rem;
-  -webkit-overflow-scrolling: touch;
-}
-.textFont {
-  font-size: 0.7rem;
-}
-.titleFont {
-  font-size: 0.7rem;
-}
-.priceFont {
-  font-size: 0.7rem;
-}
-.navFont {
-  font-size: 0.85rem;
-}
-.bold {
-  font-weight: bold;
-}
-.orderButton {
-  margin: 0 0 0.625rem 0;
-  width: 4rem;
-  height: 1.4rem;
-  padding: 0rem;
-  float: right;
-  border: 0.03125rem solid #b4b4b4;
-  background-color: #fcfcfc;
-  border-radius: 0.46875rem 0.46875rem;
-  color: #757575;
-  letter-spacing: 0.03125rem;
-}
-.dialogShow {
-  animation: showDialog 300ms;
-}
-@keyframes showDialog {
-  0% {
-    opacity: 0.3;
-  }
-  40% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 .navs {
   width: 10rem;
@@ -2534,7 +2534,7 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
         if ($rootScope.loged) {//如果已登录
             $location.path('/cartList');
         } else {
-            window.wxc.xcConfirm("请登录!","info",{
+            window.wxc.xcConfirm("需要登录哦，亲~","info",{
                 onOk:function () {
                     $rootScope.$apply(function () {
                         $rootScope.toggleDialog();

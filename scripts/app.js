@@ -122,7 +122,7 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
         if ($rootScope.loged) {//如果已登录
             $location.path('/cartList');
         } else {
-            window.wxc.xcConfirm("请登录!","info",{
+            window.wxc.xcConfirm("需要登录哦，亲~","info",{
                 onOk:function () {
                     $rootScope.$apply(function () {
                         $rootScope.toggleDialog();
