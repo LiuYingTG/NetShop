@@ -2,47 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44391662-ec01-4bc0-97d2-c3a5e220de68" name="Default" comment="V1.3&#10;2018-11-15(3)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/rev/rev-css.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/rev/rev-image.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/rev/rev-js.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/scripts/main-7575f76126.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/css/adapter-d41d8cd98f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/css/base-5970723654.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/css/fonts-dd3fc1df95.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/css/main-00a0aea4d2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/css/mixin-d41d8cd98f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/css/normalize-e4b737bb11.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/css/xcConfirm-66b795a979.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/images/avatar-8844dbfc4d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/images/diaopai.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/images/gallery-348cf1945f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/images/loading-50c5e3e79b.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/images/xcConfirm-icon-46739bdd0c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/libs/angular-7d432c4a3e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/libs/jquery-252b0b512a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/libs/less.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/libs/toggle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/static/libs/xcConfirm-6ccb214e29.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/allPro.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/cartList.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/createOrder.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/editAddress.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/editPwd.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/orderDetail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/orderList.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/proDetail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/templates/userSetting.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/controllers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -142,7 +102,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.24539007">
+    <splitter split-orientation="vertical" split-proportion="0.8731343">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -178,27 +138,26 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="118">
-                  <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+                <state relative-caret-position="209">
+                  <caret line="49" column="21" lean-forward="true" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
                   <folding>
-                    <element signature="n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                     <element signature="n#dd#0;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                     <element signature="n#dd#1;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                    <element signature="n#dd#2;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                     <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                    <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/orderDetail.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="124">
-                  <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+                <state relative-caret-position="102">
+                  <caret line="63" column="51" lean-forward="true" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
                   <folding>
                     <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
                     <element signature="n#div#1;n#div#0;n#div#0;n#!!top" />
@@ -270,8 +229,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scripts/controllers.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="62">
-                  <caret line="54" column="66" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="66" />
+                <state relative-caret-position="17">
+                  <caret line="59" column="11" lean-forward="true" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
                   <folding>
                     <element signature="e#268#2956#0" />
                     <element signature="e#1346#1515#0" />
@@ -441,13 +400,13 @@
         <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/templates/proDetail.html" />
         <option value="$PROJECT_DIR$/static/less/xcConfirm.less" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/static/less/main.less" />
         <option value="$PROJECT_DIR$/templates/editPwd.html" />
         <option value="$PROJECT_DIR$/scripts/app.js" />
         <option value="$PROJECT_DIR$/scripts/directives.js" />
         <option value="$PROJECT_DIR$/templates/orderDetail.html" />
         <option value="$PROJECT_DIR$/scripts/controllers.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -508,6 +467,24 @@
             <path>
               <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+              <item name="release" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+              <item name="release" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+              <item name="release" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -610,7 +587,7 @@
       <workItem from="1541494880368" duration="36203000" />
       <workItem from="1541650140511" duration="43964000" />
       <workItem from="1541946753993" duration="60976000" />
-      <workItem from="1542247029139" duration="35146000" />
+      <workItem from="1542247029139" duration="35451000" />
     </task>
     <task id="LOCAL-00001" summary="V1.0&#10;20181030-01&#10;（1）第一次提交">
       <created>1540829603705</created>
@@ -679,7 +656,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="635860000" />
+    <option name="totallyTimeSpent" value="636165000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -694,7 +671,7 @@
     <frame x="486" y="0" width="1064" height="832" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32976654" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.02918288" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1024,20 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding>
-            <element signature="n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#dd#0;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#dd#1;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#dd#2;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/userSetting.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1120,27 +1083,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/orderDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#ul#0;n#div#3;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#table#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#tr#3;n#table#1;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#4;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#5;n#div#0;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="54" column="66" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="66" />
+        <state relative-caret-position="17">
+          <caret line="59" column="11" lean-forward="true" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
           <folding>
             <element signature="e#268#2956#0" />
             <element signature="e#1346#1515#0" />
@@ -1165,6 +1111,36 @@
             <element signature="e#33528#39790#0" />
             <element signature="e#40212#43062#0" />
             <element signature="e#40610#42023#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/orderDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="63" column="51" lean-forward="true" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#ul#0;n#div#3;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#table#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#tr#3;n#table#1;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#5;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="49" column="21" lean-forward="true" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+          <folding>
+            <element signature="n#dd#0;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#dd#1;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
