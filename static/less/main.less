@@ -26,13 +26,18 @@
     overflow: hidden;
     .dl-header {
       width: 100%;
-      height: 72/32rem;
+      height: 80/32rem;
     }
     .dl-context {
       width: 100%;
-      background-color: #FFFFFF;
       max-height: 530/32rem;
       overflow-y: auto;
+      dd{
+        background-color: #fbfbfb;
+      }
+      a[class^="icon"]:before{
+        top:0rem
+      }
     }
     .dl-footer {
       //position: absolute;
@@ -61,8 +66,8 @@
     width: 270/32rem;
     border-bottom: 2/32rem solid #f4f4f4;
     line-height: 1;
-    padding: (18rem / 32) 0  (18rem / 32)  50/32rem;
-    margin: (10rem / 32) 0;
+    padding: (28rem / 32) 0  (28rem / 32)  50/32rem;
+    //margin: (10rem / 32) 0;
     transform: translate(-100%);
 
     a {

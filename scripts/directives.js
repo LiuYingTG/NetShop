@@ -97,13 +97,13 @@ angular.module('Directives', [])
     .directive('logisticsInfo', function () {
         return {
             restrict: 'A',
-            template: '<p>{{logInfo}}</p>',
+            template: '<p style="white-space: pre-wrap;">{{logInfo}}</p>',
             link: function (scope, ele, attr) {
                 var status = '';
                 scope.$watch(attr.logisticsInfo, function (newVal) {
                     switch (newVal) {
                         case '0':
-                            scope.logInfo = '请尽快付款哦，亲';
+                            scope.logInfo = '下单成功,请尽快付款哦';
                             return;
                         case '1':
                             scope.logInfo = '订单已取消';

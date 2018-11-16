@@ -70,7 +70,12 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
                 }];
                 // $scope.iconList = ['icon-menu', 'icon-apparel', 'icon-tie', 'icon-sports-shoe', 'icon-shuttlecock', 'icon-heart-fill', 'icon-cog']
                 $rootScope.categoryLists = allProCategory.concat(res.data.data.slice(1));
-                // $rootScope.categoryLists = allProCategory.concat(res.data.data.slice(1)).concat(others);
+                var cateLists=$rootScope.categoryLists.concat(others);
+                $rootScope.cateLists=[];
+                for(var i=0;i<cateLists.length;i++){
+                    $rootScope.cateLists[cateLists[i].categoryType]=cateLists[i].categoryName;
+                }
+                $rootScope.$broadcast('getCateLists',true);
             }
         }, function (err) {
             window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");

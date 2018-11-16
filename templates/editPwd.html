@@ -2,7 +2,7 @@
     <p class="title">密码修改
         <span class="icon-x-altx-alt close-dialog" ng-click="setStatus.editPwd=false"></span>
     </p>
-    <p class="text">密码修改后原密码将作废，请牢记您的新密码，如有遗忘可通过注册账户的邮箱找回！</p>
+    <p class="text">请牢记您的新密码，如有遗忘可通过注册账户的邮箱找回！</p>
     <form role="form" novalidate name="editPwd_form">
         <table>
             <tr>
@@ -61,6 +61,6 @@
         </table>
         <br>
     </form>
-    <p class="text">密码必须为6-12位字符，可由字母或数字组成</p>
+    <p class="text">密码必须为6-12位字母或数字</p>
     <button class="confirmEditPwd" ng-click="confirmEditPwd(editPwd_form.$invalid)">确认修改</button>
 </div>

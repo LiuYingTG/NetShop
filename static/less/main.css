@@ -724,13 +724,18 @@ textarea {
 }
 .navs .navLists .dl-header {
   width: 100%;
-  height: 2.25rem;
+  height: 2.5rem;
 }
 .navs .navLists .dl-context {
   width: 100%;
-  background-color: #FFFFFF;
   max-height: 16.5625rem;
   overflow-y: auto;
+}
+.navs .navLists .dl-context dd {
+  background-color: #fbfbfb;
+}
+.navs .navLists .dl-context a[class^="icon"]:before {
+  top: 0rem;
 }
 .navs .navLists .dl-footer {
   top: 15.625rem;
@@ -749,8 +754,7 @@ textarea {
   width: 8.4375rem;
   border-bottom: 0.0625rem solid #f4f4f4;
   line-height: 1;
-  padding: 0.5625rem 0 0.5625rem 1.5625rem;
-  margin: 0.3125rem 0;
+  padding: 0.875rem 0 0.875rem 1.5625rem;
   transform: translate(-100%);
   /*    .icon-heart-fill:before {
       background-color: #46c8ce;

@@ -2,7 +2,7 @@
 angular.module('Controllers', [])
 
 // 导航菜单
-    .controller('NavController', ['$scope', '$location', '$rootScope', '$http', '$routeParams', '$cookies','$interval', function ($scope, $location, $rootScope, $http, $routeParams, $cookies,$interval) {
+    .controller('NavController', ['$scope', '$location', '$rootScope', '$http', '$routeParams', '$cookies', '$interval', function ($scope, $location, $rootScope, $http, $routeParams, $cookies, $interval) {
         //用户登录
         $scope.login = function () {
             if ($rootScope.loged == false) {//如果未登录
@@ -11,7 +11,7 @@ angular.module('Controllers', [])
             }
         };
         /*根据商品类别获取类别下所有上架商品*/
-        $scope.byCategory = function (categoryType,index) {
+        $scope.byCategory = function (categoryType) {
             $rootScope.categoryType = categoryType;
             if (categoryType == 'order') {
                 /*查看用户订单*/
@@ -19,14 +19,13 @@ angular.module('Controllers', [])
                     $rootScope.collapsed && $rootScope.toggle();
                     $location.path('/orderList');
                 } else {
-                    window.wxc.xcConfirm("需要登录哦，亲~","info",{
-                        onOk:function () {
+                    window.wxc.xcConfirm("需要登录哦，亲~", "info", {
+                        onOk: function () {
                             $rootScope.$apply(function () {
                                 $rootScope.toggleDialog();
                             })
                         }
                     });
-
                 }
             } else if (categoryType == 'setting') {
                 /*查看用户设置*/
@@ -34,8 +33,8 @@ angular.module('Controllers', [])
                     $rootScope.collapsed && $rootScope.toggle();
                     $location.path('/setting');
                 } else {
-                    window.wxc.xcConfirm("需要登录哦，亲~","info",{
-                        onOk:function () {
+                    window.wxc.xcConfirm("需要登录哦，亲~", "info", {
+                        onOk: function () {
                             $rootScope.$apply(function () {
                                 $rootScope.toggleDialog();
                             })
@@ -51,13 +50,15 @@ angular.module('Controllers', [])
         }
     }])
     //全部商品
-    .controller('allProController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', function ($scope, $http, $rootScope, $location, $routeParams) {
+    .controller('allProController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies', function ($scope, $http, $rootScope, $location, $routeParams, $cookies) {
         $rootScope.categoryType = $routeParams.categoryType;
-        var typeStr='';
-        /*if($rootScope.categoryLists){
-            typeStr="|"+$rootScope.categoryLists
-        }*/
-        $rootScope.title = '全部商品';
+        $rootScope.title ='全部商品';
+        $rootScope.$on('getCateLists', function () {
+            if ($rootScope.cateLists) {
+                $rootScope.title = $rootScope.cateLists[$rootScope.categoryType];
+            }
+        });
+
         $rootScope.cartBtn = false;//显示购物车按钮
         $rootScope.categoryType = $routeParams.categoryType;
         /*自动加载下一页状态对象*/
@@ -99,7 +100,7 @@ angular.module('Controllers', [])
                         }
                     }
                 }, function (err) {
-                    window.wxc.xcConfirm('出错了，稍后再试哦亲~',"info");
+                    window.wxc.xcConfirm('出错了，稍后再试哦亲~', "info");
                 });
         };
         /*跳转至商品详情页，携带参数，正在浏览的*/
@@ -142,7 +143,7 @@ angular.module('Controllers', [])
                 }
             }
         }, function (err) {
-            window.wxc.xcConfirm('出错了，稍后再试哦亲~','info');
+            window.wxc.xcConfirm('出错了，稍后再试哦亲~', 'info');
         });
         $scope.chooseColor = function (index) {
             $scope.product.colorChoosed = index;
@@ -158,9 +159,9 @@ angular.module('Controllers', [])
         $scope.changeNum = function (symbol) {
             if (symbol == "+") {
                 if ($scope.product.productStock < ($scope.num + 1)) {
-                    window.wxc.xcConfirm('数量超出范围~','info',{
-                        onOk:function () {
-                           return;
+                    window.wxc.xcConfirm('数量超出范围~', 'info', {
+                        onOk: function () {
+                            return;
                         }
                     });
                 } else {
@@ -168,19 +169,19 @@ angular.module('Controllers', [])
                 }
             } else if (!symbol) {
                 if ($scope.product.productStock < $scope.num) {
-                    window.wxc.xcConfirm('数量超出范围~','info',{
-                        onOk:function () {
+                    window.wxc.xcConfirm('数量超出范围~', 'info', {
+                        onOk: function () {
                             $scope.$apply(function () {
-                                $scope.num=1;
+                                $scope.num = 1;
                                 return;
                             })
                         }
                     });
                 }
                 if ($scope.num < 1) {
-                    window.wxc.xcConfirm('不能再少啦，亲~','info',{
-                        onOk:function () {
-                            $scope,$apply(function () {
+                    window.wxc.xcConfirm('不能再少啦，亲~', 'info', {
+                        onOk: function () {
+                            $scope, $apply(function () {
                                 $scope.num = 1
                             });
                         }
@@ -209,7 +210,7 @@ angular.module('Controllers', [])
         });
         $scope.confirmOrder = function () {
             if (!$rootScope.loged) {
-                window.wxc.xcConfirm('需要登录哦，亲~','info',{
+                window.wxc.xcConfirm('需要登录哦，亲~', 'info', {
                     onOk: function () {
                         $rootScope.$apply(function () {
                             $rootScope.toggleDialog();
@@ -217,16 +218,16 @@ angular.module('Controllers', [])
                         })
                     }
                 });
-            }else if ($scope.product.productStock < $scope.num) {
-                window.wxc.xcConfirm('数量超出范围~','info',{
-                    onOk :function () {
+            } else if ($scope.product.productStock < $scope.num) {
+                window.wxc.xcConfirm('数量超出范围~', 'info', {
+                    onOk: function () {
                         $rootScope.$apply(function () {
-                            $scope.num=1;
+                            $scope.num = 1;
                             return;
                         });
                     }
                 });
-            }else{
+            } else {
                 if ($scope.type == 1) {//添加到购物车
                     $http.post(PUBLIC + '/buyer/cart/add',
                         {
@@ -237,8 +238,8 @@ angular.module('Controllers', [])
                         })
                         .then(function (res) {
                             if (res.data.msg == 'success') {
-                                window.wxc.xcConfirm('添加购物车成功！','info',{
-                                    onOk:function () {
+                                window.wxc.xcConfirm('添加购物车成功！', 'info', {
+                                    onOk: function () {
                                         $rootScope.$apply(function () {
                                             $scope.showed = false;
                                             $rootScope.$broadcast('cartUpload', true);
@@ -247,7 +248,7 @@ angular.module('Controllers', [])
                                 });
                             }
                         }, function (err) {
-                            window.wxc.xcConfirm('出错了，稍后再试哦亲~','info');
+                            window.wxc.xcConfirm('出错了，稍后再试哦亲~', 'info');
                         });
                 }
                 else if ($scope.type == 2) {//立即购买
@@ -274,8 +275,8 @@ angular.module('Controllers', [])
         $scope.userEmail = '';
         $scope.userLogin = function (formValid) {
             if (formValid) {
-                window.wxc.xcConfirm('输入信息有误哦，亲~','info',{
-                    onOk:function () {
+                window.wxc.xcConfirm('输入信息有误哦，亲~', 'info', {
+                    onOk: function () {
                         return;
                     }
                 });
@@ -284,8 +285,8 @@ angular.module('Controllers', [])
                 $scope.userLog)
                 .then(function successCallback(res) {//登录成功
                     if (res.data.msg == 'success') {
-                        window.wxc.xcConfirm('登录成功！','info',{
-                            onOk:function () {
+                        window.wxc.xcConfirm('登录成功！', 'info', {
+                            onOk: function () {
                                 $rootScope.$apply(function () {
                                     $rootScope.toggleDialog();
                                     $rootScope.loged = true;
@@ -302,21 +303,21 @@ angular.module('Controllers', [])
                         });
                     }
                 }, function failedCallback(err) {//登录失败
-                    window.wxc.xcConfirm('用户名或密码错误~','info');
+                    window.wxc.xcConfirm('用户名或密码错误~', 'info');
                 });
         };
         /*忘记密码,发送邮件*/
         $scope.sendEmail = function (invalid) {
             if (invalid) {
-                window.wxc.xcConfirm('输入信息有误哦，亲~','info');
+                window.wxc.xcConfirm('输入信息有误哦，亲~', 'info');
                 return;
             }
             $http.get(PUBLIC + '/buyer/getBackPwd', {params: {email: this.userEmail}})
                 .then(function (res) {
                     console.log(res.data);
                     if (res.data.msg == 'success') {
-                        window.wxc.xcConfirm('系统正在校验您的个人信息，稍后将发送密码至您的邮箱，请耐心等待哦，亲~','info',{
-                            onOk:function () {
+                        window.wxc.xcConfirm('系统正在校验您的个人信息，稍后将发送密码至您的邮箱，请耐心等待哦，亲~', 'info', {
+                            onOk: function () {
                                 $scope.$apply(function () {
                                     $scope.forgetDialog = false;
                                 })
@@ -324,7 +325,7 @@ angular.module('Controllers', [])
                         });
                     }
                 }, function (err) {
-                    window.wxc.xcConfirm('邮箱未注册哦，亲~','info');
+                    window.wxc.xcConfirm('邮箱未注册哦，亲~', 'info');
                 });
         };
         $scope.$watch('forgetDialog', function () {
@@ -346,7 +347,7 @@ angular.module('Controllers', [])
                 email: this.email
             }
             if (btnValid) {//如果表单不可提交
-                window.wxc.xcConfirm("输入信息有误哦，亲~","info");
+                window.wxc.xcConfirm("输入信息有误哦，亲~", "info");
                 return;
             }
             $http({
@@ -354,8 +355,8 @@ angular.module('Controllers', [])
                 url: PUBLIC + '/buyer/save',
                 data: user
             }).then(function (res) {
-                window.wxc.xcConfirm("注册成功,快去登录吧~","info",{
-                    onOk:function () {
+                window.wxc.xcConfirm("注册成功,快去登录吧~", "info", {
+                    onOk: function () {
                         $rootScope.$apply(function () {
                             $scope.registerInfo = {};
                             $rootScope.showRegister = false;
@@ -403,8 +404,8 @@ angular.module('Controllers', [])
                 })
                 .then(function (res) {
                     if (res.data.msg == 'success') {
-                        window.wxc.xcConfirm(res.data.data.msg,"info",{
-                            onOk:function () {
+                        window.wxc.xcConfirm('下单成功,请尽快付款哦！', "info", {
+                            onOk: function () {
                                 $rootScope.$apply(function () {
                                     itemList = [];
                                     $rootScope.$broadcast('cartUpload', true);
@@ -414,7 +415,7 @@ angular.module('Controllers', [])
                         });
 
                     } else {
-                        window.wxc.xcConfirm(res.data.data.msg,"info");
+                        window.wxc.xcConfirm(res.data.data.msg, "info");
                     }
                 }, function (err) {
                     console.log(err);
@@ -439,8 +440,8 @@ angular.module('Controllers', [])
                         });
                     }
                 } else {
-                    window.wxc.xcConfirm("需要登录哦，亲~","info",{
-                        onOk:function () {
+                    window.wxc.xcConfirm("需要登录哦，亲~", "info", {
+                        onOk: function () {
                             $rootScope.$apply(function () {
                                 $rootScope.toggleDialog();
                             });
@@ -471,7 +472,7 @@ angular.module('Controllers', [])
                                 $scope.cartLists[index].productQuantity--;
                             }
                         }, function (err) {
-                            window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                            window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                         });
                 }
             } else {
@@ -482,16 +483,16 @@ angular.module('Controllers', [])
                             $scope.cartLists[index].productQuantity++;
                         }
                     }, function (err) {
-                        window.wxc.xcConfirm("数量超出范围~","info");
-                        $scope.cartLists[index].productQuantity=1;
+                        window.wxc.xcConfirm("数量超出范围~", "info");
+                        $scope.cartLists[index].productQuantity = 1;
                     });
             }
         };
         /*直接修改购物车内的商品数量*/
         $scope.editQuantity = function (productId, productQuantity, index) {
             if (productQuantity < 1) {
-                window.wxc.xcConfirm("不能再少啦，亲~","info",{
-                    onOk:function () {
+                window.wxc.xcConfirm("不能再少啦，亲~", "info", {
+                    onOk: function () {
                         $scope.$apply(function () {
                             $scope.cartLists[index].productQuantity = 1;
                         })
@@ -507,14 +508,14 @@ angular.module('Controllers', [])
                 .then(function (res) {
 
                 }, function (err) {
-                    window.wxc.xcConfirm("数量超出范围~","info");
-                    $scope.cartLists[index].productQuantity=1;
+                    window.wxc.xcConfirm("数量超出范围~", "info");
+                    $scope.cartLists[index].productQuantity = 1;
                 });
         }
         /*单个删除购车商品*/
         $scope.delete = function (index) {
-            window.wxc.xcConfirm('确定删除该商品吗？','confirm',{
-                onOk:function () {
+            window.wxc.xcConfirm('确定删除该商品吗？', 'confirm', {
+                onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/cart/delete',
                             {params: {itemId: $scope.cartLists[index].itemId}})
@@ -527,11 +528,11 @@ angular.module('Controllers', [])
                                 }
 
                             }, function (err) {
-                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                             });
                     })
                 },
-                onCancel:function () {
+                onCancel: function () {
                     return;
                 }
             });
@@ -548,10 +549,10 @@ angular.module('Controllers', [])
         /*批量删除*/
         $scope.batchDelete = function () {
             if ($scope.checkNum == 0) {
-                window.wxc.xcConfirm("至少要选择一件商品哦，亲~","info");
+                window.wxc.xcConfirm("至少要选择一件商品哦，亲~", "info");
             } else {
-                window.wxc.xcConfirm('确定删除' + $scope.items.length + '件商品吗，亲？','confirm',{
-                    onOk:function () {
+                window.wxc.xcConfirm('确定删除' + $scope.items.length + '件商品吗，亲？', 'confirm', {
+                    onOk: function () {
                         $rootScope.$apply(function () {
                             var items = $scope.items.join('_');
                             $http.get(PUBLIC + '/buyer/cart/batchDelete', {
@@ -562,11 +563,11 @@ angular.module('Controllers', [])
                                         window.location.reload();
                                     }
                                 }, function (err) {
-                                    window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                                    window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                                 });
                         })
                     },
-                    onCancel:function () {
+                    onCancel: function () {
                         return;
                     }
                 })
@@ -582,8 +583,8 @@ angular.module('Controllers', [])
             for (var i = 0; i < $scope.cartLists.length; i++) {
                 if ($scope.cartLists[i].checked) {
                     /*增加精度*/
-                    var singleItem=parseFloat($scope.cartLists[i].productPrice * $scope.cartLists[i].productQuantity)*1000;
-                    $scope.cartTotal=(singleItem+$scope.cartTotal*1000)/1000;
+                    var singleItem = parseFloat($scope.cartLists[i].productPrice * $scope.cartLists[i].productQuantity) * 1000;
+                    $scope.cartTotal = (singleItem + $scope.cartTotal * 1000) / 1000;
                     // $scope.cartTotal += parseFloat($scope.cartLists[i].productPrice * $scope.cartLists[i].productQuantity);
                     $scope.checkNum++;
                     $scope.items.push($scope.cartLists[i].itemId);
@@ -614,7 +615,7 @@ angular.module('Controllers', [])
             if ($scope.itemsDetail.length) {
                 $location.path('/createOrder').search({params: $scope.itemsDetail, total: $scope.cartTotal});
             } else {
-                window.wxc.xcConfirm("至少要选择一件商品哦，亲~","info");
+                window.wxc.xcConfirm("至少要选择一件商品哦，亲~", "info");
                 return;
             }
         }
@@ -664,8 +665,8 @@ angular.module('Controllers', [])
         };
         /*删除订单*/
         $scope.delOrder = function (index) {
-            window.wxc.xcConfirm('该订单信息将被删除，不再显示在订单页，是否继续？','confirm',{
-                onOk:function () {
+            window.wxc.xcConfirm('该订单信息将被删除，不再显示在订单页，是否继续？', 'confirm', {
+                onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/delete', {
                             params: {
@@ -674,8 +675,8 @@ angular.module('Controllers', [])
                         })
                             .then(function (res) {
                                 if (res.data.msg == 'success') {
-                                    window.wxc.xcConfirm("删除成功！","info",{
-                                        onOk:function () {
+                                    window.wxc.xcConfirm("删除成功！", "info", {
+                                        onOk: function () {
                                             $scope.$apply(function () {
                                                 $scope.orderLists = $scope.orderLists.slice(0, index).concat($scope.orderLists.slice(index + 1));
                                             })
@@ -683,22 +684,21 @@ angular.module('Controllers', [])
                                     });
                                 }
                             }, function (err) {
-                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                             });
                     });
                 },
-                onCancel:function () {
+                onCancel: function () {
                     return;
                 }
             })
 
 
-
         }
         /*取消订单*/
         $scope.cancelOrder = function (index) {
-            window.wxc.xcConfirm('取消该订单吗，亲?','confirm',{
-                onOk:function () {
+            window.wxc.xcConfirm('取消该订单吗，亲?', 'confirm', {
+                onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/cancel', {
                             params: {
@@ -707,29 +707,29 @@ angular.module('Controllers', [])
                         })
                             .then(function (res) {
                                 if (res.data.msg == 'success') {
-                                    window.wxc.xcConfirm("取消成功！","info",{
-                                        onOk:function () {
+                                    window.wxc.xcConfirm("取消成功！", "info", {
+                                        onOk: function () {
                                             $scope.$apply(function () {
                                                 $scope.orderLists[index].orderStatus = '1';
                                             })
                                         }
                                     });
                                 } else {
-                                    window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                                    window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                                 }
                             }, function (err) {
                             });
                     });
                 },
-                onCancel:function () {
+                onCancel: function () {
                     return;
                 }
             });
         };
         /*确认收货*/
         $scope.receiveOrder = function (index) {
-            window.wxc.xcConfirm('确认收货后，默认交易完成，是否继续？','confirm',{
-                onOk:function () {
+            window.wxc.xcConfirm('确认收货后，默认交易完成，是否继续？', 'confirm', {
+                onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/receive', {
                             params: {
@@ -738,8 +738,8 @@ angular.module('Controllers', [])
                         })
                             .then(function (res) {
                                 if (res.data.msg == 'success') {
-                                    window.wxc.xcConfirm("确认成功！","info",{
-                                        onOk:function () {
+                                    window.wxc.xcConfirm("确认成功！", "info", {
+                                        onOk: function () {
                                             $scope.$apply(function () {
                                                 $scope.orderLists[index].orderStatus = '5';
                                             })
@@ -747,11 +747,11 @@ angular.module('Controllers', [])
                                     });
                                 }
                             }, function (err) {
-                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                             });
                     });
                 },
-                onCancel:function () {
+                onCancel: function () {
                     return;
                 }
             })
@@ -801,7 +801,7 @@ angular.module('Controllers', [])
                         });
                     }
                 } else {
-                    window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                    window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                 }
             }, function (err) {
                 console.log("orderDetail" + err);
@@ -815,8 +815,8 @@ angular.module('Controllers', [])
         }
         /*确认收货*/
         $scope.receiveOrder = function (orderId) {
-            window.wxc.xcConfirm('确认收货后，默认交易完成，是否继续？','confirm',{
-                onOk:function () {
+            window.wxc.xcConfirm('确认收货后，默认交易完成，是否继续？', 'confirm', {
+                onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/receive', {
                             params: {
@@ -825,8 +825,8 @@ angular.module('Controllers', [])
                         })
                             .then(function (res) {
                                 if (res.data.msg == 'success') {
-                                    window.wxc.xcConfirm("确认成功！","info",{
-                                        onOk:function () {
+                                    window.wxc.xcConfirm("确认成功！", "info", {
+                                        onOk: function () {
                                             $scope.$apply(function () {
                                                 $scope.orderDetail.orderStatus = '5';
                                             })
@@ -834,19 +834,19 @@ angular.module('Controllers', [])
                                     });
                                 }
                             }, function (err) {
-                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                             });
                     });
                 },
-                onCancel:function () {
+                onCancel: function () {
                     return;
                 }
             });
         };
         /*删除订单*/
         $scope.delOrder = function (orderId) {
-            window.wxc.xcConfirm('该订单信息将被删除，不再显示在订单页，是否继续？','confirm',{
-                onOk:function () {
+            window.wxc.xcConfirm('该订单信息将被删除，不再显示在订单页，是否继续？', 'confirm', {
+                onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/delete', {
                             params: {
@@ -855,8 +855,8 @@ angular.module('Controllers', [])
                         })
                             .then(function (res) {
                                 if (res.data.msg == 'success') {
-                                    window.wxc.xcConfirm("删除成功!","info",{
-                                        onOk:function () {
+                                    window.wxc.xcConfirm("删除成功!", "info", {
+                                        onOk: function () {
                                             $scope.$apply(function () {
                                                 $location.path('/orderList');
                                             })
@@ -864,19 +864,19 @@ angular.module('Controllers', [])
                                     });
                                 }
                             }, function (err) {
-                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                             });
                     });
                 },
-                onCancel:function () {
+                onCancel: function () {
                     return;
                 }
             })
         }
         /*取消订单*/
         $scope.cancelOrder = function (orderId) {
-            window.wxc.xcConfirm('取消该订单吗，亲?','confirm',{
-                onOk:function () {
+            window.wxc.xcConfirm('取消该订单吗，亲?', 'confirm', {
+                onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/cancel', {
                             params: {
@@ -885,8 +885,8 @@ angular.module('Controllers', [])
                         })
                             .then(function (res) {
                                 if (res.data.msg == 'success') {
-                                    window.wxc.xcConfirm("取消成功！","info",{
-                                        onOk:function () {
+                                    window.wxc.xcConfirm("取消成功！", "info", {
+                                        onOk: function () {
                                             $scope.$apply(function () {
                                                 $scope.orderDetail.orderStatus = '1';
                                             })
@@ -898,7 +898,7 @@ angular.module('Controllers', [])
                             });
                     });
                 },
-                onCancel:function () {
+                onCancel: function () {
                     return;
                 }
             })
@@ -928,14 +928,14 @@ angular.module('Controllers', [])
         };
         /*用户注销*/
         $scope.userLogout = function () {
-            window.wxc.xcConfirm('确定要退出吗，亲？','confirm',{
-                onOk:function () {
+            window.wxc.xcConfirm('确定要退出吗，亲？', 'confirm', {
+                onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/logout')
                             .then(function (res) {
                                 if (res.data.msg == 'success') {//退出成功
-                                    window.wxc.xcConfirm("退出成功，期待下次光顾！","info",{
-                                        onOk:function () {
+                                    window.wxc.xcConfirm("退出成功，期待下次光顾！", "info", {
+                                        onOk: function () {
                                             $rootScope.$apply(function () {
                                                 $rootScope.loged = false;//更改登录状态
                                                 $rootScope.cartNotEmp = false;
@@ -947,11 +947,11 @@ angular.module('Controllers', [])
                                     });
                                 }
                             }, function (err) {
-                                window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
+                                window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
                             });
                     });
                 },
-                onCancel:function () {
+                onCancel: function () {
                     return;
                 }
             })
@@ -959,27 +959,27 @@ angular.module('Controllers', [])
         /*修改密码*/
         $scope.confirmEditPwd = function (valid) {
             if (valid) {
-                window.wxc.xcConfirm("输入信息有误哦，亲~","info");
+                window.wxc.xcConfirm("输入信息有误哦，亲~", "info");
                 return;
             }
-         $http.post(PUBLIC+'/buyer/editPwd',{
-                 newPassword:this.newPwd
-             })
-             .then(function (res) {
-                 window.wxc.xcConfirm("修改成功,请重新登录~","info",{
-                     onOk:function () {
-                         $rootScope.$apply(function () {
-                             $rootScope.loged = false;//更改登录状态
-                             $rootScope.toggle();
-                             $rootScope.cartNotEmp = false;
-                             $cookies.remove('username');
-                             $rootScope.categoryType = 'all';
-                             $location.path('/allPro/all');
-                         })
-                     }
-                 });
-             },function (err) {
-                 window.wxc.xcConfirm("修改失败，稍后再试哦亲~","info");
-             });
+            $http.post(PUBLIC + '/buyer/editPwd', {
+                newPassword: this.newPwd
+            })
+                .then(function (res) {
+                    window.wxc.xcConfirm("修改成功,请重新登录~", "info", {
+                        onOk: function () {
+                            $rootScope.$apply(function () {
+                                $rootScope.loged = false;//更改登录状态
+                                $rootScope.toggle();
+                                $rootScope.cartNotEmp = false;
+                                $cookies.remove('username');
+                                $rootScope.categoryType = 'all';
+                                $location.path('/allPro/all');
+                            })
+                        }
+                    });
+                }, function (err) {
+                    window.wxc.xcConfirm("修改失败，稍后再试哦亲~", "info");
+                });
         }
     }])
