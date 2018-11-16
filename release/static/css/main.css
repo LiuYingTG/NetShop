@@ -667,7 +667,7 @@ textarea {
 .xcConfirm .popBox .txtBox p input {
   width: 11.375rem;
   height: 0.9375rem;
-  border: solid 0.03125rem #eef0f1;
+  border: solid 0.03125rem #cdd0d4;
   font-size: 0.5625rem;
   margin-top: 0.1875rem;
 }
@@ -703,7 +703,7 @@ textarea {
 .navs {
   width: 10rem;
   height: 100%;
-  background-color: #e7eaee;
+  background-color: #f4f4f4;
   transition: all 0.5s 0.1s;
   position: fixed;
   left: -10rem;
@@ -711,51 +711,50 @@ textarea {
   z-index: 20;
   overflow: hidden;
 }
-.navs .login {
-  height: 1rem;
-  position: fixed;
-  top: 2.5rem;
-  padding-left: 1.5625rem;
-}
-.navs .login .avatar {
-  height: 100%;
-  float: left;
-  line-height: 1;
-  font-size: 0.85rem;
-  color: #1e1e1e;
-}
-.navs .login .avatar a {
-  display: block;
-  color: #000000;
-  line-height: 1rem;
-}
-.navs .login .avatar .icon-user-loged {
-  color: red;
-}
-.navs .login span {
-  display: block;
-  line-height: 1rem;
-  margin-left: 1.5625rem;
-  font-size: 0.85rem;
-}
 .navs .navLists {
   float: left;
   width: 100%;
-  height: 20rem;
-  padding-left: 1.5625rem;
   overflow: hidden;
-  padding-top: 4rem;
+  /*.login ,dl-footer{
+      height: (32rem / 32);
+      position: absolute;
+      top: 80/32rem;
+
+    }*/
 }
-.navs dl {
+.navs .navLists .dl-header {
   width: 100%;
-  height: 19rem;
+  height: 2.25rem;
+}
+.navs .navLists .dl-context {
+  width: 100%;
+  background-color: #FFFFFF;
+  max-height: 16.5625rem;
   overflow-y: auto;
 }
+.navs .navLists .dl-footer {
+  top: 15.625rem;
+}
+.navs .navLists .login a[class^="icon"]:before {
+  line-height: 1.25rem;
+  float: left;
+}
+.navs .navLists .login .icon-user-loged :before {
+  color: red;
+}
+.navs .navLists .login span {
+  padding-left: 0.4rem;
+}
 .navs dd {
+  width: 8.4375rem;
+  border-bottom: 0.0625rem solid #f4f4f4;
   line-height: 1;
-  padding: 0.5625rem 0;
+  padding: 0.5625rem 0 0.5625rem 1.5625rem;
   margin: 0.3125rem 0;
   transform: translate(-100%);
+  /*    .icon-heart-fill:before {
+      background-color: #46c8ce;
+    }*/
 }
 .navs dd a {
   font-size: 0.85rem;
@@ -774,23 +773,23 @@ textarea {
   position: relative;
   top: -0.0625rem;
 }
-.navs dd .icon-heart-fill:before {
-  background-color: #46c8ce;
-}
 .navs dd .icon-sports-shoe:before {
   background-color: #62c98d;
 }
-.navs dd .icon-shuttlecock:before {
+.navs dd .icon-heart-fill:before {
   background-color: #eb9d58;
+}
+.navs dd .icon-user:before {
+  color: #1a1a1a;
 }
 .navs dd .icon-menu:before {
   background-color: #5293d0;
 }
-.navs dd .icon-apparel:before {
+.navs dd .icon-point-right:before {
   background-color: #ff7777;
 }
-.navs dd .icon-tie:before {
-  background-color: #fdcc65;
+.navs dd .icon-circle-right:before {
+  color: #cdd0d4;
 }
 .navs dd .icon-cog:before {
   background-color: #beb3fd;
@@ -798,6 +797,7 @@ textarea {
 .navs dd span {
   color: #1a1a1a;
 }
+.navs dd.active .icon-circle-right:before,
 .navs dd.active span {
   color: #23a392;
 }
@@ -1049,12 +1049,15 @@ textarea {
   box-shadow: 0 0.0625rem 0.0625rem #f7f7f7;
 }
 .body .proDetail .product .proTitle p {
-  width: 14.0625rem;
-  padding-right: 4.6875rem;
+  width: 15rem;
+  height: 2.5rem;
+  padding-right: 3.75rem;
+  line-height: 1.25rem;
 }
 .body .proDetail .product .proTitle span {
   float: right;
-  width: 4.6875rem;
+  width: 4rem;
+  height: 1rem;
 }
 .body .proDetail .product .proTitle span b {
   float: right;
@@ -1065,7 +1068,7 @@ textarea {
 }
 .body .proDetail .product .proTitle span .price {
   text-align: right;
-  font-size: 0.8125rem;
+  font-size: 0.9rem;
 }
 .body .proDetail .product .proTitle span .price-icon {
   font-size: 0.5625rem;
@@ -2512,7 +2515,8 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
                     categoryType: 'setting'
                 }];
                 // $scope.iconList = ['icon-menu', 'icon-apparel', 'icon-tie', 'icon-sports-shoe', 'icon-shuttlecock', 'icon-heart-fill', 'icon-cog']
-                $rootScope.categoryLists = allProCategory.concat(res.data.data.slice(1)).concat(others);
+                $rootScope.categoryLists = allProCategory.concat(res.data.data.slice(1));
+                // $rootScope.categoryLists = allProCategory.concat(res.data.data.slice(1)).concat(others);
             }
         }, function (err) {
             window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
@@ -2605,7 +2609,6 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
     /*页面刷新*/
     $rootScope.$on('$locationChangeSuccess', function (event, newVal, current) {//返回前页时，刷新前页
         if ((current != newVal) && (newVal.split('?')[0].split('#')[1] .indexOf('createOrder')== -1)) {
-            console.log('createOrder');
             window.location.reload();
         } else {
             return;

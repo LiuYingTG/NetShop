@@ -13,7 +13,6 @@ angular.module('Controllers', [])
         /*根据商品类别获取类别下所有上架商品*/
         $scope.byCategory = function (categoryType,index) {
             $rootScope.categoryType = categoryType;
-            $rootScope.cateIndex=index;
             if (categoryType == 'order') {
                 /*查看用户订单*/
                 if ($rootScope.loged) {
@@ -54,6 +53,10 @@ angular.module('Controllers', [])
     //全部商品
     .controller('allProController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', function ($scope, $http, $rootScope, $location, $routeParams) {
         $rootScope.categoryType = $routeParams.categoryType;
+        var typeStr='';
+        /*if($rootScope.categoryLists){
+            typeStr="|"+$rootScope.categoryLists
+        }*/
         $rootScope.title = '全部商品';
         $rootScope.cartBtn = false;//显示购物车按钮
         $rootScope.categoryType = $routeParams.categoryType;
@@ -112,6 +115,7 @@ angular.module('Controllers', [])
     .controller('proDetailController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies', function ($scope, $http, $rootScope, $location, $routeParams, $cookies) {
         $rootScope.title = '商品详情';
         $rootScope.categoryType = $routeParams.categoryType;
+        console.log($rootScope.categoryType);
         var productId = $routeParams.productId;
         $scope.showed = false;//默认尺码选择对话框关闭
         $scope.num = 1;

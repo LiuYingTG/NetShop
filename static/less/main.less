@@ -13,57 +13,55 @@
 .navs {
   width: (320rem / 32);
   height: 100%;
-  background-color: #e7eaee;
+  background-color: #f4f4f4;
   transition: all 0.5s 0.1s;
   position: fixed;
   left: (-320rem / 32);
   top: 0;
   z-index: 20;
   overflow: hidden;
-  .login {
-    height: (32rem / 32);
-    position: fixed;
-    top: 80/32rem;
-    padding-left: 50/32rem;
-    .avatar {
-      //width: (70rem / 32);
-      height: 100%;
-      float: left;
-      line-height: 1;
-      .navFont;
-      color: #1e1e1e;
-      a {
-        display: block;
-        color: #000000;
-        line-height: 1rem;
-      }
-      .icon-user-loged {
-        color: red;
-      }
-    }
-    span {
-      display: block;
-      line-height: 32/32rem;
-      margin-left: (50rem / 32);
-      .navFont;
-    }
-  }
   .navLists {
     float: left;
     width: 100%;
-    height: 20rem;
-    padding-left: 50/32rem;
     overflow: hidden;
-    padding-top: 4rem;
-  }
-  dl{
-    width: 100%;
-    height: 19rem;
-    overflow-y: auto;
+    .dl-header {
+      width: 100%;
+      height: 72/32rem;
+    }
+    .dl-context {
+      width: 100%;
+      background-color: #FFFFFF;
+      max-height: 530/32rem;
+      overflow-y: auto;
+    }
+    .dl-footer {
+      //position: absolute;
+      top: 500/32rem;
+    }
+    .login {
+      a[class^="icon"]:before {
+        line-height: 1.25rem;
+        float: left;
+      }
+      .icon-user-loged :before{
+        color: red;
+      }
+      span {
+        padding-left: 0.4rem;
+      }
+    }
+    /*.login ,dl-footer{
+      height: (32rem / 32);
+      position: absolute;
+      top: 80/32rem;
+
+    }*/
   }
   dd {
+    width: 270/32rem;
+    border-bottom: 2/32rem solid #f4f4f4;
     line-height: 1;
-    padding: (18rem / 32) 0;
+    padding: (18rem / 32) 0  (18rem / 32)  50/32rem;
     margin: (10rem / 32) 0;
     transform: translate(-100%);
 
@@ -86,28 +84,32 @@
       top: -2/32rem;
     }
 
-    .icon-heart-fill:before {
+/*    .icon-heart-fill:before {
       background-color: #46c8ce;
-    }
+    }*/
 
     .icon-sports-shoe:before {
       background-color: #62c98d;
     }
 
-    .icon-shuttlecock:before {
+    .icon-heart-fill:before {
       background-color: #eb9d58;
+    }
+    .icon-user:before {
+      color: #1a1a1a;
     }
 
     .icon-menu:before {
       background-color: #5293d0;
     }
 
-    .icon-apparel:before {
+    .icon-point-right:before {
       background-color: #ff7777;
     }
 
-    .icon-tie:before {
-      background-color: #fdcc65;
+    .icon-circle-right:before {
+      //background-color: #e7eaee;
+      color: #cdd0d4;
     }
     .icon-cog:before {
       background-color: #beb3fd;
@@ -119,8 +121,10 @@
   }
 
   dd.active {
+    .icon-circle-right{
 
-    span {
+    }
+    .icon-circle-right:before,span {
       color: #23a392;
     }
   }
@@ -382,33 +386,35 @@
         .boxShadow;
       }
       .proTitle {
-        width:600/32rem;
+        width: 600/32rem;
         padding: 15/32rem 20/32rem;
         font-size: 0.8rem;
         line-height: 40/32rem;
         background-color: #FFFFFF;
         color: #494949;
         .boxShadow;
-        p{
-          width: 450/32rem;
-          //padding: 15/32rem 170/32rem 15/32rem 20/32rem;
-          padding-right: 150/32rem;
+        p {
+          width: 480/32rem;
+          height: 80/32rem;
+          padding-right: 120/32rem;
+          line-height: 40/32rem;
         }
         span {
           float: right;
-          width: 150/32rem;
-          b{
+          width: 4rem;
+          height: 1rem;
+          b {
             float: right;
             display: inline-block;
             font-size: 20/32rem;
             margin-top: -2/32rem;
             color: @activeColor;
           }
-          .price{
+          .price {
             text-align: right;
-            font-size: 26/32rem;
+            font-size: 0.9rem;
           }
-          .price-icon{
+          .price-icon {
             font-size: 18/32rem;
             height: 0.7rem;
             line-height: 0.7rem;
@@ -1192,12 +1198,12 @@
     }
     .info {
       width: 100%;
-    color: #7e7e7e;
-    text-align: center;
-    font-size: 0.625rem;
-    line-height: 1rem;
-    height: 3rem;
-    overflow: hidden;
+      color: #7e7e7e;
+      text-align: center;
+      font-size: 0.625rem;
+      line-height: 1rem;
+      height: 3rem;
+      overflow: hidden;
     }
   }
 
@@ -1457,7 +1463,7 @@
         font-size: 24/32rem;
         text-align: left;
         color: #000000;
-        td{
+        td {
           padding: 0rem;
           color: #4f4f50;
         }
@@ -1603,28 +1609,28 @@
         line-height: 30/32rem;
         color: #757575;
       }
-      form{
+      form {
         text-align: left;
-        table{
+        table {
           width: 100%;
-          tr{
-            td{
+          tr {
+            td {
               padding: 15/32rem 0 5/32rem 0;
               border-bottom: 1/32rem solid #e3e3e3;
               width: 150/32rem;
             }
-            td:last-of-type{
+            td:last-of-type {
               width: 460/32rem;
-              input{
+              input {
                 border: none;
                 width: 280/32rem;
                 line-height: 32/32rem;
               }
-              span{
+              span {
                 float: right;
                 color: @activeColor;
               }
-              .delText{
+              .delText {
                 width: 1.25rem;
                 height: 1.25rem;
                 margin-left: 4/32rem;
@@ -1634,7 +1640,7 @@
           }
         }
       }
-      button{
+      button {
         display: block;
         margin: 0 auto;
         width: 560/32rem;
@@ -1648,7 +1654,7 @@
         margin-top: 45/32rem;
       }
     }
-    .editAddr{
+    .editAddr {
 
     }
   }

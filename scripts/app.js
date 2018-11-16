@@ -69,7 +69,8 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
                     categoryType: 'setting'
                 }];
                 // $scope.iconList = ['icon-menu', 'icon-apparel', 'icon-tie', 'icon-sports-shoe', 'icon-shuttlecock', 'icon-heart-fill', 'icon-cog']
-                $rootScope.categoryLists = allProCategory.concat(res.data.data.slice(1)).concat(others);
+                $rootScope.categoryLists = allProCategory.concat(res.data.data.slice(1));
+                // $rootScope.categoryLists = allProCategory.concat(res.data.data.slice(1)).concat(others);
             }
         }, function (err) {
             window.wxc.xcConfirm("出错了，稍后再试哦亲~","info");
@@ -162,7 +163,6 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
     /*页面刷新*/
     $rootScope.$on('$locationChangeSuccess', function (event, newVal, current) {//返回前页时，刷新前页
         if ((current != newVal) && (newVal.split('?')[0].split('#')[1] .indexOf('createOrder')== -1)) {
-            console.log('createOrder');
             window.location.reload();
         } else {
             return;

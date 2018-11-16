@@ -7,28 +7,45 @@
 	<title>GoodGoods</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<!--<link rel="stylesheet" href="static/less/main.less">-->
-	<link rel="stylesheet" href="./static/css/main-1a658942d1.css">
+	<link rel="stylesheet" href="./static/css/main-1daab4932b.css">
 </head>
 <body ng-app="NetShop">
 	<div class="viewport" ng-cloak>
 		<!-- 侧边导航 -->
 		<div id="navs" ng-class="{navs: true, collapse: collapsed}" ng-controller="NavController">
-			<div class="login" ng-click="login()" ng-cloak>
-				<div class="avatar">
-					<a ng-class={'icon-user':true,'icon-user-loged':loged}></a>
-				</div>
-				<span ng-cloak="">{{loged?username:'登录'}}</span>
-			</div>
 			<div class="navLists">
-				<dl>
+				<dl class="dl-header login" ng-click="login()" ng-cloak>
+					<dd class="avatar" ng-class="{'icon-user-loged':loged}">
+						<a ng-class={'icon-user':true}>
+							<span ng-cloak="">{{loged?username:'登录'}}</span>
+						</a>
+					</dd>
+				</dl>
+				<dl class="dl-context">
 					<dd ng-cloak  ng-class="{active: categoryType == categoryList.categoryType}" ng-repeat="categoryList in categoryLists track by $index">
-						<a ng-click="byCategory(categoryList.categoryType)">
+						<a ng-click="byCategory(categoryList.categoryType)" class="icon-circle-right">
 							<span>{{categoryList.categoryName}}</span>
 						</a>
 					</dd>
 				</dl>
+				<dl class="dl-footer" ng-cloak>
+					<dd ng-cloak  ng-class="{active: categoryType == 'order'}" >
+						<a ng-click="byCategory('order')" class="icon-heart-fill">
+							<span>我的订单</span>
+						</a>
+					</dd>
+					<dd ng-cloak  ng-class="{active: categoryType == 'setting'}" >
+						<a ng-click="byCategory('setting')" class="icon-cog">
+							<span>用户设置</span>
+						</a>
+					</dd>
+					<dd ng-cloak  ng-class="{active: categoryType == 'contactUs'}" >
+						<a ng-click="byCategory('contactUs')" class="icon-point-right">
+							<span>联系我们</span>
+						</a>
+					</dd>
+				</dl>
 			</div>
-
 		</div>
 		<div class="container">
 			<!-- 头部 -->
@@ -58,6 +75,6 @@
 	<script src="./static/libs/jquery-252b0b512a.js"></script>
 	<script src="./static/libs/xcConfirm-6ccb214e29.js"></script>
 	<script src="./static/libs/angular-7d432c4a3e.js"></script>
-	<script src="./scripts/main-86f76534a9.js"></script>
+	<script src="./scripts/main-9b75f7421c.js"></script>
 </body>
 </html>
