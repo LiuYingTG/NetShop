@@ -52,7 +52,7 @@ angular.module('Controllers', [])
     //全部商品
     .controller('allProController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies', function ($scope, $http, $rootScope, $location, $routeParams, $cookies) {
         $rootScope.categoryType = $routeParams.categoryType;
-        $rootScope.title ='全部商品';
+        ($rootScope.categoryType=='all')&&($rootScope.title ='全部商品');
         $rootScope.$on('getCateLists', function () {
             if ($rootScope.cateLists) {
                 $rootScope.title = $rootScope.cateLists[$rootScope.categoryType];
