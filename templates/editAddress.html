@@ -6,7 +6,7 @@
     <ul class="allAddress">
         <!--当创建订单时，点击地址自动选择该地址-->
         <li ng-repeat="addressList in addressLists track by $index">
-            <div class="addrInfo"  ng-click="chooseThis()">
+            <div class="addrInfo"  ng-click="!collapsed&&chooseThis()">
                 <p class="nameAndPhone"><span class="name">{{addressList.buyerName}}</span><span class="phone">{{addressList.buyerPhone}}</span></p>
                 <p class="addr">{{addressList.buyerAddress}}</p>
             </div>

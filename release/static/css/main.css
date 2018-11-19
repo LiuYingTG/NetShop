@@ -2257,6 +2257,7 @@ textarea {
 .body .editPwd .text,
 .body .editAddr .text {
   line-height: 0.9375rem;
+  margin-bottom: 0.625rem;
 }
 .body .editPwd form,
 .body .editAddr form {

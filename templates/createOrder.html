@@ -1,9 +1,9 @@
 <!--下单页-->
 <div ng-show="loaded"><!--当内容加载完毕后，loaded改为true-->
     <div class="createOrder">
-        <form role="form" novalidate name="createOrder_form" ng-submit="createOrder()">
+        <form role="form" novalidate name="createOrder_form">
             <div class="buyer">
-                <p ng-show="unchooseAddr" ng-click='chooseAddr()' class="unchooseAddr">请选择您的收货地址
+                <p ng-show="unchooseAddr" ng-click='!collapsed&&chooseAddr()' class="unchooseAddr">请选择您的收货地址
                 <span class="icon-circle-right"></span>
                 </p>
                 <div ng-show="!unchooseAddr" class="chooseAddr">
@@ -11,7 +11,7 @@
                         <p class="nameAndPhone"><span class="name">{{createOrderBuyer.buyerName}}</span><span class="phone">{{createOrderBuyer.buyerPhone}}</span></p>
                         <p class="addr">{{createOrderBuyer.buyerAddress}}</p>
                     </div>
-                    <span class="edit icon-circle-right" ng-click="chooseAddr()"></span>
+                    <span class="edit icon-circle-right" ng-click="!collapsed&&chooseAddr()"></span>
                 </div>
             </div>
             <ul class="proLists">
@@ -37,7 +37,7 @@
                 </p>
                 <p class="total">合计：<span>{{total|currency:'￥'}}</span></p>
             </div>
-            <button class="orderBtn" type="submit" ng-disabled="createOrder_form.$invalid">确定下单</button>
+            <button class="orderBtn" type="submit" ng-click="!collapsed&&createOrder()">确定下单</button>
         </form>
         <div class="editAddr" ng-include="'templates/editAddress.html'" ng-show="setStatus.editAddress"></div>
     </div>
