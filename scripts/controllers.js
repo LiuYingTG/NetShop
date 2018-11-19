@@ -42,6 +42,9 @@ angular.module('Controllers', [])
                     });
 
                 }
+            } else if (categoryType == 'contactUs') {
+                $rootScope.toggle();
+                $location.path('/contactUs/');
             }
             else {
                 $rootScope.toggle();
@@ -52,7 +55,7 @@ angular.module('Controllers', [])
     //全部商品
     .controller('allProController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies', function ($scope, $http, $rootScope, $location, $routeParams, $cookies) {
         $rootScope.categoryType = $routeParams.categoryType;
-        ($rootScope.categoryType=='all')&&($rootScope.title ='全部商品');
+        ($rootScope.categoryType == 'all') && ($rootScope.title = '全部商品');
         $rootScope.$on('getCateLists', function () {
             if ($rootScope.cateLists) {
                 $rootScope.title = $rootScope.cateLists[$rootScope.categoryType];
@@ -374,15 +377,20 @@ angular.module('Controllers', [])
     .controller('createOrderController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', function ($scope, $http, $rootScope, $location, $routeParams) {
         $rootScope.title = '创建订单';
         $rootScope.loaded = true;
+        $rootScope.unchooseAddr = true;
         $scope.products = $routeParams.params;
         $scope.total = $routeParams.total;
         $scope.orderRemark = '';
+        $rootScope.editAddrPage = 'createOrder';
         if (!$scope.products[0].productId) {
             $scope.products = [];
             history.go('-1');
         }
         var items = '';
         var itemList = [];
+        $scope.chooseAddr = function () {
+            $rootScope.setStatus.editAddress = true;
+        };
         $scope.createOrder = function () {
             for (var i = 0; i < $scope.products.length; i++) {
                 itemList.push({
@@ -396,9 +404,9 @@ angular.module('Controllers', [])
             items = JSON.stringify(itemList);
             $http.post(PUBLIC + '/buyer/order/create',
                 {
-                    buyerName: $scope.orderName,
-                    buyerPhone: $scope.phone,
-                    buyerAddress: $scope.addr,
+                    buyerName: $rootScope.createOrderBuyer.buyerName,
+                    buyerPhone: $rootScope.createOrderBuyer.buyerPhone,
+                    buyerAddress: $rootScope.createOrderBuyer.buyerAddress,
                     items: items,
                     orderRemark: $scope.orderRemark
                 })
@@ -915,19 +923,20 @@ angular.module('Controllers', [])
     /*用户设置*/
     .controller('userSettingController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies', function ($scope, $http, $rootScope, $location, $routeParams, $cookies) {
         $rootScope.title = '用户设置';
-        $rootScope.categoryType = 'order';
+        $rootScope.categoryType = 'setting';
         $rootScope.loaded = true;
+        /*由哪一部分而来的地址修改*/
+        $rootScope.editAddrPage = 'userSetting';
         var originStatus = {
             setDetail: true,
             editAddress: false,
             editPwd: false
         };
-        $scope.setStatus = {
-            editAddress: false,
-            editPwd: false
-        };
         /*用户注销*/
         $scope.userLogout = function () {
+            if ($rootScope.collapsed) {
+                return;
+            }
             window.wxc.xcConfirm('确定要退出吗，亲？', 'confirm', {
                 onOk: function () {
                     $rootScope.$apply(function () {
@@ -958,6 +967,9 @@ angular.module('Controllers', [])
         };
         /*修改密码*/
         $scope.confirmEditPwd = function (valid) {
+            if ($rootScope.collapsed) {
+                return;
+            }
             if (valid) {
                 window.wxc.xcConfirm("输入信息有误哦，亲~", "info");
                 return;
@@ -982,4 +994,124 @@ angular.module('Controllers', [])
                     window.wxc.xcConfirm("修改失败，稍后再试哦亲~", "info");
                 });
         }
+        /*常用地址管理*/
+        $scope.editAddrShow = function () {
+            if ($rootScope.collapsed) {
+                return;
+            }
+            $rootScope.setStatus.editAddress = true;
+        }
+    }])
+    /*联系我们*/
+    .controller('contactUsController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies', function ($scope, $http, $rootScope, $location, $routeParams, $cookies) {
+        $rootScope.title = '联系我们';
+        $rootScope.categoryType = 'contacuUs';
+        $rootScope.loaded = true;
+    }])
+    /*常用地址*/
+    .controller('editAddrController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies', function ($scope, $http, $rootScope, $location, $routeParams, $cookies) {
+        $scope.buyerAddressId = '';
+        $scope.addrChange=true;//常用地址变化
+        /*获取全部地址*/
+        $http.get(PUBLIC + '/buyer/address/list').then(function (res) {
+            $scope.addressLists = res.data.data;
+        }, function (err) {
+            console.log(err);
+        });
+        /*创建、修改新地址*/
+        $scope.newAddress = function (index) {
+            if($rootScope.collapsed){
+                return;
+            }
+            /*如果index存在，表示编辑地址，如果不存在则是新增地址*/
+            if (index != 'new') {
+                this.$parent.editType='修改';
+                this.$parent.editAddrDetail = true;
+                this.$parent.buyerAddressId = this.addressList.buyerAddressId;
+                this.$parent.addrUserName = this.addressList.buyerName;
+                this.$parent.addrPhone = this.addressList.buyerPhone;
+                this.$parent.addrText = this.addressList.buyerAddress;
+            } else {
+                this.editType='新增';
+                this.editAddrDetail = true;
+                this.buyerAddressId = '';
+                this.addrUserName = '';
+                this.addrPhone = '';
+                this.addrText = '';
+            }
+        };
+        /*保存地址*/
+        $scope.saveAddress = function (invalid) {
+            if (invalid) {
+                window.wxc.xcConfirm("输入信息有误哦，亲~", "info");
+                return;
+            }
+            var addr = {
+                buyerAddressId: this.buyerAddressId,
+                buyerName: this.addrUserName,
+                buyerPhone: this.addrPhone,
+                buyerAddress: this.addrText
+            }
+            $http.post(PUBLIC + "/buyer/address/save", addr).then(
+                function (res) {
+                    window.wxc.xcConfirm("保存成功！", "info", {
+                        onOk: function () {
+                            $scope.$apply(function () {
+                                $scope.addrChange=true;
+                                $scope.editAddrDetail = false;
+                                $rootScope.$broadcast('getOrderBuyer',true);
+                            });
+                        }
+                    });
+                }, function (err) {
+                    window.wxc.xcConfirm("出错了，稍后再试哦亲~", "info");
+                }
+            );
+        };
+        /*选择地址*/
+        $scope.chooseThis = function () {
+            if ($rootScope.editAddrPage == 'createOrder') {//由下单页来的
+                $rootScope.createOrderBuyer = {
+                    buyerName: this.addressList.buyerName,
+                    buyerPhone: this.addressList.buyerPhone,
+                    buyerAddress: this.addressList.buyerAddress
+            }
+                $scope.editAddrDetail = false;
+                $rootScope.setStatus.editAddress=false;
+            } else {
+                return;
+            }
+        }
+        /*删除地址*/
+        $scope.deleteThis=function(){
+            var buyerAddressId=this.buyerAddressId;
+            console.log(this.buyerAddressId );
+            window.wxc.xcConfirm("确定要删除本地址吗，亲?", "confirm", {
+                onOk: function () {
+                    $scope.$apply(function () {
+                        $http.get(PUBLIC+'/buyer/address/delete',{params:{
+                                buyerAddressId:buyerAddressId
+                            }}).then(function (res) {
+                            $scope.addrChange=true;
+                            $scope.editAddrDetail = false;
+                            $rootScope.$broadcast('getOrderBuyer',true);
+                        },function (err) {
+                            window.wxc.xcConfirm("出错了，稍后再试哦亲~", "confirm");
+                        });
+                    });
+                },
+                onCancel: function () {
+                    return;
+                }
+            });
+        };
+        /*当地址变化时，动态加载数据变化时*/
+        $rootScope.$on('getOrderBuyer',function () {
+            $rootScope.unchooseAddr = false;
+            $http.get(PUBLIC + '/buyer/address/list').then(function (res) {
+                $scope.addressLists = res.data.data;
+            }, function (err) {
+                console.log(err);
+            });
+        });
     }])

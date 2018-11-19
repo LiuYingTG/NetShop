@@ -33,6 +33,10 @@ NetShop.config(['$routeProvider', '$locationProvider', function ($routeProvider,
             templateUrl: './templates/userSetting.html',
             controller: 'userSettingController'
         })
+        .when('/contactUs', {
+            templateUrl: './templates/contactUs.html',
+            controller: 'contactUsController'
+        })
         .otherwise({
             redirectTo: '/allPro/all'
         });
@@ -43,7 +47,6 @@ NetShop.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.withCredentials = true;
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    // $httpProvider.defaults.headers.common['Authorization'] = "89757";
 }]);
 
 NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScope, $cookies, $http, $location) {
@@ -52,6 +55,10 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
     $rootScope.showDialogue = false;//默认隐藏弹窗
     $rootScope.showUserLogin = false;//默认隐藏登录页
     $rootScope.showRegister = false;//默认隐藏注册页
+    $rootScope.setStatus = {
+        editAddress: false,
+        editPwd: false
+    };
     //获取购物车内商品数量
     // 导航数据,获取导航栏目
     $http.get(PUBLIC + '/buyer/category/list')

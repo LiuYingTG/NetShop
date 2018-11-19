@@ -32,11 +32,11 @@
       width: 100%;
       max-height: 530/32rem;
       overflow-y: auto;
-      dd{
+      dd {
         background-color: #fbfbfb;
       }
-      a[class^="icon"]:before{
-        top:0rem
+      a[class^="icon"]:before {
+        top: 0rem
       }
     }
     .dl-footer {
@@ -48,7 +48,7 @@
         line-height: 1.25rem;
         float: left;
       }
-      .icon-user-loged :before{
+      .icon-user-loged :before {
         color: red;
       }
       span {
@@ -89,9 +89,9 @@
       top: -2/32rem;
     }
 
-/*    .icon-heart-fill:before {
-      background-color: #46c8ce;
-    }*/
+    /*    .icon-heart-fill:before {
+          background-color: #46c8ce;
+        }*/
 
     .icon-sports-shoe:before {
       background-color: #62c98d;
@@ -126,10 +126,10 @@
   }
 
   dd.active {
-    .icon-circle-right{
+    .icon-circle-right {
 
     }
-    .icon-circle-right:before,span {
+    .icon-circle-right:before, span {
       color: #23a392;
     }
   }
@@ -881,59 +881,40 @@
   .createOrder {
     overflow-x: hidden;
     width: 100%;
+    min-height: 900/32rem;
     margin-top: 10/32rem;
+    position: relative;
     .textFont;
     form {
-      width: 620/32rem;
-      margin: 0 auto;
       .buyer {
-        padding: 10/32rem;
         width: 620/32rem;
-        padding: 0 30/32rem;
         margin: 0 auto;
         background-color: #FFFFFF;
-        height: 200/32rem;
+        min-height: 60/32rem;
         border-radius: 15/32rem 15/32rem;
-        color: #666666;
         border-collapse: separate;
         border-spacing: 0 15/32rem;
-        tr {
-          padding: 5/32rem 0;
-          td {
-            input, textarea {
-              //padding: 5/32rem 185/32rem 5/32rem 10/32rem;
-              padding: 5/32rem 10/32rem;
-              width: 340/32rem;
-              border: none;
-              line-height: 0.9rem;
-              .textFont;
-            }
+        line-height: 32/32rem;
+        .unchooseAddr{
+          width: 580/32rem;
+          margin: 0 auto;
+          line-height: 60/32rem;
+          .icon-circle-right{
+            float: right;
+            line-height: 60/32rem;
           }
-          td:first-of-type {
-            width: 140/32rem;
-          }
-          td:last-of-type {
-            width: 420/32rem;
-            position: relative;
-            border: 2/32rem solid #dadada;
-            border-radius: 3/32rem;
-            padding: 0.15625rem 0rem;
-            line-height: 0.9rem;
-            .info {
-              display: block;
-              width: 170/32rem;
-              position: absolute;
-              color: @activeColor;
-              top: 0rem;
-              right: 45/32rem;
-              text-align: right;
-              padding: 0.15625rem 0rem;
-              line-height: 1.1rem;
-            }
-            .delText {
-              color: #d6d6d6;
-              right: 10/32rem;
-            }
+        }
+        .chooseAddr{
+          overflow: hidden;
+          width: 560/32rem;
+          margin: 0 auto;
+          padding: 20/32rem 0;
+          position: relative;
+          .edit{
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            color: #949494;
+            right: 0rem;
           }
         }
       }
@@ -1050,8 +1031,7 @@
           }
         }
       }
-
-      button {
+      .orderBtn {
         font-size: 28/32rem;
         width: 600/32rem;
         height: 70/32rem;
@@ -1064,6 +1044,10 @@
         border-radius: 20/32rem;
         letter-spacing: 2/32rem;
       }
+    }
+    .editAddr{
+      position: absolute;
+      top:0rem;
     }
   }
 
@@ -1590,78 +1574,181 @@
         text-align: center;
       }
     }
-    .editPwd, .editAddr {
-      width: 560/32rem;
-      height: 650/32rem;
-      overflow-x: hidden;
-      overflow-y: auto;
-      padding: 30/32rem 40/32rem;
-      background-color: #FFFFFF;
-      .textFont;
-      .title {
+  }
+  .editPwd, .editAddr {
+    width: 560/32rem;
+    min-height: 1000/32rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 10/32rem 40/32rem;
+    background-color: #FFFFFF;
+    position: relative;
+    .info {
+      text-align: center;
+      width: 100%;
+      color: #7e7e7e;
+      font-size: 0.625rem;
+      line-height: 1rem;
+    }
+    .textFont;
+    .title {
+      line-height: 50/32rem;
+      height: 50/32rem;
+      font-size: 0.75rem;
+      margin-bottom: 15/32rem;
+      span {
+        float: left;
+        color: #7e7e7e;
         line-height: 50/32rem;
         height: 50/32rem;
-        font-size: 0.75rem;
-        margin-bottom: 15/32rem;
-        span {
-          float: right;
-          color: #7e7e7e;
-          line-height: 50/32rem;
-          height: 50/32rem;
+        b {
+          font-weight: normal;
+          color: #1a1a1a;
         }
       }
-      .text {
-        line-height: 30/32rem;
-        color: #757575;
+      .close-dialog {
+        float: right;
       }
-      form {
-        text-align: left;
-        table {
-          width: 100%;
-          tr {
-            td {
-              padding: 15/32rem 0 5/32rem 0;
-              border-bottom: 1/32rem solid #e3e3e3;
-              width: 150/32rem;
+    }
+    .text {
+      line-height: 30/32rem;
+      //color: #757575;
+    }
+    form {
+      text-align: left;
+      table {
+        width: 100%;
+        margin-bottom: 45/32rem;
+        tr {
+          td {
+            padding: 15/32rem 0 5/32rem 0;
+            border-bottom: 1/32rem solid #e3e3e3;
+            width: 150/32rem;
+          }
+          td:last-of-type {
+            width: 460/32rem;
+            input {
+              border: none;
+              width: 250/32rem;
+              line-height: 32/32rem;
             }
-            td:last-of-type {
-              width: 460/32rem;
-              input {
-                border: none;
-                width: 280/32rem;
-                line-height: 32/32rem;
-              }
-              span {
-                float: right;
-                color: @activeColor;
-              }
-              .delText {
-                width: 1.25rem;
-                height: 1.25rem;
-                margin-left: 4/32rem;
-                color: #d6d6d6;
-              }
+            span {
+              float: right;
+              color: @activeColor;
+            }
+            .delText {
+              width: 1.25rem;
+              height: 1.25rem;
+              text-align: right;
+              margin-left: 4/32rem;
+              color: #d6d6d6;
             }
           }
         }
       }
-      button {
-        display: block;
-        margin: 0 auto;
-        width: 560/32rem;
-        border: 1/32rem solid #000000;
-        border-radius: 0.25rem;
-        padding: 0.5rem 0;
-        font-size: 0.75rem;
-        letter-spacing: 0.0625rem;
-        color: #040404;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+      width: 560/32rem;
+      border: 1/32rem solid #000000;
+      border-radius: 0.25rem;
+      padding: 0.5rem 0;
+      font-size: 0.75rem;
+      letter-spacing: 0.0625rem;
+      color: #fefefe;
+      background-color: #494949;
+      margin-bottom: 30/32rem;
+    }
+    button:last-of-type{
         background-color: #fefefe;
-        margin-top: 45/32rem;
+        color: #252525;
+    }
+  }
+  .editAddr {
+    width: 640/32rem;
+    overflow: hidden;
+    padding: 0/32rem 0/32rem;
+    background-color: #FFFFFF;
+    .content{
+      overflow: hidden;
+    }
+    .title {
+      position: fixed;
+      width: 560/32rem;
+      padding: 10/32rem 40/32rem;
+      border-bottom: 1/32rem solid #ededed;
+      margin-bottom: 0rem;
+      background-color: #FFFFFF;
+      z-index: 100;
+    }
+    .allAddress {
+      overflow-y: auto;
+      width: 100%;
+      margin-top: 80/32rem;
+      li {
+        overflow: hidden;
+        width: 560/32rem;
+        padding: 10/32rem 40/32rem;
+        border-bottom: 1/32rem solid #ededed;
+        position: relative;
       }
     }
-    .editAddr {
-
+    .editAddrDetail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom:0;
+      width: 17.5rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 0.3125rem 1.25rem;
+      background-color: #FFFFFF;
+      font-size: 0.7rem;
+      z-index: 500;
+      .title {
+        padding: 0rem 0/32rem 0rem 1/32rem;
+        border: none;
+        position: relative;
+      }
+      textarea {
+        border: none;
+        width: 10rem;
+        line-height: 1rem;
+      }
     }
+  }
+  .addrInfo {
+    float: left;
+    width: 450/32rem;
+    .nameAndPhone {
+      margin-bottom: 5/32rem;
+    }
+    .name {
+      font-size: 0.8rem;
+      margin-right: 20/32rem;
+    }
+    .phone {
+      color: #646465;
+    }
+    .addr {
+      line-height: 0.8rem;
+    }
+  }
+  .edit {
+    position: absolute;
+    bottom: 15/32rem;
+    right: 40/32rem;
+    @height: 55/32rem;
+    width: @height;
+    height: @height;
+    border-radius: 50%;
+    background-color: #949494;
+    color: #FFFFFF;
+    line-height: @height;
+    text-align: center;
+    letter-spacing: 2/32rem;
   }
 }
 

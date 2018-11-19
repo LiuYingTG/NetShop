@@ -1,58 +1,19 @@
-<!--$location.path('/createOrder/'+$scope.product.productId+'/'+$scope.color+'/'+$scope
-          .size+'/'+$scope.num);-->
-
 <!--下单页-->
 <div ng-show="loaded"><!--当内容加载完毕后，loaded改为true-->
     <div class="createOrder">
         <form role="form" novalidate name="createOrder_form" ng-submit="createOrder()">
-            <table class="buyer">
-                <tr>
-                    <td><span>收件人：</span></td>
-                    <td><input type="text" class="text"
-                               ng-model="orderName"
-                               name="orderName"
-                               ng-check
-                               required/>
-                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.orderName.$error.required"
-                              ng-click="orderName=''"></span>
-                        <span class="info"
-                              ng-show="createOrder_form.orderName.$invalid&&createOrder_form.orderName.$error.required">*必填</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span>手机号码：</span></td>
-                    <td><input type="text" class="text" ng-model="phone"
-                               name="phone"
-                               ng-check
-                               required
-                               ng-pattern="/^(1[3456789]\d{9})$/"/>
-                        <span class="delText icon-x-altx-alt info" ng-show="!createOrder_form.phone.$error.required"
-                              ng-click="phone=''"></span>
-                        <span class="info"
-                              ng-show="createOrder_form.phone.$invalid&&createOrder_form.phone.$error.required">*必填</span>
-                        <span class="info"
-                              ng-show="createOrder_form.phone.$invalid&&!createOrder_form.phone.$checked&&!createOrder_form.phone.$error.required&&createOrder_form.phone.$error.pattern">
-                        手机号无效
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span>收件地址：</span></td>
-                    <td><textarea type="text block" ng-model="addr"
-                                  ng-check
-                                  name="addr"
-                                  required>
-                        </textarea>
-                        <span class="delText icon-x-altx-alt info address" ng-show="!createOrder_form.addr.$error.required"
-                              ng-click="addr=''"></span>
-                        <span class="info address"
-                              ng-show="createOrder_form.addr.$invalid&&createOrder_form.addr.$error.required">*必填</span>
-                    </td>
-                    <!-- <td>
-
-                     </td>-->
-                </tr>
-            </table>
+            <div class="buyer">
+                <p ng-show="unchooseAddr" ng-click='chooseAddr()' class="unchooseAddr">请选择您的收货地址
+                <span class="icon-circle-right"></span>
+                </p>
+                <div ng-show="!unchooseAddr" class="chooseAddr">
+                    <div class="addrInfo">
+                        <p class="nameAndPhone"><span class="name">{{createOrderBuyer.buyerName}}</span><span class="phone">{{createOrderBuyer.buyerPhone}}</span></p>
+                        <p class="addr">{{createOrderBuyer.buyerAddress}}</p>
+                    </div>
+                    <span class="edit icon-circle-right" ng-click="chooseAddr()"></span>
+                </div>
+            </div>
             <ul class="proLists">
                 <li class="cartLi" ng-repeat="product in products track by $index">
                     <div class="proImg"><img ng-src="{{product.img}}"></div>
@@ -76,8 +37,9 @@
                 </p>
                 <p class="total">合计：<span>{{total|currency:'￥'}}</span></p>
             </div>
-            <button type="submit" ng-disabled="createOrder_form.$invalid">确定下单</button>
+            <button class="orderBtn" type="submit" ng-disabled="createOrder_form.$invalid">确定下单</button>
         </form>
+        <div class="editAddr" ng-include="'templates/editAddress.html'" ng-show="setStatus.editAddress"></div>
     </div>
 </div>
 

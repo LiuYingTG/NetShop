@@ -1,7 +1,73 @@
-常用地址管理
-<div class="content">
-    <p class="title">常用地址管理
+<div class="content" ng-controller="editAddrController">
+    <p class="title">
+        <span class="icon-tag" ng-click="newAddress('new')">&nbsp;<b>新增地址</b></span>
         <span class="icon-x-altx-alt close-dialog" ng-click="setStatus.editAddress=false"></span>
     </p>
-    <div class="allAddress">该功能正在开发，敬请期待</div>
+    <ul class="allAddress">
+        <!--当创建订单时，点击地址自动选择该地址-->
+        <li ng-repeat="addressList in addressLists track by $index">
+            <div class="addrInfo"  ng-click="chooseThis()">
+                <p class="nameAndPhone"><span class="name">{{addressList.buyerName}}</span><span class="phone">{{addressList.buyerPhone}}</span></p>
+                <p class="addr">{{addressList.buyerAddress}}</p>
+            </div>
+            <span class="edit" ng-click="newAddress($index)">编辑</span>
+        </li>
+    </ul>
+    <p class="info" ng-show="addressLists.length==0">您还没有设置任何地址哦</p>
+    <!--新增地址或者更改地址-->
+    <div class="editAddrDetail" ng-show="editAddrDetail">
+        <p class="title">
+            {{editType}}地址
+            <span class="icon-x-altx-alt close-dialog" ng-click="editAddrDetail=false"></span>
+        </p>
+        <form role="form" novalidate name="editAddressDetail_form">
+            <table class="address">
+                <tr>
+                    <td><span>收件人：</span></td>
+                    <td><input type="text" class="text"
+                               ng-model="addrUserName"
+                               name="addrUserName"
+                               ng-check
+                               required/>
+                        <span class="delText icon-x-altx-alt info-x" ng-show="!editAddressDetail_form.addrUserName.$error.required"
+                              ng-click="addrUserName=''"></span>
+                        <span class="info-x"
+                              ng-show="editAddressDetail_form.addrUserName.$invalid&&editAddressDetail_form.addrUserName.$error.required">*必填</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>手机号码：</span></td>
+                    <td><input type="text" class="text" ng-model="addrPhone"
+                               name="addrPhone"
+                               ng-check
+                               required
+                               ng-pattern="/^(1[3456789]\d{9})$/"/>
+                        <span class="delText icon-x-altx-alt info-x" ng-show="!editAddressDetail_form.addrPhone.$error.required"
+                              ng-click="addrPhone=''"></span>
+                        <span class="info-x"
+                              ng-show="editAddressDetail_form.addrPhone.$invalid&&editAddressDetail_form.addrPhone.$error.required">*必填</span>
+                        <span class="info-x"
+                              ng-show="editAddressDetail_form.addrPhone.$invalid&&!editAddressDetail_form.addrPhone.$checked&&!editAddressDetail_form.addrPhone.$error.required&&editAddressDetail_form.addrPhone.$error.pattern">
+                        手机号无效
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span>收件地址：</span></td>
+                    <td><textarea type="text block" ng-model="addrText"
+                                  ng-check
+                                  name="addrText"
+                                  required>
+                        </textarea>
+                        <span class="delText icon-x-altx-alt info-x address" ng-show="!editAddressDetail_form.addrText.$error.required"
+                              ng-click="addrText=''"></span>
+                        <span class="info-x address"
+                              ng-show="editAddressDetail_form.addrText.$invalid&&editAddressDetail_form.addrText.$error.required">*必填</span>
+                    </td>
+                </tr>
+            </table>
+            <button ng-click="!collapsed&&saveAddress(editAddressDetail_form.$invalid)">保存修改</button>
+            <button ng-click="!collapsed&&deleteThis()" ng-show="editType=='修改'">删除本地址</button>
+        </form>
+    </div>
 </div>

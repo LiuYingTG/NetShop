@@ -757,8 +757,8 @@ textarea {
   padding: 0.875rem 0 0.875rem 1.5625rem;
   transform: translate(-100%);
   /*    .icon-heart-fill:before {
-      background-color: #46c8ce;
-    }*/
+          background-color: #46c8ce;
+        }*/
 }
 .navs dd a {
   font-size: 0.85rem;
@@ -1514,61 +1514,42 @@ textarea {
 .body .createOrder {
   overflow-x: hidden;
   width: 100%;
+  min-height: 28.125rem;
   margin-top: 0.3125rem;
+  position: relative;
   font-size: 0.7rem;
-}
-.body .createOrder form {
-  width: 19.375rem;
-  margin: 0 auto;
 }
 .body .createOrder form .buyer {
-  padding: 0.3125rem;
   width: 19.375rem;
-  padding: 0 0.9375rem;
   margin: 0 auto;
   background-color: #FFFFFF;
-  height: 6.25rem;
+  min-height: 1.875rem;
   border-radius: 0.46875rem 0.46875rem;
-  color: #666666;
   border-collapse: separate;
   border-spacing: 0 0.46875rem;
+  line-height: 1rem;
 }
-.body .createOrder form .buyer tr {
-  padding: 0.15625rem 0;
+.body .createOrder form .buyer .unchooseAddr {
+  width: 18.125rem;
+  margin: 0 auto;
+  line-height: 1.875rem;
 }
-.body .createOrder form .buyer tr td input,
-.body .createOrder form .buyer tr td textarea {
-  padding: 0.15625rem 0.3125rem;
-  width: 10.625rem;
-  border: none;
-  line-height: 0.9rem;
-  font-size: 0.7rem;
+.body .createOrder form .buyer .unchooseAddr .icon-circle-right {
+  float: right;
+  line-height: 1.875rem;
 }
-.body .createOrder form .buyer tr td:first-of-type {
-  width: 4.375rem;
-}
-.body .createOrder form .buyer tr td:last-of-type {
-  width: 13.125rem;
+.body .createOrder form .buyer .chooseAddr {
+  overflow: hidden;
+  width: 17.5rem;
+  margin: 0 auto;
+  padding: 0.625rem 0;
   position: relative;
-  border: 0.0625rem solid #dadada;
-  border-radius: 0.09375rem;
-  padding: 0.15625rem 0rem;
-  line-height: 0.9rem;
 }
-.body .createOrder form .buyer tr td:last-of-type .info {
-  display: block;
-  width: 5.3125rem;
-  position: absolute;
-  color: #ff6c12;
-  top: 0rem;
-  right: 1.40625rem;
-  text-align: right;
-  padding: 0.15625rem 0rem;
-  line-height: 1.1rem;
-}
-.body .createOrder form .buyer tr td:last-of-type .delText {
-  color: #d6d6d6;
-  right: 0.3125rem;
+.body .createOrder form .buyer .chooseAddr .edit {
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  color: #949494;
+  right: 0rem;
 }
 .body .createOrder form .proLists {
   background-color: #FFFFFF;
@@ -1681,7 +1662,7 @@ textarea {
   color: #ff6c12;
   font-weight: bold;
 }
-.body .createOrder form button {
+.body .createOrder form .orderBtn {
   font-size: 0.875rem;
   width: 18.75rem;
   height: 2.1875rem;
@@ -1693,6 +1674,10 @@ textarea {
   border: 0.03125rem solid #fcfcfc;
   border-radius: 0.625rem;
   letter-spacing: 0.0625rem;
+}
+.body .createOrder .editAddr {
+  position: absolute;
+  top: 0rem;
 }
 .body .orderList {
   overflow-x: hidden;
@@ -2227,73 +2212,92 @@ textarea {
   margin-top: 0.9375rem;
   text-align: center;
 }
-.body .userSetting .editPwd,
-.body .userSetting .editAddr {
+.body .editPwd,
+.body .editAddr {
   width: 17.5rem;
-  height: 20.3125rem;
+  min-height: 31.25rem;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 0.9375rem 1.25rem;
+  padding: 0.3125rem 1.25rem;
   background-color: #FFFFFF;
+  position: relative;
   font-size: 0.7rem;
 }
-.body .userSetting .editPwd .title,
-.body .userSetting .editAddr .title {
+.body .editPwd .info,
+.body .editAddr .info {
+  text-align: center;
+  width: 100%;
+  color: #7e7e7e;
+  font-size: 0.625rem;
+  line-height: 1rem;
+}
+.body .editPwd .title,
+.body .editAddr .title {
   line-height: 1.5625rem;
   height: 1.5625rem;
   font-size: 0.75rem;
   margin-bottom: 0.46875rem;
 }
-.body .userSetting .editPwd .title span,
-.body .userSetting .editAddr .title span {
-  float: right;
+.body .editPwd .title span,
+.body .editAddr .title span {
+  float: left;
   color: #7e7e7e;
   line-height: 1.5625rem;
   height: 1.5625rem;
 }
-.body .userSetting .editPwd .text,
-.body .userSetting .editAddr .text {
-  line-height: 0.9375rem;
-  color: #757575;
+.body .editPwd .title span b,
+.body .editAddr .title span b {
+  font-weight: normal;
+  color: #1a1a1a;
 }
-.body .userSetting .editPwd form,
-.body .userSetting .editAddr form {
+.body .editPwd .title .close-dialog,
+.body .editAddr .title .close-dialog {
+  float: right;
+}
+.body .editPwd .text,
+.body .editAddr .text {
+  line-height: 0.9375rem;
+}
+.body .editPwd form,
+.body .editAddr form {
   text-align: left;
 }
-.body .userSetting .editPwd form table,
-.body .userSetting .editAddr form table {
+.body .editPwd form table,
+.body .editAddr form table {
   width: 100%;
+  margin-bottom: 1.40625rem;
 }
-.body .userSetting .editPwd form table tr td,
-.body .userSetting .editAddr form table tr td {
+.body .editPwd form table tr td,
+.body .editAddr form table tr td {
   padding: 0.46875rem 0 0.15625rem 0;
   border-bottom: 0.03125rem solid #e3e3e3;
   width: 4.6875rem;
 }
-.body .userSetting .editPwd form table tr td:last-of-type,
-.body .userSetting .editAddr form table tr td:last-of-type {
+.body .editPwd form table tr td:last-of-type,
+.body .editAddr form table tr td:last-of-type {
   width: 14.375rem;
 }
-.body .userSetting .editPwd form table tr td:last-of-type input,
-.body .userSetting .editAddr form table tr td:last-of-type input {
+.body .editPwd form table tr td:last-of-type input,
+.body .editAddr form table tr td:last-of-type input {
   border: none;
-  width: 8.75rem;
+  width: 7.8125rem;
   line-height: 1rem;
 }
-.body .userSetting .editPwd form table tr td:last-of-type span,
-.body .userSetting .editAddr form table tr td:last-of-type span {
+.body .editPwd form table tr td:last-of-type span,
+.body .editAddr form table tr td:last-of-type span {
   float: right;
   color: #ff6c12;
 }
-.body .userSetting .editPwd form table tr td:last-of-type .delText,
-.body .userSetting .editAddr form table tr td:last-of-type .delText {
+.body .editPwd form table tr td:last-of-type .delText,
+.body .editAddr form table tr td:last-of-type .delText {
   width: 1.25rem;
   height: 1.25rem;
+  text-align: right;
   margin-left: 0.125rem;
   color: #d6d6d6;
 }
-.body .userSetting .editPwd button,
-.body .userSetting .editAddr button {
+.body .editPwd button,
+.body .editAddr button {
   display: block;
   margin: 0 auto;
   width: 17.5rem;
@@ -2302,9 +2306,98 @@ textarea {
   padding: 0.5rem 0;
   font-size: 0.75rem;
   letter-spacing: 0.0625rem;
-  color: #040404;
+  color: #fefefe;
+  background-color: #494949;
+  margin-bottom: 0.9375rem;
+}
+.body .editPwd button:last-of-type,
+.body .editAddr button:last-of-type {
   background-color: #fefefe;
-  margin-top: 1.40625rem;
+  color: #252525;
+}
+.body .editAddr {
+  width: 20rem;
+  overflow: hidden;
+  padding: 0rem 0rem;
+  background-color: #FFFFFF;
+}
+.body .editAddr .content {
+  overflow: hidden;
+}
+.body .editAddr .title {
+  position: fixed;
+  width: 17.5rem;
+  padding: 0.3125rem 1.25rem;
+  border-bottom: 0.03125rem solid #ededed;
+  margin-bottom: 0rem;
+  background-color: #FFFFFF;
+  z-index: 100;
+}
+.body .editAddr .allAddress {
+  overflow-y: auto;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+.body .editAddr .allAddress li {
+  overflow: hidden;
+  width: 17.5rem;
+  padding: 0.3125rem 1.25rem;
+  border-bottom: 0.03125rem solid #ededed;
+  position: relative;
+}
+.body .editAddr .editAddrDetail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 17.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.3125rem 1.25rem;
+  background-color: #FFFFFF;
+  font-size: 0.7rem;
+  z-index: 500;
+}
+.body .editAddr .editAddrDetail .title {
+  padding: 0rem 0rem 0rem 0.03125rem;
+  border: none;
+  position: relative;
+}
+.body .editAddr .editAddrDetail textarea {
+  border: none;
+  width: 10rem;
+  line-height: 1rem;
+}
+.body .addrInfo {
+  float: left;
+  width: 14.0625rem;
+}
+.body .addrInfo .nameAndPhone {
+  margin-bottom: 0.15625rem;
+}
+.body .addrInfo .name {
+  font-size: 0.8rem;
+  margin-right: 0.625rem;
+}
+.body .addrInfo .phone {
+  color: #646465;
+}
+.body .addrInfo .addr {
+  line-height: 0.8rem;
+}
+.body .edit {
+  position: absolute;
+  bottom: 0.46875rem;
+  right: 1.25rem;
+  width: 1.71875rem;
+  height: 1.71875rem;
+  border-radius: 50%;
+  background-color: #949494;
+  color: #FFFFFF;
+  line-height: 1.71875rem;
+  text-align: center;
+  letter-spacing: 0.0625rem;
 }
 .view {
   height: 100%;
