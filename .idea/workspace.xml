@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44391662-ec01-4bc0-97d2-c3a5e220de68" name="Default" comment="V1.3&#10;2018-11-15(3)">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="44391662-ec01-4bc0-97d2-c3a5e220de68" name="Default" comment="V1.3&#10;2018-11-15(3)" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -76,7 +74,7 @@
           <entry key="gitignore" value="3" />
           <entry key="html" value="139" />
           <entry key="ico" value="4" />
-          <entry key="js" value="41" />
+          <entry key="js" value="43" />
           <entry key="json" value="9" />
           <entry key="less" value="21" />
           <entry key="png" value="5" />
@@ -90,7 +88,7 @@
           <entry key="HTML" value="139" />
           <entry key="Image" value="11" />
           <entry key="JSON" value="9" />
-          <entry key="JavaScript" value="41" />
+          <entry key="JavaScript" value="43" />
           <entry key="Less" value="21" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SVG" value="1" />
@@ -98,16 +96,38 @@
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.merge" value="1" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/release/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+            <state relative-caret-position="272">
+              <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/netConfig.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -298,24 +318,6 @@
               <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="NetShop" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
-              <item name="release" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
-              <item name="release" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
-              <item name="release" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -339,19 +341,19 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.JavaScript" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\NetShop\scripts\AngularJS" />
-      <recent name="D:\xampp\htdocs\NetShop\scripts" />
-      <recent name="D:\xampp\htdocs\NetShop\static" />
-      <recent name="D:\xampp\htdocs\NetShop" />
-      <recent name="D:\xampp\htdocs\NetShop\templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\NetShop\templates" />
       <recent name="D:\xampp\htdocs\NetShop\static" />
       <recent name="D:\xampp\htdocs\NetShop\static\less" />
       <recent name="D:\xampp\htdocs\NetShop\static\images" />
       <recent name="D:\xampp\htdocs\NetShop\scripts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\NetShop\scripts\AngularJS" />
+      <recent name="D:\xampp\htdocs\NetShop\scripts" />
+      <recent name="D:\xampp\htdocs\NetShop\static" />
+      <recent name="D:\xampp\htdocs\NetShop" />
+      <recent name="D:\xampp\htdocs\NetShop\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -486,7 +488,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="636165000" />
+    <option name="totallyTimeSpent" value="636266000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -499,8 +501,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="486" y="0" width="1064" height="832" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.79850745" visible="true" weight="0.35603112" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.79850745" visible="true" weight="0.14980544" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -565,7 +568,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="V1.3&#10;2018-11-16(1)&#10;导航栏移除icon" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/release/orderList.html" />
     <entry file="file://$PROJECT_DIR$/templates/allPro.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -683,13 +685,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/release/scripts/main-fffddabbf1.js" />
     <entry file="file://$PROJECT_DIR$/static/less/xcConfirm2.less" />
-    <entry file="file://$PROJECT_DIR$/scripts/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/xcConfirm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -794,8 +789,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/release/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="77" column="36" selection-start-line="77" selection-start-column="36" selection-end-line="77" selection-end-column="36" />
+        <state relative-caret-position="272">
+          <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -934,6 +929,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="49" column="21" lean-forward="true" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/netConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
         </state>
       </provider>
     </entry>
