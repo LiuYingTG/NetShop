@@ -1,7 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44391662-ec01-4bc0-97d2-c3a5e220de68" name="Default" comment="V1.3&#10;2018-11-15(3)" />
+    <list default="true" id="44391662-ec01-4bc0-97d2-c3a5e220de68" name="Default" comment="V1.3&#10;2018-11-15(3)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/rev/rev-css.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/rev/rev-image.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/rev/rev-js.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/scripts/main-945c0379cc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/adapter-d41d8cd98f.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/base-5970723654.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/fonts-dd3fc1df95.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/main-5b12d3b056.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/mixin-d41d8cd98f.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/normalize-e4b737bb11.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/xcConfirm-66b795a979.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/avatar-8844dbfc4d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/diaopai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/gallery-348cf1945f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/loading-50c5e3e79b.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/xcConfirm-icon-46739bdd0c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/angular-7d432c4a3e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/jquery-252b0b512a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/less.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/toggle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/xcConfirm-6ccb214e29.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/allPro.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/cartList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/contactUs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/createOrder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/editAddress.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/editPwd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/orderDetail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/orderList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/proDetail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/userSetting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/netConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/netConfig.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -72,7 +115,7 @@
           <entry key="css" value="14" />
           <entry key="gif" value="2" />
           <entry key="gitignore" value="3" />
-          <entry key="html" value="139" />
+          <entry key="html" value="140" />
           <entry key="ico" value="4" />
           <entry key="js" value="43" />
           <entry key="json" value="9" />
@@ -85,7 +128,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="14" />
-          <entry key="HTML" value="139" />
+          <entry key="HTML" value="140" />
           <entry key="Image" value="11" />
           <entry key="JSON" value="9" />
           <entry key="JavaScript" value="43" />
@@ -106,15 +149,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/release/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/common.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="63">
@@ -123,11 +157,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/netConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state relative-caret-position="44">
+              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/release/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1584">
+              <caret line="72" column="14" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -223,7 +266,6 @@
         <option value="$PROJECT_DIR$/static/js/controllers.js" />
         <option value="$PROJECT_DIR$/static/js/app.js" />
         <option value="$PROJECT_DIR$/templates/buy/index.html" />
-        <option value="$PROJECT_DIR$/scripts/netConfig.js" />
         <option value="$PROJECT_DIR$/release/templates/allPro.html" />
         <option value="$PROJECT_DIR$/release/index.html" />
         <option value="$PROJECT_DIR$/templates/test.html" />
@@ -257,6 +299,7 @@
         <option value="$PROJECT_DIR$/templates/orderDetail.html" />
         <option value="$PROJECT_DIR$/scripts/controllers.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/scripts/netConfig.js" />
       </list>
     </option>
   </component>
@@ -317,6 +360,24 @@
             <path>
               <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+              <item name="release" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+              <item name="release" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NetShop" type="462c0819:PsiDirectoryNode" />
+              <item name="release" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -488,7 +549,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="636266000" />
+    <option name="totallyTimeSpent" value="636526000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -501,9 +562,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="486" y="0" width="1064" height="832" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.79850745" visible="true" weight="0.14980544" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.79850745" visible="true" weight="0.18287937" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -787,13 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/release/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="78" column="7" lean-forward="true" selection-start-line="78" selection-start-column="7" selection-end-line="78" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/userSetting.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -941,8 +994,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/netConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        <state relative-caret-position="44">
+          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1584">
+          <caret line="72" column="14" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
         </state>
       </provider>
     </entry>
