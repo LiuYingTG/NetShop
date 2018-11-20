@@ -1,7 +1,7 @@
 // 实例一个模块，用来专门管理所有的控制器
 angular.module('Controllers', [])
 
-// 导航菜单
+    // 导航菜单
     .controller('NavController', ['$scope', '$location', '$rootScope', '$http', '$routeParams', '$cookies', '$interval', function ($scope, $location, $rootScope, $http, $routeParams, $cookies, $interval) {
         //用户登录
         $scope.login = function () {
@@ -119,7 +119,6 @@ angular.module('Controllers', [])
     .controller('proDetailController', ['$scope', '$http', '$rootScope', '$location', '$routeParams', '$cookies', function ($scope, $http, $rootScope, $location, $routeParams, $cookies) {
         $rootScope.title = '商品详情';
         $rootScope.categoryType = $routeParams.categoryType;
-        console.log($rootScope.categoryType);
         var productId = $routeParams.productId;
         $scope.showed = false;//默认尺码选择对话框关闭
         $scope.num = 1;
@@ -264,7 +263,7 @@ angular.module('Controllers', [])
                             "productQuantity": $scope.num,
                             "productSize": $scope.productSize,
                             'productPrice': $scope.product.productPrice
-                        }], total: $scope.num * $scope.product.productPrice
+                        }], total: BigNumber($scope.num).multipliedBy(BigNumber($scope.product.productPrice)).toString()
                     });
                 }
             }
@@ -594,6 +593,7 @@ angular.module('Controllers', [])
         };
         /*当购物车列表中数据变化时，更新合计和结算*/
         $scope.$watch('cartLists', function () {
+            var total=new BigNumber('0');
             $scope.cartTotal = 0;
             $scope.items = [];
             $scope.itemsDetail = [];
@@ -601,8 +601,9 @@ angular.module('Controllers', [])
             for (var i = 0; i < $scope.cartLists.length; i++) {
                 if ($scope.cartLists[i].checked) {
                     /*增加精度*/
-                    var singleItem = parseFloat($scope.cartLists[i].productPrice * $scope.cartLists[i].productQuantity) * 1000;
-                    $scope.cartTotal = (singleItem + $scope.cartTotal * 1000) / 1000;
+                    var singleItem=new BigNumber('0');
+                    singleItem = BigNumber($scope.cartLists[i].productPrice).multipliedBy(BigNumber($scope.cartLists[i].productQuantity));
+                    total = singleItem.plus(total);
                     // $scope.cartTotal += parseFloat($scope.cartLists[i].productPrice * $scope.cartLists[i].productQuantity);
                     $scope.checkNum++;
                     $scope.items.push($scope.cartLists[i].itemId);
@@ -618,8 +619,8 @@ angular.module('Controllers', [])
                     });
                 }
             }
+            $scope.cartTotal = total.toString();
             if ($scope.checkNum != 0) {
-                console.log($scope.checkNum + "-----" + $scope.cartLists.length);
                 if ($scope.checkNum == $scope.cartLists.length) {
                     $scope.checkAll = true;
                 } else {
@@ -828,7 +829,6 @@ angular.module('Controllers', [])
         $scope.showExpressDetail = function () {
             if (this.hasDetail) {//当有物流详情时，显示
                 this.showExDetail = true;
-
             }
         }
         /*确认收货*/
@@ -863,7 +863,7 @@ angular.module('Controllers', [])
         };
         /*删除订单*/
         $scope.delOrder = function (orderId) {
-            window.wxc.xcConfirm('该订单信息将被删除，不再显示在订单页，是否继续？', 'confirm', {
+            window.wxc.xcConfirm('确定删除该订单信息吗，亲？', 'confirm', {
                 onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/delete', {
@@ -893,7 +893,7 @@ angular.module('Controllers', [])
         }
         /*取消订单*/
         $scope.cancelOrder = function (orderId) {
-            window.wxc.xcConfirm('取消该订单吗，亲?', 'confirm', {
+            window.wxc.xcConfirm('确定取消该订单吗，亲?', 'confirm', {
                 onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/order/cancel', {
