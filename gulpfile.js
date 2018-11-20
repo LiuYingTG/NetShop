@@ -43,11 +43,7 @@ gulp.task('less', function () {
 gulp.task('imagemin',function () {
     gulp.src(['./static/images/*', './uploads/*'], {base: './'})
     .pipe(imagemin())
-    .pipe(rev())
     .pipe(gulp.dest('./release'))
-    .pipe(rev.manifest())
-    .pipe(rename('rev-image.json'))
-    .pipe(gulp.dest('./release/rev'));
 });
 /*3、js处理
 *   （1）压缩

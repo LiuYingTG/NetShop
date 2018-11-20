@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "scripts/main.js": "scripts/main-e054c04081.js",
+=======
+  "scripts/main.js": "scripts/main-7c0dc3a643.js",
+>>>>>>> develop
   "static/libs/angular.js": "static/libs/angular-7d432c4a3e.js",
+  "static/libs/bignumber.min.js": "static/libs/bignumber-2b5fa8e695.min.js",
   "static/libs/jquery.js": "static/libs/jquery-252b0b512a.js",
   "static/libs/xcConfirm.js": "static/libs/xcConfirm-6ccb214e29.js"
 }

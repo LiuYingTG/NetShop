@@ -97,7 +97,7 @@ angular.module('Directives', [])
     .directive('logisticsInfo', function () {
         return {
             restrict: 'A',
-            template: '<p style="white-space: pre-wrap;">{{logInfo}}</p>',
+            template: '<p style="white-space: pre-wrap;">{{logInfo}}<span>{{logInfoSpan}}</span></p>',
             link: function (scope, ele, attr) {
                 var status = '';
                 scope.$watch(attr.logisticsInfo, function (newVal) {
@@ -116,6 +116,7 @@ angular.module('Directives', [])
                             return;
                         case '4':
                             scope.logInfo = '包裹已寄出，请耐心等待';
+                            scope.logInfoSpan = '系统默认发货七天后自动收货';
                             return;
                         case '5':
                             scope.logInfo = '订单已结束，欢迎下次光临！';

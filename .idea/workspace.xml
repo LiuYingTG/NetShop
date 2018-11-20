@@ -1,9 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="44391662-ec01-4bc0-97d2-c3a5e220de68" name="Default" comment="V1.3&#10;2018-11-15(3)">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="44391662-ec01-4bc0-97d2-c3a5e220de68" name="Default" comment="V1.4&#10;2018-11-19(3) v1.4 修改 上线版">
+      <change afterPath="$PROJECT_DIR$/scripts/bignumber.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/rev/rev-css.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/rev/rev-image.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/rev/rev-js.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/scripts/main-945c0379cc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/adapter-d41d8cd98f.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/base-5970723654.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/fonts-dd3fc1df95.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/main-5b12d3b056.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/mixin-d41d8cd98f.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/normalize-e4b737bb11.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/css/xcConfirm-66b795a979.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/fonts/icomoon.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/avatar-8844dbfc4d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/diaopai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/gallery-348cf1945f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/loading-50c5e3e79b.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/images/xcConfirm-icon-46739bdd0c.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/angular-7d432c4a3e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/jquery-252b0b512a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/less.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/toggle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/static/libs/xcConfirm-6ccb214e29.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/allPro.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/cartList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/contactUs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/createOrder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/editAddress.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/editPwd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/orderDetail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/orderList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/proDetail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/templates/userSetting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/controllers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/directives.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/directives.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/less/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/less/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/less/main.less" beforeDir="false" afterPath="$PROJECT_DIR$/static/less/main.less" afterDir="false" />
+>>>>>>> develop
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,31 +108,55 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="gitignore" value="11" />
           <entry key="html" value="4110" />
           <entry key="js" value="11542" />
           <entry key="less" value="9144" />
           <entry key="txt" value="261" />
+=======
+          <entry key="gitignore" value="9" />
+          <entry key="html" value="5576" />
+          <entry key="js" value="14406" />
+          <entry key="less" value="10536" />
+          <entry key="txt" value="301" />
+>>>>>>> develop
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="HTML" value="4110" />
           <entry key="JavaScript" value="11542" />
           <entry key="Less" value="9144" />
           <entry key="PLAIN_TEXT" value="272" />
+=======
+          <entry key="HTML" value="5578" />
+          <entry key="JavaScript" value="14404" />
+          <entry key="Less" value="10536" />
+          <entry key="PLAIN_TEXT" value="310" />
+>>>>>>> develop
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="14" />
           <entry key="gif" value="2" />
+<<<<<<< HEAD
           <entry key="gitignore" value="4" />
           <entry key="html" value="140" />
           <entry key="ico" value="4" />
           <entry key="js" value="43" />
           <entry key="json" value="9" />
           <entry key="less" value="21" />
+=======
+          <entry key="gitignore" value="3" />
+          <entry key="html" value="186" />
+          <entry key="ico" value="4" />
+          <entry key="js" value="72" />
+          <entry key="json" value="10" />
+          <entry key="less" value="34" />
+>>>>>>> develop
           <entry key="png" value="5" />
           <entry key="svg" value="1" />
           <entry key="ts" value="1" />
@@ -87,6 +164,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
           <entry key="CSS" value="14" />
           <entry key="HTML" value="140" />
           <entry key="Image" value="11" />
@@ -94,6 +172,15 @@
           <entry key="JavaScript" value="43" />
           <entry key="Less" value="21" />
           <entry key="PLAIN_TEXT" value="4" />
+=======
+          <entry key="CSS" value="15" />
+          <entry key="HTML" value="186" />
+          <entry key="Image" value="11" />
+          <entry key="JSON" value="10" />
+          <entry key="JavaScript" value="72" />
+          <entry key="Less" value="34" />
+          <entry key="PLAIN_TEXT" value="3" />
+>>>>>>> develop
           <entry key="SVG" value="1" />
           <entry key="TypeScript" value="1" />
         </counts>
@@ -107,6 +194,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <splitter split-orientation="vertical" split-proportion="0.56228954">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -115,6 +203,16 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="85">
                   <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+=======
+    <splitter split-orientation="vertical" split-proportion="0.3319027">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+>>>>>>> develop
                   <folding>
                     <element signature="n#dd#0;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                     <element signature="n#dd#1;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -126,6 +224,7 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
             <entry file="file://$PROJECT_DIR$/scripts/netConfig.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="44">
@@ -144,6 +243,8 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+=======
+>>>>>>> develop
             <entry file="file://$PROJECT_DIR$/templates/cartList.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="218">
@@ -175,8 +276,13 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/static/less/main.less">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="33">
                   <caret line="1229" column="9" lean-forward="true" selection-start-line="1229" selection-start-column="9" selection-end-line="1229" selection-end-column="9" />
+=======
+                <state relative-caret-position="104">
+                  <caret line="1230" column="25" selection-start-line="1230" selection-start-column="25" selection-end-line="1230" selection-end-column="25" />
+>>>>>>> develop
                   <folding>
                     <element signature="e#20270#21088#0" />
                     <element signature="e#21105#22998#0" />
@@ -192,11 +298,61 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
             <entry file="file://$PROJECT_DIR$/scripts/controllers.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="16940">
                   <caret line="827" column="38" selection-start-line="827" selection-start-column="38" selection-end-line="827" selection-end-column="38" />
                   <folding>
+=======
+            <entry file="file://$PROJECT_DIR$/test.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="198">
+                  <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/scripts/controllers.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="88">
+                  <caret line="828" column="38" selection-start-line="828" selection-start-column="38" selection-end-line="828" selection-end-column="38" />
+                  <folding>
+                    <element signature="e#270#2083#0" />
+                    <element signature="e#2280#4669#0" />
+                    <element signature="e#4869#11501#0" />
+                    <element signature="e#5309#6316#0" />
+                    <element signature="e#5354#6306#0" />
+                    <element signature="e#6182#6292#0" />
+                    <element signature="e#6333#6401#0" />
+                    <element signature="e#6450#6655#0" />
+                    <element signature="e#6702#6902#0" />
+                    <element signature="e#6971#8333#0" />
+                    <element signature="e#8394#8517#0" />
+                    <element signature="e#8598#8782#0" />
+                    <element signature="e#8827#11495#0" />
+                    <element signature="e#8864#9194#0" />
+                    <element signature="e#9246#9565#0" />
+                    <element signature="e#9304#9549#0" />
+                    <element signature="e#9611#10753#0" />
+                    <element signature="e#10633#10733#0" />
+                    <element signature="e#11667#14594#0" />
+                    <element signature="e#14718#15758#0" />
+                    <element signature="e#15939#18761#0" />
+                    <element signature="e#18961#27415#0" />
+                    <element signature="e#19213#19994#0" />
+                    <element signature="e#20136#20338#0" />
+                    <element signature="e#20417#21668#0" />
+                    <element signature="e#21771#22576#0" />
+                    <element signature="e#22639#23682#0" />
+                    <element signature="e#23750#24021#0" />
+                    <element signature="e#24081#25211#0" />
+                    <element signature="e#25293#27025#0" />
+                    <element signature="e#25543#26667#0" />
+                    <element signature="e#27090#27409#0" />
+                    <element signature="e#27617#33535#0" />
+>>>>>>> develop
                     <element signature="e#40153#43408#0" />
                     <element signature="e#43610#43733#0" />
                     <element signature="e#43934#48191#0" />
@@ -221,6 +377,18 @@
               </provider>
             </entry>
           </file>
+<<<<<<< HEAD
+=======
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/scripts/bignumber.min.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="22">
+                  <caret line="1" column="17979" selection-start-line="1" selection-start-column="17979" selection-end-line="1" selection-end-column="17979" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+>>>>>>> develop
         </leaf>
       </split-second>
     </splitter>
@@ -236,6 +404,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+<<<<<<< HEAD
       <find>order-proDetail</find>
       <find>orderInfo</find>
       <find>proDetail</find>
@@ -248,6 +417,22 @@
       <find>nav</find>
       <find>price-icon</find>
       <find>navlists</find>
+=======
+      <find>createOrder_form</find>
+      <find>fill</find>
+      <find>.text</find>
+      <find>$htt</find>
+      <find>$scope.apply</find>
+      <find>$scope.$apply</find>
+      <find>toggle</find>
+      <find>saveAddress</find>
+      <find>editAddr</find>
+      <find>buyer</find>
+      <find>setStatus</find>
+      <find>addrInfo</find>
+      <find>.edit</find>
+      <find>orderExpress</find>
+>>>>>>> develop
       <find>confirm</find>
       <find>beb3fd</find>
       <find>eef0f1</find>
@@ -263,9 +448,23 @@
       <find>oad</find>
       <find>fill</find>
       <find>wrap</find>
+<<<<<<< HEAD
       <find>broad</find>
       <find>YYY</find>
       <find>orderDetailC</find>
+=======
+      <find>'confirm'</find>
+      <find>getOrderBuyer</find>
+      <find>unchooseAddr</find>
+      <find>alert</find>
+      <find>createOrder</find>
+      <find>click</find>
+      <find>editPwd</find>
+      <find>diaopai</find>
+      <find>删除</find>
+      <find>收货</find>
+      <find>orderInfo</find>
+>>>>>>> develop
     </findStrings>
     <replaceStrings>
       <replace>username</replace>
@@ -323,7 +522,6 @@
         <option value="$PROJECT_DIR$/scripts/common.js" />
         <option value="$PROJECT_DIR$/node_modules/_gulp-rev@8.1.1@gulp-rev/node_modules/rev-path/index.js" />
         <option value="$PROJECT_DIR$/node_modules/_gulp-rev@8.1.1@gulp-rev/index.js" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/templates/orderList.html" />
         <option value="$PROJECT_DIR$/static/less/fonts.less" />
         <option value="$PROJECT_DIR$/templates/cartList.html" />
@@ -336,9 +534,9 @@
         <option value="$PROJECT_DIR$/templates/createOrder.html" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/static/less/base.less" />
-        <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/templates/proDetail.html" />
         <option value="$PROJECT_DIR$/static/less/xcConfirm.less" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/static/less/main.less" />
         <option value="$PROJECT_DIR$/templates/editPwd.html" />
         <option value="$PROJECT_DIR$/scripts/app.js" />
@@ -348,6 +546,23 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/netConfig.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+=======
+        <option value="$PROJECT_DIR$/templates/orderDetail.html" />
+        <option value="$PROJECT_DIR$/templates/contactUs.html" />
+        <option value="$PROJECT_DIR$/templates/userSetting.html" />
+        <option value="$PROJECT_DIR$/scripts/app.js" />
+        <option value="$PROJECT_DIR$/templates/editAddress.html" />
+        <option value="$PROJECT_DIR$/templates/editPwd.html" />
+        <option value="$PROJECT_DIR$/scripts/netConfig.js" />
+        <option value="$PROJECT_DIR$/release/rev/rev-image.json" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/templates/createOrder.html" />
+        <option value="$PROJECT_DIR$/scripts/controllers.js" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/scripts/directives.js" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/static/less/main.less" />
+>>>>>>> develop
       </list>
     </option>
   </component>
@@ -409,6 +624,7 @@
               <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="NetShop" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
             <path>
               <item name="NetShop" type="b2602c69:ProjectViewProjectNode" />
               <item name="NetShop" type="462c0819:PsiDirectoryNode" />
@@ -419,6 +635,8 @@
               <item name="NetShop" type="462c0819:PsiDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+>>>>>>> develop
           </expand>
           <select />
         </subPane>
@@ -442,19 +660,19 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.JavaScript" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\NetShop\scripts" />
+      <recent name="D:\xampp\htdocs\NetShop\templates" />
+      <recent name="D:\xampp\htdocs\NetShop\static" />
+      <recent name="D:\xampp\htdocs\NetShop\static\less" />
+      <recent name="D:\xampp\htdocs\NetShop\static\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\NetShop\scripts\AngularJS" />
       <recent name="D:\xampp\htdocs\NetShop\scripts" />
       <recent name="D:\xampp\htdocs\NetShop\static" />
       <recent name="D:\xampp\htdocs\NetShop" />
       <recent name="D:\xampp\htdocs\NetShop\templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\NetShop\templates" />
-      <recent name="D:\xampp\htdocs\NetShop\static" />
-      <recent name="D:\xampp\htdocs\NetShop\static\less" />
-      <recent name="D:\xampp\htdocs\NetShop\static\images" />
-      <recent name="D:\xampp\htdocs\NetShop\scripts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -469,6 +687,67 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="RunManager" selected="Gulp.js.clean">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="clean" type="js.build_tools.gulp" factoryName="Gulp.js" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+      <tasks>
+        <task>clean</task>
+      </tasks>
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="default" type="js.build_tools.gulp" factoryName="Gulp.js" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+      <tasks>
+        <task>default</task>
+      </tasks>
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="revHtml" type="js.build_tools.gulp" factoryName="Gulp.js" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+      <tasks>
+        <task>revHtml</task>
+      </tasks>
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gulp.js.clean" />
+      <item itemvalue="Gulp.js.default" />
+      <item itemvalue="Gulp.js.revHtml" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gulp.js.default" />
+        <item itemvalue="Gulp.js.revHtml" />
+        <item itemvalue="Gulp.js.clean" />
+        <item itemvalue="Gulp.js.default" />
+        <item itemvalue="Gulp.js.clean" />
+      </list>
+    </recent_temporary>
+  </component>
+>>>>>>> develop
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -589,7 +868,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="636625000" />
+=======
+    <option name="totallyTimeSpent" value="683148000" />
+>>>>>>> develop
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -601,14 +884,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5050505" visible="true" weight="0.20739762" />
+=======
+    <frame x="486" y="0" width="1064" height="832" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.50823045" visible="true" weight="0.30544746" />
+>>>>>>> develop
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Gulp" order="3" sideWeight="0.49176955" side_tool="true" visible="true" weight="0.30544746" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32765958" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" weight="0.32904148" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -617,6 +908,16 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50422835" side_tool="true" weight="0.3291714" />
       <window_info anchor="bottom" x="771" y="359" width="1131" height="321" id="Terminal" order="8" sideWeight="0.4947146" visible="true" weight="0.57872343" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49577168" weight="0.06241135" />
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.497358" visible="true" weight="0.30472103" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.37304965" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50264204" side_tool="true" weight="0.37588653" />
+      <window_info anchor="bottom" x="771" y="359" width="1131" height="321" id="Terminal" order="8" sideWeight="0.4947146" weight="0.16738197" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49577168" weight="0.5219858" />
+>>>>>>> develop
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32907802" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -669,6 +970,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="V1.3&#10;2018-11-16(1)&#10;导航栏移除icon" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/allPro.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -693,6 +995,8 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/release/static/css/base-1b806efd54.css" />
+=======
+>>>>>>> develop
     <entry file="file://$PROJECT_DIR$/release/static/css/xcConfirm-5b70eabb91.css" />
     <entry file="file://$PROJECT_DIR$/release/static/css/normalize-e4b737bb11.css">
       <provider selected="true" editor-type-id="text-editor" />
@@ -807,6 +1111,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/cartList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -818,6 +1123,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/createOrder.html">
+=======
+    <entry file="file://$PROJECT_DIR$/templates/proDetail.html">
+>>>>>>> develop
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
           <caret line="6" column="50" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="58" />
@@ -836,6 +1144,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12">
@@ -844,6 +1153,29 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/proDetail.html">
+=======
+    <entry file="file://$PROJECT_DIR$/release/templates/editPwd.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/orderDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="63" column="51" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#ul#0;n#div#3;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#table#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#tr#3;n#table#1;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#5;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/less/base.less">
+>>>>>>> develop
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9">
           <caret line="8" column="41" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="41" />
@@ -878,6 +1210,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/scripts/AngularJS/angular-cookies.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -886,6 +1219,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/directives.js">
+=======
+    <entry file="file://$PROJECT_DIR$/templates/userSetting.html">
+>>>>>>> develop
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
           <caret line="109" column="35" selection-start-line="109" selection-start-column="35" selection-end-line="109" selection-end-column="35" />
@@ -921,6 +1257,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/scripts/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16940">
@@ -934,6 +1271,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/orderDetail.html">
+=======
+    <entry file="file://$PROJECT_DIR$/templates/editAddress.html">
+>>>>>>> develop
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="63" column="51" lean-forward="true" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="51" />
@@ -950,6 +1290,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -959,12 +1300,70 @@
             <element signature="n#dd#1;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+=======
+    <entry file="file://$PROJECT_DIR$/scripts/netConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/rev/rev-image.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cartList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#1;n#li#0;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/bignumber.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="17979" selection-start-line="1" selection-start-column="17979" selection-end-line="1" selection-end-column="17979" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="109" column="35" selection-start-line="109" selection-start-column="35" selection-end-line="109" selection-end-column="35" />
+          <folding>
+            <element signature="e#90#224#0" />
+            <element signature="e#280#998#0" />
+            <element signature="e#878#948#0" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+>>>>>>> develop
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/common.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="63">
           <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
         </state>
@@ -974,13 +1373,67 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1584">
           <caret line="72" column="14" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
+=======
+        <state relative-caret-position="88">
+          <caret line="828" column="38" selection-start-line="828" selection-start-column="38" selection-end-line="828" selection-end-column="38" />
+          <folding>
+            <element signature="e#270#2083#0" />
+            <element signature="e#2280#4669#0" />
+            <element signature="e#4869#11501#0" />
+            <element signature="e#5309#6316#0" />
+            <element signature="e#5354#6306#0" />
+            <element signature="e#6182#6292#0" />
+            <element signature="e#6333#6401#0" />
+            <element signature="e#6450#6655#0" />
+            <element signature="e#6702#6902#0" />
+            <element signature="e#6971#8333#0" />
+            <element signature="e#8394#8517#0" />
+            <element signature="e#8598#8782#0" />
+            <element signature="e#8827#11495#0" />
+            <element signature="e#8864#9194#0" />
+            <element signature="e#9246#9565#0" />
+            <element signature="e#9304#9549#0" />
+            <element signature="e#9611#10753#0" />
+            <element signature="e#10633#10733#0" />
+            <element signature="e#11667#14594#0" />
+            <element signature="e#14718#15758#0" />
+            <element signature="e#15939#18761#0" />
+            <element signature="e#18961#27415#0" />
+            <element signature="e#19213#19994#0" />
+            <element signature="e#20136#20338#0" />
+            <element signature="e#20417#21668#0" />
+            <element signature="e#21771#22576#0" />
+            <element signature="e#22639#23682#0" />
+            <element signature="e#23750#24021#0" />
+            <element signature="e#24081#25211#0" />
+            <element signature="e#25293#27025#0" />
+            <element signature="e#25543#26667#0" />
+            <element signature="e#27090#27409#0" />
+            <element signature="e#27617#33535#0" />
+            <element signature="e#40153#43408#0" />
+            <element signature="e#43610#43733#0" />
+            <element signature="e#43934#48191#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+>>>>>>> develop
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/less/main.less">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="33">
           <caret line="1229" column="9" lean-forward="true" selection-start-line="1229" selection-start-column="9" selection-end-line="1229" selection-end-column="9" />
+=======
+        <state relative-caret-position="104">
+          <caret line="1230" column="25" selection-start-line="1230" selection-start-column="25" selection-end-line="1230" selection-end-column="25" />
+>>>>>>> develop
           <folding>
             <element signature="e#20270#21088#0" />
             <element signature="e#21105#22998#0" />
@@ -994,8 +1447,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/netConfig.js">
+    <entry file="file://$PROJECT_DIR$/templates/createOrder.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="44">
           <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
         </state>
@@ -1005,6 +1459,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+=======
+        <state relative-caret-position="28">
+          <caret line="6" column="50" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="58" />
+          <folding>
+            <element signature="n#ul#0;n#form#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/release/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="77" column="56" lean-forward="true" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+          <folding>
+            <element signature="n#dd#0;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#dd#1;n#dl#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+>>>>>>> develop
         </state>
       </provider>
     </entry>
