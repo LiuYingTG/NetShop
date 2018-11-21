@@ -83,6 +83,7 @@ angular.module('Controllers', [])
             $http.get(PUBLIC + '/buyer/product/list',
                 {
                     params: {
+                        shopId: SHOPID,
                         categoryType: $routeParams.categoryType,
                         page: $scope.vm.page
                     }
@@ -233,6 +234,7 @@ angular.module('Controllers', [])
                 if ($scope.type == 1) {//添加到购物车
                     $http.post(PUBLIC + '/buyer/cart/add',
                         {
+                            shopId:SHOPID,
                             productId: $scope.product.productId,
                             productColor: $scope.productColor,
                             productSize: $scope.productSize,
@@ -412,6 +414,7 @@ angular.module('Controllers', [])
                 items = JSON.stringify(itemList);
                 $http.post(PUBLIC + '/buyer/order/create',
                     {
+                        shopId:SHOPID,
                         buyerName: $rootScope.createOrderBuyer.buyerName,
                         buyerPhone: $rootScope.createOrderBuyer.buyerPhone,
                         buyerAddress: $rootScope.createOrderBuyer.buyerAddress,
@@ -446,7 +449,9 @@ angular.module('Controllers', [])
         $scope.items = [];
         $scope.checkAll = false;//默认不选中购物车全部商品
         $scope.checkNum = 0;
-        $http.get(PUBLIC + '/buyer/cart/list')
+        $http.get(PUBLIC + '/buyer/cart/list',{params:{
+                shopId:SHOPID
+            }})
             .then(function (res) {
                 if (res.data.msg == 'success') {
                     $rootScope.loaded = true;
@@ -483,7 +488,9 @@ angular.module('Controllers', [])
                     return;
                 } else {
                     $http.get(PUBLIC + '/buyer/cart/decrease',
-                        {params: {itemId: $scope.cartLists[index].itemId}})
+                        {params: {
+                            shopId:SHOPID,
+                            itemId: $scope.cartLists[index].itemId}})
                         .then(function (res) {
                             if (res.data.msg == 'success') {
                                 $scope.cartLists[index].productQuantity--;
@@ -494,7 +501,9 @@ angular.module('Controllers', [])
                 }
             } else {
                 $http.get(PUBLIC + '/buyer/cart/increase',
-                    {params: {itemId: $scope.cartLists[index].itemId}})
+                    {params: {
+                        shopId:SHOPID,
+                        itemId: $scope.cartLists[index].itemId}})
                     .then(function (res) {
                         if (res.data.msg == 'success') {
                             $scope.cartLists[index].productQuantity++;
@@ -518,6 +527,7 @@ angular.module('Controllers', [])
             }
             $http.get(PUBLIC + '/buyer/cart/editQuantity', {
                 params: {
+                    shopId:SHOPID,
                     itemId: $scope.cartLists[index].itemId,
                     quantity: productQuantity
                 }
@@ -535,7 +545,9 @@ angular.module('Controllers', [])
                 onOk: function () {
                     $rootScope.$apply(function () {
                         $http.get(PUBLIC + '/buyer/cart/delete',
-                            {params: {itemId: $scope.cartLists[index].itemId}})
+                            {params: {
+                                shopId:SHOPID,
+                                itemId: $scope.cartLists[index].itemId}})
                             .then(function (res) {
                                 if (res.data.msg == 'success') {
                                     var oldLists = $scope.cartLists;
@@ -573,7 +585,9 @@ angular.module('Controllers', [])
                         $rootScope.$apply(function () {
                             var items = $scope.items.join('_');
                             $http.get(PUBLIC + '/buyer/cart/batchDelete', {
-                                params: {itemIds: items}
+                                params: {
+                                    shopId:SHOPID,
+                                    itemIds: items}
                             })
                                 .then(function (res) {
                                     if (res.data.msg == 'success') {
@@ -658,6 +672,7 @@ angular.module('Controllers', [])
             $http.get(PUBLIC + '/buyer/order/list',
                 {
                     params: {
+                        shopId:SHOPID,
                         page: $scope.vm.page
                     }
                 })
