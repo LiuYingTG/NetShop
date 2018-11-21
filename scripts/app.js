@@ -61,7 +61,9 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
     };
     //获取购物车内商品数量
     // 导航数据,获取导航栏目
-    $http.get(PUBLIC + '/buyer/category/list')
+    $http.get(PUBLIC + '/buyer/category/list',{params:{
+            shopId:SHOPID
+        }})
         .then(function (res) {
             if (res.data.msg == 'success') {
                 var allProCategory = [{
@@ -90,7 +92,7 @@ NetShop.run(['$rootScope', '$cookies', '$http', '$location', function ($rootScop
     $rootScope.$on('cartUpload', function (event) {
         // window.location.reload();
         $rootScope.cartNotEmp = true;
-        $http.get(PUBLIC + '/buyer/cart/list').then(
+        $http.get(PUBLIC + '/buyer/cart/list',{params:{shopId: SHOPID}}).then(
             function (res) {
                 $rootScope.cartNum = 0;
                 var num = eval(res.data.data.cartItems);

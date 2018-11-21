@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="info">
-            <p ng-show="isLast">已经到底了呦！</p>
+            <p ng-show="orderLists.length!=0&&isLast">已经到底了呦！</p>
             <p ng-show="orderLists.length==0&&nextloaded">这里空空如也！</p>
             <!--<img ng-src="./static/images/loading.gif" ng-show="!nextloaded"/>-->
         </div>
